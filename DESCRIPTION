@@ -21,7 +21,14 @@ biocViews: Software
 Imports: 
     usethis,
     rlang,
-    fs
+    fs,
+    glue
 Suggests: 
     testthat,
-    covr
+    covr,
+    knitr,
+    BiocStyle,
+    knitcitations,
+    sessioninfo,
+    rmarkdown
+VignetteBuilder: knitr

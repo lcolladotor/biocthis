@@ -1,0 +1,177 @@
+---
+title: "{{{ vignette_title }}}"
+author: 
+  - name: Your name
+    affiliation:
+    - Your affiliation
+    email: your_email@somewhere.com
+output: 
+  BiocStyle::html_document:
+    self_contained: yes
+    toc: true
+    toc_float: true
+    toc_depth: 2
+    code_folding: show
+date: "`r doc_date()`"
+package: "`r pkg_ver("{{ Package }}")`"
+vignette: >
+  %\VignetteIndexEntry{{{ braced_vignette_title }}}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}  
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library({{Package}})
+```
+
+
+
+
+```{r vignetteSetup, echo=FALSE, message=FALSE, warning = FALSE}
+## Track time spent on making the vignette
+startTime <- Sys.time()
+
+## Bib setup
+library("knitcitations")
+
+## Load knitcitations with a clean bibliography
+cleanbib()
+cite_options(hyperlink = "to.doc", citation_format = "text", style = "html")
+# Note links won't show for now due to the following issue
+# https://github.com/cboettig/knitcitations/issues/63
+
+## Write bibliography information
+bib <- c(
+    R = citation(),
+    BiocStyle = citation("BiocStyle"),
+    knitcitations = citation("knitcitations"),
+    knitr = citation("knitr")[3],
+    rmarkdown = citation("rmarkdown"),
+    sessioninfo = citation("sessioninfo"),
+    testthat = citation("testthat"),
+    {{ Package }} = citation("{{ Package }}")[1]
+)
+
+write.bibtex(bib, file = "{{ Package }}.bib")
+```
+
+# Basics
+
+## Install `{{ Package }}`
+
+`R` is an open-source statistical environment which can be easily modified to enhance its functionality via packages. `r Biocpkg('{{ Package }}')` is a `R` package available via the [Bioconductor](http://bioconductor/packages/{{ Package }}) repository for packages. `R` can be installed on any operating system from [CRAN](https://cran.r-project.org/) after which you can install `r Biocpkg('{{ Package }}')` by using the following commands in your `R` session:
+
+```{r 'installDer', eval = FALSE}
+if (!requireNamespace("BiocManager", quietly = TRUE)) {
+      install.packages("BiocManager")
+  }
+
+BiocManager::install("{{ Package }}")
+
+## Check that you have a valid Bioconductor installation
+BiocManager::valid()
+```
+
+## Required knowledge
+
+`r Biocpkg('{{ Package }}')` is based on many other packages and in particular in those that have implemented the infrastructure needed for dealing with RNA-seq data (EDIT!). That is, packages like `r Biocpkg('SummarizedExperiment')` (EDIT!).
+
+If you are asking yourself the question "Where do I start using Bioconductor?" you might be interested in [this blog post](http://lcolladotor.github.io/2014/10/16/startbioc/#.VkOKbq6rRuU).
+
+## Asking for help
+
+As package developers, we try to explain clearly how to use our packages and in which order to use the functions. But `R` and `Bioconductor` have a steep learning curve so it is critical to learn where to ask for help. The blog post quoted above mentions some but we would like to highlight the [Bioconductor support site](https://support.bioconductor.org/) as the main resource for getting help: remember to use the `{{ Package }}` tag and check [the older posts](https://support.bioconductor.org/t/{{ Package }}/). Other alternatives are available such as creating GitHub issues and tweeting. However, please note that if you want to receive help you should adhere to the [posting guidelines](http://www.bioconductor.org/help/support/posting-guide/). It is particularly critical that you provide a small reproducible example and your session information so package developers can track down the source of the error.
+
+## Citing `r Biocpkg('{{ Package }}')`
+
+We hope that `r Biocpkg('{{ Package }}')` will be useful for your research. Please use the following information to cite the package and the overall approach. Thank you!
+
+```{r 'citation'}
+## Citation info
+citation("{{ Package }}")
+```
+
+# Quick start to using to `{{ Package }}`
+
+Main updates:
+
+TODO
+
+`{{ Package }}` project `r citep(bib[['{{ Package }}']])`.
+
+
+
+# Reproducibility
+
+The `r Biocpkg('{{ Package }}')` package `r citep(bib[['{{ Package }}']])` was made possible thanks to:
+
+* R `r citep(bib[['R']])`
+* `r Biocpkg('BiocStyle')` `r citep(bib[['BiocStyle']])`
+* `r CRANpkg('knitcitations')` `r citep(bib[['knitcitations']])`
+* `r CRANpkg('knitr')` `r citep(bib[['knitr']])`
+* `r CRANpkg('rmarkdown')` `r citep(bib[['rmarkdown']])`
+* `r CRANpkg('sessioninfo')` `r citep(bib[['sessioninfo']])`
+* `r CRANpkg('testthat')` `r citep(bib[['testthat']])`
+
+
+Code for creating the vignette
+
+```{r createVignette, eval=FALSE}
+## Create the vignette
+library("rmarkdown")
+system.time(render("{{ vignette_name }}.Rmd", "BiocStyle::html_document"))
+
+## Extract the R code
+library("knitr")
+knit("{{ vignette_name }}.Rmd", tangle = TRUE)
+```
+
+```{r createVignette2}
+## Clean up
+file.remove("{{ Package }}.bib")
+```
+
+Date the vignette was generated.
+
+```{r reproduce1, echo=FALSE}
+## Date the vignette was generated
+Sys.time()
+```
+
+Wallclock time spent generating the vignette.
+
+```{r reproduce2, echo=FALSE}
+## Processing time in seconds
+totalTime <- diff(c(startTime, Sys.time()))
+round(totalTime, digits = 3)
+```
+
+`R` session information.
+
+```{r reproduce3, echo=FALSE}
+## Session info
+library("sessioninfo")
+options(width = 120)
+session_info()
+```
+
+
+
+# Bibliography
+
+This vignette was generated using `r Biocpkg('BiocStyle')` `r citep(bib[['BiocStyle']])`
+with `r CRANpkg('knitr')` `r citep(bib[['knitr']])` and `r CRANpkg('rmarkdown')` `r citep(bib[['rmarkdown']])` running behind the scenes.
+
+Citations made with `r CRANpkg('knitcitations')` `r citep(bib[['knitcitations']])`.
+
+```{r vignetteBiblio, results = 'asis', echo = FALSE, warning = FALSE, message = FALSE}
+## Print bibliography
+bibliography()
+```
