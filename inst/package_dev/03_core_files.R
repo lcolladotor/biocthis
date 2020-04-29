@@ -39,5 +39,12 @@ usethis::use_tidy_coc()
 usethis::use_tidy_contributing()
 biocthis::use_bioc_support()
 biocthis::use_bioc_issue_template()
+biocthis::create_citation()
 
+## Enable using tests
+usethis::use_testthat()
+usethis::use_test("citation")
+usethis::use_coverage()
+
+## Add badges
 

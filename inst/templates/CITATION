@@ -1,0 +1,29 @@
+pkgVer <- function(pkg) {
+    if (!exists("meta") || is.null(meta)) meta <- packageDescription(pkg)
+    ver <- meta$Version
+    paste0('https://github.com/{{Owner}}/', pkg, ' - R package version ', ver)
+}
+
+c(
+
+    bibentry(bibtype="manual",
+        title = "{{Title}}",
+        author = personList(
+            as.person("{{Owner}}")
+        ),
+        year = format(Sys.Date(), "%Y"),
+        url = "http://www.bioconductor.org/packages/{{Package}}",
+        note = pkgVer('{{Package}}'),
+        doi = '10.18129/B9.bioc.{{Package}}'
+    ),
+    bibentry(bibtype="article",
+        title = "{{Title}}",
+        author = personList(
+            as.person("{{Owner}}")
+        ),
+        year = 2020,
+        journal = "bioRxiv",
+        doi = "10.1101/TODO",
+        url = "https://www.biorxiv.org/content/10.1101/TODO"
+    )
+)

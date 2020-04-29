@@ -10,7 +10,7 @@ use_bioc_issue_template()
 
 }
 \description{
-This function is very similar to \code{usethis::use_tidy_issue_tempalte()} except
+This function is very similar to \code{usethis::use_tidy_issue_template()} except
 that it uses a template from \code{biocthis}.
 }
 \examples{
