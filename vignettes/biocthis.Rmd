@@ -3,8 +3,8 @@ title: "Introduction to biocthis"
 author: 
   - name: Your name
     affiliation:
-    - Your affiliation
-    email: your_email@somewhere.com
+    - Your institution
+    email: your.email@somewhere.com
 output: 
   BiocStyle::html_document:
     self_contained: yes
@@ -13,17 +13,18 @@ output:
     toc_depth: 2
     code_folding: show
 date: "`r doc_date()`"
-package: "`r pkg_ver("biocthis")`"
+package: "`r pkg_ver('biocthis')`"
 vignette: >
   %\VignetteIndexEntry{Introduction to biocthis}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}  
 ---
 
-```{r, include = FALSE}
+```{r setup, include = FALSE}
 knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
+    collapse = TRUE,
+    comment = "#>",
+    crop = NULL ## Related to https://stat.ethz.ch/pipermail/bioc-devel/2020-April/016656.html
 )
 ```
 
@@ -38,18 +39,16 @@ library("knitcitations")
 ## Load knitcitations with a clean bibliography
 cleanbib()
 cite_options(hyperlink = "to.doc", citation_format = "text", style = "html")
-# Note links won't show for now due to the following issue
-# https://github.com/cboettig/knitcitations/issues/63
 
 ## Write bibliography information
 bib <- c(
     R = citation(),
-    BiocStyle = citation("BiocStyle"),
-    knitcitations = citation("knitcitations"),
+    BiocStyle = citation("BiocStyle")[1],
+    knitcitations = citation("knitcitations")[1],
     knitr = citation("knitr")[3],
-    rmarkdown = citation("rmarkdown"),
-    sessioninfo = citation("sessioninfo"),
-    testthat = citation("testthat"),
+    rmarkdown = citation("rmarkdown")[1],
+    sessioninfo = citation("sessioninfo")[1],
+    testthat = citation("testthat")[1],
     biocthis = citation("biocthis")[1]
 )
 
