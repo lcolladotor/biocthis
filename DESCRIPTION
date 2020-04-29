@@ -19,4 +19,5 @@ BugReports: https://support.bioconductor.org/t/biocthis
 biocViews: Software
 Imports: 
     usethis,
-    rlang
+    rlang,
+    fs

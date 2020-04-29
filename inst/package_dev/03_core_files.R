@@ -34,6 +34,10 @@ biocthis::create_readme_rmd()
 ## details about Bioconductor news files.
 biocthis::create_news_md()
 
+## Add information for users and contributors
+usethis::use_tidy_coc()
+usethis::use_tidy_contributing()
+biocthis::use_bioc_support()
 
 
 
