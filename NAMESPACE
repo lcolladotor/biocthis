@@ -2,6 +2,7 @@
 
 export(create_news_md)
 export(create_readme_rmd)
+export(use_bioc_issue_template)
 export(use_bioc_support)
 import(usethis)
 importFrom(fs,path)

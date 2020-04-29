@@ -38,6 +38,6 @@ biocthis::create_news_md()
 usethis::use_tidy_coc()
 usethis::use_tidy_contributing()
 biocthis::use_bioc_support()
-
+biocthis::use_bioc_issue_template()
 
 
