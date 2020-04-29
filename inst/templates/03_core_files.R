@@ -60,4 +60,6 @@ usethis::use_coverage()
 ## that we don't need
 # rmarkdown::render(here::here('README.Rmd'))
 
+## Add a vignette template
+biocthis::create_vignette()
 
