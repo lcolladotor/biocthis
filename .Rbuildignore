@@ -4,3 +4,4 @@
 ^\.github$
 ^codecov\.yml$
 ^dev$
+^actions$
