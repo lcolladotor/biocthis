@@ -5,6 +5,14 @@
 
 <!-- badges: start -->
 
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![BioC
+status](http://www.bioconductor.org/shields/build/release/bioc/biocthis.svg)](https://bioconductor.org/checkResults/release/bioc-LATEST/biocthis)
+[![R build
+status](https://github.com/lcolladotor/biocthis/workflows/R-CMD-check-bioc/badge.svg)](https://github.com/lcolladotor/biocthis/actions)
+[![Codecov test
+coverage](https://codecov.io/gh/lcolladotor/biocthis/branch/master/graph/badge.svg)](https://codecov.io/gh/lcolladotor/biocthis?branch=master)
 <!-- badges: end -->
 
 The goal of `biocthis` is to …
@@ -70,24 +78,38 @@ Please run this yourself to check for any updates on how to cite
 
 ``` r
 print(citation('biocthis'), bibtex = TRUE)
-#> Warning in citation("biocthis"): no date field in DESCRIPTION file of package
-#> 'biocthis'
-#> Warning in citation("biocthis"): could not determine year for 'biocthis' from
-#> package DESCRIPTION file
 #> 
-#> To cite package 'biocthis' in publications use:
-#> 
-#>   Leonardo Collado-Torres (NA). biocthis: Automate package and project
-#>   setup for Bioconductor packages. R package version 0.99.0.
-#>   https://github.com/lcolladotor/biocthis
+#> Collado-Torres L (2020). _Automate package and project setup for
+#> Bioconductor packages_. doi: 10.18129/B9.bioc.biocthis (URL:
+#> https://doi.org/10.18129/B9.bioc.biocthis),
+#> https://github.com/lcolladotor/biocthis - R package version 0.99.0,
+#> <URL: http://www.bioconductor.org/packages/biocthis>.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
 #>   @Manual{,
-#>     title = {biocthis: Automate package and project setup for Bioconductor packages},
+#>     title = {Automate package and project setup for Bioconductor packages},
 #>     author = {Leonardo Collado-Torres},
-#>     note = {R package version 0.99.0},
-#>     url = {https://github.com/lcolladotor/biocthis},
+#>     year = {2020},
+#>     url = {http://www.bioconductor.org/packages/biocthis},
+#>     note = {https://github.com/lcolladotor/biocthis - R package version 0.99.0},
+#>     doi = {10.18129/B9.bioc.biocthis},
+#>   }
+#> 
+#> Collado-Torres L (2020). "Automate package and project setup for
+#> Bioconductor packages." _bioRxiv_. doi: 10.1101/TODO (URL:
+#> https://doi.org/10.1101/TODO), <URL:
+#> https://www.biorxiv.org/content/10.1101/TODO>.
+#> 
+#> A BibTeX entry for LaTeX users is
+#> 
+#>   @Article{,
+#>     title = {Automate package and project setup for Bioconductor packages},
+#>     author = {Leonardo Collado-Torres},
+#>     year = {2020},
+#>     journal = {bioRxiv},
+#>     doi = {10.1101/TODO},
+#>     url = {https://www.biorxiv.org/content/10.1101/TODO},
 #>   }
 ```
 

@@ -17,6 +17,10 @@ rstudioapi::navigateToFile(here::here("DESCRIPTION"))
 ## Many Bioconductor packages use the following license:
 ## license: Artistic-2.0
 
+## You might want to add the Date field as well, which is used when creating
+## the package citation information. Use the YYYY-MM-DD format. For example:
+## Date: 2020-04-29
+
 
 ## Create your README.Rmd file
 biocthis::create_readme_rmd()
@@ -41,10 +45,19 @@ biocthis::use_bioc_support()
 biocthis::use_bioc_issue_template()
 biocthis::create_citation()
 
+## Add badges to the README.Rmd file
+usethis::use_lifecycle_badge("Experimental")
+usethis::use_bioc_badge()
+usethis::use_github_actions_badge("R-CMD-check-bioc")
+
 ## Enable using tests
 usethis::use_testthat()
-usethis::use_test("citation")
+usethis::use_test("example_test")
 usethis::use_coverage()
 
-## Add badges
+## Re-knit your README.Rmd file to update your README.md file
+## It's best to do so from RStudio, otherwise you create a README.html file
+## that we don't need
+# rmarkdown::render(here::here('README.Rmd'))
+
 

@@ -1,6 +1,7 @@
 Package: biocthis
 Title: Automate package and project setup for Bioconductor packages
 Version: 0.99.0
+Date: 2020-04-29
 Authors@R: 
     c(
     person("Leonardo", "Collado-Torres", role = c("aut", "cre"), 
@@ -21,3 +22,6 @@ Imports:
     usethis,
     rlang,
     fs
+Suggests: 
+    testthat,
+    covr

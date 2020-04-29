@@ -9,7 +9,7 @@ c(
     bibentry(bibtype="manual",
         title = "Automate package and project setup for Bioconductor packages",
         author = personList(
-            as.person("lcolladotor")
+            as.person("Leonardo Collado-Torres")
         ),
         year = format(Sys.Date(), "%Y"),
         url = "http://www.bioconductor.org/packages/biocthis",
@@ -19,7 +19,7 @@ c(
     bibentry(bibtype="article",
         title = "Automate package and project setup for Bioconductor packages",
         author = personList(
-            as.person("lcolladotor")
+            as.person("Leonardo Collado-Torres")
         ),
         year = 2020,
         journal = "bioRxiv",
