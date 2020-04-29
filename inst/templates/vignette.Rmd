@@ -27,12 +27,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-library({{Package}})
-```
-
-
-
 
 ```{r vignetteSetup, echo=FALSE, message=FALSE, warning = FALSE}
 ## Track time spent on making the vignette
@@ -100,11 +94,15 @@ citation("{{ Package }}")
 
 # Quick start to using to `{{ Package }}`
 
-Main updates:
+```{r 'start', message=FALSE}
+library("{{ Package }}")
+```
 
-TODO
+Edit this as you see fit =)
 
-`{{ Package }}` project `r citep(bib[['{{ Package }}']])`.
+Here is an example of you can cite your package inside the vignette:
+
+* `{{ Package }}` `r citep(bib[['{{ Package }}']])`
 
 
 
@@ -119,6 +117,8 @@ The `r Biocpkg('{{ Package }}')` package `r citep(bib[['{{ Package }}']])` was m
 * `r CRANpkg('rmarkdown')` `r citep(bib[['rmarkdown']])`
 * `r CRANpkg('sessioninfo')` `r citep(bib[['sessioninfo']])`
 * `r CRANpkg('testthat')` `r citep(bib[['testthat']])`
+
+This package was developed using `r BiocStyle::Githubpkg('lcolladotor/biocthis')`.
 
 
 Code for creating the vignette

@@ -16,6 +16,7 @@
 #'
 create_citation <- function() {
     use_directory("inst")
+    data <- usethis:::project_data()
     if (usethis:::uses_github()) {
         data$Owner <- usethis:::github_owner()
     }

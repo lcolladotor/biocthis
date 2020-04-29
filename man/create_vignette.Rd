@@ -16,7 +16,8 @@ that it uses a template from \code{biocthis}.
 \examples{
 
  \dontrun{
-create_vignette(basename(here::here()))
+pkg <- basename(here::here())
+biocthis::create_vignette(pkg, paste("Introduction to", pkg))
 }
 
 }

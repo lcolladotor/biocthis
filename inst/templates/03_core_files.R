@@ -61,5 +61,6 @@ usethis::use_coverage()
 # rmarkdown::render(here::here('README.Rmd'))
 
 ## Add a vignette template
-biocthis::create_vignette()
+pkg <- basename(here::here())
+biocthis::create_vignette(pkg, paste("Introduction to", pkg))
 

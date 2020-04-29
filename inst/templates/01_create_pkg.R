@@ -9,4 +9,4 @@ usethis::create_package("YOUR_PACKAGE_NAME")
 ## defaults.
 
 ## Add package development files from biocthis
-biocthis::package_dev_files()
+biocthis::use_bioc_pkg_templates()
