@@ -139,8 +139,7 @@ jobs:
       - name: Install dependencies
         run: |
           ## Try installing the package dependencies in steps. First the local
-          ## dependencies, then the local dependencies again in case that was
-          ## needed, and finally any remaining dependencies to avoid the
+          ## dependencies, then any remaining dependencies to avoid the
           ## issues described at
           ## https://stat.ethz.ch/pipermail/bioc-devel/2020-April/016675.html
           ## https://github.com/r-lib/remotes/issues/296
@@ -155,12 +154,7 @@ jobs:
           BiocManager::install(local_deps[local_deps %in% deps$package[deps$diff != 0]])
 
            ## Pass #2 at installing dependencies
-          message(paste('****', Sys.time(), 'pass number 2 at installing dependencies: local dependencies again ****'))
-          deps <- remotes::dev_package_deps(dependencies = TRUE, repos = BiocManager::repositories())
-          BiocManager::install(local_deps[local_deps %in% deps$package[deps$diff != 0]])
-
-           ## Pass #3 at installing dependencies
-          message(paste('****', Sys.time(), 'pass number 3 at installing dependencies: any remaining dependencies ****'))
+          message(paste('****', Sys.time(), 'pass number 2 at installing dependencies: any remaining dependencies ****'))
           deps <- remotes::dev_package_deps(dependencies = TRUE, repos = BiocManager::repositories())
           BiocManager::install(deps$package[deps$diff != 0])
 
@@ -367,8 +361,7 @@ jobs:
       - name: Install dependencies
         run: |
           ## Try installing the package dependencies in steps. First the local
-          ## dependencies, then the local dependencies again in case that was
-          ## needed, and finally any remaining dependencies to avoid the
+          ## dependencies, then any remaining dependencies to avoid the
           ## issues described at
           ## https://stat.ethz.ch/pipermail/bioc-devel/2020-April/016675.html
           ## https://github.com/r-lib/remotes/issues/296
@@ -383,12 +376,7 @@ jobs:
           BiocManager::install(local_deps[local_deps %in% deps$package[deps$diff != 0]])
 
            ## Pass #2 at installing dependencies
-          message(paste('****', Sys.time(), 'pass number 2 at installing dependencies: local dependencies again ****'))
-          deps <- remotes::dev_package_deps(dependencies = TRUE, repos = BiocManager::repositories())
-          BiocManager::install(local_deps[local_deps %in% deps$package[deps$diff != 0]])
-
-           ## Pass #3 at installing dependencies
-          message(paste('****', Sys.time(), 'pass number 3 at installing dependencies: any remaining dependencies ****'))
+          message(paste('****', Sys.time(), 'pass number 2 at installing dependencies: any remaining dependencies ****'))
           deps <- remotes::dev_package_deps(dependencies = TRUE, repos = BiocManager::repositories())
           BiocManager::install(deps$package[deps$diff != 0])
 
