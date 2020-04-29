@@ -1,12 +1,14 @@
-#' Create a biocthis-style README.Rmd
+#' Create a biocthis-style README.Rmd file
 #'
 #' This function is very similar to `usethis::use_readme_rmd()` except that it
 #' uses a template from `biocthis`.
 #'
-#' @param open Whether to open the resulting `README.Rmd` file
+#' @param open Whether to open the resulting file.
 #'
 #' @return
 #' @export
+#' @importFrom rlang is_interactive
+#' @import usethis
 #'
 #' @examples
 #'

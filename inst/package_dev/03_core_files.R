@@ -29,4 +29,11 @@ biocthis::create_readme_rmd()
 ## Click on the `knit` button on your README.Rmd file to create the README.md
 ## file.
 
+## Add a NEWS.md file
+## See http://bioconductor.org/developers/package-guidelines/#news for more
+## details about Bioconductor news files.
+biocthis::create_news_md()
+
+
+
 
