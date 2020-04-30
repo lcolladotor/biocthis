@@ -32,6 +32,7 @@ remotes::install_cran(
 if (!requireNamespace("BiocStyle", quietly = TRUE)) {
     BiocManager::install("BiocSytle")
 }
+remotes::install_github("lcolladotor/biocthis")
 ## Here's a very quick summary of why these packages are useful:
 ## * available: to check the name of your package
 ## * BiocManager: to install Bioconductor packages
