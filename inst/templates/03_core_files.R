@@ -1,5 +1,9 @@
-## Setup the core files for your package
+## Did you miss the previous step? The one about setting up Git and GitHub
+rstudioapi::navigateToFile(here::here("dev", "01_git_github_setup.R"))
 
+## ***********************************************************
+## Setup the core files for your Bioconductor-friendly package
+## ***********************************************************
 
 ## Edit your package DESCRIPTION file
 ## Check http://r-pkgs.had.co.nz/description.html for details
@@ -7,7 +11,7 @@
 
 ## Check https://github.com/lcolladotor/biocthis/blob/master/DESCRIPTION
 ## for an example.
-rstudioapi::navigateToFile(here::here("DESCRIPTION"))
+
 ## You'll at least want to edit the version to 0.99.0 (or lower) since that's
 ## the version number you will need to use with Bioconductor.
 
@@ -21,6 +25,10 @@ rstudioapi::navigateToFile(here::here("DESCRIPTION"))
 ## the package citation information. Use the YYYY-MM-DD format. For example:
 ## Date: 2020-04-29
 
+## This function sets all these defaults for you
+biocthis::use_bioc_description()
+## However, you still need to edit parts of it manually
+rstudioapi::navigateToFile(here::here("DESCRIPTION"))
 
 ## Create your README.Rmd file
 biocthis::use_bioc_readme_rmd()
@@ -67,3 +75,13 @@ biocthis::use_bioc_vignette(pkg, paste("Introduction to", pkg))
 ## Add a Bioconductor-friendly GitHub actions workflow to check your package
 biocthis::use_bioc_github_action()
 
+## ************************************************************************
+## WARNING: git commit before running this next function! Otherwise you can
+## Lose your work!!!
+## ************************************************************************
+## Deploy with pkgdown at least once locally such that the automatic updates
+## from GitHub actions will work
+pkgdown::deploy_to_branch()
+
+## Move to the next step: updating your package code before a "git commit"
+rstudioapi::navigateToFile(here::here("dev", "04_update.R"))
