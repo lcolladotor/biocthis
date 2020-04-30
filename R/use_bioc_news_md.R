@@ -3,9 +3,10 @@
 #' This function is very similar to `usethis::use_news_md()` except that it
 #' uses a template from `biocthis`.
 #'
-#' Unlike the original function, `create_news_md()` does not make git commits.
+#' Unlike the original function, `use_bioc_news_md()` does not make git commits.
+#' So you won't lose work you didn't save when using this function.
 #'
-#' @inheritParams create_readme_rmd
+#' @inheritParams use_bioc_readme_rmd
 #'
 #' @return
 #' @export
@@ -15,9 +16,9 @@
 #' @examples
 #'
 #'  \dontrun{
-#' create_news_md()
+#' use_bioc_news_md()
 #' }
 #'
-create_news_md <- function(open = rlang::is_interactive()) {
+use_bioc_news_md <- function(open = rlang::is_interactive()) {
     use_template("NEWS.md", data = usethis:::package_data(), open = open, package = 'biocthis')
 }

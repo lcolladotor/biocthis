@@ -1,9 +1,14 @@
 #' Create a biocthis-style README.Rmd file
 #'
 #' This function is very similar to `usethis::use_readme_rmd()` except that it
-#' uses a template from `biocthis`.
+#' uses a template from `biocthis`. This template README.Rmd includes
+#' information on how to install your Bioconductor package, how to cite it,
+#' and thanks the authors of several packages. It was built on top of the
+#' original template from `usethis::use_readme_rmd()`.
 #'
-#' @param open Whether to open the resulting file.
+#' @param open Open the newly created file for editing? Happens in RStudio,
+#' if applicable, or via `utils::file.edit()` otherwise. This argument has the
+#' same behavior as the `open` argument used in `usethis` functions.
 #'
 #' @return
 #' @export
@@ -13,9 +18,9 @@
 #' @examples
 #'
 #'  \dontrun{
-#' create_readme_rmd()
+#' use_bioc_readme_rmd()
 #' }
-create_readme_rmd <- function(open = rlang::is_interactive()) {
+use_bioc_readme_rmd <- function(open = rlang::is_interactive()) {
     usethis:::check_installed("rmarkdown")
     data <- usethis:::project_data()
     data$Rmd <- TRUE

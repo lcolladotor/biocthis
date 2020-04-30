@@ -23,7 +23,7 @@ rstudioapi::navigateToFile(here::here("DESCRIPTION"))
 
 
 ## Create your README.Rmd file
-biocthis::create_readme_rmd()
+biocthis::use_bioc_readme_rmd()
 
 ## Edit accordingly. You might want to install your package also using
 ## devtools::build() or the RStudio keyboard shortcut:
@@ -36,14 +36,14 @@ biocthis::create_readme_rmd()
 ## Add a NEWS.md file
 ## See http://bioconductor.org/developers/package-guidelines/#news for more
 ## details about Bioconductor news files.
-biocthis::create_news_md()
+biocthis::use_bioc_news_md()
 
 ## Add information for users and contributors
 usethis::use_tidy_coc()
 usethis::use_tidy_contributing()
 biocthis::use_bioc_support()
 biocthis::use_bioc_issue_template()
-biocthis::create_citation()
+biocthis::use_bioc_citation()
 
 ## Add badges to the README.Rmd file
 usethis::use_lifecycle_badge("Experimental")
@@ -62,7 +62,7 @@ usethis::use_coverage()
 
 ## Add a vignette template
 pkg <- basename(here::here())
-biocthis::create_vignette(pkg, paste("Introduction to", pkg))
+biocthis::use_bioc_vignette(pkg, paste("Introduction to", pkg))
 
 ## Add a Bioconductor-friendly GitHub actions workflow to check your package
 biocthis::use_bioc_github_action()

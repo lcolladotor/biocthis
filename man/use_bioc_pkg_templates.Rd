@@ -7,7 +7,9 @@
 use_bioc_pkg_templates(open = rlang::is_interactive())
 }
 \arguments{
-\item{open}{Whether to open the resulting file.}
+\item{open}{Open the newly created file for editing? Happens in RStudio,
+if applicable, or via \code{utils::file.edit()} otherwise. This argument has the
+same behavior as the \code{open} argument used in \code{usethis} functions.}
 }
 \value{
 

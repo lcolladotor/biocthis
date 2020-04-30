@@ -4,7 +4,7 @@
 #' files that you can follow to create your own Bioconductor-friendly R
 #' package.
 #'
-#' @inheritParams create_readme_rmd
+#' @inheritParams use_bioc_readme_rmd
 #'
 #' @return
 #' @export

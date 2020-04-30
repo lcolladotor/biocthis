@@ -1,7 +1,12 @@
 #' Create a biocthis-style vignette template
 #'
 #' This function is very similar to `usethis::use_vignette()` except
-#' that it uses a template from `biocthis`.
+#' that it uses a template from `biocthis`. This template includes
+#' instructions for citing other packages using `knitcitations`, uses
+#' `sessioninfo::session_info()` for displaying the R session information since
+#' it includes GitHub installation information and other useful details. The
+#' template also includes a section on how to ask for help and required
+#' knowledge.
 #'
 #' @return
 #' @export
@@ -14,10 +19,10 @@
 #'
 #'  \dontrun{
 #' pkg <- basename(here::here())
-#' biocthis::create_vignette(pkg, paste("Introduction to", pkg))
+#' biocthis::use_bioc_vignette(pkg, paste("Introduction to", pkg))
 #' }
 #'
-create_vignette <- function(name, title = name) {
+use_bioc_vignette <- function(name, title = name) {
     usethis:::check_vignette_name(name)
     use_package("knitr", "Suggests")
     use_package("BiocStyle", "Suggests")

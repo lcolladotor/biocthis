@@ -19,16 +19,18 @@ URL: https://github.com/lcolladotor/biocthis
 BugReports: https://support.bioconductor.org/t/biocthis
 biocViews: Software
 Imports: 
-    usethis,
-    rlang,
     fs,
-    glue
+    glue,
+    rlang,
+    usethis
 Suggests: 
-    testthat,
     covr,
-    knitr,
     BiocStyle,
+    here,
     knitcitations,
+    knitr,
+    rmarkdown,
     sessioninfo,
-    rmarkdown
+    testthat,
+    utils,
 VignetteBuilder: knitr
