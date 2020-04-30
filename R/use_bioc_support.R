@@ -3,6 +3,9 @@
 #' This function is very similar to `usethis::use_tidy_support()` except that it
 #' uses a template from `biocthis`.
 #'
+#' For more details on how this function came to be, check
+#' <https://github.com/r-lib/usethis/issues/1108>.
+#'
 #' @return
 #' @export
 #' @import usethis
@@ -10,12 +13,13 @@
 #'
 #' @examples
 #'
-#'  \dontrun{
+#' \dontrun{
 #' use_bioc_support()
 #' }
 #'
 use_bioc_support <- function() {
     usethis:::use_dot_github()
     use_template("bioc-support.md", fs::path(".github", "SUPPORT.md"),
-        data = usethis:::project_data(), package = 'biocthis')
+        data = usethis:::project_data(), package = "biocthis"
+    )
 }

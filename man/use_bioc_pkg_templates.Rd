@@ -17,11 +17,22 @@ same behavior as the \code{open} argument used in \code{usethis} functions.}
 \description{
 This function creates the \code{dev} directory and in it, it creates R script
 files that you can follow to create your own Bioconductor-friendly R
+package. These R scripts include all the commands you need to get started =)
+The commands are designed to be run on the order given, though we also
+encourage you to check the latest utility functions in the \code{usethis}
 package.
+}
+\details{
+For more details on how this function came to be, check:
+\url{https://github.com/r-lib/actions/issues/84}
+\url{https://github.com/r-lib/styler/issues/636}
+\url{https://github.com/Bioconductor/BiocCheck/issues/57}
+\url{https://github.com/Bioconductor/bioconductor.org/issues/54}
+\url{https://github.com/r-lib/usethis/issues/1108}
 }
 \examples{
 
- \dontrun{
+\dontrun{
 use_bioc_pkg_templates()
 }
 

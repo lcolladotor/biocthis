@@ -15,10 +15,10 @@
 #'
 #' @examples
 #'
-#'  \dontrun{
+#' \dontrun{
 #' use_bioc_news_md()
 #' }
 #'
 use_bioc_news_md <- function(open = rlang::is_interactive()) {
-    use_template("NEWS.md", data = usethis:::package_data(), open = open, package = 'biocthis')
+    use_template("NEWS.md", data = usethis:::package_data(), open = open, package = "biocthis")
 }

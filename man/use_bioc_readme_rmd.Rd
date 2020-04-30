@@ -23,7 +23,7 @@ original template from \code{usethis::use_readme_rmd()}.
 }
 \examples{
 
- \dontrun{
+\dontrun{
 use_bioc_readme_rmd()
 }
 }

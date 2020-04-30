@@ -23,6 +23,7 @@ Imports:
     glue,
     here,
     rlang,
+    styler,
     usethis
 Suggests: 
     covr,

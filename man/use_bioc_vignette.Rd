@@ -20,7 +20,7 @@ knowledge.
 }
 \examples{
 
- \dontrun{
+\dontrun{
 pkg <- basename(here::here())
 biocthis::use_bioc_vignette(pkg, paste("Introduction to", pkg))
 }

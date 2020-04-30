@@ -17,7 +17,7 @@
 #'
 #' @examples
 #'
-#'  \dontrun{
+#' \dontrun{
 #' use_bioc_readme_rmd()
 #' }
 use_bioc_readme_rmd <- function(open = rlang::is_interactive()) {
@@ -27,9 +27,10 @@ use_bioc_readme_rmd <- function(open = rlang::is_interactive()) {
     if (usethis:::uses_github()) {
         data$github <- list(owner = usethis:::github_owner(), repo = usethis:::github_repo())
     }
-    new <- use_template('package-README', 'README.Rmd', data = data, open = open, package = 'biocthis')
-    if (!new)
-        return(invisible(FALSE))
+    new <- use_template("package-README", "README.Rmd", data = data, open = open, package = "biocthis")
+    if (!new) {
+          return(invisible(FALSE))
+      }
     if (usethis:::uses_git()) {
         use_git_hook("pre-commit", usethis:::render_template("readme-rmd-pre-commit.sh"))
     }

@@ -29,13 +29,12 @@ use_bioc_description <- function(biocViews = "Software") {
         usethis::use_description_defaults(
             basename(here::here()),
             fields = list(
-                Version = '0.99.0',
+                Version = "0.99.0",
                 biocViews = biocViews,
-                License = 'Artistic-2.0',
+                License = "Artistic-2.0",
                 Date = Sys.Date(),
                 URL = file.path("https://github.com/", usethis:::github_owner(), usethis:::github_repo()),
                 BugReports = paste0("https://support.bioconductor.org/t/", pkg)
-
             )
         )
     usethis::use_description(desc_info)

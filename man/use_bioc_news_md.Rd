@@ -24,7 +24,7 @@ So you won't lose work you didn't save when using this function.
 }
 \examples{
 
- \dontrun{
+\dontrun{
 use_bioc_news_md()
 }
 

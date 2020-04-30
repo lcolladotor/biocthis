@@ -24,5 +24,6 @@ use_bioc_citation <- function() {
         data$Owner <- usethis:::github_owner()
     }
     use_template("CITATION", fs::path("inst", "CITATION"),
-        data = data, open = TRUE, package = "biocthis")
+        data = data, open = TRUE, package = "biocthis"
+    )
 }

@@ -2,7 +2,17 @@
 #'
 #' This function creates the `dev` directory and in it, it creates R script
 #' files that you can follow to create your own Bioconductor-friendly R
+#' package. These R scripts include all the commands you need to get started =)
+#' The commands are designed to be run on the order given, though we also
+#' encourage you to check the latest utility functions in the `usethis`
 #' package.
+#'
+#' For more details on how this function came to be, check:
+#' <https://github.com/r-lib/actions/issues/84>
+#' <https://github.com/r-lib/styler/issues/636>
+#' <https://github.com/Bioconductor/BiocCheck/issues/57>
+#' <https://github.com/Bioconductor/bioconductor.org/issues/54>
+#' <https://github.com/r-lib/usethis/issues/1108>
 #'
 #' @inheritParams use_bioc_readme_rmd
 #'
@@ -13,7 +23,7 @@
 #'
 #' @examples
 #'
-#'  \dontrun{
+#' \dontrun{
 #' use_bioc_pkg_templates()
 #' }
 #'
@@ -22,9 +32,15 @@ use_bioc_pkg_templates <- function(open = rlang::is_interactive()) {
     use_directory("dev")
     use_build_ignore(fs::path("dev"))
     use_template("01_create_pkg.R", fs::path("dev", "01_create_pkg.R"),
-        data = data, package = 'biocthis', open = open)
+        data = data, package = "biocthis", open = open
+    )
     use_template("02_git_github_setup.R", fs::path("dev", "02_git_github_setup.R"),
-        data = data, package = 'biocthis', open = open)
+        data = data, package = "biocthis", open = open
+    )
     use_template("03_core_files.R", fs::path("dev", "03_core_files.R"),
-        data = data, package = 'biocthis', open = open)
+        data = data, package = "biocthis", open = open
+    )
+    use_template("04_update.R", fs::path("dev", "04_update.R"),
+        data = data, package = "biocthis", open = open
+    )
 }

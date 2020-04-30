@@ -14,9 +14,13 @@ This function is very similar to \code{usethis::use_github_action()} except
 that it uses a template from \code{biocthis}. It creates a Bioconductor-friendly
 GitHub action workflow for your package.
 }
+\details{
+For the full history on how this GitHub actions workflow came to be, check
+\url{https://github.com/r-lib/actions/issues/84}.
+}
 \examples{
 
- \dontrun{
+\dontrun{
 biocthis::use_bioc_github_action()
 }
 
