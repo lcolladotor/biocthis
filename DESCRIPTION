@@ -1,7 +1,7 @@
 Package: biocthis
 Title: Automate package and project setup for Bioconductor packages
 Version: 0.99.0
-Date: 2020-04-29
+Date: 2020-04-30
 Authors@R: 
     c(
     person("Leonardo", "Collado-Torres", role = c("aut", "cre"), 
@@ -21,16 +21,16 @@ biocViews: Software
 Imports: 
     fs,
     glue,
+    here,
     rlang,
     usethis
 Suggests: 
     covr,
     BiocStyle,
-    here,
     knitcitations,
     knitr,
     rmarkdown,
     sessioninfo,
     testthat,
-    utils,
+    utils
 VignetteBuilder: knitr
