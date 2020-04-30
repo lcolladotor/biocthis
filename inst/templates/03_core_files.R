@@ -52,7 +52,7 @@ usethis::use_github_actions_badge("R-CMD-check-bioc")
 
 ## Enable using tests
 usethis::use_testthat()
-usethis::use_test("example_test")
+usethis::use_test("example_test") ## You need at least one test to run covr
 usethis::use_coverage()
 
 ## Re-knit your README.Rmd file to update your README.md file
@@ -63,4 +63,7 @@ usethis::use_coverage()
 ## Add a vignette template
 pkg <- basename(here::here())
 biocthis::create_vignette(pkg, paste("Introduction to", pkg))
+
+## Add a Bioconductor-friendly GitHub actions workflow to check your package
+biocthis::use_bioc_github_action()
 
