@@ -108,7 +108,14 @@ jobs:
         - /home/runner/work/_temp/Library:/usr/local/lib/R/host-site-library
 
     steps:
-      ## Most of these steps are the same as the ones in
+      - name: Install Git
+        run: |
+          sudo add-apt-repository ppa:git-core/ppa -y
+          sudo apt-get update
+          sudo apt-get install git -y
+        shell: bash {0}
+
+      ## Related to https://github.com/actions/checkout/issues/238## Most of these steps are the same as the ones in
       ## https://github.com/r-lib/actions/blob/master/examples/check-standard.yaml
       ## If they update their steps, we will also need to update ours.
       - uses: actions/checkout@v2
@@ -117,24 +124,52 @@ jobs:
         run: |
           install.packages('remotes')
           saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
+          message(paste('****', Sys.time(), 'installing BiocManager ****'))
+          remotes::install_cran("BiocManager")
         shell: Rscript {0}
+
+      ## Find the corresponding R version based on the Bioconductor version
+      ## to use for the macOS and Windows checks by the next GHA job
+      - id: findrversion
+        run: |
+          ## Find what branch we are working on
+          if echo "$GITHUB_REF" | grep -q "master"; then
+              biocversion="devel"
+          elif echo "$GITHUB_REF" | grep -q "RELEASE_"; then
+              biocversion="release"
+          fi
+
+          ## Define the R and Bioconductor version numbers
+          biocversionnum=$(Rscript -e "info <- BiocManager:::.version_map_get_online('https://bioconductor.org/config.yaml'); res <- subset(info, BiocStatus == '${biocversion}')[, 'Bioc']; cat(as.character(res))")
+          rversion=$(Rscript -e "info <- BiocManager:::.version_map_get_online('https://bioconductor.org/config.yaml'); res <- subset(info, BiocStatus == '${biocversion}')[, 'R']; cat(as.character(res))")
+
+          ## Print the results
+          echo $biocversion
+          echo $biocversionnum
+          echo $rversion
+
+          ## Save the info for the next job
+          echo "::set-output name=rversion::${rversion}"
+          echo "::set-output name=biocversionnum::${biocversionnum}"
+        shell:
+          bash {0}
 
       - name: Cache R packages
         if: "!contains(github.event.head_commit.message, '/nocache')"
         uses: actions/cache@v1
         with:
           path: /home/runner/work/_temp/Library
-          key: ${{ env.cache-version }}-${{ runner.os }}-r-biocdocker-bioc-${{ needs.define-docker-info.outputs.biocversion }}-${{ hashFiles('.github/depends.Rds') }}
-          restore-keys: ${{ env.cache-version }}-${{ runner.os }}-r-biocdocker-bioc-${{ needs.define-docker-info.outputs.biocversion }}-
+          key: ${{ env.cache-version }}-${{ runner.os }}-biocdocker-biocbranch-${{ needs.define-docker-info.outputs.biocversion }}-r-${{ steps.findrversion.outputs.rversion }}-bioc-${{ steps.findrversion.outputs.biocversionnum }}-${{ hashFiles('.github/depends.Rds') }}
+          restore-keys: ${{ env.cache-version }}-${{ runner.os }}-biocdocker-biocbranch-${{ needs.define-docker-info.outputs.biocversion }}-r-${{ steps.findrversion.outputs.rversion }}-bioc-${{ steps.findrversion.outputs.biocversionnum }}-
 
-      - name: Install system dependencies
-        if: runner.os == 'Linux'
-        env:
-          RHUB_PLATFORM: linux-x86_64-ubuntu-gcc
-        run: |
-          Rscript -e "remotes::install_github('r-hub/sysreqs')"
-          sysreqs=$(Rscript -e "cat(sysreqs::sysreq_commands('DESCRIPTION'))")
-          sudo -s eval "$sysreqs"
+      # - name: Install system dependencies
+      #   if: runner.os == 'Linux'
+      #   env:
+      #     RHUB_PLATFORM: linux-x86_64-ubuntu-gcc
+      #   run: |
+      #     Rscript -e "remotes::install_github('r-hub/sysreqs')"
+      #     sysreqs=$(Rscript -e "cat(sysreqs::sysreq_commands('DESCRIPTION'))")
+      #     sudo -s eval "$sysreqs"
 
       - name: Install dependencies
         run: |
@@ -144,8 +179,6 @@ jobs:
           ## https://stat.ethz.ch/pipermail/bioc-devel/2020-April/016675.html
           ## https://github.com/r-lib/remotes/issues/296
           ## Ideally, all dependencies should get installed in the first pass.
-          message(paste('****', Sys.time(), 'installing BiocManager ****'))
-          remotes::install_cran("BiocManager")
 
           ## Pass #1 at installing dependencies
           message(paste('****', Sys.time(), 'pass number 1 at installing dependencies: local dependencies ****'))
@@ -176,7 +209,7 @@ jobs:
 
       - name: Check
         env:
-          _R_CHECK_CRAN_INCOMING_REMOTE_: false
+          _R_CHECK_CRAN_INCOMING_: false
         run: |
           rcmdcheck::rcmdcheck(
               args = c("--no-build-vignettes", "--no-manual", "--timings"),
@@ -236,37 +269,11 @@ jobs:
         ## branch (erasing anything you haven't version controlled!) and
         ## makes the git history recognizable by pkgdown.
 
-      ## Find the corresponding R version based on the Bioconductor version
-      ## to use for the macOS and Windows checks by the next GHA job
-      - id: findrversion
-        run: |
-          ## Find what branch we are working on
-          if echo "$GITHUB_REF" | grep -q "master"; then
-              biocversion="devel"
-          elif echo "$GITHUB_REF" | grep -q "RELEASE_"; then
-              biocversion="release"
-          fi
-
-          ## Define the R and Bioconductor version numbers
-          biocversionnum=$(Rscript -e "info <- BiocManager:::.version_map_get_online('https://bioconductor.org/config.yaml'); res <- subset(info, BiocStatus == '${biocversion}')[, 'Bioc']; cat(as.character(res))")
-          rversion=$(Rscript -e "info <- BiocManager:::.version_map_get_online('https://bioconductor.org/config.yaml'); res <- subset(info, BiocStatus == '${biocversion}')[, 'R']; cat(as.character(res))")
-
-          ## Print the results
-          echo $biocversion
-          echo $biocversionnum
-          echo $rversion
-
-          ## Save the info for the next job
-          echo "::set-output name=rversion::${rversion}"
-          echo "::set-output name=biocversionnum::${biocversionnum}"
-        shell:
-          bash {0}
-
       - name: Upload check results
         if: failure()
         uses: actions/upload-artifact@master
         with:
-          name: ${{ runner.os }}-r-biocdocker-bioc-${{ needs.define-docker-info.outputs.biocversion }}-results
+          name: ${{ runner.os }}-biocdocker-biocbranch-${{ needs.define-docker-info.outputs.biocversion }}-r-${{ steps.findrversion.outputs.rversion }}-bioc-${{ steps.findrversion.outputs.biocversionnum }}-results
           path: check
 
   ## Run R CMD check on both macOS and Windows. You can also run the
@@ -288,12 +295,13 @@ jobs:
           ## Comment/Un-comment in case you also want to run other versions
           - {os: windows-latest}
           - {os: macOS-latest}
-          # - {os: ubuntu-16.04, rspm: "https://demo.rstudiopm.com/all/__linux__/xenial/latest"}
+          # - {os: ubuntu-16.04, rspm: "https://packagemanager.rstudio.com/cran/__linux__/xenial/latest"}
 
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       RSPM: ${{ matrix.config.rspm }}
       BIOCVERSIONNUM: ${{ needs.R-CMD-check-bioc.outputs.biocversionnum }}
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - uses: actions/checkout@v2
@@ -317,8 +325,8 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ${{ env.R_LIBS_USER }}
-          key: ${{ env.cache-version }}-${{ runner.os }}-r-${{ needs.R-CMD-check-bioc.outputs.rversion }}-bioc-${{ needs.define-docker-info.outputs.biocversion }}-${{ hashFiles('.github/depends.Rds') }}
-          restore-keys: ${{ env.cache-version }}-${{ runner.os }}-r-${{ needs.R-CMD-check-bioc.outputs.rversion }}-bioc-${{ needs.define-docker-info.outputs.biocversion }}-
+          key: ${{ env.cache-version }}-${{ runner.os }}-biocbranch-${{ needs.define-docker-info.outputs.biocversion }}-r-${{ needs.R-CMD-check-bioc.outputs.rversion }}-bioc-${{ needs.define-docker-info.outputs.biocversion }}-${{ hashFiles('.github/depends.Rds') }}
+          restore-keys: ${{ env.cache-version }}-${{ runner.os }}-biocbranch-${{ needs.define-docker-info.outputs.biocversion }}-r-${{ needs.R-CMD-check-bioc.outputs.rversion }}-bioc-${{ needs.define-docker-info.outputs.biocversion }}-
 
       - name: Install Linux system dependencies
         if: runner.os == 'Linux'
@@ -350,6 +358,7 @@ jobs:
 
       - name: Install BiocManager
         run: |
+          message(paste('****', Sys.time(), 'installing BiocManager ****'))
           remotes::install_cran("BiocManager")
         shell: Rscript {0}
 
@@ -366,8 +375,6 @@ jobs:
           ## https://stat.ethz.ch/pipermail/bioc-devel/2020-April/016675.html
           ## https://github.com/r-lib/remotes/issues/296
           ## Ideally, all dependencies should get installed in the first pass.
-          message(paste('****', Sys.time(), 'installing BiocManager ****'))
-          remotes::install_cran("BiocManager")
 
           ## Pass #1 at installing dependencies
           message(paste('****', Sys.time(), 'pass number 1 at installing dependencies: local dependencies ****'))
@@ -388,7 +395,7 @@ jobs:
 
       - name: Check
         env:
-          _R_CHECK_CRAN_INCOMING_REMOTE_: false
+          _R_CHECK_CRAN_INCOMING_: false
         run: |
           rcmdcheck::rcmdcheck(
               args = c("--no-build-vignettes", "--no-manual", "--timings"),
@@ -418,5 +425,5 @@ jobs:
         if: failure()
         uses: actions/upload-artifact@master
         with:
-          name: ${{ runner.os }}-r-${{ needs.R-CMD-check-bioc.outputs.rversion }}-bioc-${{ needs.define-docker-info.outputs.biocversion }}-results
+          name: ${{ runner.os }}-biocbranch-${{ needs.define-docker-info.outputs.biocversion }}-r-${{ needs.R-CMD-check-bioc.outputs.rversion }}-bioc-${{ needs.define-docker-info.outputs.biocversion }}-results
           path: check
