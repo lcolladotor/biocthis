@@ -6,8 +6,16 @@
 \usage{
 use_bioc_description(biocViews = "Software")
 }
+\arguments{
+\item{biocViews}{A \code{character()} with the Bioconductor biocViews terms you
+want to use for your package. See
+\url{https://bioconductor.org/packages/release/BiocViews.html} for details. Note
+that the terms you choose have to be part of one of the main four trees:
+software, annotation, experiment or workflow.}
+}
 \value{
-
+This function adds and/or replaces the \code{DESCRIPTION} file in your
+R package.
 }
 \description{
 This function is very similar to \code{usethis::use_description()} except

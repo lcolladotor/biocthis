@@ -26,8 +26,9 @@ Imports:
     styler,
     usethis
 Suggests: 
-    covr,
     BiocStyle,
+    covr,
+    devtools,
     knitcitations,
     knitr,
     rmarkdown,

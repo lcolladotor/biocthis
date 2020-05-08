@@ -12,7 +12,9 @@ if applicable, or via \code{utils::file.edit()} otherwise. This argument has the
 same behavior as the \code{open} argument used in \code{usethis} functions.}
 }
 \value{
-
+This function adds and/or replaces the \code{README.Rmd} file in your
+R package. It's useful to use \code{devtools::build_readme()} after running
+this function or whenever you update the \code{README.Rmd} file.
 }
 \description{
 This function is very similar to \code{usethis::use_readme_rmd()} except that it

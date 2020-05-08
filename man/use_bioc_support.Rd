@@ -7,7 +7,8 @@
 use_bioc_support()
 }
 \value{
-
+This function adds and/or replaces the \code{.github/SUPPORT.md} file in
+your R package.
 }
 \description{
 This function is very similar to \code{usethis::use_tidy_support()} except that it

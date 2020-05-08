@@ -7,7 +7,8 @@
 #' For the full history on how this GitHub actions workflow came to be, check
 #' <https://github.com/r-lib/actions/issues/84>.
 #'
-#' @return
+#' @return This function adds and/or replaces the
+#' `.github/workflows/check-bioc.yml` file in your R package.
 #' @export
 #' @import usethis
 #'

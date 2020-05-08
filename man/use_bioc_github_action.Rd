@@ -7,7 +7,8 @@
 use_bioc_github_action()
 }
 \value{
-
+This function adds and/or replaces the
+\code{.github/workflows/check-bioc.yml} file in your R package.
 }
 \description{
 This function is very similar to \code{usethis::use_github_action()} except

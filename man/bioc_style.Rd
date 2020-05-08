@@ -14,7 +14,9 @@ operators such as \code{'('}. Unlike \code{styler::tidyverse_style()}, the defau
 \item{...}{Other arguments passed to \code{styler::tidyverse_style()}.}
 }
 \value{
-
+A \code{list()} object with the information required by functions in
+the \code{transformers} argument in the \code{styler} package functions such as
+\code{styler::style_pkg()}.
 }
 \description{
 This function uses \code{styler::tidyverse_style()} and modifies it to make it

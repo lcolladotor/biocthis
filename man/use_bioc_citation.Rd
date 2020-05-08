@@ -7,7 +7,8 @@
 use_bioc_citation()
 }
 \value{
-
+This function adds and/or replaces the \code{inst/CITATION} file in your
+R package.
 }
 \description{
 This function is very similar to \code{usethis::use_citation()} except

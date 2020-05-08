@@ -8,7 +8,8 @@
 #'
 #' @inheritParams use_bioc_readme_rmd
 #'
-#' @return
+#' @return This function adds and/or replaces the `NEWS.md` file in your
+#' R package.
 #' @export
 #' @importFrom rlang is_interactive
 #' @import usethis

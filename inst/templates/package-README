@@ -7,10 +7,10 @@ output: github_document
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
+    collapse = TRUE,
+    comment = "#>",
+    fig.path = "man/figures/README-",
+    out.width = "100%"
 )
 ```
 {{/Rmd}}
@@ -27,8 +27,9 @@ The goal of `{{Package}}` is to ...
 Get the latest stable `R` release from [CRAN](http://cran.r-project.org/). Then install `{{Package}}` using from [Bioconductor](http://bioconductor.org/) the following code:
 
 ```{r 'install', eval = FALSE}
-if (!requireNamespace("BiocManager", quietly = TRUE))
+if (!requireNamespace("BiocManager", quietly = TRUE)) {
     install.packages("BiocManager")
+}
 
 BiocManager::install("{{Package}}")
 ```
@@ -37,8 +38,7 @@ BiocManager::install("{{Package}}")
 And the development version from [GitHub](https://github.com/) with:
 
 ```{r 'install_dev', eval = FALSE}
-# install.packages("devtools")
-devtools::install_github("{{{owner}}}/{{{repo}}}")
+BiocManager::install("{{{owner}}}/{{{repo}}}")
 ```
 {{/github}}
 ## Example

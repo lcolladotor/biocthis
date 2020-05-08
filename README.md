@@ -32,8 +32,9 @@ Get the latest stable `R` release from
 [Bioconductor](http://bioconductor.org/) the following code:
 
 ``` r
-if (!requireNamespace("BiocManager", quietly = TRUE))
+if (!requireNamespace("BiocManager", quietly = TRUE)) {
     install.packages("BiocManager")
+}
 
 BiocManager::install("biocthis")
 ```
@@ -41,8 +42,7 @@ BiocManager::install("biocthis")
 And the development version from [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("lcolladotor/biocthis")
+BiocManager::install("lcolladotor/biocthis")
 ```
 
 ## Example
@@ -85,7 +85,7 @@ Please run this yourself to check for any updates on how to cite
 **biocthis**.
 
 ``` r
-print(citation('biocthis'), bibtex = TRUE)
+print(citation("biocthis"), bibtex = TRUE)
 #> 
 #> Collado-Torres L (2020). _Automate package and project setup for
 #> Bioconductor packages_. doi: 10.18129/B9.bioc.biocthis (URL:

@@ -6,8 +6,17 @@
 \usage{
 use_bioc_vignette(name, title = name)
 }
-\value{
+\arguments{
+\item{name}{Just like in \code{usethis::use_vignette()}: base for file name to
+use for new vignette. Should consist only of numbers, letters, _ and -.
+Lower case is recommended.}
 
+\item{title}{Just like in \code{usethis::use_vignette()}: the title of the
+vignette.}
+}
+\value{
+This function adds and/or replaces the
+\verb{vignettes/<name>.Rmd} file in your R package.
 }
 \description{
 This function is very similar to \code{usethis::use_vignette()} except

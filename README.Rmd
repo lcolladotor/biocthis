@@ -6,10 +6,10 @@ output: github_document
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
+    collapse = TRUE,
+    comment = "#>",
+    fig.path = "man/figures/README-",
+    out.width = "100%"
 )
 ```
 
@@ -32,8 +32,9 @@ The goal of `biocthis` is to ...
 Get the latest stable `R` release from [CRAN](http://cran.r-project.org/). Then install `biocthis` using from [Bioconductor](http://bioconductor.org/) the following code:
 
 ```{r 'install', eval = FALSE}
-if (!requireNamespace("BiocManager", quietly = TRUE))
+if (!requireNamespace("BiocManager", quietly = TRUE)) {
     install.packages("BiocManager")
+}
 
 BiocManager::install("biocthis")
 ```
@@ -41,8 +42,7 @@ BiocManager::install("biocthis")
 And the development version from [GitHub](https://github.com/) with:
 
 ```{r 'install_dev', eval = FALSE}
-# install.packages("devtools")
-devtools::install_github("lcolladotor/biocthis")
+BiocManager::install("lcolladotor/biocthis")
 ```
 ## Example
 
@@ -75,7 +75,7 @@ Below is the citation output from using `citation('biocthis')` in R. Please
 run this yourself to check for any updates on how to cite __biocthis__.
 
 ```{r 'citation', eval = requireNamespace('biocthis')}
-print(citation('biocthis'), bibtex = TRUE)
+print(citation("biocthis"), bibtex = TRUE)
 ```
 
 Please note that the `biocthis` was only made possible thanks to many other R and bioinformatics software authors, which are cited either in the vignettes and/or the paper(s) describing this package.

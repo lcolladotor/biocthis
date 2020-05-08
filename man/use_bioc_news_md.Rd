@@ -12,7 +12,8 @@ if applicable, or via \code{utils::file.edit()} otherwise. This argument has the
 same behavior as the \code{open} argument used in \code{usethis} functions.}
 }
 \value{
-
+This function adds and/or replaces the \code{NEWS.md} file in your
+R package.
 }
 \description{
 This function is very similar to \code{usethis::use_news_md()} except that it

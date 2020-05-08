@@ -16,7 +16,12 @@
 #'
 #' @inheritParams use_bioc_readme_rmd
 #'
-#' @return
+#' @return This function adds and/or replaces the `dev` files in your
+#' R package. That is:
+#' * `dev/01_create_pkg.R`
+#' * `dev/02_git_github_setup.R`
+#' * `dev/03_core_files.R`
+#' * `dev/04_update.R`
 #' @export
 #' @import usethis
 #' @importFrom fs path

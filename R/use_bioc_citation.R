@@ -6,7 +6,8 @@
 #' compare the template produced with the one from `usethis::use_citation()`
 #' to pick and choose the parts you like best from each.
 #'
-#' @return
+#' @return This function adds and/or replaces the `inst/CITATION` file in your
+#' R package.
 #' @export
 #' @import usethis
 #' @importFrom fs path
@@ -23,7 +24,7 @@ use_bioc_citation <- function() {
     if (usethis:::uses_github()) {
         data$Owner <- usethis:::github_owner()
     }
-    use_template("CITATION", fs::path("inst", "CITATION"),
+    use_template("package-CITATION", fs::path("inst", "CITATION"),
         data = data, open = TRUE, package = "biocthis"
     )
 }

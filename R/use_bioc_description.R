@@ -10,7 +10,14 @@
 #' packages check
 #' <http://bioconductor.org/developers/package-guidelines/#description>.
 #'
-#' @return
+#' @param biocViews A `character()` with the Bioconductor biocViews terms you
+#' want to use for your package. See
+#' <https://bioconductor.org/packages/release/BiocViews.html> for details. Note
+#' that the terms you choose have to be part of one of the main four trees:
+#' software, annotation, experiment or workflow.
+#'
+#' @return This function adds and/or replaces the `DESCRIPTION` file in your
+#' R package.
 #' @export
 #' @import usethis
 #' @importFrom here here

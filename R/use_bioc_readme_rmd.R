@@ -10,7 +10,9 @@
 #' if applicable, or via `utils::file.edit()` otherwise. This argument has the
 #' same behavior as the `open` argument used in `usethis` functions.
 #'
-#' @return
+#' @return This function adds and/or replaces the `README.Rmd` file in your
+#' R package. It's useful to use `devtools::build_readme()` after running
+#' this function or whenever you update the `README.Rmd` file.
 #' @export
 #' @importFrom rlang is_interactive
 #' @import usethis

@@ -7,7 +7,8 @@
 use_bioc_issue_template()
 }
 \value{
-
+This function adds and/or replaces the
+\code{.github/ISSUE_TEMPLATE/issue_tempalte.md} file in your R package.
 }
 \description{
 This function is very similar to \code{usethis::use_tidy_issue_template()} except

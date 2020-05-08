@@ -8,12 +8,16 @@
 #' template also includes a section on how to ask for help and required
 #' knowledge.
 #'
-#' @return
+#' @param name Just like in `usethis::use_vignette()`: base for file name to
+#' use for new vignette. Should consist only of numbers, letters, _ and -.
+#' Lower case is recommended.
+#' @param title Just like in `usethis::use_vignette()`: the title of the
+#' vignette.
+#'
+#' @return This function adds and/or replaces the
+#' `vignettes/<name>.Rmd` file in your R package.
 #' @export
 #' @import usethis
-#' @importFrom fs path
-#' @importFrom rlang is_string
-#' @importFrom glue glue
 #'
 #' @examples
 #'
@@ -33,6 +37,10 @@ use_bioc_vignette <- function(name, title = name) {
     biocthis_vignette_template("vignette.Rmd", name, title)
     invisible()
 }
+
+#' @importFrom fs path
+#' @importFrom rlang is_string
+#' @importFrom glue glue
 
 biocthis_vignette_template <- function(template, name, title) {
     stopifnot(rlang::is_string(name))

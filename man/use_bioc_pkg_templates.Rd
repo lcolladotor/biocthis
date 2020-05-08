@@ -12,7 +12,14 @@ if applicable, or via \code{utils::file.edit()} otherwise. This argument has the
 same behavior as the \code{open} argument used in \code{usethis} functions.}
 }
 \value{
-
+This function adds and/or replaces the \code{dev} files in your
+R package. That is:
+\itemize{
+\item \verb{dev/01_create_pkg.R}
+\item \verb{dev/02_git_github_setup.R}
+\item \verb{dev/03_core_files.R}
+\item \verb{dev/04_update.R}
+}
 }
 \description{
 This function creates the \code{dev} directory and in it, it creates R script

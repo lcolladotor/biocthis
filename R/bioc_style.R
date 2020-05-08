@@ -24,7 +24,9 @@
 #' 4 to conform with the Bioconductor coding style.
 #' @param ... Other arguments passed to `styler::tidyverse_style()`.
 #'
-#' @return
+#' @return A `list()` object with the information required by functions in
+#' the `transformers` argument in the `styler` package functions such as
+#' `styler::style_pkg()`.
 #' @export
 #' @importFrom styler tidyverse_style
 #'

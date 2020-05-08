@@ -6,7 +6,8 @@
 #' For more details on how this function came to be, check
 #' <https://github.com/r-lib/usethis/issues/1108>.
 #'
-#' @return
+#' @return This function adds and/or replaces the
+#' `.github/ISSUE_TEMPLATE/issue_tempalte.md` file in your R package.
 #' @export
 #' @import usethis
 #' @importFrom fs path
