@@ -186,7 +186,7 @@ jobs:
           deps <- remotes::dev_package_deps(dependencies = TRUE, repos = BiocManager::repositories())
           BiocManager::install(local_deps[local_deps %in% deps$package[deps$diff != 0]])
 
-           ## Pass #2 at installing dependencies
+          ## Pass #2 at installing dependencies
           message(paste('****', Sys.time(), 'pass number 2 at installing dependencies: any remaining dependencies ****'))
           deps <- remotes::dev_package_deps(dependencies = TRUE, repos = BiocManager::repositories())
           BiocManager::install(deps$package[deps$diff != 0])
@@ -195,16 +195,6 @@ jobs:
           message(paste('****', Sys.time(), 'installing rcmdcheck and BiocCheck ****'))
           remotes::install_cran("rcmdcheck")
           BiocManager::install("BiocCheck")
-
-          ## Copy all the installed packages to a location where BiocCheck
-          ## will find them later. This is needed when running biocdocker
-          ## with the shared volume.
-          # libs <- .libPaths()
-          # message(paste(Sys.time(), 'current R library paths:'))
-          # print(libs)
-          # if(length(libs) > 1) {
-          #     sapply(dir(libs[1], full.names = TRUE), file.copy, to = libs[2], recursive = TRUE)
-          # }
         shell: Rscript {0}
 
       - name: Session info
