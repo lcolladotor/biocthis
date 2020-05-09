@@ -2,7 +2,7 @@
 % Please edit documentation in R/use_bioc_news_md.R
 \name{use_bioc_news_md}
 \alias{use_bioc_news_md}
-\title{Create a biocthis-style news.md file}
+\title{Create a biocthis-style NEWS.md file}
 \usage{
 use_bioc_news_md(open = rlang::is_interactive())
 }

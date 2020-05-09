@@ -1,4 +1,4 @@
-#' Create a biocthis-style news.md file
+#' Create a biocthis-style NEWS.md file
 #'
 #' This function is very similar to `usethis::use_news_md()` except that it
 #' uses a template from `biocthis`.
