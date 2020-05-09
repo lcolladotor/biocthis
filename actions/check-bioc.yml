@@ -160,8 +160,14 @@ jobs:
           ## Save the info for the next job
           echo "::set-output name=rversion::${rversion}"
           echo "::set-output name=biocversionnum::${biocversionnum}"
+          echo "::set-env name=BIOCVERSIONNUM::${biocversionnum}"
         shell:
           bash {0}
+
+      - name: Set BiocVersion
+        run: |
+          BiocManager::install(version = Sys.getenv('BIOCVERSIONNUM'), ask = FALSE)
+        shell: Rscript {0}
 
       - name: Cache R packages
         if: "!contains(github.event.head_commit.message, '/nocache')"
@@ -373,7 +379,7 @@ jobs:
 
       - name: Set BiocVersion
         run: |
-          BiocManager::install(version = Sys.getenv('BIOCVERSIONNUM'))
+          BiocManager::install(version = Sys.getenv('BIOCVERSIONNUM'), ask = FALSE)
         shell: Rscript {0}
 
       - name: Install dependencies
