@@ -36,6 +36,8 @@ For more details on how this function came to be, check:
 \url{https://github.com/Bioconductor/BiocCheck/issues/57}
 \url{https://github.com/Bioconductor/bioconductor.org/issues/54}
 \url{https://github.com/r-lib/usethis/issues/1108}
+as well as the "biocthis developer notes" vignette
+\url{https://lcolladotor.github.io/biocthis/articles/biocthis_dev_notes.html}.
 }
 \examples{
 

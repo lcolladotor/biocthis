@@ -247,7 +247,7 @@ That is, the GHA workflow provided by `r Githubpkg("lcolladotor/biocthis")` can 
 * just prior to a new R release (unless `r-lib/actions` supports R `alpha` releases),
 * if the required Bioconductor docker image is not available (for example, due to issues building these images based on dependencies on `rocker` and other upstream tools).
 
-If you are interested in learning more details about how this GHA workflow came to be, check the `biocthis developer notes` vignette. We also highly recommend watching any developments as they happen at `r Githubpkg("r-lib/actions")`.
+If you are interested in learning more details about how this GHA workflow came to be, check the [`biocthis developer notes` vignette](https://lcolladotor.github.io/biocthis/articles/biocthis_dev_notes.html). We also highly recommend watching any developments as they happen at `r Githubpkg("r-lib/actions")`.
 
 ### `use_bioc_issue_template()`
 

@@ -20,7 +20,8 @@ without having to install \code{biocthis}.
 }
 \details{
 For the full history on how this GitHub Actions workflow came to be, check
-the "biocthis developer notes" vignette.
+the "biocthis developer notes" vignette
+\url{https://lcolladotor.github.io/biocthis/articles/biocthis_dev_notes.html}.
 }
 \examples{
 

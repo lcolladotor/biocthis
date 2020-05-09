@@ -8,7 +8,8 @@
 #' without having to install `biocthis`.
 #'
 #' For the full history on how this GitHub Actions workflow came to be, check
-#' the "biocthis developer notes" vignette.
+#' the "biocthis developer notes" vignette
+#' <https://lcolladotor.github.io/biocthis/articles/biocthis_dev_notes.html>.
 #'
 #' @return This function adds and/or replaces the
 #' `.github/workflows/check-bioc.yml` file in your R package.

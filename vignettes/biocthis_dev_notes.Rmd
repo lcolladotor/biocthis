@@ -71,7 +71,7 @@ Note that `r Githubpkg("lcolladotor/biocthis")` is not a Bioconductor-core packa
 
 # Basics
 
-For the basics, please check the `Introduction to biocthis` vignette.
+For the basics, please check the [`Introduction to biocthis` vignette](https://lcolladotor.github.io/biocthis/articles/biocthis.html).
 
 # `biocthis` developer notes
 

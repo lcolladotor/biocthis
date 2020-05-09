@@ -13,6 +13,8 @@
 #' <https://github.com/Bioconductor/BiocCheck/issues/57>
 #' <https://github.com/Bioconductor/bioconductor.org/issues/54>
 #' <https://github.com/r-lib/usethis/issues/1108>
+#' as well as the "biocthis developer notes" vignette
+#' <https://lcolladotor.github.io/biocthis/articles/biocthis_dev_notes.html>.
 #'
 #' @inheritParams use_bioc_readme_rmd
 #'
