@@ -110,8 +110,8 @@ jobs:
     steps:
       - name: Install Git
         run: |
-          sudo apt-get update
-          sudo apt install make libssl-dev libghc-zlib-dev libcurl4-gnutls-dev libexpat1-dev gettext unzip
+          sudo apt-get update -y
+          sudo apt install make libssl-dev libghc-zlib-dev libcurl4-gnutls-dev libexpat1-dev gettext unzip -y
           wget https://github.com/git/git/archive/v2.26.2.zip -O git.zip
           unzip git.zip
           cd git-*
