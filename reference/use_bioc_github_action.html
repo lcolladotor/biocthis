@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • biocthis</title>
+<title>Create a biocthis-style GitHub action workflow — use_bioc_github_action • biocthis</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,10 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Create a biocthis-style GitHub action workflow — use_bioc_github_action" />
+<meta property="og:description" content="This function is very similar to usethis::use_github_action() except
+that it uses a template from biocthis. It creates a Bioconductor-friendly
+GitHub action workflow for your package." />
 
 
 
@@ -58,7 +61,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -111,96 +114,37 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Create a biocthis-style GitHub action workflow</h1>
+    <small class="dont-index">Source: <a href='https://github.com/lcolladotor/biocthis/blob/master/R/use_bioc_github_action.R'><code>R/use_bioc_github_action.R</code></a></small>
+    <div class="hidden name"><code>use_bioc_github_action.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>This function is very similar to <code><a href='https://usethis.r-lib.org/reference/use_github_action.html'>usethis::use_github_action()</a></code> except
+that it uses a template from <code>biocthis</code>. It creates a Bioconductor-friendly
+GitHub action workflow for your package.</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>use_bioc_github_action</span>()</pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="bioc_style.html">bioc_style()</a></code> </p>
-        </td>
-        <td><p>Tidyverse style made Bioconductor-friendly</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="use_bioc_citation.html">use_bioc_citation()</a></code> </p>
-        </td>
-        <td><p>Create a biocthis-style CITATION template</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="use_bioc_description.html">use_bioc_description()</a></code> </p>
-        </td>
-        <td><p>Create a biocthis-style DESCRIPTION template</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="use_bioc_github_action.html">use_bioc_github_action()</a></code> </p>
-        </td>
-        <td><p>Create a biocthis-style GitHub action workflow</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="use_bioc_issue_template.html">use_bioc_issue_template()</a></code> </p>
-        </td>
-        <td><p>Create a biocthis-style GitHub issue template</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="use_bioc_news_md.html">use_bioc_news_md()</a></code> </p>
-        </td>
-        <td><p>Create a biocthis-style news.md file</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="use_bioc_pkg_templates.html">use_bioc_pkg_templates()</a></code> </p>
-        </td>
-        <td><p>Create a biocthis package template R scripts</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="use_bioc_readme_rmd.html">use_bioc_readme_rmd()</a></code> </p>
-        </td>
-        <td><p>Create a biocthis-style README.Rmd file</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="use_bioc_support.html">use_bioc_support()</a></code> </p>
-        </td>
-        <td><p>Create a biocthis-style GitHub support file</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="use_bioc_vignette.html">use_bioc_vignette()</a></code> </p>
-        </td>
-        <td><p>Create a biocthis-style vignette template</p></td>
-      </tr>
-    </tbody>
-    </table>
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>This function adds and/or replaces the
+<code>.github/workflows/check-bioc.yml</code> file in your R package.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>For the full history on how this GitHub actions workflow came to be, check
+<a href='https://github.com/r-lib/actions/issues/84'>https://github.com/r-lib/actions/issues/84</a>.</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'>
+<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='kw pkg'>biocthis</span><span class='kw ns'>::</span><span class='fu'>use_bioc_github_action</span>()
+}</div></pre>
   </div>
-
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>

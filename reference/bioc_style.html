@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create a biocthis package template R scripts — use_bioc_pkg_templates • biocthis</title>
+<title>Tidyverse style made Bioconductor-friendly — bioc_style • biocthis</title>
 
 
 <!-- jquery -->
@@ -39,13 +39,14 @@
 
 
 
-<meta property="og:title" content="Create a biocthis package template R scripts — use_bioc_pkg_templates" />
-<meta property="og:description" content="This function creates the dev directory and in it, it creates R script
-files that you can follow to create your own Bioconductor-friendly R
-package. These R scripts include all the commands you need to get started =)
-The commands are designed to be run on the order given, though we also
-encourage you to check the latest utility functions in the usethis
-package." />
+<meta property="og:title" content="Tidyverse style made Bioconductor-friendly — bioc_style" />
+<meta property="og:description" content="This function uses styler::tidyverse_style() and modifies it to make it
+Bioconductor friendly. The full Bioconductor coding style is described at
+https://bioconductor.org/developers/how-to/coding-style/ and it shares
+many properties with the Tidyverse coding style guide
+https://style.tidyverse.org/. This function defines the transformers code
+that you can then use with other styler functions such as
+styler::style_pkg()." />
 
 
 
@@ -119,56 +120,59 @@ package." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create a biocthis package template R scripts</h1>
-    <small class="dont-index">Source: <a href='https://github.com/lcolladotor/biocthis/blob/master/R/use_bioc_pkg_templates.R'><code>R/use_bioc_pkg_templates.R</code></a></small>
-    <div class="hidden name"><code>use_bioc_pkg_templates.Rd</code></div>
+    <h1>Tidyverse style made Bioconductor-friendly</h1>
+    <small class="dont-index">Source: <a href='https://github.com/lcolladotor/biocthis/blob/master/R/bioc_style.R'><code>R/bioc_style.R</code></a></small>
+    <div class="hidden name"><code>bioc_style.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function creates the <code>dev</code> directory and in it, it creates R script
-files that you can follow to create your own Bioconductor-friendly R
-package. These R scripts include all the commands you need to get started =)
-The commands are designed to be run on the order given, though we also
-encourage you to check the latest utility functions in the <code>usethis</code>
-package.</p>
+    <p>This function uses <code><a href='https://rdrr.io/pkg/styler/man/tidyverse_style.html'>styler::tidyverse_style()</a></code> and modifies it to make it
+Bioconductor friendly. The full Bioconductor coding style is described at
+<a href='https://bioconductor.org/developers/how-to/coding-style/'>https://bioconductor.org/developers/how-to/coding-style/</a> and it shares
+many properties with the Tidyverse coding style guide
+<a href='https://style.tidyverse.org/'>https://style.tidyverse.org/</a>. This function defines the <code>transformers</code> code
+that you can then use with other <code>styler</code> functions such as
+<code><a href='https://rdrr.io/pkg/styler/man/style_pkg.html'>styler::style_pkg()</a></code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>use_bioc_pkg_templates</span>(<span class='kw'>open</span> <span class='kw'>=</span> <span class='kw pkg'>rlang</span><span class='kw ns'>::</span><span class='fu'><a href='https://rlang.r-lib.org/reference/is_interactive.html'>is_interactive</a></span>())</pre>
+    <pre class="usage"><span class='fu'>bioc_style</span>(<span class='kw'>indent_by</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='no'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>open</th>
-      <td><p>Open the newly created file for editing? Happens in RStudio,
-if applicable, or via <code><a href='https://rdrr.io/r/utils/file.edit.html'>utils::file.edit()</a></code> otherwise. This argument has the
-same behavior as the <code>open</code> argument used in <code>usethis</code> functions.</p></td>
+      <th>indent_by</th>
+      <td><p>How many spaces of indention should be inserted after
+operators such as <code>'('</code>. Unlike <code><a href='https://rdrr.io/pkg/styler/man/tidyverse_style.html'>styler::tidyverse_style()</a></code>, the default is
+4 to conform with the Bioconductor coding style.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Other arguments passed to <code><a href='https://rdrr.io/pkg/styler/man/tidyverse_style.html'>styler::tidyverse_style()</a></code>.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>This function adds and/or replaces the <code>dev</code> files in your
-R package. That is:</p><ul>
-<li><p><code>dev/01_create_pkg.R</code></p></li>
-<li><p><code>dev/02_git_github_setup.R</code></p></li>
-<li><p><code>dev/03_core_files.R</code></p></li>
-<li><p><code>dev/04_update.R</code></p></li>
-</ul>
-
+    <p>A <code><a href='https://rdrr.io/r/base/list.html'>list()</a></code> object with the information required by functions in
+the <code>transformers</code> argument in the <code>styler</code> package functions such as
+<code><a href='https://rdrr.io/pkg/styler/man/style_pkg.html'>styler::style_pkg()</a></code>.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>For more details on how this function came to be, check:
-<a href='https://github.com/r-lib/actions/issues/84'>https://github.com/r-lib/actions/issues/84</a>
+    <p>The <code>styler</code> package seems to be more actively maintained and better
+performance than <code>formatR</code>, though that package can also be useful. This
+function does not produce an exact Bioconductor coding style, but it gets
+you close enough! =)</p>
+<p>For more details on how this function came to be, check
 <a href='https://github.com/r-lib/styler/issues/636'>https://github.com/r-lib/styler/issues/636</a>
 <a href='https://github.com/Bioconductor/BiocCheck/issues/57'>https://github.com/Bioconductor/BiocCheck/issues/57</a>
-<a href='https://github.com/Bioconductor/bioconductor.org/issues/54'>https://github.com/Bioconductor/bioconductor.org/issues/54</a>
-<a href='https://github.com/r-lib/usethis/issues/1108'>https://github.com/r-lib/usethis/issues/1108</a></p>
+<a href='https://github.com/Bioconductor/bioconductor.org/issues/54'>https://github.com/Bioconductor/bioconductor.org/issues/54</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'>use_bioc_pkg_templates</span>()
+<span class='kw pkg'>styler</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/styler/man/style_pkg.html'>style_pkg</a></span>(<span class='kw'>transformers</span> <span class='kw'>=</span> <span class='kw pkg'>biocthis</span><span class='kw ns'>::</span><span class='fu'>bioc_style</span>())
+<span class='kw pkg'>styler</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/styler/man/style_dir.html'>style_dir</a></span>(<span class='kw pkg'>here</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/here/man/here.html'>here</a></span>(<span class='st'>"dev"</span>), <span class='kw'>transformers</span> <span class='kw'>=</span> <span class='kw pkg'>biocthis</span><span class='kw ns'>::</span><span class='fu'>bioc_style</span>())
 }</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
