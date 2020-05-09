@@ -115,8 +115,8 @@ jobs:
           wget https://github.com/git/git/archive/v2.26.2.zip -O git.zip
           unzip git.zip
           cd git-*
-          make prefix=/usr/local all
-          sudo make prefix=/usr/local install
+          make prefix=/usr all
+          sudo make prefix=/usr install
           cd -
           git --version
         shell: bash {0}
