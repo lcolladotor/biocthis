@@ -160,7 +160,6 @@ jobs:
           ## Save the info for the next job
           echo "::set-output name=rversion::${rversion}"
           echo "::set-output name=biocversionnum::${biocversionnum}"
-          echo "::set-env name=BIOCVERSIONNUM::${biocversionnum}"
         shell:
           bash {0}
 
@@ -206,6 +205,13 @@ jobs:
           if(length(libs) > 1) {
               sapply(dir(libs[1], full.names = TRUE), file.copy, to = libs[2], recursive = TRUE)
           }
+        shell: Rscript {0}
+
+      - name: Session info
+        run: |
+          options(width = 100)
+          pkgs <- installed.packages()[, "Package"]
+          sessioninfo::session_info(pkgs, include_base = TRUE)
         shell: Rscript {0}
 
       - name: Check
@@ -392,6 +398,13 @@ jobs:
           message(paste('****', Sys.time(), 'installing rcmdcheck and BiocCheck ****'))
           remotes::install_cran("rcmdcheck")
           BiocManager::install("BiocCheck")
+        shell: Rscript {0}
+
+      - name: Session info
+        run: |
+          options(width = 100)
+          pkgs <- installed.packages()[, "Package"]
+          sessioninfo::session_info(pkgs, include_base = TRUE)
         shell: Rscript {0}
 
       - name: Check
