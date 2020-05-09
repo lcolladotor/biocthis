@@ -164,11 +164,6 @@ jobs:
         shell:
           bash {0}
 
-      - name: Set BiocVersion
-        run: |
-          BiocManager::install(version = Sys.getenv('BIOCVERSIONNUM'), ask = FALSE)
-        shell: Rscript {0}
-
       - name: Cache R packages
         if: "!contains(github.event.head_commit.message, '/nocache')"
         uses: actions/cache@v1
@@ -176,15 +171,6 @@ jobs:
           path: /home/runner/work/_temp/Library
           key: ${{ env.cache-version }}-${{ runner.os }}-biocdocker-biocbranch-${{ needs.define-docker-info.outputs.biocversion }}-r-${{ steps.findrversion.outputs.rversion }}-bioc-${{ steps.findrversion.outputs.biocversionnum }}-${{ hashFiles('.github/depends.Rds') }}
           restore-keys: ${{ env.cache-version }}-${{ runner.os }}-biocdocker-biocbranch-${{ needs.define-docker-info.outputs.biocversion }}-r-${{ steps.findrversion.outputs.rversion }}-bioc-${{ steps.findrversion.outputs.biocversionnum }}-
-
-      # - name: Install system dependencies
-      #   if: runner.os == 'Linux'
-      #   env:
-      #     RHUB_PLATFORM: linux-x86_64-ubuntu-gcc
-      #   run: |
-      #     Rscript -e "remotes::install_github('r-hub/sysreqs')"
-      #     sysreqs=$(Rscript -e "cat(sysreqs::sysreq_commands('DESCRIPTION'))")
-      #     sudo -s eval "$sysreqs"
 
       - name: Install dependencies
         run: |
