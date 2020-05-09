@@ -17,9 +17,27 @@
 #' @examples
 #'
 #' \dontrun{
+#' ## Run this function in your package
 #' use_bioc_news_md()
 #' }
 #'
+#' ## Here's an example with a temporary package
+#'
+#' ## Set the package name
+#' pkgname <- "biocthisexample"
+#'
+#' ## Create the example package in a temporary location
+#' withr::with_dir(tempdir(), {
+#'     usethis::create_package(pkgname)
+#' })
+#'
+#' ## Save the path to our temporary package for the rest of the examples
+#' pkgdir <- file.path(tempdir(), pkgname)
+#'
+#' ## Create a template NEWS.md file that is Bioconductor-friendly
+#' withr::with_dir(pkgdir, {
+#'     biocthis::use_bioc_news_md()
+#' })
 use_bioc_news_md <- function(open = rlang::is_interactive()) {
     use_template("NEWS.md", data = usethis:::package_data(), open = open, package = "biocthis")
 }

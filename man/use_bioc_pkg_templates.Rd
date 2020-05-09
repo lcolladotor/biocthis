@@ -40,7 +40,25 @@ For more details on how this function came to be, check:
 \examples{
 
 \dontrun{
+## Run this function in your package
 use_bioc_pkg_templates()
 }
 
+## Here's an example with a temporary package
+
+## Set the package name
+pkgname <- "biocthisexample"
+
+## Create the example package in a temporary location
+withr::with_dir(tempdir(), {
+    usethis::create_package(pkgname)
+})
+
+## Save the path to our temporary package for the rest of the examples
+pkgdir <- file.path(tempdir(), pkgname)
+
+## Create the biocthis templates
+withr::with_dir(pkgdir, {
+    biocthis::use_bioc_pkg_templates()
+})
 }

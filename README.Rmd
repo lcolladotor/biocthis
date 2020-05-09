@@ -25,7 +25,9 @@ knitr::opts_chunk$set(
 [![GitHub issues](https://img.shields.io/github/issues/lcolladotor/biocthis)](https://github.com/lcolladotor/biocthis/issues)
 <!-- badges: end -->
 
-The goal of `biocthis` is to ...
+`r BiocStyle::Githubpkg("lcolladotor/biocthis")` is an R package that expands `r BiocStyle::CRANpkg("usethis")` with Bioconductor-friendly templates. These templates will help you quickly create an R package that either has Bioconductor dependencies or that you are thinking of submitting to Bioconductor one day. `r BiocStyle::Githubpkg("lcolladotor/biocthis")`  has functions that can also enhance your current R packages that either are already distributed by Bioconductor or have Bioconductor dependencies. `r BiocStyle::Githubpkg("lcolladotor/biocthis")` also includes a Bioconductor-friendly [GitHub Actions](https://github.com/features/actions) workflow for your R package(s). To use the functions in this package, you need to load it.
+
+Note that `r BiocStyle::Githubpkg("lcolladotor/biocthis")` is not a Bioconductor-core package and as such it is not a Bioconductor official package. It was made by and for Leonardo Collado-Torres so he could more easily maintain and create Bioconductor packages as listed at [lcolladotor.github.io/pkgs/](https://lcolladotor.github.io/pkgs/). Hopefully `r BiocStyle::Githubpkg("lcolladotor/biocthis")`  will be helpful for you too.
 
 ## Installation instructions
 
@@ -44,30 +46,44 @@ And the development version from [GitHub](https://github.com/) with:
 ```{r 'install_dev', eval = FALSE}
 BiocManager::install("lcolladotor/biocthis")
 ```
+
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Here is how you can use `r BiocStyle::Githubpkg("lcolladotor/biocthis")` to create a new Bioconductor-friendly R package (illustrated using a temporary directory):
 
 ```{r example, eval = requireNamespace('biocthis')}
+## Load biocthis
 library("biocthis")
-## basic example code
+
+## Set the package name
+pkgname <- "biocthisexample"
+
+## Create the example package in a temporary location
+withr::with_dir(tempdir(), {
+    usethis::create_package(pkgname)
+})
+
+## Save the path to our temporary package for the rest of the examples
+pkgdir <- file.path(tempdir(), pkgname)
+
+## Create the bioc templates
+withr::with_dir(pkgdir, {
+    biocthis::use_bioc_pkg_templates()
+})
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+The template `dev` scripts include comments and steps you can follow for making your Bioconductor-friendly R package or updating a current package. In particular, you might
+want to use a Bioconductor-friendly GitHub Actions workflow. If this is your first time seeings this words, we highly recommend that you watch [Jim Hester's `rstudio::conf(2020)` talk on this subject](https://www.jimhester.com/talk/2020-rsc-github-actions/).
 
-```{r cars}
-summary(cars)
+```{r 'bioc_github_action'}
+## Create a GitHub Actions workflow that is Bioconductor-friendly
+withr::with_dir(pkgdir, {
+    biocthis::use_bioc_github_action()
+})
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
+Alternatively, use `usethis::use_github_action()` for the general GitHub Actions workflow maintained by `r-lib/actions` or `usethis::use_github_action("check-bioc", "https://bit.ly/biocthis_gha")` without having to install `r BiocStyle::Githubpkg("lcolladotor/biocthis")`.
 
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
 
 ## Citation
 
@@ -82,13 +98,13 @@ Please note that the `biocthis` was only made possible thanks to many other R an
 
 ## Code of Conduct
 
-Please note that the derfinderPlot project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
+Please note that the `biocthis` project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
 
 ## Development tools
 
 * Continuous code testing is possible thanks to [GitHub actions](https://www.tidyverse.org/blog/2020/04/usethis-1-6-0/)  through `r BiocStyle::CRANpkg('usethis')`, `r BiocStyle::CRANpkg('remotes')`, `r BiocStyle::Githubpkg('r-hub/sysreqs')` and `r BiocStyle::CRANpkg('rcmdcheck')` customized to use [Bioconductor's docker containers](https://www.bioconductor.org/help/docker/) and `r BiocStyle::Biocpkg('BiocCheck')`.
 * Code coverage assessment is possible thanks to [codecov](https://codecov.io/gh) and `r BiocStyle::CRANpkg('covr')`.
-* The [documentation website](http://.github.io/biocthis) is automatically updated thanks to `r BiocStyle::CRANpkg('pkgdown')`.
+* The [documentation website](http://.github.io/lcolladotor/biocthis) is automatically updated thanks to `r BiocStyle::CRANpkg('pkgdown')`.
 * The code is styled automatically thanks to `r BiocStyle::CRANpkg('styler')`.
 * The documentation is formatted thanks to `r BiocStyle::CRANpkg('devtools')` and `r BiocStyle::CRANpkg('roxygen2')`.
 

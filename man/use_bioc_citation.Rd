@@ -20,7 +20,25 @@ to pick and choose the parts you like best from each.
 \examples{
 
 \dontrun{
+## Run this function in your package
 use_bioc_citation()
 }
 
+## Here's an example with a temporary package
+
+## Set the package name
+pkgname <- "biocthisexample"
+
+## Create the example package in a temporary location
+withr::with_dir(tempdir(), {
+    usethis::create_package(pkgname)
+})
+
+## Save the path to our temporary package for the rest of the examples
+pkgdir <- file.path(tempdir(), pkgname)
+
+## Create a template CITATION file that is Bioconductor-friendly
+withr::with_dir(pkgdir, {
+    biocthis::use_bioc_citation()
+})
 }

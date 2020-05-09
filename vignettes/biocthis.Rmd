@@ -1,16 +1,17 @@
 ---
 title: "Introduction to biocthis"
 author: 
-  - name: Your name
+  - name: Leonardo Collado-Torres
     affiliation:
-    - Your institution
-    email: your.email@somewhere.com
+    - &libd Lieber Institute for Brain Development, Johns Hopkins Medical Campus
+    - &ccb Center for Computational Biology, Johns Hopkins University
+    email: lcolladotor@gmail.com
 output: 
   BiocStyle::html_document:
     self_contained: yes
     toc: true
     toc_float: true
-    toc_depth: 2
+    toc_depth: 3
     code_folding: show
 date: "`r doc_date()`"
 package: "`r pkg_ver('biocthis')`"
@@ -44,27 +45,39 @@ cite_options(hyperlink = "to.doc", citation_format = "text", style = "html")
 bib <- c(
     R = citation(),
     BiocStyle = citation("BiocStyle")[1],
+    biocthis = citation("biocthis")[1],
+    covr = citation("covr")[1],
+    devtools = citation("devtools")[1],
+    fs = citation("fs")[1],
+    glue = citation("glue")[1],
+    here = citation("here")[1],
     knitcitations = citation("knitcitations")[1],
-    knitr = citation("knitr")[3],
+    knitr = citation("knitr")[1],
+    pkgdown = citation("pkgdown")[1],
+    rlang = citation("rlang")[1],
     rmarkdown = citation("rmarkdown")[1],
     sessioninfo = citation("sessioninfo")[1],
+    styler = citation("styler")[1],
     testthat = citation("testthat")[1],
-    biocthis = citation("biocthis")[1]
+    usethis = citation("usethis"),
+    withr = citation("withr")[1]
 )
 
 write.bibtex(bib, file = "biocthis.bib")
 ```
 
+Note that `r Githubpkg("lcolladotor/biocthis")` is not a Bioconductor-core package and as such it is not a Bioconductor official package. It was made by and for Leonardo Collado-Torres so he could more easily maintain and create Bioconductor packages as listed at [lcolladotor.github.io/pkgs/](https://lcolladotor.github.io/pkgs/). Hopefully `r Githubpkg("lcolladotor/biocthis")`  will be helpful for you too.
+
 # Basics
 
 ## Install `biocthis`
 
-`R` is an open-source statistical environment which can be easily modified to enhance its functionality via packages. `r Biocpkg('biocthis')` is a `R` package available via the [Bioconductor](http://bioconductor/packages/biocthis) repository for packages. `R` can be installed on any operating system from [CRAN](https://cran.r-project.org/) after which you can install `r Biocpkg('biocthis')` by using the following commands in your `R` session:
+`R` is an open-source statistical environment which can be easily modified to enhance its functionality via packages. `r Githubpkg("lcolladotor/biocthis")` is a `R` package available via the [Bioconductor](http://bioconductor.org) repository for packages. `R` can be installed on any operating system from [CRAN](https://cran.r-project.org/) after which you can install `r Githubpkg("lcolladotor/biocthis")` by using the following commands in your `R` session:
 
-```{r 'installDer', eval = FALSE}
+```{r "install", eval = FALSE}
 if (!requireNamespace("BiocManager", quietly = TRUE)) {
-    install.packages("BiocManager")
-}
+      install.packages("BiocManager")
+  }
 
 BiocManager::install("biocthis")
 
@@ -74,7 +87,7 @@ BiocManager::valid()
 
 ## Required knowledge
 
-`r Biocpkg('biocthis')` is based on many other packages and in particular in those that have implemented the infrastructure needed for dealing with RNA-seq data (EDIT!). That is, packages like `r Biocpkg('SummarizedExperiment')` (EDIT!).
+`r Githubpkg("lcolladotor/biocthis")` is based on many other packages and in particular in those that have implemented the infrastructure needed for creating tidyverse-style R packages. That is `r CRANpkg("usethis")` `r citep(bib[["usethis"]])`, `r CRANpkg("devtools")` `r citep(bib[["devtools"]])`, and `r CRANpkg("testthat")` `r citep(bib[["testthat"]])`. It will also be helpful if you are familiar with `r CRANpkg("styler")` `r citep(bib[["styler"]])`. Finally, we highly recommend that you run `r Githubpkg("lcolladotor/biocthis")` within [RStudio Desktop](https://www.rstudio.com/products/rstudio/download).
 
 If you are asking yourself the question "Where do I start using Bioconductor?" you might be interested in [this blog post](http://lcolladotor.github.io/2014/10/16/startbioc/#.VkOKbq6rRuU).
 
@@ -82,42 +95,243 @@ If you are asking yourself the question "Where do I start using Bioconductor?" y
 
 As package developers, we try to explain clearly how to use our packages and in which order to use the functions. But `R` and `Bioconductor` have a steep learning curve so it is critical to learn where to ask for help. The blog post quoted above mentions some but we would like to highlight the [Bioconductor support site](https://support.bioconductor.org/) as the main resource for getting help: remember to use the `biocthis` tag and check [the older posts](https://support.bioconductor.org/t/biocthis/). Other alternatives are available such as creating GitHub issues and tweeting. However, please note that if you want to receive help you should adhere to the [posting guidelines](http://www.bioconductor.org/help/support/posting-guide/). It is particularly critical that you provide a small reproducible example and your session information so package developers can track down the source of the error.
 
-## Citing `r Biocpkg('biocthis')`
+## Citing `biocthis`
 
-We hope that `r Biocpkg('biocthis')` will be useful for your research. Please use the following information to cite the package and the overall approach. Thank you!
+We hope that `r Githubpkg("lcolladotor/biocthis")` will be useful for your work. Please use the following information to cite the package and the overall approach. Thank you!
 
-```{r 'citation'}
+```{r "citation"}
 ## Citation info
 citation("biocthis")
 ```
 
+
 # Quick start to using to `biocthis`
 
-```{r 'start', message=FALSE}
+`r Githubpkg("lcolladotor/biocthis")` is an R package that expands `r CRANpkg("usethis")` with Bioconductor-friendly templates. These templates will help you quickly create an R package that either has Bioconductor dependencies or that you are thinking of submitting to Bioconductor one day. `r Githubpkg("lcolladotor/biocthis")`  has functions that can also enhance your current R packages that either are already distributed by Bioconductor or have Bioconductor dependencies. `r Githubpkg("lcolladotor/biocthis")` also includes a Bioconductor-friendly [GitHub Actions](https://github.com/features/actions) workflow for your R package(s). To use the functions in this package, you need to load it.
+
+```{r "start", message=FALSE}
 library("biocthis")
+
+## Load other R packages used in this vignette
+library("usethis")
+library("styler")
+library("withr")
 ```
 
-Edit this as you see fit =)
+## Using `biocthis` in your R package
 
-Here is an example of you can cite your package inside the vignette:
+If you haven't made an R package yet, you can do so using `r CRANpkg("usethis")`. That is, utilize `usethis::create_package()` with the package name of your choice. If you are using [RStudio Desktop](https://www.rstudio.com/products/rstudio/download) this function will open a new RStudio window and open R in the correct location. Otherwise, you might need to use `setwd()` to change directories. In this example we use `withr::with_dir()` to work on a temporary directory and create an example package called `biocthisexample`.
 
-* `biocthis` `r citep(bib[['biocthis']])`
+```{r 'create_example_pkg'}
+## Set the package name
+pkgname <- "biocthisexample"
 
+## Create the example package in a temporary location
+withr::with_dir(tempdir(), {
+    usethis::create_package(pkgname)
+})
+
+## Save the path to our temporary package for the rest of the examples
+pkgdir <- file.path(tempdir(), pkgname)
+```
+
+Once you have created a package, you can use `use_bioc_pkg_templates()` to create a set of scripts in the `dev` (developer) directory.
+
+```{r 'create_dev'}
+## Create the bioc templates
+withr::with_dir(pkgdir, {
+    biocthis::use_bioc_pkg_templates()
+})
+```
+
+If you run `use_bioc_pkg_templates()` inside RStudio Desktop, then all the scripts will open on your RStudio window. Each script contains comments that will guide you on the steps you need to do to create your Bioconductor-friendly R package. These scripts are:
+
+* `01_create_pkg.R`
+  - Helps you install R packages needed for developing R packages with these template scripts.
+  - Helps you check if the R package name you chose is available.
+  - Includes the steps up to running `use_bioc_pkg_templates()`.
+* `02_git_github_setup.R`
+  - Ignores the `*.Rproj` files to comply with Bioconductor's requirements
+  - Initializes a git repository
+  - Creates the corresponding GitHub repository
+* `03_core_files.R`
+  - Creates Bioconductor-friendly `README.Rmd` and `NEWS.md` files
+  - Creates Bioconductor-friendly GitHub template for issues
+  - Uses the tidyverse-style GitHub contributing and code of conduct files
+  - Creates a template Bioconductor-friendly `CITATION` file
+  - Adds several badges to the `README.Rmd` file
+  - Sets up unit tests using `r CRANpkg("testthat")` `r citep(bib[["testthat"]])`
+  - Adds a Bioconductor-friendly GitHub Actions workflow
+  - Deploys an initial documentation website using `r CRANpkg("pkgdown")` `r citep(bib[["pkgdown"]])`
+* `04_update.R`
+  - Automatically styles the R code in your package using `r CRANpkg("styler")` `r citep(bib[["styler"]])`
+  - Update the documentation file using `r CRANpkg("devtools")` `r citep(bib[["devtools"]])`
+  
+Many of these steps are powered by `r CRANpkg("usethis")` `r citep(bib[["usethis"]])` with some of them utilizing `r Githubpkg("lcolladotor/biocthis")` `r citep(bib[["biocthis"]])`.
+
+## `biocthis` functions overview
+
+The `dev` scripts use the different functions provided by `r Githubpkg("lcolladotor/biocthis")` in the suggested order. However, below we give a brief overview of what they do.
+
+### `bioc_style()`
+
+`bioc_style()` helps you automatically apply a coding style to your R package files using `r CRANpkg("styler")` `r citep(bib[["styler"]])` that is based on the [tidyverse coding style guide](https://style.tidyverse.org/) but modified to make it more similar to the [Bioconductor coding style guide](http://bioconductor.org/developers/how-to/coding-style/).
+
+```{r 'style_code'}
+## Automatically style the example package
+withr::with_dir(pkgdir, {
+    styler::style_pkg(transformers = biocthis::bioc_style())
+})
+```
+
+### `use_bioc_citation()`
+
+`use_bioc_citation()` creates an R package `CITATION` file at `inst/CITATION` that is pre-populated with information you might want to use for your (future) Bioconductor package such as the Bioconductor DOIs and reference a journal article describing your package (that you might consider submitting to [bioRxiv](https://www.biorxiv.org/) as a pre-print first). Alternatively, use `usethis::use_citation()`.
+
+```{r 'bioc_citation'}
+## Create a template CITATION file that is Bioconductor-friendly
+withr::with_dir(pkgdir, {
+    biocthis::use_bioc_citation()
+})
+```
+
+### `use_bioc_description()`
+
+`use_bioc_description()` creates an R package `DESCRIPTION` file that is pre-populated with information you might want to use for your (future) Bioconductor package such as links to the Bioconductor Support Website and `biocViews`. You will still need to manually edit the file. Alternatively, use `usethis::use_description()`.
+
+```{r 'bioc_description'}
+## Setup up git
+withr::with_dir(pkgdir, {
+    usethis::use_git()
+})
+
+## Create a template DESCRIPTION file that is Bioconductor-friendly
+withr::with_dir(pkgdir, {
+    biocthis::use_bioc_description()
+})
+```
+
+### `use_bioc_github_action()`
+
+`use_bioc_github_action()` creates a GitHub Actions workflow file that is configured to be Bioconductor-friendly. Alternatively, use `usethis::use_github_action()` for the general GitHub Actions workflow maintained by `r-lib/actions` or `usethis::use_github_action("check-bioc", "https://bit.ly/biocthis_gha")` without having to install `r Githubpkg("lcolladotor/biocthis")`. We highly recommend that you watch [Jim Hester's `rstudio::conf(2020)` talk on this subject](https://www.jimhester.com/talk/2020-rsc-github-actions/).
+
+```{r 'bioc_github_action'}
+## Create a GitHub Actions workflow that is Bioconductor-friendly
+withr::with_dir(pkgdir, {
+    biocthis::use_bioc_github_action()
+})
+```
+
+This [GitHub Actions](https://github.com/features/actions) (GHA) workflow is based on [r-lib/actions//examples/check-standard.yaml](https://github.com/r-lib/actions/blob/master/examples/check-standard.yaml) and others. The goal is to provide on demand `R CMD check`s on Linux, macOS and Windows using a similar setup to Bioconductor-devel and release branches. Some key features that make this GHA workflow Bioconductor-friendly are:
+
+* It runs `R CMD check` on the same platforms (Linux, macOS and Windows) that Bioconductor supports.
+* It runs `BiocCheck::BiocCheck()` on all platforms.
+* This workflow (in theory) does not need to be modified as Bioconductor and R versions are tested over time (R has a yearly release cycle, Bioconductor has a six month cycle). That is, this workflow automatically detects the correct R and Bioconductor versions to use depending on whether you are working on the `master` or `RELEASE_X_Y` git branches (`RELEASE_3_11` for example).
+* It uses the [Bioconductor devel and release dockers](https://www.bioconductor.org/help/docker/) to test your package on Linux. Since all system dependencies required by Bioconductor packages are already included in these docker images, it's unlikely that you'll need to fiddle with Linux system dependencies. The information on the docker image is then used for configuring the macOS and Windows tests.
+
+Furthermore, this GHA workflow provides the following features:
+
+* It runs `r CRANpkg("covr")` `r citep(bib[["covr"]])` unless disabled by the environment variable `run_covr` (see the first few lines of the workflow).
+* It automatically deploys a documentation website using `r CRANpkg("pkgdown")` `r citep(bib[["pkgdown"]])` unless disabled by the environment variable `run_pkgdown` (see the first few lines of the workflow).
+* It display the information from `r CRANpkg("testthat")` `r citep(bib[["testthat"]])` unless disabled by the environment variable `has_testthat` (see the first few lines of the workflow).
+* It caches the R packages and re-uses them for future tests except if you use the keyword `/nocache` in your commit message. The caches are specific to the platform, the R version, the Bioconductor version number, and whether you are working on Bioconductor-devel or release (for example, Bioc-devel was 3.11 with R 4.0 before April 2020 and for the next 6 months was Bioc-release with the same version numbers).
+
+Using a GitHub Actions workflow with Bioconductor-devel (R-devel six months in the year), regardless of which one you use specifically, can expose you to issues with installing R packages in the latest versions of Bioconductor, CRAN, GitHub and elsewhere. You might have to ask for help in:
+
+* developer-oriented mailing lists,
+* GitHub repositories for the packages you have issues installing them with, 
+* GitHub Actions repositories, and elsewhere.
+
+That is, the GHA workflow provided by `r Githubpkg("lcolladotor/biocthis")` can break depending on changes upstream of it. In particular, it can stop working:
+
+* just prior to a new R release (unless `r-lib/actions` supports R `alpha` releases),
+* if the required Bioconductor docker image is not available (for example, due to issues building these images based on dependencies on `rocker` and other upstream tools).
+
+If you are interested in learning more details about how this GHA workflow came to be, check the `biocthis developer notes` vignette. We also highly recommend watching any developments as they happen at `r Githubpkg("r-lib/actions")`.
+
+### `use_bioc_issue_template()`
+
+`use_bioc_issue_template()` creates a GitHub issue template file that is pre-populated with information you might want to use for your (future) Bioconductor package such as links to the Bioconductor Support Website and examples of the information you can ask users to provide that will make it easier for you to help your users. Alternatively, use `usethis::use_tidy_issue_template()`.
+
+```{r 'bioc_issue'}
+## Create a template GitHub issue file that is Bioconductor-friendly
+withr::with_dir(pkgdir, {
+    biocthis::use_bioc_issue_template()
+})
+```
+
+### `use_bioc_news_md()`
+
+`use_bioc_news_md()` creates a `NEWS.md` template file that is pre-populated with information you might want to use for your (future) Bioconductor package. Alternatively, use `usethis::use_news_md()`.
+
+```{r 'bioc_news'}
+## Create a template NEWS.md file that is Bioconductor-friendly
+withr::with_dir(pkgdir, {
+    biocthis::use_bioc_news_md()
+})
+```
+
+### `use_bioc_pkg_templates()`
+
+This function was already described in detail in the previous main section.
+
+### `use_bioc_readme_rmd()`
+
+`use_bioc_readme_rmd()` creates a `README.Rmd` template file that is pre-populated with information you might want to use for your (future) Bioconductor package such as Bioconductor's installation instructions, how to cite your package and links to the development tools you used. Alternatively, use `usethis::use_readme_rmd()`.
+
+```{r 'bioc_readme_rmd'}
+## Create a template README.Rmd file that is Bioconductor-friendly
+withr::with_dir(pkgdir, {
+    biocthis::use_bioc_readme_rmd()
+})
+```
+
+### `use_bioc_support()`
+
+`use_bioc_support()` creates a template GitHub support template file that is pre-populated with information you might want to use for your (future) Bioconductor package such where to ask for help including the Bioconductor Support website. Alternatively, use `usethis::use_tidy_support()`.
+
+```{r 'bioc_support'}
+## Create a template GitHub support file that is Bioconductor-friendly
+withr::with_dir(pkgdir, {
+    biocthis::use_bioc_support()
+})
+```
+
+### `use_bioc_vignette()`
+
+`use_bioc_vignette()` creates a template vignette file that is pre-populated with information you might want to use for your (future) Bioconductor package. This template includes information on how to cite other packages using `r CRANpkg("knitcitations")`, styling your vignette with `r Biocpkg("BiocStyle")`, instructions on how to install your package from Bioconductor, where to ask for help, information a user might need to know before they use your package, as well as the reproducibility information on how the vignette was made powered by `r CRANpkg("sessioninfo")`. You will need to spend a significant amount of time editing this vignette as you develop your R package. Alternatively, use `usethis::use_vignette()`.
+
+```{r 'bioc_vignette'}
+## Create a template vignette file that is Bioconductor-friendly
+withr::with_dir(pkgdir, {
+    biocthis::use_bioc_vignette(pkgname, paste("Introduction to", pkgname))
+})
+```
 
 
 # Reproducibility
 
-The `r Biocpkg('biocthis')` package `r citep(bib[['biocthis']])` was made possible thanks to:
+The `r Githubpkg("lcolladotor/biocthis")` package `r citep(bib[["biocthis"]])` was made possible thanks to:
 
-* R `r citep(bib[['R']])`
-* `r Biocpkg('BiocStyle')` `r citep(bib[['BiocStyle']])`
-* `r CRANpkg('knitcitations')` `r citep(bib[['knitcitations']])`
-* `r CRANpkg('knitr')` `r citep(bib[['knitr']])`
-* `r CRANpkg('rmarkdown')` `r citep(bib[['rmarkdown']])`
-* `r CRANpkg('sessioninfo')` `r citep(bib[['sessioninfo']])`
-* `r CRANpkg('testthat')` `r citep(bib[['testthat']])`
+* R `r citep(bib[["R"]])`
+* `r Biocpkg("BiocStyle")` `r citep(bib[["BiocStyle"]])`
+* `r CRANpkg("covr")` `r citep(bib[["covr"]])`
+* `r CRANpkg("devtools")` `r citep(bib[["devtools"]])`
+* `r CRANpkg("fs")` `r citep(bib[["fs"]])`
+* `r CRANpkg("glue")` `r citep(bib[["glue"]])`
+* `r CRANpkg("here")` `r citep(bib[["here"]])`
+* `r CRANpkg("knitcitations")` `r citep(bib[["knitcitations"]])`
+* `r CRANpkg("knitr")` `r citep(bib[["knitr"]])`
+* `r CRANpkg("pkgdown")` `r citep(bib[["pkgdown"]])`
+* `r CRANpkg("rlang")` `r citep(bib[["rlang"]])`
+* `r CRANpkg("rmarkdown")` `r citep(bib[["rmarkdown"]])`
+* `r CRANpkg("sessioninfo")` `r citep(bib[["sessioninfo"]])`
+* `r CRANpkg("styler")` `r citep(bib[["styler"]])`
+* `r CRANpkg("testthat")` `r citep(bib[["testthat"]])`
+* `r CRANpkg("usethis")` `r citep(bib[["usethis"]])`
+* `r CRANpkg("withr")` `r citep(bib[["withr"]])`
 
-This package was developed using `r BiocStyle::Githubpkg('lcolladotor/biocthis')`.
+This package was developed using `r BiocStyle::Githubpkg("lcolladotor/biocthis")`.
 
 
 Code for creating the vignette
@@ -165,12 +379,12 @@ session_info()
 
 # Bibliography
 
-This vignette was generated using `r Biocpkg('BiocStyle')` `r citep(bib[['BiocStyle']])`
-with `r CRANpkg('knitr')` `r citep(bib[['knitr']])` and `r CRANpkg('rmarkdown')` `r citep(bib[['rmarkdown']])` running behind the scenes.
+This vignette was generated using `r Biocpkg("BiocStyle")` `r citep(bib[["BiocStyle"]])`
+with `r CRANpkg("knitr")` `r citep(bib[["knitr"]])` and `r CRANpkg("rmarkdown")` `r citep(bib[["rmarkdown"]])` running behind the scenes.
 
-Citations made with `r CRANpkg('knitcitations')` `r citep(bib[['knitcitations']])`.
+Citations made with `r CRANpkg("knitcitations")` `r citep(bib[["knitcitations"]])`.
 
-```{r vignetteBiblio, results = 'asis', echo = FALSE, warning = FALSE, message = FALSE}
+```{r vignetteBiblio, results = "asis", echo = FALSE, warning = FALSE, message = FALSE}
 ## Print bibliography
 bibliography()
 ```

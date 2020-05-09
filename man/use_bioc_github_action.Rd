@@ -2,7 +2,7 @@
 % Please edit documentation in R/use_bioc_github_action.R
 \name{use_bioc_github_action}
 \alias{use_bioc_github_action}
-\title{Create a biocthis-style GitHub action workflow}
+\title{Create a biocthis-style GitHub Actions workflow}
 \usage{
 use_bioc_github_action()
 }
@@ -13,16 +13,41 @@ This function adds and/or replaces the
 \description{
 This function is very similar to \code{usethis::use_github_action()} except
 that it uses a template from \code{biocthis}. It creates a Bioconductor-friendly
-GitHub action workflow for your package.
+GitHub action workflow for your package. You can also use this GitHub
+Actions workflow by executing
+\code{usethis::use_github_action("check-bioc", "https://bit.ly/biocthis_gha")}
+without having to install \code{biocthis}.
 }
 \details{
-For the full history on how this GitHub actions workflow came to be, check
-\url{https://github.com/r-lib/actions/issues/84}.
+For the full history on how this GitHub Actions workflow came to be, check
+the "biocthis developer notes" vignette.
 }
 \examples{
 
 \dontrun{
+## Run this function in your package
 biocthis::use_bioc_github_action()
+
+## You can also use this GitHub Actions workflow without installing biocthis
+## by running:
+usethis::use_github_action("check-bioc", "https://bit.ly/biocthis_gha")
 }
 
+## Here's an example with a temporary package
+
+## Set the package name
+pkgname <- "biocthisexample"
+
+## Create the example package in a temporary location
+withr::with_dir(tempdir(), {
+    usethis::create_package(pkgname)
+})
+
+## Save the path to our temporary package for the rest of the examples
+pkgdir <- file.path(tempdir(), pkgname)
+
+## Create a GitHub Actions workflow that is Bioconductor-friendly
+withr::with_dir(pkgdir, {
+    biocthis::use_bioc_github_action()
+})
 }

@@ -23,7 +23,26 @@ posts.](http://www.bioconductor.org/shields/posts/biocthis.svg)](https://support
 issues](https://img.shields.io/github/issues/lcolladotor/biocthis)](https://github.com/lcolladotor/biocthis/issues)
 <!-- badges: end -->
 
-The goal of `biocthis` is to …
+*[biocthis](https://github.com/lcolladotor/biocthis)* is an R package
+that expands *[usethis](https://CRAN.R-project.org/package=usethis)*
+with Bioconductor-friendly templates. These templates will help you
+quickly create an R package that either has Bioconductor dependencies or
+that you are thinking of submitting to Bioconductor one day.
+*[biocthis](https://github.com/lcolladotor/biocthis)* has functions that
+can also enhance your current R packages that either are already
+distributed by Bioconductor or have Bioconductor dependencies.
+*[biocthis](https://github.com/lcolladotor/biocthis)* also includes a
+Bioconductor-friendly [GitHub
+Actions](https://github.com/features/actions) workflow for your R
+package(s). To use the functions in this package, you need to load it.
+
+Note that *[biocthis](https://github.com/lcolladotor/biocthis)* is not a
+Bioconductor-core package and as such it is not a Bioconductor official
+package. It was made by and for Leonardo Collado-Torres so he could more
+easily maintain and create Bioconductor packages as listed at
+[lcolladotor.github.io/pkgs/](https://lcolladotor.github.io/pkgs/).
+Hopefully *[biocthis](https://github.com/lcolladotor/biocthis)* will be
+helpful for you too.
 
 ## Installation instructions
 
@@ -47,36 +66,82 @@ BiocManager::install("lcolladotor/biocthis")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Here is how you can use
+*[biocthis](https://github.com/lcolladotor/biocthis)* to create a new
+Bioconductor-friendly R package (illustrated using a temporary
+directory):
 
 ``` r
+## Load biocthis
 library("biocthis")
-## basic example code
+
+## Set the package name
+pkgname <- "biocthisexample"
+
+## Create the example package in a temporary location
+withr::with_dir(tempdir(), {
+    usethis::create_package(pkgname)
+})
+#> ✓ Creating 'biocthisexample/'
+#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/Rtmpnd4264/biocthisexample'
+#> ✓ Creating 'R/'
+#> ✓ Writing 'DESCRIPTION'
+#> Package: biocthisexample
+#> Title: What the Package Does (One Line, Title Case)
+#> Version: 0.0.0.9000
+#> Authors@R (parsed):
+#>     * First Last <first.last@example.com> [aut, cre] (YOUR-ORCID-ID)
+#> Description: What the package does (one paragraph).
+#> License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+#>     license
+#> Encoding: UTF-8
+#> LazyData: true
+#> Roxygen: list(markdown = TRUE)
+#> RoxygenNote: 7.1.0
+#> ✓ Writing 'NAMESPACE'
+#> ✓ Setting active project to '<no active project>'
+
+## Save the path to our temporary package for the rest of the examples
+pkgdir <- file.path(tempdir(), pkgname)
+
+## Create the bioc templates
+withr::with_dir(pkgdir, {
+    biocthis::use_bioc_pkg_templates()
+})
+#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/Rtmpnd4264/biocthisexample'
+#> ✓ Creating 'dev/'
+#> ✓ Adding '^dev$' to '.Rbuildignore'
+#> ✓ Writing 'dev/01_create_pkg.R'
+#> ✓ Writing 'dev/02_git_github_setup.R'
+#> ✓ Writing 'dev/03_core_files.R'
+#> ✓ Writing 'dev/04_update.R'
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+The template `dev` scripts include comments and steps you can follow for
+making your Bioconductor-friendly R package or updating a current
+package. In particular, you might want to use a Bioconductor-friendly
+GitHub Actions workflow. If this is your first time seeings this words,
+we highly recommend that you watch [Jim Hester’s `rstudio::conf(2020)`
+talk on this
+subject](https://www.jimhester.com/talk/2020-rsc-github-actions/).
 
 ``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+## Create a GitHub Actions workflow that is Bioconductor-friendly
+withr::with_dir(pkgdir, {
+    biocthis::use_bioc_github_action()
+})
+#> ✓ Creating '.github/'
+#> ✓ Adding '^\\.github$' to '.Rbuildignore'
+#> ✓ Adding '*.html' to '.github/.gitignore'
+#> ✓ Creating '.github/workflows/'
+#> ✓ Writing '.github/workflows/check-bioc.yml'
 ```
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date.
-
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub\!
+Alternatively, use `usethis::use_github_action()` for the general GitHub
+Actions workflow maintained by `r-lib/actions` or
+`usethis::use_github_action("check-bioc",
+"https://bit.ly/biocthis_gha")` without having to install
+*[biocthis](https://github.com/lcolladotor/biocthis)*.
 
 ## Citation
 
@@ -127,8 +192,8 @@ the vignettes and/or the paper(s) describing this package.
 
 ## Code of Conduct
 
-Please note that the derfinderPlot project is released with a
-[Contributor Code of
+Please note that the `biocthis` project is released with a [Contributor
+Code of
 Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
 By contributing to this project, you agree to abide by its terms.
 
@@ -146,8 +211,8 @@ By contributing to this project, you agree to abide by its terms.
   - Code coverage assessment is possible thanks to
     [codecov](https://codecov.io/gh) and
     *[covr](https://CRAN.R-project.org/package=covr)*.
-  - The [documentation website](http://.github.io/biocthis) is
-    automatically updated thanks to
+  - The [documentation website](http://.github.io/lcolladotor/biocthis)
+    is automatically updated thanks to
     *[pkgdown](https://CRAN.R-project.org/package=pkgdown)*.
   - The code is styled automatically thanks to
     *[styler](https://CRAN.R-project.org/package=styler)*.

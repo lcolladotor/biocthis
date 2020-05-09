@@ -25,9 +25,32 @@
 #' @examples
 #'
 #' \dontrun{
+#' ## Run this function in your package
 #' use_bioc_description()
 #' }
 #'
+#' ## Here's an example with a temporary package
+#'
+#' ## Set the package name
+#' pkgname <- "biocthisexample"
+#'
+#' ## Create the example package in a temporary location
+#' withr::with_dir(tempdir(), {
+#'     usethis::create_package(pkgname)
+#' })
+#'
+#' ## Save the path to our temporary package for the rest of the examples
+#' pkgdir <- file.path(tempdir(), pkgname)
+#'
+#' ## Setup up git
+#' withr::with_dir(pkgdir, {
+#'     usethis::use_git()
+#' })
+#'
+#' ## Create a template DESCRIPTION file that is Bioconductor-friendly
+#' withr::with_dir(pkgdir, {
+#'     biocthis::use_bioc_description()
+#' })
 use_bioc_description <- function(biocViews = "Software") {
     stopifnot(length(biocViews) == 1)
     pkg <- basename(here::here())

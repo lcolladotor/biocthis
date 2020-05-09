@@ -33,9 +33,28 @@
 #' @examples
 #'
 #' \dontrun{
+#' ## Run these functions in your package
 #' styler::style_pkg(transformers = biocthis::bioc_style())
 #' styler::style_dir(here::here("dev"), transformers = biocthis::bioc_style())
 #' }
+#'
+#' ## Here's an example with a temporary package
+#'
+#' ## Set the package name
+#' pkgname <- "biocthisexample"
+#'
+#' ## Create the example package in a temporary location
+#' withr::with_dir(tempdir(), {
+#'     usethis::create_package(pkgname)
+#' })
+#'
+#' ## Save the path to our temporary package for the rest of the examples
+#' pkgdir <- file.path(tempdir(), pkgname)
+#'
+#' ## Automatically style the example package
+#' withr::with_dir(pkgdir, {
+#'     styler::style_pkg(transformers = biocthis::bioc_style())
+#' })
 bioc_style <- function(indent_by = 4, ...) {
     bioc_style <- styler::tidyverse_style(indent_by = indent_by, ...)
     bioc_style$indention$update_indention_ref_fun_dec <-

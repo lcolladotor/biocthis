@@ -22,10 +22,28 @@
 #' @examples
 #'
 #' \dontrun{
+#' ## Run this function in your package
 #' pkg <- basename(here::here())
 #' biocthis::use_bioc_vignette(pkg, paste("Introduction to", pkg))
 #' }
 #'
+#' ## Here's an example with a temporary package
+#'
+#' ## Set the package name
+#' pkgname <- "biocthisexample"
+#'
+#' ## Create the example package in a temporary location
+#' withr::with_dir(tempdir(), {
+#'     usethis::create_package(pkgname)
+#' })
+#'
+#' ## Save the path to our temporary package for the rest of the examples
+#' pkgdir <- file.path(tempdir(), pkgname)
+#'
+#' ## Create a template vignette file that is Bioconductor-friendly
+#' withr::with_dir(pkgdir, {
+#'     biocthis::use_bioc_vignette(pkgname, paste("Introduction to", pkgname))
+#' })
 use_bioc_vignette <- function(name, title = name) {
     usethis:::check_vignette_name(name)
     use_package("knitr", "Suggests")
