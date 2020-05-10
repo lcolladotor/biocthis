@@ -9,6 +9,16 @@
 ## or
 ## > usethis::use_github_action("check-bioc", "https://bit.ly/biocthis_gha")
 ## without having to install biocthis.
+##
+## Using GitHub Actions exposes you to many details about how R packages are
+## compiled and installed in several operating system.s
+### If you need help, please follow the steps listed at
+## https://github.com/r-lib/actions#where-to-find-help
+##
+## If you found an issue specific to biocthis's GHA workflow, please report it
+## with the information that will make it easier for others to help you.
+## Thank you!
+
 
 
 ## Acronyms:
