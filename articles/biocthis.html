@@ -167,14 +167,14 @@
 <h2 class="hasAnchor">
 <a href="#using-biocthis-in-your-r-package" class="anchor"></a>Using <code>biocthis</code> in your R package</h2>
 <p>If you haven’t made an R package yet, you can do so using <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em>. That is, utilize <code><a href="https://usethis.r-lib.org/reference/create_package.html">usethis::create_package()</a></code> with the package name of your choice. If you are using <a href="https://www.rstudio.com/products/rstudio/download">RStudio Desktop</a> this function will open a new RStudio window and open R in the correct location. Otherwise, you might need to use <code><a href="https://rdrr.io/r/base/getwd.html">setwd()</a></code> to change directories.</p>
-<p>In this vignette we will create an example package called <code>biocthispkg</code> on a temporary directory and work in this directory using <code><a href="https://usethis.r-lib.org/reference/proj_utils.html">usethis::local_project()</a></code> in order to illustrate how the functions work. In a real world scenario, you would not use <code><a href="https://usethis.r-lib.org/reference/proj_utils.html">usethis::local_project()</a></code> yourself and instead you would be working inside your R package.</p>
+<p>In this vignette we will create an example package called <code>biocthispkg</code> on a temporary directory and work in this directory using <code><a href="https://usethis.r-lib.org/reference/proj_utils.html">usethis::proj_set()</a></code> in order to illustrate how the functions work. In a real world scenario, you would be working inside your R package and thus you wouldn’t need to run <code><a href="https://usethis.r-lib.org/reference/proj_utils.html">usethis::proj_set()</a></code>.</p>
 <div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="co">## Set the package name on a temporary directory</span>
 <span class="no">pkgdir</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>(), <span class="st">"biocthispkg"</span>)
 
 <span class="co">## Create the example package in a temporary location</span>
 <span class="kw pkg">usethis</span><span class="kw ns">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/create_package.html">create_package</a></span>(<span class="no">pkgdir</span>)
-<span class="co">#&gt; ✔ Creating '/tmp/RtmpjsXTKC/biocthispkg/'</span>
-<span class="co">#&gt; ✔ Setting active project to '/tmp/RtmpjsXTKC/biocthispkg'</span>
+<span class="co">#&gt; ✔ Creating '/tmp/RtmpyUg9xJ/biocthispkg/'</span>
+<span class="co">#&gt; ✔ Setting active project to '/tmp/RtmpyUg9xJ/biocthispkg'</span>
 <span class="co">#&gt; ✔ Creating 'R/'</span>
 <span class="co">#&gt; ✔ Writing 'DESCRIPTION'</span>
 <span class="co">#&gt; Package: biocthispkg</span>
@@ -194,7 +194,7 @@
 
 <span class="co">## Set the project to use for the examples</span>
 <span class="kw pkg">usethis</span><span class="kw ns">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/proj_utils.html">proj_set</a></span>(<span class="no">pkgdir</span>)
-<span class="co">#&gt; ✔ Setting active project to '/tmp/RtmpjsXTKC/biocthispkg'</span></pre></body></html></div>
+<span class="co">#&gt; ✔ Setting active project to '/tmp/RtmpyUg9xJ/biocthispkg'</span></pre></body></html></div>
 <p>Once you have created a package, you can use <code><a href="../reference/use_bioc_pkg_templates.html">use_bioc_pkg_templates()</a></code> to create a set of scripts in the <code>dev</code> (developer) directory.</p>
 <div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="co">## Create the bioc templates</span>
 <span class="kw pkg">biocthis</span><span class="kw ns">::</span><span class="fu"><a href="../reference/use_bioc_pkg_templates.html">use_bioc_pkg_templates</a></span>()
@@ -473,9 +473,9 @@
 <span class="fu"><a href="https://rdrr.io/r/base/files.html">file.remove</a></span>(<span class="st">"biocthis.bib"</span>)
 <span class="co">#&gt; [1] TRUE</span></pre></body></html></div>
 <p>Date the vignette was generated.</p>
-<pre><code>#&gt; [1] "2020-05-10 04:43:59 UTC"</code></pre>
+<pre><code>#&gt; [1] "2020-05-10 04:45:15 UTC"</code></pre>
 <p>Wallclock time spent generating the vignette.</p>
-<pre><code>#&gt; Time difference of 2.132 secs</code></pre>
+<pre><code>#&gt; Time difference of 1.741 secs</code></pre>
 <p><code>R</code> session information.</p>
 <pre><code>#&gt; ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────
 #&gt;  setting  value                                      
