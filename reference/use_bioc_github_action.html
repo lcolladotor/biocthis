@@ -44,7 +44,7 @@
 that it uses a template from biocthis. It creates a Bioconductor-friendly
 GitHub action workflow for your package. You can also use this GitHub
 Actions workflow by executing
-usethis::use_github_action(&quot;check-bioc&quot;, &quot;https://bit.ly/biocthis_gha&quot;)
+usethis::use_github_action(&quot;check-bioc&quot;, &quot;https://bit.ly/biocthis_gha&quot;, &quot;check-bioc.yml&quot;)
 without having to install biocthis." />
 
 
@@ -141,7 +141,7 @@ without having to install biocthis." />
 that it uses a template from <code>biocthis</code>. It creates a Bioconductor-friendly
 GitHub action workflow for your package. You can also use this GitHub
 Actions workflow by executing
-<code><a href='https://usethis.r-lib.org/reference/use_github_action.html'>usethis::use_github_action("check-bioc", "https://bit.ly/biocthis_gha")</a></code>
+<code><a href='https://usethis.r-lib.org/reference/use_github_action.html'>usethis::use_github_action("check-bioc", "https://bit.ly/biocthis_gha", "check-bioc.yml")</a></code>
 without having to install <code>biocthis</code>.</p>
     </div>
 
@@ -166,7 +166,10 @@ the "biocthis developer notes" vignette
 
 <span class='co'>## You can also use this GitHub Actions workflow without installing biocthis</span>
 <span class='co'>## by running:</span>
-<span class='kw pkg'>usethis</span><span class='kw ns'>::</span><span class='fu'><a href='https://usethis.r-lib.org/reference/use_github_action.html'>use_github_action</a></span>(<span class='st'>"check-bioc"</span>, <span class='st'>"https://bit.ly/biocthis_gha"</span>)
+<span class='kw pkg'>usethis</span><span class='kw ns'>::</span><span class='fu'><a href='https://usethis.r-lib.org/reference/use_github_action.html'>use_github_action</a></span>(
+    <span class='st'>"check-bioc"</span>, <span class='st'>"https://bit.ly/biocthis_gha"</span>,
+    <span class='st'>"check-bioc.yml"</span>
+)
 }
 
 <span class='co'>## Here's an example with a temporary package</span>
