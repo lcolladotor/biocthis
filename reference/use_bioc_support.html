@@ -156,15 +156,11 @@ your R package.</p>
 <span class='fu'>use_bioc_support</span>()
 }
 
-<span class='co'>## Here's an example with a temporary package</span>
-
-<span class='co'>## Set the package name</span>
-<span class='no'>pkgname</span> <span class='kw'>&lt;-</span> <span class='st'>"biocthisexample"</span>
+<span class='co'>## Set the package name on a temporary directory</span>
+<span class='no'>pkgdir</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"biocthisexample"</span>)
 
 <span class='co'>## Create the example package in a temporary location</span>
-<span class='kw pkg'>withr</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/withr/man/with_dir.html'>with_dir</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), {
-    <span class='kw pkg'>usethis</span><span class='kw ns'>::</span><span class='fu'><a href='https://usethis.r-lib.org/reference/create_package.html'>create_package</a></span>(<span class='no'>pkgname</span>)
-})</div><div class='output co'>#&gt; <span class='message'>✔ Leaving 'DESCRIPTION' unchanged</span></div><div class='output co'>#&gt; Package: biocthisexample
+<span class='kw pkg'>usethis</span><span class='kw ns'>::</span><span class='fu'><a href='https://usethis.r-lib.org/reference/create_package.html'>create_package</a></span>(<span class='no'>pkgdir</span>)</div><div class='output co'>#&gt; <span class='message'>✔ Setting active project to '/tmp/Rtmptw7cbC/biocthisexample'</span></div><div class='output co'>#&gt; <span class='message'>✔ Leaving 'DESCRIPTION' unchanged</span></div><div class='output co'>#&gt; Package: biocthisexample
 #&gt; Title: What the Package Does (One Line, Title Case)
 #&gt; Version: 0.0.0.9000
 #&gt; Authors@R (parsed):
@@ -175,14 +171,11 @@ your R package.</p>
 #&gt; Encoding: UTF-8
 #&gt; LazyData: true
 #&gt; Roxygen: list(markdown = TRUE)
-#&gt; RoxygenNote: 7.1.0</div><div class='input'>
-<span class='co'>## Save the path to our temporary package for the rest of the examples</span>
-<span class='no'>pkgdir</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='no'>pkgname</span>)
-
+#&gt; RoxygenNote: 7.1.0</div><div class='output co'>#&gt; <span class='message'>✔ Setting active project to '/tmp/Rtmptw7cbC/file1a775686a00f'</span></div><div class='input'>
+<span class='co'>## Set a local project to work with for the examples</span>
+<span class='kw pkg'>usethis</span><span class='kw ns'>::</span><span class='fu'><a href='https://usethis.r-lib.org/reference/proj_utils.html'>local_project</a></span>(<span class='no'>pkgdir</span>)</div><div class='output co'>#&gt; <span class='message'>✔ Setting active project to '/tmp/Rtmptw7cbC/biocthisexample'</span></div><div class='output co'>#&gt; <span class='message'>✔ Setting active project to '/tmp/Rtmptw7cbC/file1a775686a00f'</span></div><div class='input'>
 <span class='co'>## Create a template GitHub support file that is Bioconductor-friendly</span>
-<span class='kw pkg'>withr</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/withr/man/with_dir.html'>with_dir</a></span>(<span class='no'>pkgdir</span>, {
-    <span class='kw pkg'>biocthis</span><span class='kw ns'>::</span><span class='fu'>use_bioc_support</span>()
-})</div><div class='output co'>#&gt; <span class='message'>✔ Writing '.github/SUPPORT.md'</span></div></pre>
+<span class='kw pkg'>biocthis</span><span class='kw ns'>::</span><span class='fu'>use_bioc_support</span>()</div><div class='output co'>#&gt; <span class='message'>✔ Writing '.github/SUPPORT.md'</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
