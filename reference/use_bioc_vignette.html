@@ -174,7 +174,7 @@ vignette.</p></td>
     <pre class="examples"><div class='input'>
 <span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='co'>## Run this function in your package</span>
-<span class='no'>pkg</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/basename.html'>basename</a></span>(<span class='kw pkg'>here</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/here/man/here.html'>here</a></span>())
+<span class='no'>pkg</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/basename.html'>basename</a></span>(<span class='kw pkg'>usethis</span><span class='kw ns'>::</span><span class='fu'><a href='https://usethis.r-lib.org/reference/proj_utils.html'>proj_get</a></span>())
 <span class='kw pkg'>biocthis</span><span class='kw ns'>::</span><span class='fu'>use_bioc_vignette</span>(<span class='no'>pkg</span>, <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='st'>"Introduction to"</span>, <span class='no'>pkg</span>))
 }
 
