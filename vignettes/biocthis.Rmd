@@ -201,17 +201,24 @@ biocthis::use_bioc_description()
 
 ## `use_bioc_github_action()`
 
-`use_bioc_github_action()` creates a GitHub Actions workflow file that is configured to be Bioconductor-friendly. Alternatively, use `usethis::use_github_action()` for the general GitHub Actions workflow maintained by `r-lib/actions` or `usethis::use_github_action("check-bioc", "https://bit.ly/biocthis_gha")` without having to install `r Githubpkg("lcolladotor/biocthis")`. We highly recommend that you watch [Jim Hester's `rstudio::conf(2020)` talk on this subject](https://www.jimhester.com/talk/2020-rsc-github-actions/).
+`use_bioc_github_action()` creates a GitHub Actions (GHA) workflow file that is configured to be Bioconductor-friendly. Alternatively, use `usethis::use_github_action()` for the general GitHub Actions workflow maintained by `r-lib/actions` or download this GHA workflow without having to install `r Githubpkg("lcolladotor/biocthis")`. If this is your first time seeing the words _GitHub Actions_, we highly recommend that you watch [Jim Hester's `rstudio::conf(2020)` talk on this subject](https://www.jimhester.com/talk/2020-rsc-github-actions/). Here is how you can add this GHA workflow to your R package:
 
 ```{r 'bioc_github_action'}
 ## Create a GitHub Actions workflow that is Bioconductor-friendly
 biocthis::use_bioc_github_action()
+
+## You can also use this GHA workflow without installing biocthis
+usethis::use_github_action(
+    "check-bioc",
+    "https://bit.ly/biocthis_gha",
+    "check-bioc.yml"
+)
 ```
 
 This [GitHub Actions](https://github.com/features/actions) (GHA) workflow is based on [r-lib/actions//examples/check-standard.yaml](https://github.com/r-lib/actions/blob/master/examples/check-standard.yaml) and others. The goal is to provide on demand `R CMD check`s on Linux, macOS and Windows using a similar setup to Bioconductor-devel and release branches. Some key features that make this GHA workflow Bioconductor-friendly are:
 
 * It runs `R CMD check` on the same platforms (Linux, macOS and Windows) that Bioconductor supports.
-* It runs `BiocCheck::BiocCheck()` on all platforms.
+* It runs `BiocCheck::BiocCheck()` on all these platforms, unlike the Bioconductor nightly builds. `r Biocpkg("BiocCheck")` is complementary to `R CMD check` and can help you improve your R package.
 * This workflow (in theory) does not need to be modified as Bioconductor and R versions are tested over time (R has a yearly release cycle, Bioconductor has a six month cycle). That is, this workflow automatically detects the correct R and Bioconductor versions to use depending on whether you are working on the `master` or `RELEASE_X_Y` git branches (`RELEASE_3_11` for example).
 * It uses the [Bioconductor devel and release dockers](https://www.bioconductor.org/help/docker/) to test your package on Linux. Since all system dependencies required by Bioconductor packages are already included in these docker images, it's unlikely that you'll need to fiddle with Linux system dependencies. The information on the docker image is then used for configuring the macOS and Windows tests.
 
@@ -220,9 +227,10 @@ Furthermore, this GHA workflow provides the following features:
 * It runs `r CRANpkg("covr")` `r citep(bib[["covr"]])` unless disabled by the environment variable `run_covr` (see the first few lines of the workflow).
 * It automatically deploys a documentation website using `r CRANpkg("pkgdown")` `r citep(bib[["pkgdown"]])` unless disabled by the environment variable `run_pkgdown` (see the first few lines of the workflow).
 * It display the information from `r CRANpkg("testthat")` `r citep(bib[["testthat"]])` unless disabled by the environment variable `has_testthat` (see the first few lines of the workflow).
-* It caches the R packages and re-uses them for future tests except if you use the keyword `/nocache` in your commit message. The caches are specific to the platform, the R version, the Bioconductor version number, and whether you are working on Bioconductor-devel or release (for example, Bioc-devel was 3.11 with R 4.0 before April 2020 and for the next 6 months was Bioc-release with the same version numbers).
+* It caches the R packages and re-uses them for future tests except if you use the keyword `/nocache` in your commit message. Using `/nocache` can be helpful for debugging purposes. The caches are specific to the platform, the R version, the Bioconductor version number, and whether you are working on Bioconductor-devel or release (for example, Bioc-devel was 3.11 with R 4.0 before April 2020 and for the next 6 months was Bioc-release with the same version numbers). These caches help you speed up your checks.
+* The machines provided by GitHub have 7GB of RAM, 2 cores and 14 GB of disk as noted in their [help pages](https://help.github.com/en/actions/reference/virtual-environments-for-github-hosted-runners). It's free for open source projects, but you can also pay to use it on private repositories as explained [in their features website](https://github.com/features/actions).
 
-Using a GitHub Actions workflow with Bioconductor-devel (R-devel six months in the year), regardless of which one you use specifically, can expose you to issues with installing R packages in the latest versions of Bioconductor, CRAN, GitHub and elsewhere. You might have to ask for help in:
+Using a GitHub Actions workflow with Bioconductor-devel (R-devel six months in the year), regardless of which GHA workflow you use specifically, will expose you to issues with installing R packages in the latest versions of Bioconductor, CRAN, GitHub and elsewhere. At [r-lib/actions#where-to-find-help](https://github.com/r-lib/actions#where-to-find-help) you can find a list of steps you can take to get help for R GHA workflows. In the end, you might have to ask for help in:
 
 * developer-oriented mailing lists,
 * GitHub repositories for the packages you have issues installing them with, 
@@ -233,7 +241,9 @@ That is, the GHA workflow provided by `r Githubpkg("lcolladotor/biocthis")` can 
 * just prior to a new R release (unless `r-lib/actions` supports R `alpha` releases),
 * if the required Bioconductor docker image is not available (for example, due to issues building these images based on dependencies on `rocker` and other upstream tools).
 
-If you are interested in learning more details about how this GHA workflow came to be, check the [`biocthis developer notes` vignette](https://lcolladotor.github.io/biocthis/articles/biocthis_dev_notes.html). We also highly recommend watching any developments as they happen at `r Githubpkg("r-lib/actions")`.
+We highly recommend watching any developments as they happen at `r Githubpkg("r-lib/actions")` since the `r-lib` team does an excellent job keeping their GHA workflows updated. You can do so by subscribing to the [RSS atom feed](https://github.com/r-lib/actions/commits/master.atom) for commits in their repository processed through [RSS FeedBurner](http://feeds.feedburner.com/RecentCommitsToActionsmaster) that you can [subscribe to by email](https://feedburner.google.com/fb/a/mailverify?uri=RecentCommitsToActionsmaster).
+
+If you are interested in learning more details about how this GHA workflow came to be, check the [`biocthis developer notes` vignette](https://lcolladotor.github.io/biocthis/articles/biocthis_dev_notes.html). 
 
 ## `use_bioc_issue_template()`
 
