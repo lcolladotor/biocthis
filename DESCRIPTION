@@ -35,6 +35,5 @@ Suggests:
     rmarkdown,
     sessioninfo,
     testthat,
-    utils,
-    withr
+    utils
 VignetteBuilder: knitr

@@ -30,26 +30,18 @@ original template from \code{usethis::use_readme_rmd()}.
 use_bioc_readme_rmd()
 }
 
-## Here's an example with a temporary package
-
-## Set the package name
-pkgname <- "biocthisexample"
+## Set the package name on a temporary directory
+pkgdir <- file.path(tempdir(), "biocthisexample")
 
 ## Create the example package in a temporary location
-withr::with_dir(tempdir(), {
-    usethis::create_package(pkgname)
-})
+usethis::create_package(pkgdir)
 
-## Save the path to our temporary package for the rest of the examples
-pkgdir <- file.path(tempdir(), pkgname)
+## Set a local project to work with for the examples
+usethis::local_project(pkgdir)
 
 ## Setup up git
-withr::with_dir(pkgdir, {
-    usethis::use_git()
-})
+usethis::use_git()
 
 ## Create a template README.Rmd file that is Bioconductor-friendly
-withr::with_dir(pkgdir, {
-    biocthis::use_bioc_readme_rmd()
-})
+biocthis::use_bioc_readme_rmd()
 }

@@ -59,8 +59,7 @@ bib <- c(
     sessioninfo = citation("sessioninfo")[1],
     styler = citation("styler")[1],
     testthat = citation("testthat")[1],
-    usethis = citation("usethis"),
-    withr = citation("withr")[1]
+    usethis = citation("usethis")[1]
 )
 
 write.bibtex(bib, file = "biocthis.bib")
@@ -115,33 +114,31 @@ library("biocthis")
 ## Load other R packages used in this vignette
 library("usethis")
 library("styler")
-library("withr")
 ```
 
 ## Using `biocthis` in your R package
 
-If you haven't made an R package yet, you can do so using `r CRANpkg("usethis")`. That is, utilize `usethis::create_package()` with the package name of your choice. If you are using [RStudio Desktop](https://www.rstudio.com/products/rstudio/download) this function will open a new RStudio window and open R in the correct location. Otherwise, you might need to use `setwd()` to change directories. In this example we use `withr::with_dir()` to work on a temporary directory and create an example package called `biocthisexample`.
+If you haven't made an R package yet, you can do so using `r CRANpkg("usethis")`. That is, utilize `usethis::create_package()` with the package name of your choice. If you are using [RStudio Desktop](https://www.rstudio.com/products/rstudio/download) this function will open a new RStudio window and open R in the correct location. Otherwise, you might need to use `setwd()` to change directories. 
+
+In this vignette we will create an example package called `biocthisexample` on a temporary directory and work in this directory using `usethis::local_project()` in order to illustrate how the functions work. In a real world scenario, you would not use `usethis::local_project()` yourself and instead you would be working inside your R package.
+
 
 ```{r 'create_example_pkg'}
-## Set the package name
-pkgname <- "biocthisexample"
+## Set the package name on a temporary directory
+pkgdir <- file.path(tempdir(), "biocthisexample")
 
 ## Create the example package in a temporary location
-withr::with_dir(tempdir(), {
-    usethis::create_package(pkgname)
-})
+usethis::create_package(pkgdir)
 
-## Save the path to our temporary package for the rest of the examples
-pkgdir <- file.path(tempdir(), pkgname)
+## Set a local project to work with for the examples
+usethis::local_project(pkgdir)
 ```
 
 Once you have created a package, you can use `use_bioc_pkg_templates()` to create a set of scripts in the `dev` (developer) directory.
 
 ```{r 'create_dev'}
 ## Create the bioc templates
-withr::with_dir(pkgdir, {
-    biocthis::use_bioc_pkg_templates()
-})
+biocthis::use_bioc_pkg_templates()
 ```
 
 If you run `use_bioc_pkg_templates()` inside RStudio Desktop, then all the scripts will open on your RStudio window. Each script contains comments that will guide you on the steps you need to do to create your Bioconductor-friendly R package. These scripts are:
@@ -179,9 +176,7 @@ The `dev` scripts use the different functions provided by `r Githubpkg("lcollado
 
 ```{r 'style_code'}
 ## Automatically style the example package
-withr::with_dir(pkgdir, {
-    styler::style_pkg(transformers = biocthis::bioc_style())
-})
+styler::style_pkg(pkgdir, transformers = biocthis::bioc_style())
 ```
 
 ## `use_bioc_citation()`
@@ -190,9 +185,7 @@ withr::with_dir(pkgdir, {
 
 ```{r 'bioc_citation'}
 ## Create a template CITATION file that is Bioconductor-friendly
-withr::with_dir(pkgdir, {
-    biocthis::use_bioc_citation()
-})
+biocthis::use_bioc_citation()
 ```
 
 ## `use_bioc_description()`
@@ -201,14 +194,10 @@ withr::with_dir(pkgdir, {
 
 ```{r 'bioc_description'}
 ## Setup up git
-withr::with_dir(pkgdir, {
-    usethis::use_git()
-})
+usethis::use_git()
 
 ## Create a template DESCRIPTION file that is Bioconductor-friendly
-withr::with_dir(pkgdir, {
-    biocthis::use_bioc_description()
-})
+biocthis::use_bioc_description()
 ```
 
 ## `use_bioc_github_action()`
@@ -217,9 +206,7 @@ withr::with_dir(pkgdir, {
 
 ```{r 'bioc_github_action'}
 ## Create a GitHub Actions workflow that is Bioconductor-friendly
-withr::with_dir(pkgdir, {
-    biocthis::use_bioc_github_action()
-})
+biocthis::use_bioc_github_action()
 ```
 
 This [GitHub Actions](https://github.com/features/actions) (GHA) workflow is based on [r-lib/actions//examples/check-standard.yaml](https://github.com/r-lib/actions/blob/master/examples/check-standard.yaml) and others. The goal is to provide on demand `R CMD check`s on Linux, macOS and Windows using a similar setup to Bioconductor-devel and release branches. Some key features that make this GHA workflow Bioconductor-friendly are:
@@ -255,9 +242,7 @@ If you are interested in learning more details about how this GHA workflow came 
 
 ```{r 'bioc_issue'}
 ## Create a template GitHub issue file that is Bioconductor-friendly
-withr::with_dir(pkgdir, {
-    biocthis::use_bioc_issue_template()
-})
+biocthis::use_bioc_issue_template()
 ```
 
 ## `use_bioc_news_md()`
@@ -266,9 +251,7 @@ withr::with_dir(pkgdir, {
 
 ```{r 'bioc_news'}
 ## Create a template NEWS.md file that is Bioconductor-friendly
-withr::with_dir(pkgdir, {
-    biocthis::use_bioc_news_md()
-})
+biocthis::use_bioc_news_md()
 ```
 
 ## `use_bioc_pkg_templates()`
@@ -281,9 +264,7 @@ This function was already described in detail in the previous main section.
 
 ```{r 'bioc_readme_rmd'}
 ## Create a template README.Rmd file that is Bioconductor-friendly
-withr::with_dir(pkgdir, {
-    biocthis::use_bioc_readme_rmd()
-})
+biocthis::use_bioc_readme_rmd()
 ```
 
 ## `use_bioc_support()`
@@ -292,9 +273,7 @@ withr::with_dir(pkgdir, {
 
 ```{r 'bioc_support'}
 ## Create a template GitHub support file that is Bioconductor-friendly
-withr::with_dir(pkgdir, {
-    biocthis::use_bioc_support()
-})
+biocthis::use_bioc_support()
 ```
 
 ## `use_bioc_vignette()`
@@ -303,9 +282,7 @@ withr::with_dir(pkgdir, {
 
 ```{r 'bioc_vignette'}
 ## Create a template vignette file that is Bioconductor-friendly
-withr::with_dir(pkgdir, {
-    biocthis::use_bioc_vignette(pkgname, paste("Introduction to", pkgname))
-})
+biocthis::use_bioc_vignette("biocthisexample", "Introduction to biocthisexample")
 ```
 
 # Acknowledgments
@@ -335,7 +312,6 @@ The `r Githubpkg("lcolladotor/biocthis")` package `r citep(bib[["biocthis"]])` w
 * `r CRANpkg("styler")` `r citep(bib[["styler"]])`
 * `r CRANpkg("testthat")` `r citep(bib[["testthat"]])`
 * `r CRANpkg("usethis")` `r citep(bib[["usethis"]])`
-* `r CRANpkg("withr")` `r citep(bib[["withr"]])`
 
 This package was developed using `r BiocStyle::Githubpkg("lcolladotor/biocthis")`.
 

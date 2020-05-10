@@ -55,21 +55,17 @@ Here is how you can use `r BiocStyle::Githubpkg("lcolladotor/biocthis")` to crea
 ## Load biocthis
 library("biocthis")
 
-## Set the package name
-pkgname <- "biocthisexample"
+## Set the package name on a temporary directory
+pkgdir <- file.path(tempdir(), "biocthisexample")
 
 ## Create the example package in a temporary location
-withr::with_dir(tempdir(), {
-    usethis::create_package(pkgname)
-})
+usethis::create_package(pkgdir)
 
-## Save the path to our temporary package for the rest of the examples
-pkgdir <- file.path(tempdir(), pkgname)
+## Set a local project to work with for the examples
+usethis::local_project(pkgdir)
 
 ## Create the bioc templates
-withr::with_dir(pkgdir, {
-    biocthis::use_bioc_pkg_templates()
-})
+biocthis::use_bioc_pkg_templates()
 ```
 
 The template `dev` scripts include comments and steps you can follow for making your Bioconductor-friendly R package or updating a current package. In particular, you might
@@ -77,26 +73,20 @@ want to use a Bioconductor-friendly GitHub Actions workflow. If this is your fir
 
 ```{r 'bioc_github_action'}
 ## Create a GitHub Actions workflow that is Bioconductor-friendly
-withr::with_dir(pkgdir, {
-    biocthis::use_bioc_github_action()
-})
+biocthis::use_bioc_github_action()
 ```
 
 ```{r 'bioc_github_action_alternatives'}
 ## Alternatively, use the general GitHub Actions workflow maintained by
 ## r-lib/actions
-withr::with_dir(pkgdir, {
-    usethis::use_github_action("check-standard")
-})
+usethis::use_github_action("check-standard")
 
 ## Or use the biocthis GHA workflow without having to install biocthis
-withr::with_dir(pkgdir, {
-    usethis::use_github_action(
-        "check-bioc",
-        "https://bit.ly/biocthis_gha",
-        "check-bioc.yml"
-    )
-})
+usethis::use_github_action(
+    "check-bioc",
+    "https://bit.ly/biocthis_gha",
+    "check-bioc.yml"
+)
 ```
 
 

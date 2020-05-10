@@ -59,8 +59,7 @@ bib <- c(
     sessioninfo = citation("sessioninfo")[1],
     styler = citation("styler")[1],
     testthat = citation("testthat")[1],
-    usethis = citation("usethis"),
-    withr = citation("withr")[1]
+    usethis = citation("usethis")[1]
 )
 
 write.bibtex(bib, file = "biocthis_dev_notes.bib")
@@ -184,6 +183,7 @@ I just want to thank everyone for helping me understand different pieces of code
 * [Hiroaki Yutani](https://github.com/yutannihilation) for [r-lib/actions/issues/86](https://github.com/r-lib/actions/issues/86)
 * [Nitesh Turaga](https://twitter.com/niteshturaga)
 * [Carl Boettiger](https://twitter.com/cboettig)
+* [Jenny Bryan](https://twitter.com/JennyBryan) for her feedback at [r-lib/usethis/issues#1108](https://github.com/r-lib/usethis/issues/1108#issuecomment-626253251)
 
 as well as several organizations and members:
 
@@ -219,7 +219,6 @@ The `r Githubpkg("lcolladotor/biocthis")` package `r citep(bib[['biocthis']])` w
 * `r CRANpkg("styler")` `r citep(bib[["styler"]])`
 * `r CRANpkg("testthat")` `r citep(bib[["testthat"]])`
 * `r CRANpkg("usethis")` `r citep(bib[["usethis"]])`
-* `r CRANpkg("withr")` `r citep(bib[["withr"]])`
 
 This package was developed using `r BiocStyle::Githubpkg('lcolladotor/biocthis')`.
 
