@@ -169,11 +169,11 @@ If you run `use_bioc_pkg_templates()` inside RStudio Desktop, then all the scrip
   
 Many of these steps are powered by `r CRANpkg("usethis")` `r citep(bib[["usethis"]])` with some of them utilizing `r Githubpkg("lcolladotor/biocthis")` `r citep(bib[["biocthis"]])`.
 
-## `biocthis` functions overview
+# `biocthis` functions overview
 
 The `dev` scripts use the different functions provided by `r Githubpkg("lcolladotor/biocthis")` in the suggested order. However, below we give a brief overview of what they do.
 
-### `bioc_style()`
+## `bioc_style()`
 
 `bioc_style()` helps you automatically apply a coding style to your R package files using `r CRANpkg("styler")` `r citep(bib[["styler"]])` that is based on the [tidyverse coding style guide](https://style.tidyverse.org/) but modified to make it more similar to the [Bioconductor coding style guide](http://bioconductor.org/developers/how-to/coding-style/).
 
@@ -184,7 +184,7 @@ withr::with_dir(pkgdir, {
 })
 ```
 
-### `use_bioc_citation()`
+## `use_bioc_citation()`
 
 `use_bioc_citation()` creates an R package `CITATION` file at `inst/CITATION` that is pre-populated with information you might want to use for your (future) Bioconductor package such as the Bioconductor DOIs and reference a journal article describing your package (that you might consider submitting to [bioRxiv](https://www.biorxiv.org/) as a pre-print first). Alternatively, use `usethis::use_citation()`.
 
@@ -195,7 +195,7 @@ withr::with_dir(pkgdir, {
 })
 ```
 
-### `use_bioc_description()`
+## `use_bioc_description()`
 
 `use_bioc_description()` creates an R package `DESCRIPTION` file that is pre-populated with information you might want to use for your (future) Bioconductor package such as links to the Bioconductor Support Website and `biocViews`. You will still need to manually edit the file. Alternatively, use `usethis::use_description()`.
 
@@ -211,7 +211,7 @@ withr::with_dir(pkgdir, {
 })
 ```
 
-### `use_bioc_github_action()`
+## `use_bioc_github_action()`
 
 `use_bioc_github_action()` creates a GitHub Actions workflow file that is configured to be Bioconductor-friendly. Alternatively, use `usethis::use_github_action()` for the general GitHub Actions workflow maintained by `r-lib/actions` or `usethis::use_github_action("check-bioc", "https://bit.ly/biocthis_gha")` without having to install `r Githubpkg("lcolladotor/biocthis")`. We highly recommend that you watch [Jim Hester's `rstudio::conf(2020)` talk on this subject](https://www.jimhester.com/talk/2020-rsc-github-actions/).
 
@@ -249,7 +249,7 @@ That is, the GHA workflow provided by `r Githubpkg("lcolladotor/biocthis")` can 
 
 If you are interested in learning more details about how this GHA workflow came to be, check the [`biocthis developer notes` vignette](https://lcolladotor.github.io/biocthis/articles/biocthis_dev_notes.html). We also highly recommend watching any developments as they happen at `r Githubpkg("r-lib/actions")`.
 
-### `use_bioc_issue_template()`
+## `use_bioc_issue_template()`
 
 `use_bioc_issue_template()` creates a GitHub issue template file that is pre-populated with information you might want to use for your (future) Bioconductor package such as links to the Bioconductor Support Website and examples of the information you can ask users to provide that will make it easier for you to help your users. Alternatively, use `usethis::use_tidy_issue_template()`.
 
@@ -260,7 +260,7 @@ withr::with_dir(pkgdir, {
 })
 ```
 
-### `use_bioc_news_md()`
+## `use_bioc_news_md()`
 
 `use_bioc_news_md()` creates a `NEWS.md` template file that is pre-populated with information you might want to use for your (future) Bioconductor package. Alternatively, use `usethis::use_news_md()`.
 
@@ -271,11 +271,11 @@ withr::with_dir(pkgdir, {
 })
 ```
 
-### `use_bioc_pkg_templates()`
+## `use_bioc_pkg_templates()`
 
 This function was already described in detail in the previous main section.
 
-### `use_bioc_readme_rmd()`
+## `use_bioc_readme_rmd()`
 
 `use_bioc_readme_rmd()` creates a `README.Rmd` template file that is pre-populated with information you might want to use for your (future) Bioconductor package such as Bioconductor's installation instructions, how to cite your package and links to the development tools you used. Alternatively, use `usethis::use_readme_rmd()`.
 
@@ -286,7 +286,7 @@ withr::with_dir(pkgdir, {
 })
 ```
 
-### `use_bioc_support()`
+## `use_bioc_support()`
 
 `use_bioc_support()` creates a template GitHub support template file that is pre-populated with information you might want to use for your (future) Bioconductor package such where to ask for help including the Bioconductor Support website. Alternatively, use `usethis::use_tidy_support()`.
 
@@ -297,7 +297,7 @@ withr::with_dir(pkgdir, {
 })
 ```
 
-### `use_bioc_vignette()`
+## `use_bioc_vignette()`
 
 `use_bioc_vignette()` creates a template vignette file that is pre-populated with information you might want to use for your (future) Bioconductor package. This template includes information on how to cite other packages using `r CRANpkg("knitcitations")`, styling your vignette with `r Biocpkg("BiocStyle")`, instructions on how to install your package from Bioconductor, where to ask for help, information a user might need to know before they use your package, as well as the reproducibility information on how the vignette was made powered by `r CRANpkg("sessioninfo")`. You will need to spend a significant amount of time editing this vignette as you develop your R package. Alternatively, use `usethis::use_vignette()`.
 
@@ -307,6 +307,12 @@ withr::with_dir(pkgdir, {
     biocthis::use_bioc_vignette(pkgname, paste("Introduction to", pkgname))
 })
 ```
+
+# Acknowledgments
+
+`r Githubpkg("lcolladotor/biocthis")`  wouldn't have been possible without the help of many other R package developers. Please read the full story at the [`biocthis developer notes` vignette](https://lcolladotor.github.io/biocthis/articles/biocthis_dev_notes.html).
+
+Thank you very much! 🙌🏽😊
 
 
 # Reproducibility

@@ -152,9 +152,14 @@ This work eventually lead to `use_bioc_github_action()`. The features of this GH
 * [Nitesh Turaga](https://twitter.com/niteshturaga) and [Carl Boettiger](https://twitter.com/cboettig) [rocker-org/rocker-versioned/issues/208](https://github.com/rocker-org/rocker-versioned/issues/208) updated the rocker docker image for RStudio to R 4.0 and the corresponding Bioconductor docker image. To do so, they resolved several issues themselves. From my side, I only had to wait =)
 * I also had to learn how to mount directories with docker to enable caching the R package files when using the Bioconductor docker images, and other GitHub Actions syntax for which I relied quite heavily on [their manual](https://help.github.com/en/actions) and Google searches; most of them lead me to the [GitHub Actions community website](https://github.community/t5/GitHub-Actions/bd-p/actions).
 
+### Potential future additions
+
+* It might be useful to use exactly the same `.Renviron` as the one used in the Bioconductor machines by downloading files like [3.11/Renviron.bioc](https://github.com/Bioconductor/BBS/blob/master/3.11/Renviron.bioc) and locating them correctly.
+* On a similar router, it might be useful to utilize `r Githubpkg("HenrikBengtsson/rcli")`, potentially avoiding the need for dealing directly with the `.Renviron` files.
+
 ### Wrapping up
 
-The resulting Bioconductor-friendly GitHub Actions workflow that you can add to your package with `biocthis::use_bioc_github_action()` has many comments which you might find helpful (or at least I will) for understanding why some steps are done the way they are. I have tried to simplify the workflow when possible, but it depends on the latest version of many tools and thus will expose you to issues you might have not dealt with, particularly compilation issues of R packages with R-devel (six months of the year with the current Bioconductor release cycle).
+The resulting Bioconductor-friendly GitHub Actions workflow that you can add to your package with `biocthis::use_bioc_github_action()` has many comments which you might find helpful (or at least I will) for understanding why some steps are done the way they are. I have tried to simplify the workflow when possible, but it depends on the latest version of many tools and thus will expose you to issues you might have not dealt with, particularly compilation issues of R packages with R-devel (six months of the year with the current Bioconductor release cycle). If you need help, start by going through the steps listed at [r-lib/actions#where-to-find-help](https://github.com/r-lib/actions#where-to-find-help). `r Githubpkg("lcolladotor/biocthis")` exclusive issues are always welcome, though please include the information that will enable others to help you faster. Thank you!
 
 
 ## `usethis`-like functions
