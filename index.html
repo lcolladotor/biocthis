@@ -117,8 +117,8 @@
 
 <span class="co">## Create the example package in a temporary location</span>
 <span class="kw pkg">usethis</span><span class="kw ns">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/create_package.html">create_package</a></span>(<span class="no">pkgdir</span>)
-<span class="co">#&gt; ✓ Creating '/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpSxZy15/biocthisexample/'</span>
-<span class="co">#&gt; ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpSxZy15/biocthisexample'</span>
+<span class="co">#&gt; ✓ Creating '/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpPXAtNQ/biocthisexample/'</span>
+<span class="co">#&gt; ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpPXAtNQ/biocthisexample'</span>
 <span class="co">#&gt; ✓ Creating 'R/'</span>
 <span class="co">#&gt; ✓ Writing 'DESCRIPTION'</span>
 <span class="co">#&gt; Package: biocthisexample</span>
@@ -136,20 +136,30 @@
 <span class="co">#&gt; ✓ Writing 'NAMESPACE'</span>
 <span class="co">#&gt; ✓ Setting active project to '&lt;no active project&gt;'</span>
 
-<span class="co">## Set a local project to work with for the examples</span>
-<span class="kw pkg">usethis</span><span class="kw ns">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/proj_utils.html">local_project</a></span>(<span class="no">pkgdir</span>)
-<span class="co">#&gt; ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpSxZy15/biocthisexample'</span>
-<span class="co">#&gt; ✓ Setting active project to '&lt;no active project&gt;'</span>
+<span class="co">## Set the project to use for the examples</span>
+<span class="kw pkg">usethis</span><span class="kw ns">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/proj_utils.html">proj_set</a></span>(<span class="no">pkgdir</span>)
+<span class="co">#&gt; ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpPXAtNQ/biocthisexample'</span>
 
 <span class="co">## Create the bioc templates</span>
 <span class="kw pkg">biocthis</span><span class="kw ns">::</span><span class="fu"><a href="reference/use_bioc_pkg_templates.html">use_bioc_pkg_templates</a></span>()
-<span class="co">#&gt; ✓ Setting active project to '/Users/lcollado/Dropbox/Code/biocthis'</span></pre></div>
+<span class="co">#&gt; ✓ Creating 'dev/'</span>
+<span class="co">#&gt; ✓ Adding '^dev$' to '.Rbuildignore'</span>
+<span class="co">#&gt; ✓ Writing 'dev/01_create_pkg.R'</span>
+<span class="co">#&gt; ✓ Writing 'dev/02_git_github_setup.R'</span>
+<span class="co">#&gt; ✓ Writing 'dev/03_core_files.R'</span>
+<span class="co">#&gt; ✓ Writing 'dev/04_update.R'</span></pre></div>
 <p>The template <code>dev</code> scripts include comments and steps you can follow for making your Bioconductor-friendly R package or updating a current package. In particular, you might want to use a Bioconductor-friendly GitHub Actions workflow. If this is your first time seeings this words, we highly recommend that you watch <a href="https://www.jimhester.com/talk/2020-rsc-github-actions/">Jim Hester’s <code>rstudio::conf(2020)</code> talk on this subject</a>.</p>
 <div class="sourceCode" id="cb4"><pre class="r"><span class="co">## Create a GitHub Actions workflow that is Bioconductor-friendly</span>
-<span class="kw pkg">biocthis</span><span class="kw ns">::</span><span class="fu"><a href="reference/use_bioc_github_action.html">use_bioc_github_action</a></span>()</pre></div>
+<span class="kw pkg">biocthis</span><span class="kw ns">::</span><span class="fu"><a href="reference/use_bioc_github_action.html">use_bioc_github_action</a></span>()
+<span class="co">#&gt; ✓ Creating '.github/'</span>
+<span class="co">#&gt; ✓ Adding '^\\.github$' to '.Rbuildignore'</span>
+<span class="co">#&gt; ✓ Adding '*.html' to '.github/.gitignore'</span>
+<span class="co">#&gt; ✓ Creating '.github/workflows/'</span>
+<span class="co">#&gt; ✓ Writing '.github/workflows/check-bioc.yml'</span></pre></div>
 <div class="sourceCode" id="cb5"><pre class="r"><span class="co">## Alternatively, use the general GitHub Actions workflow maintained by</span>
 <span class="co">## r-lib/actions</span>
 <span class="kw pkg">usethis</span><span class="kw ns">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_github_action.html">use_github_action</a></span>(<span class="st">"check-standard"</span>)
+<span class="co">#&gt; ✓ Writing '.github/workflows/check-standard.yaml'</span>
 
 <span class="co">## Or use the biocthis GHA workflow without having to install biocthis</span>
 <span class="kw pkg">usethis</span><span class="kw ns">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_github_action.html">use_github_action</a></span>(

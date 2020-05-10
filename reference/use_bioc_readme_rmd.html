@@ -173,7 +173,7 @@ this function or whenever you update the <code>README.Rmd</code> file.</p>
 <span class='no'>pkgdir</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"biocthisexample"</span>)
 
 <span class='co'>## Create the example package in a temporary location</span>
-<span class='kw pkg'>usethis</span><span class='kw ns'>::</span><span class='fu'><a href='https://usethis.r-lib.org/reference/create_package.html'>create_package</a></span>(<span class='no'>pkgdir</span>)</div><div class='output co'>#&gt; <span class='message'>✔ Setting active project to '/tmp/Rtmptw7cbC/biocthisexample'</span></div><div class='output co'>#&gt; <span class='message'>✔ Leaving 'DESCRIPTION' unchanged</span></div><div class='output co'>#&gt; Package: biocthisexample
+<span class='kw pkg'>usethis</span><span class='kw ns'>::</span><span class='fu'><a href='https://usethis.r-lib.org/reference/create_package.html'>create_package</a></span>(<span class='no'>pkgdir</span>)</div><div class='output co'>#&gt; <span class='message'>✔ Leaving 'DESCRIPTION' unchanged</span></div><div class='output co'>#&gt; Package: biocthisexample
 #&gt; Title: What the Package Does (One Line, Title Case)
 #&gt; Version: 0.0.0.9000
 #&gt; Authors@R (parsed):
@@ -184,14 +184,15 @@ this function or whenever you update the <code>README.Rmd</code> file.</p>
 #&gt; Encoding: UTF-8
 #&gt; LazyData: true
 #&gt; Roxygen: list(markdown = TRUE)
-#&gt; RoxygenNote: 7.1.0</div><div class='output co'>#&gt; <span class='message'>✔ Setting active project to '/tmp/Rtmptw7cbC/file1a775686a00f'</span></div><div class='input'>
-<span class='co'>## Set a local project to work with for the examples</span>
-<span class='kw pkg'>usethis</span><span class='kw ns'>::</span><span class='fu'><a href='https://usethis.r-lib.org/reference/proj_utils.html'>local_project</a></span>(<span class='no'>pkgdir</span>)</div><div class='output co'>#&gt; <span class='message'>✔ Setting active project to '/tmp/Rtmptw7cbC/biocthisexample'</span></div><div class='output co'>#&gt; <span class='message'>✔ Setting active project to '/tmp/Rtmptw7cbC/file1a775686a00f'</span></div><div class='input'>
+#&gt; RoxygenNote: 7.1.0</div><div class='input'>
+<span class='co'>## Set the project to use for the examples</span>
+<span class='kw pkg'>usethis</span><span class='kw ns'>::</span><span class='fu'><a href='https://usethis.r-lib.org/reference/proj_utils.html'>proj_set</a></span>(<span class='no'>pkgdir</span>)
+
 <span class='co'>## Setup up git</span>
 <span class='kw pkg'>usethis</span><span class='kw ns'>::</span><span class='fu'><a href='https://usethis.r-lib.org/reference/use_git.html'>use_git</a></span>()
 
 <span class='co'>## Create a template README.Rmd file that is Bioconductor-friendly</span>
-<span class='kw pkg'>biocthis</span><span class='kw ns'>::</span><span class='fu'>use_bioc_readme_rmd</span>()</div><div class='output co'>#&gt; <span class='message'>✔ Writing 'README.Rmd'</span></div><div class='output co'>#&gt; <span class='error'>Error: [EEXIST] Failed to make directory '/tmp/Rtmptw7cbC/file1a775686a00f/.git': file already exists</span></div></pre>
+<span class='kw pkg'>biocthis</span><span class='kw ns'>::</span><span class='fu'>use_bioc_readme_rmd</span>()</div><div class='output co'>#&gt; <span class='message'>✔ Writing 'README.Rmd'</span></div><div class='output co'>#&gt; <span class='message'>✔ Writing '.git/hooks/pre-commit'</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

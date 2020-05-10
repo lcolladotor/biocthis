@@ -190,7 +190,7 @@ as well as the "biocthis developer notes" vignette
 <span class='no'>pkgdir</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"biocthisexample"</span>)
 
 <span class='co'>## Create the example package in a temporary location</span>
-<span class='kw pkg'>usethis</span><span class='kw ns'>::</span><span class='fu'><a href='https://usethis.r-lib.org/reference/create_package.html'>create_package</a></span>(<span class='no'>pkgdir</span>)</div><div class='output co'>#&gt; <span class='message'>✔ Setting active project to '/tmp/Rtmptw7cbC/biocthisexample'</span></div><div class='output co'>#&gt; <span class='message'>✔ Leaving 'DESCRIPTION' unchanged</span></div><div class='output co'>#&gt; Package: biocthisexample
+<span class='kw pkg'>usethis</span><span class='kw ns'>::</span><span class='fu'><a href='https://usethis.r-lib.org/reference/create_package.html'>create_package</a></span>(<span class='no'>pkgdir</span>)</div><div class='output co'>#&gt; <span class='message'>✔ Leaving 'DESCRIPTION' unchanged</span></div><div class='output co'>#&gt; Package: biocthisexample
 #&gt; Title: What the Package Does (One Line, Title Case)
 #&gt; Version: 0.0.0.9000
 #&gt; Authors@R (parsed):
@@ -201,9 +201,10 @@ as well as the "biocthis developer notes" vignette
 #&gt; Encoding: UTF-8
 #&gt; LazyData: true
 #&gt; Roxygen: list(markdown = TRUE)
-#&gt; RoxygenNote: 7.1.0</div><div class='output co'>#&gt; <span class='message'>✔ Setting active project to '/tmp/Rtmptw7cbC/file1a775686a00f'</span></div><div class='input'>
-<span class='co'>## Set a local project to work with for the examples</span>
-<span class='kw pkg'>usethis</span><span class='kw ns'>::</span><span class='fu'><a href='https://usethis.r-lib.org/reference/proj_utils.html'>local_project</a></span>(<span class='no'>pkgdir</span>)</div><div class='output co'>#&gt; <span class='message'>✔ Setting active project to '/tmp/Rtmptw7cbC/biocthisexample'</span></div><div class='output co'>#&gt; <span class='message'>✔ Setting active project to '/tmp/Rtmptw7cbC/file1a775686a00f'</span></div><div class='input'>
+#&gt; RoxygenNote: 7.1.0</div><div class='input'>
+<span class='co'>## Set the project to use for the examples</span>
+<span class='kw pkg'>usethis</span><span class='kw ns'>::</span><span class='fu'><a href='https://usethis.r-lib.org/reference/proj_utils.html'>proj_set</a></span>(<span class='no'>pkgdir</span>)
+
 <span class='co'>## Create the biocthis templates</span>
 <span class='kw pkg'>biocthis</span><span class='kw ns'>::</span><span class='fu'>use_bioc_pkg_templates</span>()</div><div class='output co'>#&gt; <span class='message'>✔ Creating 'dev/'</span></div><div class='output co'>#&gt; <span class='message'>✔ Adding '^dev$' to '.Rbuildignore'</span></div><div class='output co'>#&gt; <span class='message'>✔ Writing 'dev/01_create_pkg.R'</span></div><div class='output co'>#&gt; <span class='message'>✔ Writing 'dev/02_git_github_setup.R'</span></div><div class='output co'>#&gt; <span class='message'>✔ Writing 'dev/03_core_files.R'</span></div><div class='output co'>#&gt; <span class='message'>✔ Writing 'dev/04_update.R'</span></div></pre>
   </div>
