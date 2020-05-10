@@ -1,5 +1,5 @@
 ## Did you miss the previous step? The one about creating your package
-rstudioapi::navigateToFile(here::here("dev", "01_create_pkg.R"))
+rstudioapi::navigateToFile(usethis::proj_path("dev", "01_create_pkg.R"))
 
 ## ********************
 ## Setup Git and GitHub
@@ -17,6 +17,6 @@ usethis::use_github()
 ## Follow any prompts, such as running: git push --set-upstream origin master
 
 ## Move to the next step: setting up your package core files
-rstudioapi::navigateToFile(here::here("dev", "03_core_files.R"))
+rstudioapi::navigateToFile(usethis::proj_path("dev", "03_core_files.R"))
 
 ## This template was made using https://lcolladotor.github.io/biocthis/

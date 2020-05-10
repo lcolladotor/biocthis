@@ -50,7 +50,6 @@ bib <- c(
     devtools = citation("devtools")[1],
     fs = citation("fs")[1],
     glue = citation("glue")[1],
-    here = citation("here")[1],
     knitcitations = citation("knitcitations")[1],
     knitr = citation("knitr")[1],
     pkgdown = citation("pkgdown")[1],
@@ -302,7 +301,6 @@ The `r Githubpkg("lcolladotor/biocthis")` package `r citep(bib[["biocthis"]])` w
 * `r CRANpkg("devtools")` `r citep(bib[["devtools"]])`
 * `r CRANpkg("fs")` `r citep(bib[["fs"]])`
 * `r CRANpkg("glue")` `r citep(bib[["glue"]])`
-* `r CRANpkg("here")` `r citep(bib[["here"]])`
 * `r CRANpkg("knitcitations")` `r citep(bib[["knitcitations"]])`
 * `r CRANpkg("knitr")` `r citep(bib[["knitr"]])`
 * `r CRANpkg("pkgdown")` `r citep(bib[["pkgdown"]])`

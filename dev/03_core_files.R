@@ -1,5 +1,5 @@
 ## Did you miss the previous step? The one about setting up Git and GitHub
-rstudioapi::navigateToFile(here::here("dev", "01_git_github_setup.R"))
+rstudioapi::navigateToFile(usethis::proj_path("dev", "02_git_github_setup.R"))
 
 ## ***********************************************************
 ## Setup the core files for your Bioconductor-friendly package
@@ -28,7 +28,7 @@ rstudioapi::navigateToFile(here::here("dev", "01_git_github_setup.R"))
 ## This function sets all these defaults for you
 biocthis::use_bioc_description()
 ## However, you still need to edit parts of it manually
-rstudioapi::navigateToFile(here::here("DESCRIPTION"))
+rstudioapi::navigateToFile(usethis::proj_path("DESCRIPTION"))
 
 ## Create your README.Rmd file
 biocthis::use_bioc_readme_rmd()
@@ -69,7 +69,7 @@ usethis::use_coverage()
 devtools::build_readme()
 
 ## Add a vignette template
-pkg <- basename(here::here())
+pkg <- basename(usethis::proj_get())
 biocthis::use_bioc_vignette(pkg, paste("Introduction to", pkg))
 
 ## Add a Bioconductor-friendly GitHub actions workflow to check your package
@@ -78,7 +78,7 @@ biocthis::use_bioc_github_action()
 ## * your package doesn't have testthat tests, change to: has_testthat = 'false'
 ## * you don't want to run the covr step, change to: run_covr = 'false'
 ## * you don't want to use pkgdown, change to: run_pkgdown = 'false
-rstudioapi::navigateToFile(here::here(".github", "workflows", "check-bioc.yml"))
+rstudioapi::navigateToFile(usethis::proj_path(".github", "workflows", "check-bioc.yml"))
 
 ## ************************************************************************
 ## WARNING: git commit before running this next function! Otherwise you can
@@ -91,6 +91,6 @@ rstudioapi::navigateToFile(here::here(".github", "workflows", "check-bioc.yml"))
 pkgdown::deploy_to_branch()
 
 ## Move to the next step: updating your package code before a "git commit"
-rstudioapi::navigateToFile(here::here("dev", "04_update.R"))
+rstudioapi::navigateToFile(usethis::proj_path("dev", "04_update.R"))
 
 ## This template was made using https://lcolladotor.github.io/biocthis/

@@ -20,7 +20,6 @@
 #' R package.
 #' @export
 #' @import usethis
-#' @importFrom here here
 #'
 #' @examples
 #'
@@ -45,11 +44,11 @@
 #' biocthis::use_bioc_description()
 use_bioc_description <- function(biocViews = "Software") {
     stopifnot(length(biocViews) == 1)
-    pkg <- basename(here::here())
+    pkg <- basename(usethis::proj_get())
 
     desc_info <-
         usethis::use_description_defaults(
-            basename(here::here()),
+            basename(usethis::proj_get()),
             fields = list(
                 Version = "0.99.0",
                 biocViews = biocViews,

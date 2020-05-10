@@ -43,7 +43,7 @@ For more details on how this function came to be, check
 \dontrun{
 ## Run these functions in your package
 styler::style_pkg(transformers = biocthis::bioc_style())
-styler::style_dir(here::here("dev"), transformers = biocthis::bioc_style())
+styler::style_dir(usethis::proj_path("dev"), transformers = biocthis::bioc_style())
 }
 
 ## Set the package name on a temporary directory

@@ -19,7 +19,6 @@ remotes::install_cran(
         "available",
         "BiocManager",
         "devtools",
-        "here",
         "knicitations",
         "knitr",
         "rmarkdown",
@@ -64,6 +63,6 @@ usethis::create_package("biocthis")
 biocthis::use_bioc_pkg_templates()
 
 ## Move to the next step: setting up Git and GitHub for your package
-rstudioapi::navigateToFile(here::here("dev", "01_git_github_setup.R"))
+rstudioapi::navigateToFile(usethis::proj_path("dev", "02_git_github_setup.R"))
 
 ## This template was made using https://lcolladotor.github.io/biocthis/

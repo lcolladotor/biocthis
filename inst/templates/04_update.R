@@ -1,6 +1,6 @@
 ## Did you miss the previous step? The one about setting up the R package core
 ## files.
-rstudioapi::navigateToFile(here::here("dev", "03_core_files.R"))
+rstudioapi::navigateToFile(usethis::proj_path("dev", "03_core_files.R"))
 
 ## ********************************************
 ## Update your package code before a git commit
@@ -13,13 +13,13 @@ rstudioapi::navigateToFile(here::here("dev", "03_core_files.R"))
 ## macOS: shift + command + A
 ## Windows: shift + control + A
 styler::style_pkg(transformers = biocthis::bioc_style())
-styler::style_dir(here::here("dev"), transformers = biocthis::bioc_style())
+styler::style_dir(usethis::proj_path("dev"), transformers = biocthis::bioc_style())
 styler::style_dir(
-    here::here("vignettes"),
+    usethis::proj_path("vignettes"),
     transformers = biocthis::bioc_style(),
     filetype = "Rmd"
 )
-styler::style_file(here::here("README.Rmd"), transformers = biocthis::bioc_style())
+styler::style_file(usethis::proj_path("README.Rmd"), transformers = biocthis::bioc_style())
 
 ## Re-make the documentation files
 devtools::document()

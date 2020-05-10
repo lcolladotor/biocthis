@@ -21,7 +21,6 @@ biocViews: Software, ReportWriting
 Imports: 
     fs,
     glue,
-    here,
     rlang,
     styler,
     usethis

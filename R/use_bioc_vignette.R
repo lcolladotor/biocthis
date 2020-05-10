@@ -23,7 +23,7 @@
 #'
 #' \dontrun{
 #' ## Run this function in your package
-#' pkg <- basename(here::here())
+#' pkg <- basename(usethis::proj_get())
 #' biocthis::use_bioc_vignette(pkg, paste("Introduction to", pkg))
 #' }
 #'
