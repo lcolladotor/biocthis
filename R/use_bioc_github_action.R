@@ -4,7 +4,7 @@
 #' that it uses a template from `biocthis`. It creates a Bioconductor-friendly
 #' GitHub action workflow for your package. You can also use this GitHub
 #' Actions workflow by executing
-#' `usethis::use_github_action("check-bioc", "https://bit.ly/biocthis_gha")`
+#' `usethis::use_github_action("check-bioc", "https://bit.ly/biocthis_gha", "check-bioc.yml")`
 #' without having to install `biocthis`.
 #'
 #' For the full history on how this GitHub Actions workflow came to be, check
@@ -24,7 +24,10 @@
 #'
 #' ## You can also use this GitHub Actions workflow without installing biocthis
 #' ## by running:
-#' usethis::use_github_action("check-bioc", "https://bit.ly/biocthis_gha")
+#' usethis::use_github_action(
+#'     "check-bioc", "https://bit.ly/biocthis_gha",
+#'     "check-bioc.yml"
+#' )
 #' }
 #'
 #' ## Here's an example with a temporary package

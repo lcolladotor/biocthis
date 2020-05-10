@@ -83,7 +83,7 @@ withr::with_dir(tempdir(), {
     usethis::create_package(pkgname)
 })
 #> ✓ Creating 'biocthisexample/'
-#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/Rtmpnd4264/biocthisexample'
+#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpQ1fMxU/biocthisexample'
 #> ✓ Creating 'R/'
 #> ✓ Writing 'DESCRIPTION'
 #> Package: biocthisexample
@@ -108,7 +108,7 @@ pkgdir <- file.path(tempdir(), pkgname)
 withr::with_dir(pkgdir, {
     biocthis::use_bioc_pkg_templates()
 })
-#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/Rtmpnd4264/biocthisexample'
+#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpQ1fMxU/biocthisexample'
 #> ✓ Creating 'dev/'
 #> ✓ Adding '^dev$' to '.Rbuildignore'
 #> ✓ Writing 'dev/01_create_pkg.R'
@@ -137,11 +137,19 @@ withr::with_dir(pkgdir, {
 #> ✓ Writing '.github/workflows/check-bioc.yml'
 ```
 
-Alternatively, use `usethis::use_github_action()` for the general GitHub
-Actions workflow maintained by `r-lib/actions` or
-`usethis::use_github_action("check-bioc",
-"https://bit.ly/biocthis_gha")` without having to install
-*[biocthis](https://github.com/lcolladotor/biocthis)*.
+``` r
+## Alternatively, use the general GitHub Actions workflow maintained by
+## r-lib/actions
+usethis::use_github_action("check-standard")
+#> ✓ Writing '.github/workflows/check-standard.yaml'
+
+## Or use the biocthis GHA workflow without having to install biocthis
+usethis::use_github_action(
+    "check-bioc",
+    "https://bit.ly/biocthis_gha",
+    "check-bioc.yml"
+)
+```
 
 ## Citation
 

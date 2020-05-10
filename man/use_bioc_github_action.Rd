@@ -15,7 +15,7 @@ This function is very similar to \code{usethis::use_github_action()} except
 that it uses a template from \code{biocthis}. It creates a Bioconductor-friendly
 GitHub action workflow for your package. You can also use this GitHub
 Actions workflow by executing
-\code{usethis::use_github_action("check-bioc", "https://bit.ly/biocthis_gha")}
+\code{usethis::use_github_action("check-bioc", "https://bit.ly/biocthis_gha", "check-bioc.yml")}
 without having to install \code{biocthis}.
 }
 \details{
@@ -31,7 +31,10 @@ biocthis::use_bioc_github_action()
 
 ## You can also use this GitHub Actions workflow without installing biocthis
 ## by running:
-usethis::use_github_action("check-bioc", "https://bit.ly/biocthis_gha")
+usethis::use_github_action(
+    "check-bioc", "https://bit.ly/biocthis_gha",
+    "check-bioc.yml"
+)
 }
 
 ## Here's an example with a temporary package
