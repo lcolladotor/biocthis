@@ -1,19 +1,14 @@
-## Read more about GitHub actions at
-## https://www.tidyverse.org/blog/2020/04/usethis-1-6-0/
-## which will lead you to
-## https://github.com/r-lib/actions/tree/master/examples.
-## Also check the reference manual at
-## https://help.github.com/en/actions
-## I also found this work in progress book
-## https://ropenscilabs.github.io/actions_sandbox/
-## as well as these two other GitHub actions config files
-## https://github.com/seandavi/BiocActions/blob/master/.github/workflows/main.yml
-## https://github.com/csoneson/dreval/blob/master/.github/workflows/R-CMD-check.yaml
-## See also this blog post
-## https://seandavi.github.io/post/learning-github-actions/
+## Read more about GitHub actions the features of this GitHub Actions workflow
+## at https://lcolladotor.github.io/biocthis/articles/biocthis.html#use_bioc_github_action
 ##
-## The development of this GHA workflow and history is documented at
-## https://github.com/r-lib/actions/issues/84
+## For more details, check the biocthis developer notes vignette at
+## https://lcolladotor.github.io/biocthis/articles/biocthis_dev_notes.html
+##
+## You can add this workflow to other packages using:
+## > biocthis::use_bioc_github_action()
+## or
+## > usethis::use_github_action("check-bioc", "https://bit.ly/biocthis_gha")
+## without having to install biocthis.
 
 
 ## Acronyms:
