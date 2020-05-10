@@ -85,14 +85,18 @@ withr::with_dir(pkgdir, {
 ```{r 'bioc_github_action_alternatives'}
 ## Alternatively, use the general GitHub Actions workflow maintained by
 ## r-lib/actions
-usethis::use_github_action("check-standard")
+withr::with_dir(pkgdir, {
+    usethis::use_github_action("check-standard")
+})
 
 ## Or use the biocthis GHA workflow without having to install biocthis
-usethis::use_github_action(
-    "check-bioc",
-    "https://bit.ly/biocthis_gha",
-    "check-bioc.yml"
-)
+withr::with_dir(pkgdir, {
+    usethis::use_github_action(
+        "check-bioc",
+        "https://bit.ly/biocthis_gha",
+        "check-bioc.yml"
+    )
+})
 ```
 
 
