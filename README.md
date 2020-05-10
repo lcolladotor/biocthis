@@ -34,7 +34,7 @@ distributed by Bioconductor or have Bioconductor dependencies.
 *[biocthis](https://github.com/lcolladotor/biocthis)* also includes a
 Bioconductor-friendly [GitHub
 Actions](https://github.com/features/actions) workflow for your R
-package(s). To use the functions in this package, you need to load it.
+package(s).
 
 Note that *[biocthis](https://github.com/lcolladotor/biocthis)* is not a
 Bioconductor-core package and as such it is not a Bioconductor official
@@ -80,8 +80,8 @@ pkgdir <- file.path(tempdir(), "biocthisexample")
 
 ## Create the example package in a temporary location
 usethis::create_package(pkgdir)
-#> ✓ Creating '/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpPXAtNQ/biocthisexample/'
-#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpPXAtNQ/biocthisexample'
+#> ✓ Creating '/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/Rtmp2BrI8D/biocthisexample/'
+#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/Rtmp2BrI8D/biocthisexample'
 #> ✓ Creating 'R/'
 #> ✓ Writing 'DESCRIPTION'
 #> Package: biocthisexample
@@ -101,7 +101,7 @@ usethis::create_package(pkgdir)
 
 ## Set the project to use for the examples
 usethis::proj_set(pkgdir)
-#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpPXAtNQ/biocthisexample'
+#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/Rtmp2BrI8D/biocthisexample'
 
 ## Create the bioc templates
 biocthis::use_bioc_pkg_templates()

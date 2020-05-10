@@ -105,7 +105,7 @@ citation("biocthis")
 
 # Quick start to using to `biocthis`
 
-`r Githubpkg("lcolladotor/biocthis")` is an R package that expands `r CRANpkg("usethis")` with Bioconductor-friendly templates. These templates will help you quickly create an R package that either has Bioconductor dependencies or that you are thinking of submitting to Bioconductor one day. `r Githubpkg("lcolladotor/biocthis")`  has functions that can also enhance your current R packages that either are already distributed by Bioconductor or have Bioconductor dependencies. `r Githubpkg("lcolladotor/biocthis")` also includes a Bioconductor-friendly [GitHub Actions](https://github.com/features/actions) workflow for your R package(s). To use the functions in this package, you need to load it.
+`r Githubpkg("lcolladotor/biocthis")` is an R package that expands `r CRANpkg("usethis")` with Bioconductor-friendly templates. These templates will help you quickly create an R package that either has Bioconductor dependencies or that you are thinking of submitting to Bioconductor one day. `r Githubpkg("lcolladotor/biocthis")`  has functions that can also enhance your current R packages that either are already distributed by Bioconductor or have Bioconductor dependencies. `r Githubpkg("lcolladotor/biocthis")` also includes a Bioconductor-friendly [GitHub Actions](https://github.com/features/actions) workflow for your R package(s). To use the functions in this package, you need to load it as shown below.
 
 ```{r "start", message=FALSE}
 library("biocthis")
