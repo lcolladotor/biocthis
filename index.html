@@ -91,7 +91,7 @@
 <a href="#biocthis" class="anchor"></a>biocthis</h1></div>
 <!-- badges: start -->
 
-<p><em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em> is an R package that expands <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em> with Bioconductor-friendly templates. These templates will help you quickly create an R package that either has Bioconductor dependencies or that you are thinking of submitting to Bioconductor one day. <em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em> has functions that can also enhance your current R packages that either are already distributed by Bioconductor or have Bioconductor dependencies. <em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em> also includes a Bioconductor-friendly <a href="https://github.com/features/actions">GitHub Actions</a> workflow for your R package(s). To use the functions in this package, you need to load it.</p>
+<p><em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em> is an R package that expands <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em> with Bioconductor-friendly templates. These templates will help you quickly create an R package that either has Bioconductor dependencies or that you are thinking of submitting to Bioconductor one day. <em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em> has functions that can also enhance your current R packages that either are already distributed by Bioconductor or have Bioconductor dependencies. <em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em> also includes a Bioconductor-friendly <a href="https://github.com/features/actions">GitHub Actions</a> workflow for your R package(s).</p>
 <p>Note that <em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em> is not a Bioconductor-core package and as such it is not a Bioconductor official package. It was made by and for Leonardo Collado-Torres so he could more easily maintain and create Bioconductor packages as listed at <a href="https://lcolladotor.github.io/pkgs/">lcolladotor.github.io/pkgs/</a>. Hopefully <em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em> will be helpful for you too.</p>
 <div id="installation-instructions" class="section level2">
 <h2 class="hasAnchor">
@@ -117,8 +117,8 @@
 
 <span class="co">## Create the example package in a temporary location</span>
 <span class="kw pkg">usethis</span><span class="kw ns">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/create_package.html">create_package</a></span>(<span class="no">pkgdir</span>)
-<span class="co">#&gt; ✓ Creating '/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpPXAtNQ/biocthisexample/'</span>
-<span class="co">#&gt; ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpPXAtNQ/biocthisexample'</span>
+<span class="co">#&gt; ✓ Creating '/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/Rtmp2BrI8D/biocthisexample/'</span>
+<span class="co">#&gt; ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/Rtmp2BrI8D/biocthisexample'</span>
 <span class="co">#&gt; ✓ Creating 'R/'</span>
 <span class="co">#&gt; ✓ Writing 'DESCRIPTION'</span>
 <span class="co">#&gt; Package: biocthisexample</span>
@@ -138,7 +138,7 @@
 
 <span class="co">## Set the project to use for the examples</span>
 <span class="kw pkg">usethis</span><span class="kw ns">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/proj_utils.html">proj_set</a></span>(<span class="no">pkgdir</span>)
-<span class="co">#&gt; ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpPXAtNQ/biocthisexample'</span>
+<span class="co">#&gt; ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/Rtmp2BrI8D/biocthisexample'</span>
 
 <span class="co">## Create the bioc templates</span>
 <span class="kw pkg">biocthis</span><span class="kw ns">::</span><span class="fu"><a href="reference/use_bioc_pkg_templates.html">use_bioc_pkg_templates</a></span>()

@@ -157,7 +157,7 @@
 <h1 class="hasAnchor">
 <a href="#quick-start-to-using-to-biocthis" class="anchor"></a>Quick start to using to <code>biocthis</code>
 </h1>
-<p><em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em> is an R package that expands <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em> with Bioconductor-friendly templates. These templates will help you quickly create an R package that either has Bioconductor dependencies or that you are thinking of submitting to Bioconductor one day. <em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em> has functions that can also enhance your current R packages that either are already distributed by Bioconductor or have Bioconductor dependencies. <em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em> also includes a Bioconductor-friendly <a href="https://github.com/features/actions">GitHub Actions</a> workflow for your R package(s). To use the functions in this package, you need to load it.</p>
+<p><em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em> is an R package that expands <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em> with Bioconductor-friendly templates. These templates will help you quickly create an R package that either has Bioconductor dependencies or that you are thinking of submitting to Bioconductor one day. <em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em> has functions that can also enhance your current R packages that either are already distributed by Bioconductor or have Bioconductor dependencies. <em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em> also includes a Bioconductor-friendly <a href="https://github.com/features/actions">GitHub Actions</a> workflow for your R package(s). To use the functions in this package, you need to load it as shown below.</p>
 <div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="st">"biocthis"</span>)
 
 <span class="co">## Load other R packages used in this vignette</span>
@@ -173,8 +173,8 @@
 
 <span class="co">## Create the example package in a temporary location</span>
 <span class="kw pkg">usethis</span><span class="kw ns">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/create_package.html">create_package</a></span>(<span class="no">pkgdir</span>)
-<span class="co">#&gt; ✔ Creating '/tmp/Rtmp0TzrNr/biocthispkg/'</span>
-<span class="co">#&gt; ✔ Setting active project to '/tmp/Rtmp0TzrNr/biocthispkg'</span>
+<span class="co">#&gt; ✔ Creating '/tmp/RtmpFNyF6y/biocthispkg/'</span>
+<span class="co">#&gt; ✔ Setting active project to '/tmp/RtmpFNyF6y/biocthispkg'</span>
 <span class="co">#&gt; ✔ Creating 'R/'</span>
 <span class="co">#&gt; ✔ Writing 'DESCRIPTION'</span>
 <span class="co">#&gt; Package: biocthispkg</span>
@@ -194,7 +194,7 @@
 
 <span class="co">## Set the project to use for the examples</span>
 <span class="kw pkg">usethis</span><span class="kw ns">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/proj_utils.html">proj_set</a></span>(<span class="no">pkgdir</span>)
-<span class="co">#&gt; ✔ Setting active project to '/tmp/Rtmp0TzrNr/biocthispkg'</span></pre></body></html></div>
+<span class="co">#&gt; ✔ Setting active project to '/tmp/RtmpFNyF6y/biocthispkg'</span></pre></body></html></div>
 <p>Once you have created a package, you can use <code><a href="../reference/use_bioc_pkg_templates.html">use_bioc_pkg_templates()</a></code> to create a set of scripts in the <code>dev</code> (developer) directory.</p>
 <div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="co">## Create the bioc templates</span>
 <span class="kw pkg">biocthis</span><span class="kw ns">::</span><span class="fu"><a href="../reference/use_bioc_pkg_templates.html">use_bioc_pkg_templates</a></span>()
@@ -471,9 +471,9 @@
 <span class="fu"><a href="https://rdrr.io/r/base/files.html">file.remove</a></span>(<span class="st">"biocthis.bib"</span>)
 <span class="co">#&gt; [1] TRUE</span></pre></body></html></div>
 <p>Date the vignette was generated.</p>
-<pre><code>#&gt; [1] "2020-05-10 05:11:09 UTC"</code></pre>
+<pre><code>#&gt; [1] "2020-05-10 05:31:39 UTC"</code></pre>
 <p>Wallclock time spent generating the vignette.</p>
-<pre><code>#&gt; Time difference of 2.451 secs</code></pre>
+<pre><code>#&gt; Time difference of 1.988 secs</code></pre>
 <p><code>R</code> session information.</p>
 <pre><code>#&gt; ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────
 #&gt;  setting  value                                      
