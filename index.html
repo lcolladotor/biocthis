@@ -120,7 +120,7 @@
     <span class="kw pkg">usethis</span><span class="kw ns">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/create_package.html">create_package</a></span>(<span class="no">pkgname</span>)
 })
 <span class="co">#&gt; ✓ Creating 'biocthisexample/'</span>
-<span class="co">#&gt; ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpQ1fMxU/biocthisexample'</span>
+<span class="co">#&gt; ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/Rtmpc9w1TR/biocthisexample'</span>
 <span class="co">#&gt; ✓ Creating 'R/'</span>
 <span class="co">#&gt; ✓ Writing 'DESCRIPTION'</span>
 <span class="co">#&gt; Package: biocthisexample</span>
@@ -145,7 +145,7 @@
 <span class="kw pkg">withr</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/withr/man/with_dir.html">with_dir</a></span>(<span class="no">pkgdir</span>, {
     <span class="kw pkg">biocthis</span><span class="kw ns">::</span><span class="fu"><a href="reference/use_bioc_pkg_templates.html">use_bioc_pkg_templates</a></span>()
 })
-<span class="co">#&gt; ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpQ1fMxU/biocthisexample'</span>
+<span class="co">#&gt; ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/Rtmpc9w1TR/biocthisexample'</span>
 <span class="co">#&gt; ✓ Creating 'dev/'</span>
 <span class="co">#&gt; ✓ Adding '^dev$' to '.Rbuildignore'</span>
 <span class="co">#&gt; ✓ Writing 'dev/01_create_pkg.R'</span>
@@ -164,15 +164,19 @@
 <span class="co">#&gt; ✓ Writing '.github/workflows/check-bioc.yml'</span></pre></div>
 <div class="sourceCode" id="cb5"><pre class="r"><span class="co">## Alternatively, use the general GitHub Actions workflow maintained by</span>
 <span class="co">## r-lib/actions</span>
-<span class="kw pkg">usethis</span><span class="kw ns">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_github_action.html">use_github_action</a></span>(<span class="st">"check-standard"</span>)
+<span class="kw pkg">withr</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/withr/man/with_dir.html">with_dir</a></span>(<span class="no">pkgdir</span>, {
+    <span class="kw pkg">usethis</span><span class="kw ns">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_github_action.html">use_github_action</a></span>(<span class="st">"check-standard"</span>)
+})
 <span class="co">#&gt; ✓ Writing '.github/workflows/check-standard.yaml'</span>
 
 <span class="co">## Or use the biocthis GHA workflow without having to install biocthis</span>
-<span class="kw pkg">usethis</span><span class="kw ns">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_github_action.html">use_github_action</a></span>(
-    <span class="st">"check-bioc"</span>,
-    <span class="st">"https://bit.ly/biocthis_gha"</span>,
-    <span class="st">"check-bioc.yml"</span>
-)</pre></div>
+<span class="kw pkg">withr</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/withr/man/with_dir.html">with_dir</a></span>(<span class="no">pkgdir</span>, {
+    <span class="kw pkg">usethis</span><span class="kw ns">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_github_action.html">use_github_action</a></span>(
+        <span class="st">"check-bioc"</span>,
+        <span class="st">"https://bit.ly/biocthis_gha"</span>,
+        <span class="st">"check-bioc.yml"</span>
+    )
+})</pre></div>
 </div>
 <div id="citation" class="section level2">
 <h2 class="hasAnchor">

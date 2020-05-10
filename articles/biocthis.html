@@ -176,7 +176,7 @@
     <span class="kw pkg">usethis</span><span class="kw ns">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/create_package.html">create_package</a></span>(<span class="no">pkgname</span>)
 })
 <span class="co">#&gt; ✔ Creating 'biocthisexample/'</span>
-<span class="co">#&gt; ✔ Setting active project to '/tmp/RtmpfNyb26/biocthisexample'</span>
+<span class="co">#&gt; ✔ Setting active project to '/tmp/RtmpJqCccx/biocthisexample'</span>
 <span class="co">#&gt; ✔ Creating 'R/'</span>
 <span class="co">#&gt; ✔ Writing 'DESCRIPTION'</span>
 <span class="co">#&gt; Package: biocthisexample</span>
@@ -201,7 +201,7 @@
 <span class="kw pkg">withr</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/withr/man/with_dir.html">with_dir</a></span>(<span class="no">pkgdir</span>, {
     <span class="kw pkg">biocthis</span><span class="kw ns">::</span><span class="fu"><a href="../reference/use_bioc_pkg_templates.html">use_bioc_pkg_templates</a></span>()
 })
-<span class="co">#&gt; ✔ Setting active project to '/tmp/RtmpfNyb26/biocthisexample'</span>
+<span class="co">#&gt; ✔ Setting active project to '/tmp/RtmpJqCccx/biocthisexample'</span>
 <span class="co">#&gt; ✔ Creating 'dev/'</span>
 <span class="co">#&gt; ✔ Adding '^dev$' to '.Rbuildignore'</span>
 <span class="co">#&gt; ✔ Writing 'dev/01_create_pkg.R'</span>
@@ -249,14 +249,15 @@
 </ul>
 <p>Many of these steps are powered by <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em> (<a href="https://CRAN.R-project.org/package=usethis">Wickham and Bryan, 2020</a>) with some of them utilizing <em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em> <a id="cite-Collado-Torres_2020"></a>(<a href="http://www.bioconductor.org/packages/biocthis">Collado-Torres, 2020</a>).</p>
 </div>
-<div id="biocthis-functions-overview" class="section level2">
-<h2 class="hasAnchor">
-<a href="#biocthis-functions-overview" class="anchor"></a><code>biocthis</code> functions overview</h2>
+</div>
+<div id="biocthis-functions-overview" class="section level1">
+<h1 class="hasAnchor">
+<a href="#biocthis-functions-overview" class="anchor"></a><code>biocthis</code> functions overview</h1>
 <p>The <code>dev</code> scripts use the different functions provided by <em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em> in the suggested order. However, below we give a brief overview of what they do.</p>
-<div id="bioc_style" class="section level3">
-<h3 class="hasAnchor">
+<div id="bioc_style" class="section level2">
+<h2 class="hasAnchor">
 <a href="#bioc_style" class="anchor"></a><code>bioc_style()</code>
-</h3>
+</h2>
 <p><code><a href="../reference/bioc_style.html">bioc_style()</a></code> helps you automatically apply a coding style to your R package files using <em><a href="https://CRAN.R-project.org/package=styler">styler</a></em> (<a href="https://CRAN.R-project.org/package=styler">Müller and Walthert, 2020</a>) that is based on the <a href="https://style.tidyverse.org/">tidyverse coding style guide</a> but modified to make it more similar to the <a href="http://bioconductor.org/developers/how-to/coding-style/">Bioconductor coding style guide</a>.</p>
 <div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="co">## Automatically style the example package</span>
 <span class="kw pkg">withr</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/withr/man/with_dir.html">with_dir</a></span>(<span class="no">pkgdir</span>, {
@@ -269,10 +270,10 @@
 <span class="co">#&gt; ✖    0   Styling threw an error.</span>
 <span class="co">#&gt; ────────────────────────────────────────</span></pre></body></html></div>
 </div>
-<div id="use_bioc_citation" class="section level3">
-<h3 class="hasAnchor">
+<div id="use_bioc_citation" class="section level2">
+<h2 class="hasAnchor">
 <a href="#use_bioc_citation" class="anchor"></a><code>use_bioc_citation()</code>
-</h3>
+</h2>
 <p><code><a href="../reference/use_bioc_citation.html">use_bioc_citation()</a></code> creates an R package <code>CITATION</code> file at <code>inst/CITATION</code> that is pre-populated with information you might want to use for your (future) Bioconductor package such as the Bioconductor DOIs and reference a journal article describing your package (that you might consider submitting to <a href="https://www.biorxiv.org/">bioRxiv</a> as a pre-print first). Alternatively, use <code><a href="https://usethis.r-lib.org/reference/use_citation.html">usethis::use_citation()</a></code>.</p>
 <div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="co">## Create a template CITATION file that is Bioconductor-friendly</span>
 <span class="kw pkg">withr</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/withr/man/with_dir.html">with_dir</a></span>(<span class="no">pkgdir</span>, {
@@ -282,10 +283,10 @@
 <span class="co">#&gt; ✔ Writing 'inst/CITATION'</span>
 <span class="co">#&gt; ● Edit 'inst/CITATION'</span></pre></body></html></div>
 </div>
-<div id="use_bioc_description" class="section level3">
-<h3 class="hasAnchor">
+<div id="use_bioc_description" class="section level2">
+<h2 class="hasAnchor">
 <a href="#use_bioc_description" class="anchor"></a><code>use_bioc_description()</code>
-</h3>
+</h2>
 <p><code><a href="../reference/use_bioc_description.html">use_bioc_description()</a></code> creates an R package <code>DESCRIPTION</code> file that is pre-populated with information you might want to use for your (future) Bioconductor package such as links to the Bioconductor Support Website and <code>biocViews</code>. You will still need to manually edit the file. Alternatively, use <code><a href="https://usethis.r-lib.org/reference/use_description.html">usethis::use_description()</a></code>.</p>
 <div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="co">## Setup up git</span>
 <span class="kw pkg">withr</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/withr/man/with_dir.html">with_dir</a></span>(<span class="no">pkgdir</span>, {
@@ -315,10 +316,10 @@
 <span class="co">#&gt; Roxygen: list(markdown = TRUE)</span>
 <span class="co">#&gt; RoxygenNote: 7.1.0</span></pre></body></html></div>
 </div>
-<div id="use_bioc_github_action" class="section level3">
-<h3 class="hasAnchor">
+<div id="use_bioc_github_action" class="section level2">
+<h2 class="hasAnchor">
 <a href="#use_bioc_github_action" class="anchor"></a><code>use_bioc_github_action()</code>
-</h3>
+</h2>
 <p><code><a href="../reference/use_bioc_github_action.html">use_bioc_github_action()</a></code> creates a GitHub Actions workflow file that is configured to be Bioconductor-friendly. Alternatively, use <code><a href="https://usethis.r-lib.org/reference/use_github_action.html">usethis::use_github_action()</a></code> for the general GitHub Actions workflow maintained by <code>r-lib/actions</code> or <code><a href="https://usethis.r-lib.org/reference/use_github_action.html">usethis::use_github_action("check-bioc", "https://bit.ly/biocthis_gha")</a></code> without having to install <em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em>. We highly recommend that you watch <a href="https://www.jimhester.com/talk/2020-rsc-github-actions/">Jim Hester’s <code>rstudio::conf(2020)</code> talk on this subject</a>.</p>
 <div class="sourceCode" id="cb9"><html><body><pre class="r"><span class="co">## Create a GitHub Actions workflow that is Bioconductor-friendly</span>
 <span class="kw pkg">withr</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/withr/man/with_dir.html">with_dir</a></span>(<span class="no">pkgdir</span>, {
@@ -356,10 +357,10 @@
 </ul>
 <p>If you are interested in learning more details about how this GHA workflow came to be, check the <a href="https://lcolladotor.github.io/biocthis/articles/biocthis_dev_notes.html"><code>biocthis developer notes</code> vignette</a>. We also highly recommend watching any developments as they happen at <em><a href="https://github.com/r-lib/actions">actions</a></em>.</p>
 </div>
-<div id="use_bioc_issue_template" class="section level3">
-<h3 class="hasAnchor">
+<div id="use_bioc_issue_template" class="section level2">
+<h2 class="hasAnchor">
 <a href="#use_bioc_issue_template" class="anchor"></a><code>use_bioc_issue_template()</code>
-</h3>
+</h2>
 <p><code><a href="../reference/use_bioc_issue_template.html">use_bioc_issue_template()</a></code> creates a GitHub issue template file that is pre-populated with information you might want to use for your (future) Bioconductor package such as links to the Bioconductor Support Website and examples of the information you can ask users to provide that will make it easier for you to help your users. Alternatively, use <code><a href="https://usethis.r-lib.org/reference/tidyverse.html">usethis::use_tidy_issue_template()</a></code>.</p>
 <div class="sourceCode" id="cb10"><html><body><pre class="r"><span class="co">## Create a template GitHub issue file that is Bioconductor-friendly</span>
 <span class="kw pkg">withr</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/withr/man/with_dir.html">with_dir</a></span>(<span class="no">pkgdir</span>, {
@@ -368,10 +369,10 @@
 <span class="co">#&gt; ✔ Creating '.github/ISSUE_TEMPLATE/'</span>
 <span class="co">#&gt; ✔ Writing '.github/ISSUE_TEMPLATE/issue_template.md'</span></pre></body></html></div>
 </div>
-<div id="use_bioc_news_md" class="section level3">
-<h3 class="hasAnchor">
+<div id="use_bioc_news_md" class="section level2">
+<h2 class="hasAnchor">
 <a href="#use_bioc_news_md" class="anchor"></a><code>use_bioc_news_md()</code>
-</h3>
+</h2>
 <p><code><a href="../reference/use_bioc_news_md.html">use_bioc_news_md()</a></code> creates a <code>NEWS.md</code> template file that is pre-populated with information you might want to use for your (future) Bioconductor package. Alternatively, use <code><a href="https://usethis.r-lib.org/reference/use_news_md.html">usethis::use_news_md()</a></code>.</p>
 <div class="sourceCode" id="cb11"><html><body><pre class="r"><span class="co">## Create a template NEWS.md file that is Bioconductor-friendly</span>
 <span class="kw pkg">withr</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/withr/man/with_dir.html">with_dir</a></span>(<span class="no">pkgdir</span>, {
@@ -379,16 +380,16 @@
 })
 <span class="co">#&gt; ✔ Writing 'NEWS.md'</span></pre></body></html></div>
 </div>
-<div id="use_bioc_pkg_templates" class="section level3">
-<h3 class="hasAnchor">
+<div id="use_bioc_pkg_templates" class="section level2">
+<h2 class="hasAnchor">
 <a href="#use_bioc_pkg_templates" class="anchor"></a><code>use_bioc_pkg_templates()</code>
-</h3>
+</h2>
 <p>This function was already described in detail in the previous main section.</p>
 </div>
-<div id="use_bioc_readme_rmd" class="section level3">
-<h3 class="hasAnchor">
+<div id="use_bioc_readme_rmd" class="section level2">
+<h2 class="hasAnchor">
 <a href="#use_bioc_readme_rmd" class="anchor"></a><code>use_bioc_readme_rmd()</code>
-</h3>
+</h2>
 <p><code><a href="../reference/use_bioc_readme_rmd.html">use_bioc_readme_rmd()</a></code> creates a <code>README.Rmd</code> template file that is pre-populated with information you might want to use for your (future) Bioconductor package such as Bioconductor’s installation instructions, how to cite your package and links to the development tools you used. Alternatively, use <code><a href="https://usethis.r-lib.org/reference/use_readme_rmd.html">usethis::use_readme_rmd()</a></code>.</p>
 <div class="sourceCode" id="cb12"><html><body><pre class="r"><span class="co">## Create a template README.Rmd file that is Bioconductor-friendly</span>
 <span class="kw pkg">withr</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/withr/man/with_dir.html">with_dir</a></span>(<span class="no">pkgdir</span>, {
@@ -397,10 +398,10 @@
 <span class="co">#&gt; ✔ Writing 'README.Rmd'</span>
 <span class="co">#&gt; ✔ Writing '.git/hooks/pre-commit'</span></pre></body></html></div>
 </div>
-<div id="use_bioc_support" class="section level3">
-<h3 class="hasAnchor">
+<div id="use_bioc_support" class="section level2">
+<h2 class="hasAnchor">
 <a href="#use_bioc_support" class="anchor"></a><code>use_bioc_support()</code>
-</h3>
+</h2>
 <p><code><a href="../reference/use_bioc_support.html">use_bioc_support()</a></code> creates a template GitHub support template file that is pre-populated with information you might want to use for your (future) Bioconductor package such where to ask for help including the Bioconductor Support website. Alternatively, use <code><a href="https://usethis.r-lib.org/reference/tidyverse.html">usethis::use_tidy_support()</a></code>.</p>
 <div class="sourceCode" id="cb13"><html><body><pre class="r"><span class="co">## Create a template GitHub support file that is Bioconductor-friendly</span>
 <span class="kw pkg">withr</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/withr/man/with_dir.html">with_dir</a></span>(<span class="no">pkgdir</span>, {
@@ -408,10 +409,10 @@
 })
 <span class="co">#&gt; ✔ Writing '.github/SUPPORT.md'</span></pre></body></html></div>
 </div>
-<div id="use_bioc_vignette" class="section level3">
-<h3 class="hasAnchor">
+<div id="use_bioc_vignette" class="section level2">
+<h2 class="hasAnchor">
 <a href="#use_bioc_vignette" class="anchor"></a><code>use_bioc_vignette()</code>
-</h3>
+</h2>
 <p><code><a href="../reference/use_bioc_vignette.html">use_bioc_vignette()</a></code> creates a template vignette file that is pre-populated with information you might want to use for your (future) Bioconductor package. This template includes information on how to cite other packages using <em><a href="https://CRAN.R-project.org/package=knitcitations">knitcitations</a></em>, styling your vignette with <em><a href="https://bioconductor.org/packages/3.12/BiocStyle">BiocStyle</a></em>, instructions on how to install your package from Bioconductor, where to ask for help, information a user might need to know before they use your package, as well as the reproducibility information on how the vignette was made powered by <em><a href="https://CRAN.R-project.org/package=sessioninfo">sessioninfo</a></em>. You will need to spend a significant amount of time editing this vignette as you develop your R package. Alternatively, use <code><a href="https://usethis.r-lib.org/reference/use_vignette.html">usethis::use_vignette()</a></code>.</p>
 <div class="sourceCode" id="cb14"><html><body><pre class="r"><span class="co">## Create a template vignette file that is Bioconductor-friendly</span>
 <span class="kw pkg">withr</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/withr/man/with_dir.html">with_dir</a></span>(<span class="no">pkgdir</span>, {
@@ -440,6 +441,11 @@
 <span class="co">#&gt; ● Edit 'vignettes/biocthisexample.Rmd'</span></pre></body></html></div>
 </div>
 </div>
+<div id="acknowledgments" class="section level1">
+<h1 class="hasAnchor">
+<a href="#acknowledgments" class="anchor"></a>Acknowledgments</h1>
+<p><em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em> wouldn’t have been possible without the help of many other R package developers. Please read the full story at the <a href="https://lcolladotor.github.io/biocthis/articles/biocthis_dev_notes.html"><code>biocthis developer notes</code> vignette</a>.</p>
+<p>Thank you very much! 🙌🏽😊</p>
 </div>
 <div id="reproducibility" class="section level1">
 <h1 class="hasAnchor">
@@ -493,9 +499,9 @@
 <span class="fu"><a href="https://rdrr.io/r/base/files.html">file.remove</a></span>(<span class="st">"biocthis.bib"</span>)
 <span class="co">#&gt; [1] TRUE</span></pre></body></html></div>
 <p>Date the vignette was generated.</p>
-<pre><code>#&gt; [1] "2020-05-10 00:39:59 UTC"</code></pre>
+<pre><code>#&gt; [1] "2020-05-10 00:50:13 UTC"</code></pre>
 <p>Wallclock time spent generating the vignette.</p>
-<pre><code>#&gt; Time difference of 2.388 secs</code></pre>
+<pre><code>#&gt; Time difference of 2.049 secs</code></pre>
 <p><code>R</code> session information.</p>
 <pre><code>#&gt; ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────
 #&gt;  setting  value                                      

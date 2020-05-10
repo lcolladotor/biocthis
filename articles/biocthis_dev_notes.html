@@ -193,10 +193,18 @@
 <li>I also had to learn how to mount directories with docker to enable caching the R package files when using the Bioconductor docker images, and other GitHub Actions syntax for which I relied quite heavily on <a href="https://help.github.com/en/actions">their manual</a> and Google searches; most of them lead me to the <a href="https://github.community/t5/GitHub-Actions/bd-p/actions">GitHub Actions community website</a>.</li>
 </ul>
 </div>
+<div id="potential-future-additions" class="section level3">
+<h3 class="hasAnchor">
+<a href="#potential-future-additions" class="anchor"></a>Potential future additions</h3>
+<ul>
+<li>It might be useful to use exactly the same <code>.Renviron</code> as the one used in the Bioconductor machines by downloading files like <a href="https://github.com/Bioconductor/BBS/blob/master/3.11/Renviron.bioc">3.11/Renviron.bioc</a> and locating them correctly.</li>
+<li>On a similar router, it might be useful to utilize <em><a href="https://github.com/HenrikBengtsson/rcli">rcli</a></em>, potentially avoiding the need for dealing directly with the <code>.Renviron</code> files.</li>
+</ul>
+</div>
 <div id="wrapping-up" class="section level3">
 <h3 class="hasAnchor">
 <a href="#wrapping-up" class="anchor"></a>Wrapping up</h3>
-<p>The resulting Bioconductor-friendly GitHub Actions workflow that you can add to your package with <code><a href="../reference/use_bioc_github_action.html">biocthis::use_bioc_github_action()</a></code> has many comments which you might find helpful (or at least I will) for understanding why some steps are done the way they are. I have tried to simplify the workflow when possible, but it depends on the latest version of many tools and thus will expose you to issues you might have not dealt with, particularly compilation issues of R packages with R-devel (six months of the year with the current Bioconductor release cycle).</p>
+<p>The resulting Bioconductor-friendly GitHub Actions workflow that you can add to your package with <code><a href="../reference/use_bioc_github_action.html">biocthis::use_bioc_github_action()</a></code> has many comments which you might find helpful (or at least I will) for understanding why some steps are done the way they are. I have tried to simplify the workflow when possible, but it depends on the latest version of many tools and thus will expose you to issues you might have not dealt with, particularly compilation issues of R packages with R-devel (six months of the year with the current Bioconductor release cycle). If you need help, start by going through the steps listed at <a href="https://github.com/r-lib/actions#where-to-find-help">r-lib/actions#where-to-find-help</a>. <em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em> exclusive issues are always welcome, though please include the information that will enable others to help you faster. Thank you!</p>
 </div>
 </div>
 <div id="usethis-like-functions" class="section level2">
@@ -300,9 +308,9 @@
 <span class="fu"><a href="https://rdrr.io/r/base/files.html">file.remove</a></span>(<span class="st">"biocthis_dev_notes.bib"</span>)
 <span class="co">#&gt; [1] TRUE</span></pre></body></html></div>
 <p>Date the vignette was generated.</p>
-<pre><code>#&gt; [1] "2020-05-10 00:40:03 UTC"</code></pre>
+<pre><code>#&gt; [1] "2020-05-10 00:50:17 UTC"</code></pre>
 <p>Wallclock time spent generating the vignette.</p>
-<pre><code>#&gt; Time difference of 0.77 secs</code></pre>
+<pre><code>#&gt; Time difference of 0.645 secs</code></pre>
 <p><code>R</code> session information.</p>
 <pre><code>#&gt; ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────
 #&gt;  setting  value                                      
