@@ -80,8 +80,8 @@ pkgdir <- file.path(tempdir(), "biocthisexample")
 
 ## Create the example package in a temporary location
 usethis::create_package(pkgdir)
-#> ✓ Creating '/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpSxZy15/biocthisexample/'
-#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpSxZy15/biocthisexample'
+#> ✓ Creating '/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpPXAtNQ/biocthisexample/'
+#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpPXAtNQ/biocthisexample'
 #> ✓ Creating 'R/'
 #> ✓ Writing 'DESCRIPTION'
 #> Package: biocthisexample
@@ -99,14 +99,18 @@ usethis::create_package(pkgdir)
 #> ✓ Writing 'NAMESPACE'
 #> ✓ Setting active project to '<no active project>'
 
-## Set a local project to work with for the examples
-usethis::local_project(pkgdir)
-#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpSxZy15/biocthisexample'
-#> ✓ Setting active project to '<no active project>'
+## Set the project to use for the examples
+usethis::proj_set(pkgdir)
+#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpPXAtNQ/biocthisexample'
 
 ## Create the bioc templates
 biocthis::use_bioc_pkg_templates()
-#> ✓ Setting active project to '/Users/lcollado/Dropbox/Code/biocthis'
+#> ✓ Creating 'dev/'
+#> ✓ Adding '^dev$' to '.Rbuildignore'
+#> ✓ Writing 'dev/01_create_pkg.R'
+#> ✓ Writing 'dev/02_git_github_setup.R'
+#> ✓ Writing 'dev/03_core_files.R'
+#> ✓ Writing 'dev/04_update.R'
 ```
 
 The template `dev` scripts include comments and steps you can follow for
@@ -120,12 +124,18 @@ subject](https://www.jimhester.com/talk/2020-rsc-github-actions/).
 ``` r
 ## Create a GitHub Actions workflow that is Bioconductor-friendly
 biocthis::use_bioc_github_action()
+#> ✓ Creating '.github/'
+#> ✓ Adding '^\\.github$' to '.Rbuildignore'
+#> ✓ Adding '*.html' to '.github/.gitignore'
+#> ✓ Creating '.github/workflows/'
+#> ✓ Writing '.github/workflows/check-bioc.yml'
 ```
 
 ``` r
 ## Alternatively, use the general GitHub Actions workflow maintained by
 ## r-lib/actions
 usethis::use_github_action("check-standard")
+#> ✓ Writing '.github/workflows/check-standard.yaml'
 
 ## Or use the biocthis GHA workflow without having to install biocthis
 usethis::use_github_action(

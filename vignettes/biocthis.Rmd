@@ -120,18 +120,18 @@ library("styler")
 
 If you haven't made an R package yet, you can do so using `r CRANpkg("usethis")`. That is, utilize `usethis::create_package()` with the package name of your choice. If you are using [RStudio Desktop](https://www.rstudio.com/products/rstudio/download) this function will open a new RStudio window and open R in the correct location. Otherwise, you might need to use `setwd()` to change directories. 
 
-In this vignette we will create an example package called `biocthisexample` on a temporary directory and work in this directory using `usethis::local_project()` in order to illustrate how the functions work. In a real world scenario, you would not use `usethis::local_project()` yourself and instead you would be working inside your R package.
+In this vignette we will create an example package called `biocthispkg` on a temporary directory and work in this directory using `usethis::local_project()` in order to illustrate how the functions work. In a real world scenario, you would not use `usethis::local_project()` yourself and instead you would be working inside your R package.
 
 
 ```{r 'create_example_pkg'}
 ## Set the package name on a temporary directory
-pkgdir <- file.path(tempdir(), "biocthisexample")
+pkgdir <- file.path(tempdir(), "biocthispkg")
 
 ## Create the example package in a temporary location
 usethis::create_package(pkgdir)
 
-## Set a local project to work with for the examples
-usethis::local_project(pkgdir)
+## Set the project to use for the examples
+usethis::proj_set(pkgdir)
 ```
 
 Once you have created a package, you can use `use_bioc_pkg_templates()` to create a set of scripts in the `dev` (developer) directory.
@@ -282,7 +282,7 @@ biocthis::use_bioc_support()
 
 ```{r 'bioc_vignette'}
 ## Create a template vignette file that is Bioconductor-friendly
-biocthis::use_bioc_vignette("biocthisexample", "Introduction to biocthisexample")
+biocthis::use_bioc_vignette("biocthispkg", "Introduction to biocthispkg")
 ```
 
 # Acknowledgments

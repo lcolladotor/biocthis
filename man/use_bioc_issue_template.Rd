@@ -31,8 +31,8 @@ pkgdir <- file.path(tempdir(), "biocthisexample")
 ## Create the example package in a temporary location
 usethis::create_package(pkgdir)
 
-## Set a local project to work with for the examples
-usethis::local_project(pkgdir)
+## Set the project to use for the examples
+usethis::proj_set(pkgdir)
 
 ## Create a template GitHub issue file that is Bioconductor-friendly
 biocthis::use_bioc_issue_template()
