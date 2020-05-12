@@ -25,14 +25,9 @@ For more details on how this function came to be, check
 use_bioc_issue_template()
 }
 
-## Set the package name on a temporary directory
-pkgdir <- file.path(tempdir(), "biocthisexample")
-
-## Create the example package in a temporary location
-usethis::create_package(pkgdir)
-
-## Set the project to use for the examples
-usethis::proj_set(pkgdir)
+## Create an example package for illustrative purposes.
+## Note: you do not need to run this for your own package!
+pkgdir <- biocthis_example_pkg()
 
 ## Create a template GitHub issue file that is Bioconductor-friendly
 biocthis::use_bioc_issue_template()

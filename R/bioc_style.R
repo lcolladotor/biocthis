@@ -38,14 +38,9 @@
 #' styler::style_dir(usethis::proj_path("dev"), transformers = biocthis::bioc_style())
 #' }
 #'
-#' ## Set the package name on a temporary directory
-#' pkgdir <- file.path(tempdir(), "biocthisexample")
-#'
-#' ## Create the example package in a temporary location
-#' usethis::create_package(pkgdir)
-#'
-#' ## Set the project to use for the examples
-#' usethis::proj_set(pkgdir)
+#' ## Create an example package for illustrative purposes.
+#' ## Note: you do not need to run this for your own package!
+#' pkgdir <- biocthis_example_pkg()
 #'
 #' ## Automatically style the example package
 #' styler::style_pkg(pkgdir, transformers = biocthis::bioc_style())

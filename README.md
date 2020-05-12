@@ -75,13 +75,11 @@ directory):
 ## Load biocthis
 library("biocthis")
 
-## Set the package name on a temporary directory
-pkgdir <- file.path(tempdir(), "biocthisexample")
-
-## Create the example package in a temporary location
-usethis::create_package(pkgdir)
-#> ✓ Creating '/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/Rtmp2BrI8D/biocthisexample/'
-#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/Rtmp2BrI8D/biocthisexample'
+## Create an example package for illustrative purposes.
+## Note: you do not need to run this for your own package!
+pkgdir <- biocthis_example_pkg()
+#> ✓ Creating '/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpgWuzyn/biocthisexample/'
+#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpgWuzyn/biocthisexample'
 #> ✓ Creating 'R/'
 #> ✓ Writing 'DESCRIPTION'
 #> Package: biocthisexample
@@ -98,10 +96,7 @@ usethis::create_package(pkgdir)
 #> RoxygenNote: 7.1.0
 #> ✓ Writing 'NAMESPACE'
 #> ✓ Setting active project to '<no active project>'
-
-## Set the project to use for the examples
-usethis::proj_set(pkgdir)
-#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/Rtmp2BrI8D/biocthisexample'
+#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpgWuzyn/biocthisexample'
 
 ## Create the bioc templates
 biocthis::use_bioc_pkg_templates()

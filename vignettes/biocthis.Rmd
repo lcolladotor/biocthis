@@ -119,18 +119,13 @@ library("styler")
 
 If you haven't made an R package yet, you can do so using `r CRANpkg("usethis")`. That is, utilize `usethis::create_package()` with the package name of your choice. If you are using [RStudio Desktop](https://www.rstudio.com/products/rstudio/download) this function will open a new RStudio window and open R in the correct location. Otherwise, you might need to use `setwd()` to change directories. 
 
-In this vignette we will create an example package called `biocthispkg` on a temporary directory and work in this directory using `usethis::proj_set()` in order to illustrate how the functions work. In a real world scenario, you would be working inside your R package and thus you wouldn't need to run `usethis::proj_set()`.
+In this vignette we will create an example package called `biocthispkg` on a temporary directory and work in this directory in order to illustrate how the functions work. In a real world scenario, you would be working inside your R package and would not run `biocthis_example_pkg()`.
 
 
 ```{r 'create_example_pkg'}
-## Set the package name on a temporary directory
-pkgdir <- file.path(tempdir(), "biocthispkg")
-
-## Create the example package in a temporary location
-usethis::create_package(pkgdir)
-
-## Set the project to use for the examples
-usethis::proj_set(pkgdir)
+## Create an example package for illustrative purposes.
+## Note: you do not need to run this for your own package!
+pkgdir <- biocthis_example_pkg("biocthispkg", use_git = TRUE)
 ```
 
 Once you have created a package, you can use `use_bioc_pkg_templates()` to create a set of scripts in the `dev` (developer) directory.
@@ -192,9 +187,6 @@ biocthis::use_bioc_citation()
 `use_bioc_description()` creates an R package `DESCRIPTION` file that is pre-populated with information you might want to use for your (future) Bioconductor package such as links to the Bioconductor Support Website and `biocViews`. You will still need to manually edit the file. Alternatively, use `usethis::use_description()`.
 
 ```{r 'bioc_description'}
-## Setup up git
-usethis::use_git()
-
 ## Create a template DESCRIPTION file that is Bioconductor-friendly
 biocthis::use_bioc_description()
 ```
