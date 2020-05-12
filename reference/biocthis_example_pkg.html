@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create a biocthis-style NEWS.md file — use_bioc_news_md • biocthis</title>
+<title>Create a temporary example package — biocthis_example_pkg • biocthis</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,11 @@
 
 
 
-<meta property="og:title" content="Create a biocthis-style NEWS.md file — use_bioc_news_md" />
-<meta property="og:description" content="This function is very similar to usethis::use_news_md() except that it
-uses a template from biocthis." />
+<meta property="og:title" content="Create a temporary example package — biocthis_example_pkg" />
+<meta property="og:description" content="This function creates a temporary example package. It is used by the
+functions in biocthis to illustrate the functionality of the package
+without exposing users to internals of usethis that users do not need
+to use under typical working conditions." />
 
 
 
@@ -127,48 +129,53 @@ uses a template from biocthis." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create a biocthis-style NEWS.md file</h1>
-    <small class="dont-index">Source: <a href='https://github.com/lcolladotor/biocthis/blob/master/R/use_bioc_news_md.R'><code>R/use_bioc_news_md.R</code></a></small>
-    <div class="hidden name"><code>use_bioc_news_md.Rd</code></div>
+    <h1>Create a temporary example package</h1>
+    <small class="dont-index">Source: <a href='https://github.com/lcolladotor/biocthis/blob/master/R/biocthis_example_pkg.R'><code>R/biocthis_example_pkg.R</code></a></small>
+    <div class="hidden name"><code>biocthis_example_pkg.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function is very similar to <code><a href='https://usethis.r-lib.org/reference/use_news_md.html'>usethis::use_news_md()</a></code> except that it
-uses a template from <code>biocthis</code>.</p>
+    <p>This function creates a temporary example package. It is used by the
+functions in <code>biocthis</code> to illustrate the functionality of the package
+without exposing users to internals of <code>usethis</code> that users do not need
+to use under typical working conditions.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>use_bioc_news_md</span>(<span class='kw'>open</span> <span class='kw'>=</span> <span class='kw pkg'>rlang</span><span class='kw ns'>::</span><span class='fu'><a href='https://rlang.r-lib.org/reference/is_interactive.html'>is_interactive</a></span>())</pre>
+    <pre class="usage"><span class='fu'>biocthis_example_pkg</span>(<span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"biocthisexample"</span>, <span class='kw'>use_git</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>open</th>
-      <td><p>Open the newly created file for editing? Happens in RStudio,
-if applicable, or via <code><a href='https://rdrr.io/r/utils/file.edit.html'>utils::file.edit()</a></code> otherwise. This argument has the
-same behavior as the <code>open</code> argument used in <code>usethis</code> functions.</p></td>
+      <th>name</th>
+      <td><p>A <code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code> with the name of the example package.</p></td>
+    </tr>
+    <tr>
+      <th>use_git</th>
+      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code> indicating whether to set up <code>git</code> through
+<code><a href='https://usethis.r-lib.org/reference/use_git.html'>usethis::use_git()</a></code> on the temporary example package.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>This function adds and/or replaces the <code>NEWS.md</code> file in your
-R package.</p>
+    <p>A <code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code> with the path to a temporary example package to use
+in the examples of the <code>biocthis</code> functions.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>Unlike the original function, <code>use_bioc_news_md()</code> does not make git commits.
-So you won't lose work you didn't save when using this function.</p>
+    <p>This function creates a package under <code><a href='https://rdrr.io/r/base/tempfile.html'>tempdir()</a></code> with the <code>name</code> provided
+and uses <code><a href='https://usethis.r-lib.org/reference/proj_utils.html'>usethis::proj_set()</a></code> for setting the project directory. Users
+do not need to rely on <code><a href='https://usethis.r-lib.org/reference/proj_utils.html'>usethis::proj_set()</a></code> under typical scenarios. In
+other words, if you are running R interactively, <code>usethis</code> will set the
+directory for you.</p>
+<p>Check
+<a href='https://github.com/lcolladotor/biocthis/commit/dc387807623f0e945432d15f0d0f899de1b1dd9d#r39102094'>https://github.com/lcolladotor/biocthis/commit/dc387807623f0e945432d15f0d0f899de1b1dd9d#r39102094</a>
+for more details that motivated this function.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='co'>## Run this function in your package</span>
-<span class='fu'>use_bioc_news_md</span>()
-}
-
-<span class='co'>## Create an example package for illustrative purposes.</span>
-<span class='co'>## Note: you do not need to run this for your own package!</span>
-<span class='no'>pkgdir</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='biocthis_example_pkg.html'>biocthis_example_pkg</a></span>()</div><div class='output co'>#&gt; <span class='message'>✔ Leaving 'DESCRIPTION' unchanged</span></div><div class='output co'>#&gt; Package: biocthisexample
+<span class='co'>## Create an example temporary package for illustrative purposes</span>
+<span class='no'>pkgdir</span> <span class='kw'>&lt;-</span> <span class='fu'>biocthis_example_pkg</span>()</div><div class='output co'>#&gt; <span class='message'>✔ Leaving 'DESCRIPTION' unchanged</span></div><div class='output co'>#&gt; Package: biocthisexample
 #&gt; Title: What the Package Does (One Line, Title Case)
 #&gt; Version: 0.0.0.9000
 #&gt; Authors@R (parsed):
@@ -179,9 +186,7 @@ So you won't lose work you didn't save when using this function.</p>
 #&gt; Encoding: UTF-8
 #&gt; LazyData: true
 #&gt; Roxygen: list(markdown = TRUE)
-#&gt; RoxygenNote: 7.1.0</div><div class='input'>
-<span class='co'>## Create a template NEWS.md file that is Bioconductor-friendly</span>
-<span class='kw pkg'>biocthis</span><span class='kw ns'>::</span><span class='fu'>use_bioc_news_md</span>()</div><div class='output co'>#&gt; <span class='message'>✔ Writing 'NEWS.md'</span></div></pre>
+#&gt; RoxygenNote: 7.1.0</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

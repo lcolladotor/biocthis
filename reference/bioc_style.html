@@ -188,11 +188,9 @@ you close enough! =)</p>
 <span class='kw pkg'>styler</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/styler/man/style_dir.html'>style_dir</a></span>(<span class='kw pkg'>usethis</span><span class='kw ns'>::</span><span class='fu'><a href='https://usethis.r-lib.org/reference/proj_utils.html'>proj_path</a></span>(<span class='st'>"dev"</span>), <span class='kw'>transformers</span> <span class='kw'>=</span> <span class='kw pkg'>biocthis</span><span class='kw ns'>::</span><span class='fu'>bioc_style</span>())
 }
 
-<span class='co'>## Set the package name on a temporary directory</span>
-<span class='no'>pkgdir</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"biocthisexample"</span>)
-
-<span class='co'>## Create the example package in a temporary location</span>
-<span class='kw pkg'>usethis</span><span class='kw ns'>::</span><span class='fu'><a href='https://usethis.r-lib.org/reference/create_package.html'>create_package</a></span>(<span class='no'>pkgdir</span>)</div><div class='output co'>#&gt; <span class='message'>✔ Creating '/tmp/RtmpqFqSa7/biocthisexample/'</span></div><div class='output co'>#&gt; <span class='message'>✔ Setting active project to '/tmp/RtmpqFqSa7/biocthisexample'</span></div><div class='output co'>#&gt; <span class='message'>✔ Creating 'R/'</span></div><div class='output co'>#&gt; <span class='message'>✔ Writing 'DESCRIPTION'</span></div><div class='output co'>#&gt; Package: biocthisexample
+<span class='co'>## Create an example package for illustrative purposes.</span>
+<span class='co'>## Note: you do not need to run this for your own package!</span>
+<span class='no'>pkgdir</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='biocthis_example_pkg.html'>biocthis_example_pkg</a></span>()</div><div class='output co'>#&gt; <span class='message'>✔ Creating '/tmp/RtmpPW2rJp/biocthisexample/'</span></div><div class='output co'>#&gt; <span class='message'>✔ Setting active project to '/tmp/RtmpPW2rJp/biocthisexample'</span></div><div class='output co'>#&gt; <span class='message'>✔ Creating 'R/'</span></div><div class='output co'>#&gt; <span class='message'>✔ Writing 'DESCRIPTION'</span></div><div class='output co'>#&gt; Package: biocthisexample
 #&gt; Title: What the Package Does (One Line, Title Case)
 #&gt; Version: 0.0.0.9000
 #&gt; Authors@R (parsed):
@@ -203,9 +201,7 @@ you close enough! =)</p>
 #&gt; Encoding: UTF-8
 #&gt; LazyData: true
 #&gt; Roxygen: list(markdown = TRUE)
-#&gt; RoxygenNote: 7.1.0</div><div class='output co'>#&gt; <span class='message'>✔ Writing 'NAMESPACE'</span></div><div class='output co'>#&gt; <span class='message'>✔ Setting active project to '&lt;no active project&gt;'</span></div><div class='input'>
-<span class='co'>## Set the project to use for the examples</span>
-<span class='kw pkg'>usethis</span><span class='kw ns'>::</span><span class='fu'><a href='https://usethis.r-lib.org/reference/proj_utils.html'>proj_set</a></span>(<span class='no'>pkgdir</span>)</div><div class='output co'>#&gt; <span class='message'>✔ Setting active project to '/tmp/RtmpqFqSa7/biocthisexample'</span></div><div class='input'>
+#&gt; RoxygenNote: 7.1.0</div><div class='output co'>#&gt; <span class='message'>✔ Writing 'NAMESPACE'</span></div><div class='output co'>#&gt; <span class='message'>✔ Setting active project to '&lt;no active project&gt;'</span></div><div class='output co'>#&gt; <span class='message'>✔ Setting active project to '/tmp/RtmpPW2rJp/biocthisexample'</span></div><div class='input'>
 <span class='co'>## Automatically style the example package</span>
 <span class='kw pkg'>styler</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/styler/man/style_pkg.html'>style_pkg</a></span>(<span class='no'>pkgdir</span>, <span class='kw'>transformers</span> <span class='kw'>=</span> <span class='kw pkg'>biocthis</span><span class='kw ns'>::</span><span class='fu'>bioc_style</span>())</div><div class='output co'>#&gt; ────────────────────────────────────────
 #&gt; Status	Count	Legend 

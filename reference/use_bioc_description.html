@@ -175,11 +175,9 @@ packages check
 <span class='fu'>use_bioc_description</span>()
 }
 
-<span class='co'>## Set the package name on a temporary directory</span>
-<span class='no'>pkgdir</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"biocthisexample"</span>)
-
-<span class='co'>## Create the example package in a temporary location</span>
-<span class='kw pkg'>usethis</span><span class='kw ns'>::</span><span class='fu'><a href='https://usethis.r-lib.org/reference/create_package.html'>create_package</a></span>(<span class='no'>pkgdir</span>)</div><div class='output co'>#&gt; <span class='message'>✔ Leaving 'DESCRIPTION' unchanged</span></div><div class='output co'>#&gt; Package: biocthisexample
+<span class='co'>## Create an example package for illustrative purposes.</span>
+<span class='co'>## Note: you do not need to run this for your own package!</span>
+<span class='no'>pkgdir</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='biocthis_example_pkg.html'>biocthis_example_pkg</a></span>(<span class='kw'>use_git</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='message'>✔ Leaving 'DESCRIPTION' unchanged</span></div><div class='output co'>#&gt; Package: biocthisexample
 #&gt; Title: What the Package Does (One Line, Title Case)
 #&gt; Version: 0.0.0.9000
 #&gt; Authors@R (parsed):
@@ -190,17 +188,12 @@ packages check
 #&gt; Encoding: UTF-8
 #&gt; LazyData: true
 #&gt; Roxygen: list(markdown = TRUE)
-#&gt; RoxygenNote: 7.1.0</div><div class='input'>
-<span class='co'>## Set the project to use for the examples</span>
-<span class='kw pkg'>usethis</span><span class='kw ns'>::</span><span class='fu'><a href='https://usethis.r-lib.org/reference/proj_utils.html'>proj_set</a></span>(<span class='no'>pkgdir</span>)
-
-<span class='co'>## Setup up git</span>
-<span class='kw pkg'>usethis</span><span class='kw ns'>::</span><span class='fu'><a href='https://usethis.r-lib.org/reference/use_git.html'>use_git</a></span>()</div><div class='output co'>#&gt; <span class='message'>✔ Initialising Git repo</span></div><div class='output co'>#&gt; <span class='message'>✔ Adding '.Rhistory', '.RData', '.Rproj.user' to '.gitignore'</span></div><div class='input'>
+#&gt; RoxygenNote: 7.1.0</div><div class='output co'>#&gt; <span class='message'>✔ Initialising Git repo</span></div><div class='output co'>#&gt; <span class='message'>✔ Adding '.Rhistory', '.RData', '.Rproj.user' to '.gitignore'</span></div><div class='input'>
 <span class='co'>## Create a template DESCRIPTION file that is Bioconductor-friendly</span>
 <span class='kw pkg'>biocthis</span><span class='kw ns'>::</span><span class='fu'>use_bioc_description</span>()</div><div class='output co'>#&gt; <span class='message'>✔ Leaving 'DESCRIPTION' unchanged</span></div><div class='output co'>#&gt; Package: biocthisexample
 #&gt; Title: What the Package Does (One Line, Title Case)
 #&gt; Version: 0.99.0
-#&gt; Date: 2020-05-10
+#&gt; Date: 2020-05-12
 #&gt; Authors@R (parsed):
 #&gt;     * First Last &lt;first.last@example.com&gt; [aut, cre] (YOUR-ORCID-ID)
 #&gt; Description: What the package does (one paragraph).

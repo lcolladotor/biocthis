@@ -91,7 +91,7 @@
       Lieber Institute for Brain Development, Johns Hopkins Medical Campus<br><a class="author_email" href="mailto:#"></a><a href="mailto:lcolladotor@gmail.com" class="email">lcolladotor@gmail.com</a>
       </address>
                   
-            <h4 class="date">10 May 2020</h4>
+            <h4 class="date">12 May 2020</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/lcolladotor/biocthis/blob/master/vignettes/biocthis.Rmd"><code>vignettes/biocthis.Rmd</code></a></small>
       <div class="hidden name"><code>biocthis.Rmd</code></div>
@@ -167,14 +167,12 @@
 <h2 class="hasAnchor">
 <a href="#using-biocthis-in-your-r-package" class="anchor"></a>Using <code>biocthis</code> in your R package</h2>
 <p>If you haven’t made an R package yet, you can do so using <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em>. That is, utilize <code><a href="https://usethis.r-lib.org/reference/create_package.html">usethis::create_package()</a></code> with the package name of your choice. If you are using <a href="https://www.rstudio.com/products/rstudio/download">RStudio Desktop</a> this function will open a new RStudio window and open R in the correct location. Otherwise, you might need to use <code><a href="https://rdrr.io/r/base/getwd.html">setwd()</a></code> to change directories.</p>
-<p>In this vignette we will create an example package called <code>biocthispkg</code> on a temporary directory and work in this directory using <code><a href="https://usethis.r-lib.org/reference/proj_utils.html">usethis::proj_set()</a></code> in order to illustrate how the functions work. In a real world scenario, you would be working inside your R package and thus you wouldn’t need to run <code><a href="https://usethis.r-lib.org/reference/proj_utils.html">usethis::proj_set()</a></code>.</p>
-<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="co">## Set the package name on a temporary directory</span>
-<span class="no">pkgdir</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>(), <span class="st">"biocthispkg"</span>)
-
-<span class="co">## Create the example package in a temporary location</span>
-<span class="kw pkg">usethis</span><span class="kw ns">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/create_package.html">create_package</a></span>(<span class="no">pkgdir</span>)
-<span class="co">#&gt; ✔ Creating '/tmp/RtmppZxguq/biocthispkg/'</span>
-<span class="co">#&gt; ✔ Setting active project to '/tmp/RtmppZxguq/biocthispkg'</span>
+<p>In this vignette we will create an example package called <code>biocthispkg</code> on a temporary directory and work in this directory in order to illustrate how the functions work. In a real world scenario, you would be working inside your R package and would not run <code><a href="../reference/biocthis_example_pkg.html">biocthis_example_pkg()</a></code>.</p>
+<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="co">## Create an example package for illustrative purposes.</span>
+<span class="co">## Note: you do not need to run this for your own package!</span>
+<span class="no">pkgdir</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/biocthis_example_pkg.html">biocthis_example_pkg</a></span>(<span class="st">"biocthispkg"</span>, <span class="kw">use_git</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
+<span class="co">#&gt; ✔ Creating '/tmp/RtmpXAxfRy/biocthispkg/'</span>
+<span class="co">#&gt; ✔ Setting active project to '/tmp/RtmpXAxfRy/biocthispkg'</span>
 <span class="co">#&gt; ✔ Creating 'R/'</span>
 <span class="co">#&gt; ✔ Writing 'DESCRIPTION'</span>
 <span class="co">#&gt; Package: biocthispkg</span>
@@ -191,10 +189,9 @@
 <span class="co">#&gt; RoxygenNote: 7.1.0</span>
 <span class="co">#&gt; ✔ Writing 'NAMESPACE'</span>
 <span class="co">#&gt; ✔ Setting active project to '&lt;no active project&gt;'</span>
-
-<span class="co">## Set the project to use for the examples</span>
-<span class="kw pkg">usethis</span><span class="kw ns">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/proj_utils.html">proj_set</a></span>(<span class="no">pkgdir</span>)
-<span class="co">#&gt; ✔ Setting active project to '/tmp/RtmppZxguq/biocthispkg'</span></pre></body></html></div>
+<span class="co">#&gt; ✔ Setting active project to '/tmp/RtmpXAxfRy/biocthispkg'</span>
+<span class="co">#&gt; ✔ Initialising Git repo</span>
+<span class="co">#&gt; ✔ Adding '.Rhistory', '.RData', '.Rproj.user' to '.gitignore'</span></pre></body></html></div>
 <p>Once you have created a package, you can use <code><a href="../reference/use_bioc_pkg_templates.html">use_bioc_pkg_templates()</a></code> to create a set of scripts in the <code>dev</code> (developer) directory.</p>
 <div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="co">## Create the bioc templates</span>
 <span class="kw pkg">biocthis</span><span class="kw ns">::</span><span class="fu"><a href="../reference/use_bioc_pkg_templates.html">use_bioc_pkg_templates</a></span>()
@@ -280,18 +277,13 @@
 <a href="#use_bioc_description" class="anchor"></a><code>use_bioc_description()</code>
 </h2>
 <p><code><a href="../reference/use_bioc_description.html">use_bioc_description()</a></code> creates an R package <code>DESCRIPTION</code> file that is pre-populated with information you might want to use for your (future) Bioconductor package such as links to the Bioconductor Support Website and <code>biocViews</code>. You will still need to manually edit the file. Alternatively, use <code><a href="https://usethis.r-lib.org/reference/use_description.html">usethis::use_description()</a></code>.</p>
-<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="co">## Setup up git</span>
-<span class="kw pkg">usethis</span><span class="kw ns">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_git.html">use_git</a></span>()
-<span class="co">#&gt; ✔ Initialising Git repo</span>
-<span class="co">#&gt; ✔ Adding '.Rhistory', '.RData', '.Rproj.user' to '.gitignore'</span>
-
-<span class="co">## Create a template DESCRIPTION file that is Bioconductor-friendly</span>
+<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="co">## Create a template DESCRIPTION file that is Bioconductor-friendly</span>
 <span class="kw pkg">biocthis</span><span class="kw ns">::</span><span class="fu"><a href="../reference/use_bioc_description.html">use_bioc_description</a></span>()
 <span class="co">#&gt; ✔ Leaving 'DESCRIPTION' unchanged</span>
 <span class="co">#&gt; Package: biocthispkg</span>
 <span class="co">#&gt; Title: What the Package Does (One Line, Title Case)</span>
 <span class="co">#&gt; Version: 0.99.0</span>
-<span class="co">#&gt; Date: 2020-05-10</span>
+<span class="co">#&gt; Date: 2020-05-12</span>
 <span class="co">#&gt; Authors@R (parsed):</span>
 <span class="co">#&gt;     * First Last &lt;first.last@example.com&gt; [aut, cre] (YOUR-ORCID-ID)</span>
 <span class="co">#&gt; Description: What the package does (one paragraph).</span>
@@ -480,9 +472,9 @@
 <span class="fu"><a href="https://rdrr.io/r/base/files.html">file.remove</a></span>(<span class="st">"biocthis.bib"</span>)
 <span class="co">#&gt; [1] TRUE</span></pre></body></html></div>
 <p>Date the vignette was generated.</p>
-<pre><code>#&gt; [1] "2020-05-10 17:07:50 UTC"</code></pre>
+<pre><code>#&gt; [1] "2020-05-12 01:41:00 UTC"</code></pre>
 <p>Wallclock time spent generating the vignette.</p>
-<pre><code>#&gt; Time difference of 2.195 secs</code></pre>
+<pre><code>#&gt; Time difference of 2.282 secs</code></pre>
 <p><code>R</code> session information.</p>
 <pre><code>#&gt; ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────
 #&gt;  setting  value                                      
@@ -494,7 +486,7 @@
 #&gt;  collate  en_US.UTF-8                                
 #&gt;  ctype    en_US.UTF-8                                
 #&gt;  tz       UTC                                        
-#&gt;  date     2020-05-10                                 
+#&gt;  date     2020-05-12                                 
 #&gt; 
 #&gt; ─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────
 #&gt;  package       * version    date       lib source                        
@@ -503,7 +495,7 @@
 #&gt;  bibtex          0.4.2.2    2020-01-02 [1] CRAN (R 4.0.0)                
 #&gt;  BiocManager     1.30.10    2019-11-16 [2] CRAN (R 4.0.0)                
 #&gt;  BiocStyle     * 2.17.0     2020-04-27 [1] Bioconductor                  
-#&gt;  biocthis      * 0.99.0     2020-05-10 [1] Bioconductor                  
+#&gt;  biocthis      * 0.99.0     2020-05-12 [1] Bioconductor                  
 #&gt;  bookdown        0.18       2020-03-05 [1] CRAN (R 4.0.0)                
 #&gt;  cli             2.0.2      2020-02-28 [2] CRAN (R 4.0.0)                
 #&gt;  crayon          1.3.4      2017-09-16 [2] CRAN (R 4.0.0)                
@@ -545,7 +537,7 @@
 #&gt;  styler        * 1.3.2      2020-02-23 [1] CRAN (R 4.0.0)                
 #&gt;  tibble          3.0.1      2020-04-20 [2] CRAN (R 4.0.0)                
 #&gt;  usethis       * 1.6.1      2020-04-29 [2] CRAN (R 4.0.0)                
-#&gt;  vctrs           0.2.4      2020-03-10 [2] CRAN (R 4.0.0)                
+#&gt;  vctrs           0.3.0      2020-05-11 [1] CRAN (R 4.0.0)                
 #&gt;  whisker         0.4        2019-08-28 [2] CRAN (R 4.0.0)                
 #&gt;  withr           2.2.0      2020-04-20 [2] CRAN (R 4.0.0)                
 #&gt;  xfun            0.13       2020-04-13 [2] CRAN (R 4.0.0)                
