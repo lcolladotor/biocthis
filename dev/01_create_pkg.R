@@ -3,7 +3,7 @@
 ## ********************
 
 ## To get started, install R from https://cran.r-project.org/
-## and RStudio Desktiop https://rstudio.com/products/rstudio/download/#download
+## and RStudio Desktop https://rstudio.com/products/rstudio/download/#download
 ## You can install both of them for free.
 
 ## Next, open RStudio as the code that will run benefits from running inside
