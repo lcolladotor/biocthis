@@ -78,8 +78,8 @@ library("biocthis")
 ## Create an example package for illustrative purposes.
 ## Note: you do not need to run this for your own package!
 pkgdir <- biocthis_example_pkg()
-#> ✓ Creating '/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpgWuzyn/biocthisexample/'
-#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpgWuzyn/biocthisexample'
+#> ✓ Creating '/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpcRpdgC/biocthisexample/'
+#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpcRpdgC/biocthisexample'
 #> ✓ Creating 'R/'
 #> ✓ Writing 'DESCRIPTION'
 #> Package: biocthisexample
@@ -96,7 +96,7 @@ pkgdir <- biocthis_example_pkg()
 #> RoxygenNote: 7.1.0
 #> ✓ Writing 'NAMESPACE'
 #> ✓ Setting active project to '<no active project>'
-#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpgWuzyn/biocthisexample'
+#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpcRpdgC/biocthisexample'
 
 ## Create the bioc templates
 biocthis::use_bioc_pkg_templates()
@@ -204,7 +204,7 @@ By contributing to this project, you agree to abide by its terms.
     *[rcmdcheck](https://CRAN.R-project.org/package=rcmdcheck)*
     customized to use [Bioconductor’s docker
     containers](https://www.bioconductor.org/help/docker/) and
-    *[BiocCheck](https://bioconductor.org/packages/3.11/BiocCheck)*.
+    *[BiocCheck](https://bioconductor.org/packages/3.12/BiocCheck)*.
   - Code coverage assessment is possible thanks to
     [codecov](https://codecov.io/gh) and
     *[covr](https://CRAN.R-project.org/package=covr)*.

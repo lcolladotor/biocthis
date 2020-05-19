@@ -83,6 +83,12 @@ BiocManager::install("biocthis")
 BiocManager::valid()
 ```
 
+You can install the development version from [GitHub](https://github.com/) with:
+
+```{r 'install_dev', eval = FALSE}
+BiocManager::install("lcolladotor/biocthis")
+```
+
 ## Required knowledge
 
 `r Githubpkg("lcolladotor/biocthis")` is based on many other packages and in particular in those that have implemented the infrastructure needed for creating tidyverse-style R packages. That is `r CRANpkg("usethis")` `r citep(bib[["usethis"]])`, `r CRANpkg("devtools")` `r citep(bib[["devtools"]])`, and `r CRANpkg("testthat")` `r citep(bib[["testthat"]])`. It will also be helpful if you are familiar with `r CRANpkg("styler")` `r citep(bib[["styler"]])`. Finally, we highly recommend that you run `r Githubpkg("lcolladotor/biocthis")` within [RStudio Desktop](https://www.rstudio.com/products/rstudio/download).
