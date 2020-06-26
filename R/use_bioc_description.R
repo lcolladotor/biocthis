@@ -38,6 +38,13 @@ use_bioc_description <- function(biocViews = "Software") {
     stopifnot(length(biocViews) == 1)
     pkg <- basename(usethis::proj_get())
 
+    if (biocViews == "AnnotationHub")
+        import <-  "AnnotationHubData"
+    else if (biocViews == "ExperimentHub")
+        import <-  "ExperimentHubData"
+    else
+        import <- NULL
+
     desc_info <-
         usethis::use_description_defaults(
             basename(usethis::proj_get()),
@@ -46,8 +53,14 @@ use_bioc_description <- function(biocViews = "Software") {
                 biocViews = biocViews,
                 License = "Artistic-2.0",
                 Date = Sys.Date(),
-                URL = file.path("https://github.com/", usethis:::github_owner(), usethis:::github_repo()),
-                BugReports = paste0("https://support.bioconductor.org/t/", pkg)
+                Imports = import,
+                URL = file.path("https://github.com/",
+                    usethis:::github_owner(),
+                    usethis:::github_repo()),
+                BugReports = file.path("https://github.com/",
+                    usethis:::github_owner(),
+                    usethis:::github_repo(),
+                    "issues/")
             )
         )
     usethis::use_description(desc_info)
