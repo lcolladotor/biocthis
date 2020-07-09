@@ -41,7 +41,7 @@ use_bioc_description <- function(biocViews = "Software") {
     if (biocViews == "AnnotationHub")
         import <-  "AnnotationHubData"
     else if (biocViews == "ExperimentHub")
-        import <-  "ExperimentHubData"
+        import <-  "ExperimentHubData, ExperimentHub"
     else
         import <- NULL
 
