@@ -14,7 +14,7 @@ License: Artistic-2.0
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 URL: https://github.com/lcolladotor/biocthis
 BugReports: https://support.bioconductor.org/t/biocthis
 biocViews: Software, ReportWriting
@@ -23,7 +23,8 @@ Imports:
     glue,
     rlang,
     styler,
-    usethis
+    usethis,
+    whisker
 Suggests: 
     BiocStyle,
     covr,

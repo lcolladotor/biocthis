@@ -1,0 +1,73 @@
+on:
+  push:
+  pull_request:
+
+name: R-CMD-BiocCheck
+
+jobs:
+  build-check:
+    runs-on: ubuntu-latest
+    container: bioconductor/bioconductor_docker:{{version}}
+    ## Environment variables unique to this job.
+    env:
+      TZ: UTC
+      NOT_CRAN: true
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v1
+
+      - name: Query dependencies
+        run: |
+          install.packages('remotes')
+          saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
+        shell: Rscript {0}
+        
+      - name: Cache R packages
+        if: runner.os != 'Windows'
+        uses: actions/cache@v1
+        with:
+          path: /usr/local/lib/R/site-library
+          key: ${{ runner.os }}-r-1-${{ hashFiles('.github/depends.Rds') }}
+          restore-keys: ${{ runner.os }}-r-1-
+
+      - name: Install system dependencies
+        if: runner.os == 'Linux'
+        env:
+          RHUB_PLATFORM: linux-x86_64-ubuntu-gcc
+        run: |
+          Rscript -e "remotes::install_github('r-hub/sysreqs')"
+          sysreqs=$(Rscript -e "cat(sysreqs::sysreq_commands('DESCRIPTION'))")
+          sudo -s eval "$sysreqs"
+
+      - name: Install Dependencies
+        run: |
+          remotes::install_local(dependencies = TRUE, repos = BiocManager::repositories(), build_vignettes = TRUE, upgrade = TRUE)
+          BiocManager::install("rcmdcheck", update = TRUE, ask = FALSE)
+        shell: Rscript {0}
+
+      - name: Run CMD check
+        env:
+          _R_CHECK_CRAN_INCOMING_REMOTE_: false
+        run: rcmdcheck::rcmdcheck(args = c("--no-manual"), error_on = "warning", check_dir = "check")
+        shell: Rscript {0}
+        
+      - name: Get Session Info
+        run: |
+          options(width = 100)
+          pkgs <- installed.packages()[, "Package"]
+          sessioninfo::session_info(pkgs, include_base = TRUE)
+        shell: Rscript {0}
+
+      - name: Run BiocCheck
+        run: |
+          BiocCheck::BiocCheck(dir('check', 'tar.gz$', full.names = TRUE), `quit-with-status` = TRUE)
+        shell: Rscript {0}
+
+      - name: Upload check results
+        if: failure()
+        uses: actions/upload-artifact@master
+        with:
+          name: ${{ runner.os }}-r-{{rversion}}-bioc-{{version}}-results
+          path: check
+

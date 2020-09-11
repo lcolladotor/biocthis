@@ -14,9 +14,7 @@ This function adds and/or replaces the
 This function is very similar to \code{usethis::use_github_action()} except
 that it uses a template from \code{biocthis}. It creates a Bioconductor-friendly
 GitHub action workflow for your package. You can also use this GitHub
-Actions workflow by executing
-\code{usethis::use_github_action("check-bioc", "https://bit.ly/biocthis_gha", "check-bioc.yml")}
-without having to install \code{biocthis}.
+Actions workflow by executing \code{usethis::use_github_action()}.
 }
 \details{
 For the full history on how this GitHub Actions workflow came to be, check
@@ -26,21 +24,7 @@ the "biocthis developer notes" vignette
 \examples{
 
 \dontrun{
-## Run this function in your package
-biocthis::use_bioc_github_action()
-
-## You can also use this GitHub Actions workflow without installing biocthis
-## by running:
-usethis::use_github_action(
-    "check-bioc", "https://bit.ly/biocthis_gha",
-    "check-bioc.yml"
-)
+  ## Run this function in your package
+  biocthis::use_bioc_github_action()
 }
-
-## Create an example package for illustrative purposes.
-## Note: you do not need to run this for your own package!
-pkgdir <- biocthis_example_pkg()
-
-## Create a GitHub Actions workflow that is Bioconductor-friendly
-biocthis::use_bioc_github_action()
 }
