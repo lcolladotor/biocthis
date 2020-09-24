@@ -24,8 +24,7 @@ Imports:
     glue,
     rlang,
     styler,
-    usethis,
-    whisker
+    usethis
 Suggests: 
     BiocStyle,
     covr,

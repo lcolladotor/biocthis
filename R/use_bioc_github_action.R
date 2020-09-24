@@ -37,14 +37,22 @@
 use_bioc_github_action <- function() {
     datalist <- list(
         version = .normalizeVersion(),
-        rversion = .GHARversion()
+        rversion = .GHARversion(),
+        rvernum = BiocManager:::.get_R_version()
     )
     template <- system.file(package = "biocthis", "templates",
         "check-bioc.yml", mustWork = TRUE)
     contents <- readLines(template)
     idx <- grep("[^$]\\{\\{", contents)
     parts <- grep("[^$]\\{\\{", contents, value = TRUE)
-    pco <- whisker::whisker.render(parts, datalist)
+    pco <- vector("character", length(parts))
+    for (i in seq_along(parts)) {
+        pco[[i]] <- mapply(
+            function(x, y) {
+                parts[[i]] <<- gsub(x, y, parts[[i]], fixed = TRUE)
+            }, x = paste0("{{", names(datalist), "}}"), y = datalist
+        )[[length(datalist)]]
+    }
     contents[idx] <- pco
     ## code taken from usethis
     usethis:::use_dot_github(ignore = TRUE)
