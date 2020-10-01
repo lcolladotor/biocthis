@@ -1,11 +1,21 @@
+.normalizeVersion <- function() {
+    if (BiocManager:::isDevel())
+        "devel"
+    else
+        paste0("RELEASE_", gsub("\\.", "_", BiocManager::version()))
+}
+
+.GHARversion <- function() {
+    rver <- with(R.version, paste(major, minor, sep = "."))
+    gsub("\\.", "-", rver)
+}
+
 #' Create a biocthis-style GitHub Actions workflow
 #'
 #' This function is very similar to `usethis::use_github_action()` except
 #' that it uses a template from `biocthis`. It creates a Bioconductor-friendly
 #' GitHub action workflow for your package. You can also use this GitHub
-#' Actions workflow by executing
-#' `usethis::use_github_action("check-bioc", "https://bit.ly/biocthis_gha", "check-bioc.yml")`
-#' without having to install `biocthis`.
+#' Actions workflow by executing `usethis::use_github_action()`.
 #'
 #' For the full history on how this GitHub Actions workflow came to be, check
 #' the "biocthis developer notes" vignette
@@ -13,36 +23,41 @@
 #'
 #' @return This function adds and/or replaces the
 #' `.github/workflows/check-bioc.yml` file in your R package.
+#'
 #' @export
+#'
 #' @import usethis
 #'
 #' @examples
 #'
 #' \dontrun{
-#' ## Run this function in your package
-#' biocthis::use_bioc_github_action()
-#'
-#' ## You can also use this GitHub Actions workflow without installing biocthis
-#' ## by running:
-#' usethis::use_github_action(
-#'     "check-bioc", "https://bit.ly/biocthis_gha",
-#'     "check-bioc.yml"
-#' )
+#'   ## Run this function in your package
+#'   biocthis::use_bioc_github_action()
 #' }
-#'
-#' ## Create an example package for illustrative purposes.
-#' ## Note: you do not need to run this for your own package!
-#' pkgdir <- biocthis_example_pkg()
-#'
-#' ## Create a GitHub Actions workflow that is Bioconductor-friendly
-#' biocthis::use_bioc_github_action()
 use_bioc_github_action <- function() {
-    usethis::use_github_action(
-        "check-bioc",
-        url = paste0(
-            "https://raw.githubusercontent.com/",
-            "lcolladotor/biocthis/",
-            "master/actions/check-bioc.yml"
-        )
+    datalist <- list(
+        version = .normalizeVersion(),
+        rversion = .GHARversion(),
+        rvernum = BiocManager:::.get_R_version()
     )
+    template <- system.file(package = "biocthis", "templates",
+        "check-bioc.yml", mustWork = TRUE)
+    contents <- readLines(template)
+    idx <- grep("[^$]\\{\\{", contents)
+    parts <- grep("[^$]\\{\\{", contents, value = TRUE)
+    pco <- vector("character", length(parts))
+    for (i in seq_along(parts)) {
+        pco[[i]] <- mapply(
+            function(x, y) {
+                parts[[i]] <<- gsub(x, y, parts[[i]], fixed = TRUE)
+            }, x = paste0("{{", names(datalist), "}}"), y = datalist
+        )[[length(datalist)]]
+    }
+    contents[idx] <- pco
+    ## code taken from usethis
+    usethis:::use_dot_github(ignore = TRUE)
+    save_as <- fs::path(".github", "workflows", "check-bioc.yml")
+    usethis:::create_directory(dirname(usethis:::proj_path(save_as)))
+    new <- usethis:::write_over(usethis:::proj_path(save_as), contents)
+    invisible(new)
 }
