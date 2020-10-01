@@ -172,8 +172,8 @@
 <span class="co">## Create an example package for illustrative purposes.</span>
 <span class="co">## Note: you do not need to run this for your own package!</span>
 <span class="va">pkgdir</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/biocthis_example_pkg.html">biocthis_example_pkg</a></span><span class="op">(</span><span class="st">"biocthispkg"</span>, use_git <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co">#&gt; ✔ Creating '/tmp/Rtmp88y3ps/biocthispkg/'</span>
-<span class="co">#&gt; ✔ Setting active project to '/tmp/Rtmp88y3ps/biocthispkg'</span>
+<span class="co">#&gt; ✔ Creating '/tmp/RtmpZ3xQ7X/biocthispkg/'</span>
+<span class="co">#&gt; ✔ Setting active project to '/tmp/RtmpZ3xQ7X/biocthispkg'</span>
 <span class="co">#&gt; ✔ Creating 'R/'</span>
 <span class="co">#&gt; ✔ Writing 'DESCRIPTION'</span>
 <span class="co">#&gt; Package: biocthispkg</span>
@@ -190,7 +190,7 @@
 <span class="co">#&gt; RoxygenNote: 7.1.1</span>
 <span class="co">#&gt; ✔ Writing 'NAMESPACE'</span>
 <span class="co">#&gt; ✔ Setting active project to '&lt;no active project&gt;'</span>
-<span class="co">#&gt; ✔ Setting active project to '/tmp/Rtmp88y3ps/biocthispkg'</span>
+<span class="co">#&gt; ✔ Setting active project to '/tmp/RtmpZ3xQ7X/biocthispkg'</span>
 <span class="co">#&gt; ✔ Initialising Git repo</span>
 <span class="co">#&gt; ✔ Adding '.Rhistory', '.RData', '.Rproj.user' to '.gitignore'</span></pre></div>
 <p>Once you have created a package, you can use <code><a href="../reference/use_bioc_pkg_templates.html">use_bioc_pkg_templates()</a></code> to create a set of scripts in the <code>dev</code> (developer) directory.</p>
@@ -313,19 +313,11 @@
 <span class="co">#&gt; ✔ Adding '^\\.github$' to '.Rbuildignore'</span>
 <span class="co">#&gt; ✔ Adding '*.html' to '.github/.gitignore'</span>
 <span class="co">#&gt; ✔ Creating '.github/workflows/'</span>
-<span class="co">#&gt; ✔ Writing '.github/workflows/check-bioc.yml'</span>
-
-<span class="co">## You can also use this GHA workflow without installing biocthis</span>
-<span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_github_action.html">use_github_action</a></span><span class="op">(</span>
-    <span class="st">"check-bioc"</span>,
-    <span class="st">"https://bit.ly/biocthis_gha"</span>,
-    <span class="st">"check-bioc.yml"</span>
-<span class="op">)</span></pre></div>
+<span class="co">#&gt; ✔ Writing '.github/workflows/check-bioc.yml'</span></pre></div>
 <p>This <a href="https://github.com/features/actions">GitHub Actions</a> (GHA) workflow is based on <a href="https://github.com/r-lib/actions/blob/master/examples/check-standard.yaml">r-lib/actions//examples/check-standard.yaml</a> and others. The goal is to provide on demand <code>R CMD check</code>s on Linux, macOS and Windows using a similar setup to Bioconductor-devel and release branches. Some key features that make this GHA workflow Bioconductor-friendly are:</p>
 <ul>
 <li>It runs <code>R CMD check</code> on the same platforms (Linux, macOS and Windows) that Bioconductor supports.</li>
 <li>It runs <code><a href="https://rdrr.io/pkg/BiocCheck/man/BiocCheck.html">BiocCheck::BiocCheck()</a></code> on all these platforms, unlike the Bioconductor nightly builds. <em><a href="https://bioconductor.org/packages/3.12/BiocCheck">BiocCheck</a></em> is complementary to <code>R CMD check</code> and can help you improve your R package.</li>
-<li>This workflow (in theory) does not need to be modified as Bioconductor and R versions are tested over time (R has a yearly release cycle, Bioconductor has a six month cycle). That is, this workflow automatically detects the correct R and Bioconductor versions to use depending on whether you are working on the <code>master</code> or <code>RELEASE_X_Y</code> git branches (<code>RELEASE_3_11</code> for example).</li>
 <li>It uses the <a href="https://www.bioconductor.org/help/docker/">Bioconductor devel and release dockers</a> to test your package on Linux. Since all system dependencies required by Bioconductor packages are already included in these docker images, it’s unlikely that you’ll need to fiddle with Linux system dependencies. The information on the docker image is then used for configuring the macOS and Windows tests.</li>
 </ul>
 <p>Furthermore, this GHA workflow provides the following features:</p>
@@ -485,9 +477,9 @@
 <span class="fu"><a href="https://rdrr.io/r/base/files.html">file.remove</a></span><span class="op">(</span><span class="st">"biocthis.bib"</span><span class="op">)</span>
 <span class="co">#&gt; [1] TRUE</span></pre></div>
 <p>Date the vignette was generated.</p>
-<pre><code>#&gt; [1] "2020-10-01 00:43:28 UTC"</code></pre>
+<pre><code>#&gt; [1] "2020-10-01 14:34:04 UTC"</code></pre>
 <p>Wallclock time spent generating the vignette.</p>
-<pre><code>#&gt; Time difference of 4.193 secs</code></pre>
+<pre><code>#&gt; Time difference of 3.536 secs</code></pre>
 <p><code>R</code> session information.</p>
 <pre><code>#&gt; ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────
 #&gt;  setting  value                                      
@@ -554,11 +546,11 @@
 #&gt;  vctrs           0.3.4      2020-08-29 [2] RSPM (R 4.0.2)                
 #&gt;  whisker         0.4        2019-08-28 [2] RSPM (R 4.0.0)                
 #&gt;  withr           2.3.0      2020-09-22 [2] RSPM (R 4.0.2)                
-#&gt;  xfun            0.18       2020-09-29 [1] RSPM (R 4.0.2)                
+#&gt;  xfun            0.18       2020-09-29 [2] RSPM (R 4.0.2)                
 #&gt;  xml2            1.3.2      2020-04-23 [2] RSPM (R 4.0.0)                
 #&gt;  yaml            2.2.1      2020-02-01 [2] RSPM (R 4.0.0)                
 #&gt; 
-#&gt; [1] /usr/local/lib/R/host-site-library
+#&gt; [1] /__w/_temp/Library
 #&gt; [2] /usr/local/lib/R/site-library
 #&gt; [3] /usr/local/lib/R/library</code></pre>
 </div>

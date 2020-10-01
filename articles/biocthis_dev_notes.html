@@ -187,6 +187,7 @@
 <a href="https://twitter.com/niteshturaga">Nitesh Turaga</a> and <a href="https://twitter.com/cboettig">Carl Boettiger</a> <a href="https://github.com/rocker-org/rocker-versioned/issues/208">rocker-org/rocker-versioned/issues/208</a> updated the rocker docker image for RStudio to R 4.0 and the corresponding Bioconductor docker image. To do so, they resolved several issues themselves. From my side, I only had to wait =)</li>
 <li>I also had to learn how to mount directories with docker to enable caching the R package files when using the Bioconductor docker images, and other GitHub Actions syntax for which I relied quite heavily on <a href="https://help.github.com/en/actions">their manual</a> and Google searches; most of them lead me to the <a href="https://github.community/t5/GitHub-Actions/bd-p/actions">GitHub Actions community website</a>.</li>
 </ul>
+<p>In late September 2020, <a href="https://twitter.com/M2RUseR">Marcel Ramos</a> sent a <a href="https://github.com/lcolladotor/biocthis/pull/11">pull request</a> that greatly changed the GHA actions workflow to (1) use a template and (2) avoid the code redundancy across macOS, Windows and Linux (running a Bioconductor docker), which makes the resulting GHA workflow easier to understand and customize.</p>
 </div>
 <div id="potential-future-additions" class="section level3">
 <h3 class="hasAnchor">
@@ -233,6 +234,9 @@
 <li><a href="https://twitter.com/cboettig">Carl Boettiger</a></li>
 <li>
 <a href="https://twitter.com/JennyBryan">Jenny Bryan</a> for her feedback at <a href="https://github.com/r-lib/usethis/issues/1108#issuecomment-626253251">r-lib/usethis/issues#1108</a>
+</li>
+<li>
+<a href="https://twitter.com/M2RUseR">Marcel Ramos</a> for this <a href="https://github.com/lcolladotor/biocthis/pull/11">awesome pull request</a>
 </li>
 </ul>
 <p>as well as several organizations and members:</p>
@@ -304,9 +308,9 @@
 <span class="fu"><a href="https://rdrr.io/r/base/files.html">file.remove</a></span><span class="op">(</span><span class="st">"biocthis_dev_notes.bib"</span><span class="op">)</span>
 <span class="co">#&gt; [1] TRUE</span></pre></div>
 <p>Date the vignette was generated.</p>
-<pre><code>#&gt; [1] "2020-10-01 00:43:33 UTC"</code></pre>
+<pre><code>#&gt; [1] "2020-10-01 14:34:08 UTC"</code></pre>
 <p>Wallclock time spent generating the vignette.</p>
-<pre><code>#&gt; Time difference of 1.202 secs</code></pre>
+<pre><code>#&gt; Time difference of 1.039 secs</code></pre>
 <p><code>R</code> session information.</p>
 <pre><code>#&gt; ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────
 #&gt;  setting  value                                      
@@ -359,11 +363,11 @@
 #&gt;  stringr         1.4.0      2019-02-10 [2] RSPM (R 4.0.0)                
 #&gt;  systemfonts     0.3.2      2020-09-29 [1] RSPM (R 4.0.2)                
 #&gt;  withr           2.3.0      2020-09-22 [2] RSPM (R 4.0.2)                
-#&gt;  xfun            0.18       2020-09-29 [1] RSPM (R 4.0.2)                
+#&gt;  xfun            0.18       2020-09-29 [2] RSPM (R 4.0.2)                
 #&gt;  xml2            1.3.2      2020-04-23 [2] RSPM (R 4.0.0)                
 #&gt;  yaml            2.2.1      2020-02-01 [2] RSPM (R 4.0.0)                
 #&gt; 
-#&gt; [1] /usr/local/lib/R/host-site-library
+#&gt; [1] /__w/_temp/Library
 #&gt; [2] /usr/local/lib/R/site-library
 #&gt; [3] /usr/local/lib/R/library</code></pre>
 </div>

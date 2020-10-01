@@ -43,9 +43,7 @@
 <meta property="og:description" content="This function is very similar to usethis::use_github_action() except
 that it uses a template from biocthis. It creates a Bioconductor-friendly
 GitHub action workflow for your package. You can also use this GitHub
-Actions workflow by executing
-usethis::use_github_action(&quot;check-bioc&quot;, &quot;https://bit.ly/biocthis_gha&quot;, &quot;check-bioc.yml&quot;)
-without having to install biocthis." />
+Actions workflow by executing usethis::use_github_action()." />
 
 
 
@@ -134,13 +132,60 @@ without having to install biocthis." />
     <p>This function is very similar to <code><a href='https://usethis.r-lib.org/reference/use_github_action.html'>usethis::use_github_action()</a></code> except
 that it uses a template from <code>biocthis</code>. It creates a Bioconductor-friendly
 GitHub action workflow for your package. You can also use this GitHub
-Actions workflow by executing
-<code><a href='https://usethis.r-lib.org/reference/use_github_action.html'>usethis::use_github_action("check-bioc", "https://bit.ly/biocthis_gha", "check-bioc.yml")</a></code>
-without having to install <code>biocthis</code>.</p>
+Actions workflow by executing <code><a href='https://usethis.r-lib.org/reference/use_github_action.html'>usethis::use_github_action()</a></code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>use_bioc_github_action</span><span class='op'>(</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>use_bioc_github_action</span><span class='op'>(</span>
+  <span class='va'>biocdocker</span>,
+  pkgdown <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  testthat <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  covr <span class='op'>=</span> <span class='va'>testthat</span>,
+  RUnit <span class='op'>=</span> <span class='cn'>FALSE</span>
+<span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>biocdocker</th>
+      <td><p>A <code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code> specifying the Bioconductor docker
+version you want to use. Valid names are <code>"devel"</code> or in the
+<code>"RELEASE_X_Y"</code> format such as <code>"RELEASE_3_11"</code>. Check
+<a href='http://bioconductor.org/help/docker/'>http://bioconductor.org/help/docker/</a> for more information on the
+Bioconductor docker images. If you don't specify this, it will be
+determined automatically using your current Bioconductor version. The
+R version will be set to match the Bioconductor version.</p></td>
+    </tr>
+    <tr>
+      <th>pkgdown</th>
+      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code> specifying whether to run <code>pkgdown</code>. Check
+<a href='https://cran.r-project.org/web/packages/pkgdown/index.html'>https://cran.r-project.org/web/packages/pkgdown/index.html</a> for more
+information on <code>pkgdown</code> which is useful for creating documentation
+websites. If <code>TRUE</code>, then <code>pkgdown</code> will only run on the Linux
+(Bioconductor docker) test.</p></td>
+    </tr>
+    <tr>
+      <th>testthat</th>
+      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code> specifying whether to run <code>testthat</code>. Check
+<a href='https://cran.r-project.org/web/packages/testthat/index.html'>https://cran.r-project.org/web/packages/testthat/index.html</a> for more
+information about <code>testthat</code> which is useful for unit tests. The
+testing chapter at <a href='https://r-pkgs.org/tests.html'>https://r-pkgs.org/tests.html</a> is also very useful.</p></td>
+    </tr>
+    <tr>
+      <th>covr</th>
+      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code> specifying whether to run <code>covr</code>. Check
+<a href='https://cran.r-project.org/web/packages/covr/index.html'>https://cran.r-project.org/web/packages/covr/index.html</a> for more
+information about <code>covr</code>, which is useful for displaying for assessing
+your test coverage. If <code>TRUE</code>, then <code>covr</code> will only run on the Linux
+(Bioconductor docker) test.</p></td>
+    </tr>
+    <tr>
+      <th>RUnit</th>
+      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code> specifying whether to run <code>RUnit</code> unit tests.
+Check <a href='http://bioconductor.org/developers/how-to/unitTesting-guidelines/'>http://bioconductor.org/developers/how-to/unitTesting-guidelines/</a>
+for more information about <code>RUnit</code>.</p></td>
+    </tr>
+    </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
@@ -157,33 +202,8 @@ the "biocthis developer notes" vignette
 <span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='co'>## Run this function in your package</span>
 <span class='fu'>biocthis</span><span class='fu'>::</span><span class='fu'>use_bioc_github_action</span><span class='op'>(</span><span class='op'>)</span>
-
-<span class='co'>## You can also use this GitHub Actions workflow without installing biocthis</span>
-<span class='co'>## by running:</span>
-<span class='fu'>usethis</span><span class='fu'>::</span><span class='fu'><a href='https://usethis.r-lib.org/reference/use_github_action.html'>use_github_action</a></span><span class='op'>(</span>
-    <span class='st'>"check-bioc"</span>, <span class='st'>"https://bit.ly/biocthis_gha"</span>,
-    <span class='st'>"check-bioc.yml"</span>
-<span class='op'>)</span>
 <span class='op'>}</span>
-
-<span class='co'>## Create an example package for illustrative purposes.</span>
-<span class='co'>## Note: you do not need to run this for your own package!</span>
-<span class='va'>pkgdir</span> <span class='op'>&lt;-</span> <span class='fu'><a href='biocthis_example_pkg.html'>biocthis_example_pkg</a></span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'><span style='color: #00BB00;'>✔</span><span> Leaving </span><span style='color: #0000BB;'>'DESCRIPTION'</span><span> unchanged</span></div><div class='output co'>#&gt; </span><span style='color: #0000BB;'>Package</span><span>: biocthisexample
-#&gt; </span><span style='color: #0000BB;'>Title</span><span>: What the Package Does (One Line, Title Case)
-#&gt; </span><span style='color: #0000BB;'>Version</span><span>: 0.0.0.9000
-#&gt; </span><span style='color: #0000BB;'>Authors@R</span><span> (parsed):
-#&gt;     * First Last &lt;first.last@example.com&gt; [aut, cre] (YOUR-ORCID-ID)
-#&gt; </span><span style='color: #0000BB;'>Description</span><span>: What the package does (one paragraph).
-#&gt; </span><span style='color: #0000BB;'>License</span><span>: `use_mit_license()`, `use_gpl3_license()` or friends to
-#&gt;     pick a license
-#&gt; </span><span style='color: #0000BB;'>Encoding</span><span>: UTF-8
-#&gt; </span><span style='color: #0000BB;'>LazyData</span><span>: true
-#&gt; </span><span style='color: #0000BB;'>Roxygen</span><span>: list(markdown = TRUE)
-#&gt; </span><span style='color: #0000BB;'>RoxygenNote</span><span>: 7.1.1</div><div class='input'>
-<span class='co'>## Create a GitHub Actions workflow that is Bioconductor-friendly</span>
-<span class='fu'>biocthis</span><span class='fu'>::</span><span class='fu'>use_bioc_github_action</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔</span><span> Creating </span><span style='color: #0000BB;'>'.github/'</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔</span><span> Adding </span><span style='color: #0000BB;'>'^\\.github$'</span><span> to </span><span style='color: #0000BB;'>'.Rbuildignore'</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔</span><span> Adding </span><span style='color: #0000BB;'>'*.html'</span><span> to </span><span style='color: #0000BB;'>'.github/.gitignore'</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔</span><span> Creating </span><span style='color: #0000BB;'>'.github/workflows/'</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔</span><span> Writing </span><span style='color: #0000BB;'>'.github/workflows/check-bioc.yml'</span><span></span></div></span></pre>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
