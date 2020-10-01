@@ -172,8 +172,8 @@
 <span class="co">## Create an example package for illustrative purposes.</span>
 <span class="co">## Note: you do not need to run this for your own package!</span>
 <span class="va">pkgdir</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/biocthis_example_pkg.html">biocthis_example_pkg</a></span><span class="op">(</span><span class="st">"biocthispkg"</span>, use_git <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co">#&gt; ✔ Creating '/tmp/RtmpDWYVZT/biocthispkg/'</span>
-<span class="co">#&gt; ✔ Setting active project to '/tmp/RtmpDWYVZT/biocthispkg'</span>
+<span class="co">#&gt; ✔ Creating '/tmp/RtmpXnn5N3/biocthispkg/'</span>
+<span class="co">#&gt; ✔ Setting active project to '/tmp/RtmpXnn5N3/biocthispkg'</span>
 <span class="co">#&gt; ✔ Creating 'R/'</span>
 <span class="co">#&gt; ✔ Writing 'DESCRIPTION'</span>
 <span class="co">#&gt; Package: biocthispkg</span>
@@ -190,7 +190,7 @@
 <span class="co">#&gt; RoxygenNote: 7.1.1</span>
 <span class="co">#&gt; ✔ Writing 'NAMESPACE'</span>
 <span class="co">#&gt; ✔ Setting active project to '&lt;no active project&gt;'</span>
-<span class="co">#&gt; ✔ Setting active project to '/tmp/RtmpDWYVZT/biocthispkg'</span>
+<span class="co">#&gt; ✔ Setting active project to '/tmp/RtmpXnn5N3/biocthispkg'</span>
 <span class="co">#&gt; ✔ Initialising Git repo</span>
 <span class="co">#&gt; ✔ Adding '.Rhistory', '.RData', '.Rproj.user' to '.gitignore'</span></pre></div>
 <p>Once you have created a package, you can use <code><a href="../reference/use_bioc_pkg_templates.html">use_bioc_pkg_templates()</a></code> to create a set of scripts in the <code>dev</code> (developer) directory.</p>
@@ -228,7 +228,8 @@
 <li>Creates Bioconductor-friendly GitHub template for issues</li>
 <li>Uses the tidyverse-style GitHub contributing and code of conduct files</li>
 <li>Creates a template Bioconductor-friendly <code>CITATION</code> file</li>
-<li>Adds several badges to the <code>README.Rmd</code> file</li>
+<li>Adds several badges to the <code>README.Rmd</code> file <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>
+</li>
 <li>Sets up unit tests using <em><a href="https://CRAN.R-project.org/package=testthat">testthat</a></em> (<a href="https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf">Wickham, 2011</a>)</li>
 <li>Adds a Bioconductor-friendly GitHub Actions workflow</li>
 <li>Deploys an initial documentation website using <em><a href="https://CRAN.R-project.org/package=pkgdown">pkgdown</a></em> <a id="cite-Wickham_2020ab"></a>(<a href="#bib-Wickham_2020ab">Wickham and Hesselberth, 2020</a>)</li>
@@ -305,7 +306,10 @@
 <h2 class="hasAnchor">
 <a href="#use_bioc_github_action" class="anchor"></a><code>use_bioc_github_action()</code>
 </h2>
-<p><code><a href="../reference/use_bioc_github_action.html">use_bioc_github_action()</a></code> creates a GitHub Actions (GHA) workflow file that is configured to be Bioconductor-friendly. Alternatively, use <code><a href="https://usethis.r-lib.org/reference/use_github_action.html">usethis::use_github_action()</a></code> for the general GitHub Actions workflow maintained by <code>r-lib/actions</code> or download this GHA workflow without having to install <em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em>. If this is your first time seeing the words <em>GitHub Actions</em>, we highly recommend that you watch <a href="https://www.jimhester.com/talk/2020-rsc-github-actions/">Jim Hester’s <code>rstudio::conf(2020)</code> talk on this subject</a>. Here is how you can add this GHA workflow to your R package:</p>
+<div id="getting-started" class="section level3">
+<h3 class="hasAnchor">
+<a href="#getting-started" class="anchor"></a>Getting started</h3>
+<p><code><a href="../reference/use_bioc_github_action.html">use_bioc_github_action()</a></code> creates a GitHub Actions (GHA) workflow file that is configured to be Bioconductor-friendly. Alternatively, use <code><a href="https://usethis.r-lib.org/reference/use_github_action.html">usethis::use_github_action()</a></code> for the general GitHub Actions workflow maintained by <code>r-lib/actions</code>. If this is your first time seeing the words <em>GitHub Actions</em>, we highly recommend that you watch <a href="https://www.jimhester.com/talk/2020-rsc-github-actions/">Jim Hester’s <code>rstudio::conf(2020)</code> talk on this subject</a>. Here is how you can add this GHA workflow to your R package:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit">
 <span class="co">## Create a GitHub Actions workflow that is Bioconductor-friendly</span>
 <span class="fu">biocthis</span><span class="fu">::</span><span class="fu"><a href="../reference/use_bioc_github_action.html">use_bioc_github_action</a></span><span class="op">(</span><span class="op">)</span>
@@ -314,20 +318,55 @@
 <span class="co">#&gt; ✔ Adding '*.html' to '.github/.gitignore'</span>
 <span class="co">#&gt; ✔ Creating '.github/workflows/'</span>
 <span class="co">#&gt; ✔ Writing '.github/workflows/check-bioc.yml'</span></pre></div>
+</div>
+<div id="main-gha-workflow-features" class="section level3">
+<h3 class="hasAnchor">
+<a href="#main-gha-workflow-features" class="anchor"></a>Main GHA workflow features</h3>
 <p>This <a href="https://github.com/features/actions">GitHub Actions</a> (GHA) workflow is based on <a href="https://github.com/r-lib/actions/blob/master/examples/check-standard.yaml">r-lib/actions//examples/check-standard.yaml</a> and others. The goal is to provide on demand <code>R CMD check</code>s on Linux, macOS and Windows using a similar setup to Bioconductor-devel and release branches. Some key features that make this GHA workflow Bioconductor-friendly are:</p>
 <ul>
 <li>It runs <code>R CMD check</code> on the same platforms (Linux, macOS and Windows) that Bioconductor supports.</li>
 <li>It runs <code><a href="https://rdrr.io/pkg/BiocCheck/man/BiocCheck.html">BiocCheck::BiocCheck()</a></code> on all these platforms, unlike the Bioconductor nightly builds. <em><a href="https://bioconductor.org/packages/3.12/BiocCheck">BiocCheck</a></em> is complementary to <code>R CMD check</code> and can help you improve your R package.</li>
 <li>It uses the <a href="https://www.bioconductor.org/help/docker/">Bioconductor devel and release dockers</a> to test your package on Linux. Since all system dependencies required by Bioconductor packages are already included in these docker images, it’s unlikely that you’ll need to fiddle with Linux system dependencies. The information on the docker image is then used for configuring the macOS and Windows tests.</li>
 </ul>
-<p>Furthermore, this GHA workflow provides the following features:</p>
+</div>
+<div id="additional-features" class="section level3">
+<h3 class="hasAnchor">
+<a href="#additional-features" class="anchor"></a>Additional features</h3>
+<p>Furthermore, the <code><a href="../reference/use_bioc_github_action.html">use_bioc_github_action()</a></code> GHA workflow provides the following features:</p>
 <ul>
-<li>It runs <em><a href="https://CRAN.R-project.org/package=covr">covr</a></em> <a id="cite-Hester_2020"></a>(<a href="#bib-Hester_2020">Hester, 2020</a>) unless disabled by the environment variable <code>run_covr</code> (see the first few lines of the workflow).</li>
-<li>It automatically deploys a documentation website using <em><a href="https://CRAN.R-project.org/package=pkgdown">pkgdown</a></em> (<a href="#bib-Wickham_2020ab">Wickham and Hesselberth, 2020</a>) unless disabled by the environment variable <code>run_pkgdown</code> (see the first few lines of the workflow).</li>
-<li>It display the information from <em><a href="https://CRAN.R-project.org/package=testthat">testthat</a></em> (<a href="https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf">Wickham, 2011</a>) unless disabled by the environment variable <code>has_testthat</code> (see the first few lines of the workflow).</li>
-<li>It caches the R packages and re-uses them for future tests except if you use the keyword <code>/nocache</code> in your commit message. Using <code>/nocache</code> can be helpful for debugging purposes. The caches are specific to the platform, the R version, the Bioconductor version number, and whether you are working on Bioconductor-devel or release (for example, Bioc-devel was 3.11 with R 4.0 before April 2020 and for the next 6 months was Bioc-release with the same version numbers). These caches help you speed up your checks.</li>
+<li>It runs <em><a href="https://CRAN.R-project.org/package=covr">covr</a></em> <a id="cite-Hester_2020"></a>(<a href="#bib-Hester_2020">Hester, 2020</a>) unless disabled by the environment variable <strong><code>run_covr</code></strong> (see the first few lines of the workflow).</li>
+<li>It automatically deploys a documentation website using <em><a href="https://CRAN.R-project.org/package=pkgdown">pkgdown</a></em> (<a href="#bib-Wickham_2020ab">Wickham and Hesselberth, 2020</a>) unless disabled by the environment variable <strong><code>run_pkgdown</code></strong> (see the first few lines of the workflow).</li>
+<li>It displays the information from <em><a href="https://CRAN.R-project.org/package=testthat">testthat</a></em> (<a href="https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf">Wickham, 2011</a>) unless disabled by the environment variable <strong><code>has_testthat</code></strong> (see the first few lines of the workflow). Similarly, <strong><code>has_RUnit</code></strong> controls whether you want to run the <code>RUnit</code> tests described in the <a href="http://bioconductor.org/developers/how-to/unitTesting-guidelines/">Bioconductor unit testing guidelines</a>.</li>
+<li>It caches the R packages and re-uses them for future tests except if you use the keyword <code>/nocache</code> in your commit message. Using <strong><code>/nocache</code></strong> can be helpful for debugging purposes. The caches are specific to the platform, the R version, and the Bioconductor version <a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>. These caches help you speed up your checks and are updated after a successful build.</li>
 <li>The machines provided by GitHub have 7GB of RAM, 2 cores and 14 GB of disk as noted in their <a href="https://help.github.com/en/actions/reference/virtual-environments-for-github-hosted-runners">help pages</a>. It’s free for open source projects, but you can also pay to use it on private repositories as explained <a href="https://github.com/features/actions">in their features website</a>.</li>
 </ul>
+</div>
+<div id="configure-options" class="section level3">
+<h3 class="hasAnchor">
+<a href="#configure-options" class="anchor"></a>Configure options</h3>
+<p>To help you set some of these configuration environment variables in the GHA workflow, <code><a href="../reference/use_bioc_github_action.html">use_bioc_github_action()</a></code> has a few arguments that are used to update a template and customize it for your particular repository. Several of the arguments in <code><a href="../reference/use_bioc_github_action.html">use_bioc_github_action()</a></code> use <code><a href="https://rdrr.io/r/base/options.html">base::getOption()</a></code>, which enables you to edit your R profile file with <code><a href="https://usethis.r-lib.org/reference/edit.html">usethis::edit_r_profile()</a></code> and add lines such as the ones mentioned in the code below.</p>
+<div class="sourceCode" id="cb11"><pre class="downlit">
+<span class="co">## Open your .Rprofile file with usethis::edit_r_profile()</span>
+
+<span class="co">## For biocthis</span>
+<span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span><span class="st">"biocthis.pkgdown"</span> <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span><span class="st">"biocthis.testthat"</span> <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></pre></div>
+</div>
+<div id="automatically-scheduled-tests" class="section level3">
+<h3 class="hasAnchor">
+<a href="#automatically-scheduled-tests" class="anchor"></a>Automatically scheduled tests</h3>
+<p>You could also edit the resulting GHA workflow to run automatically every few days (for example, every Monday) by adding a <code>cron</code> line as described in the <a href="https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#onschedule">official GHA documentation</a>. This could of interest to you in some situations, though you should also be aware that it will use your GHA compute time that can have limits depending on your GitHub account and repository settings. If you are setting up a <code>cron</code> scheduled job, you might find <a href="https://crontab.guru/">crontab.guru</a> useful.</p>
+<p>Ultimately, there are many things you can do with GHA and you might want to use workflow as the basis for building <em><a href="https://CRAN.R-project.org/package=bookdown">bookdown</a></em> or <em><a href="https://CRAN.R-project.org/package=rmarkdown">rmarkdown</a></em> websites, or even <code>docker</code> images. Some examples are:</p>
+<ul>
+<li>
+<a href="https://github.com/lcolladotor/bioc_team_ds/blob/master/.github/workflows/build_book_bioc_docker.yml">lcolladotor/bioc_team_ds</a> for <em><a href="https://CRAN.R-project.org/package=bookdown">bookdown</a></em>.</li>
+<li>
+<a href="https://github.com/LieberInstitute/recountWorkshop2020/blob/master/.github/workflows/check-bioc.yml">LieberInstitute/recountWorkshop2020</a> for creating a <code>docker</code> image at the end.</li>
+</ul>
+</div>
+<div id="notes-about-gha-workflows" class="section level3">
+<h3 class="hasAnchor">
+<a href="#notes-about-gha-workflows" class="anchor"></a>Notes about GHA workflows</h3>
 <p>Using a GitHub Actions workflow with Bioconductor-devel (R-devel six months in the year), regardless of which GHA workflow you use specifically, will expose you to issues with installing R packages in the latest versions of Bioconductor, CRAN, GitHub and elsewhere. At <a href="https://github.com/r-lib/actions#where-to-find-help">r-lib/actions#where-to-find-help</a> you can find a list of steps you can take to get help for R GHA workflows. In the end, you might have to ask for help in:</p>
 <ul>
 <li>developer-oriented mailing lists,</li>
@@ -337,17 +376,18 @@
 <p>That is, the GHA workflow provided by <em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em> can break depending on changes upstream of it. In particular, it can stop working:</p>
 <ul>
 <li>just prior to a new R release (unless <code>r-lib/actions</code> supports R <code>alpha</code> releases),</li>
-<li>if the required Bioconductor docker image is not available (for example, due to issues building these images based on dependencies on <code>rocker</code> and other upstream tools).</li>
+<li>if the required Bioconductor docker image is not available (for example, due to issues building these images based on dependencies on <code>rocker</code> and other upstream tools) <a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>.</li>
 </ul>
 <p>We highly recommend watching any developments as they happen at <em><a href="https://github.com/r-lib/actions">actions</a></em> since the <code>r-lib</code> team does an excellent job keeping their GHA workflows updated. You can do so by subscribing to the <a href="https://github.com/r-lib/actions/commits/master.atom">RSS atom feed</a> for commits in their repository processed through <a href="http://feeds.feedburner.com/RecentCommitsToActionsmaster">RSS FeedBurner</a> that you can <a href="https://feedburner.google.com/fb/a/mailverify?uri=RecentCommitsToActionsmaster">subscribe to by email</a>.</p>
 <p>If you are interested in learning more details about how this GHA workflow came to be, check the <a href="https://lcolladotor.github.io/biocthis/articles/biocthis_dev_notes.html"><code>biocthis developer notes</code> vignette</a>.</p>
+</div>
 </div>
 <div id="use_bioc_issue_template" class="section level2">
 <h2 class="hasAnchor">
 <a href="#use_bioc_issue_template" class="anchor"></a><code>use_bioc_issue_template()</code>
 </h2>
 <p><code><a href="../reference/use_bioc_issue_template.html">use_bioc_issue_template()</a></code> creates a GitHub issue template file that is pre-populated with information you might want to use for your (future) Bioconductor package such as links to the Bioconductor Support Website and examples of the information you can ask users to provide that will make it easier for you to help your users. Alternatively, use <code><a href="https://usethis.r-lib.org/reference/tidyverse.html">usethis::use_tidy_issue_template()</a></code>.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit">
+<div class="sourceCode" id="cb12"><pre class="downlit">
 <span class="co">## Create a template GitHub issue file that is Bioconductor-friendly</span>
 <span class="fu">biocthis</span><span class="fu">::</span><span class="fu"><a href="../reference/use_bioc_issue_template.html">use_bioc_issue_template</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; ✔ Creating '.github/ISSUE_TEMPLATE/'</span>
@@ -358,7 +398,7 @@
 <a href="#use_bioc_news_md" class="anchor"></a><code>use_bioc_news_md()</code>
 </h2>
 <p><code><a href="../reference/use_bioc_news_md.html">use_bioc_news_md()</a></code> creates a <code>NEWS.md</code> template file that is pre-populated with information you might want to use for your (future) Bioconductor package. Alternatively, use <code><a href="https://usethis.r-lib.org/reference/use_news_md.html">usethis::use_news_md()</a></code>.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit">
+<div class="sourceCode" id="cb13"><pre class="downlit">
 <span class="co">## Create a template NEWS.md file that is Bioconductor-friendly</span>
 <span class="fu">biocthis</span><span class="fu">::</span><span class="fu"><a href="../reference/use_bioc_news_md.html">use_bioc_news_md</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; ✔ Writing 'NEWS.md'</span></pre></div>
@@ -374,7 +414,7 @@
 <a href="#use_bioc_readme_rmd" class="anchor"></a><code>use_bioc_readme_rmd()</code>
 </h2>
 <p><code><a href="../reference/use_bioc_readme_rmd.html">use_bioc_readme_rmd()</a></code> creates a <code>README.Rmd</code> template file that is pre-populated with information you might want to use for your (future) Bioconductor package such as Bioconductor’s installation instructions, how to cite your package and links to the development tools you used. Alternatively, use <code><a href="https://usethis.r-lib.org/reference/use_readme_rmd.html">usethis::use_readme_rmd()</a></code>.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit">
+<div class="sourceCode" id="cb14"><pre class="downlit">
 <span class="co">## Create a template README.Rmd file that is Bioconductor-friendly</span>
 <span class="fu">biocthis</span><span class="fu">::</span><span class="fu"><a href="../reference/use_bioc_readme_rmd.html">use_bioc_readme_rmd</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; ✔ Writing 'README.Rmd'</span>
@@ -385,7 +425,7 @@
 <a href="#use_bioc_support" class="anchor"></a><code>use_bioc_support()</code>
 </h2>
 <p><code><a href="../reference/use_bioc_support.html">use_bioc_support()</a></code> creates a template GitHub support template file that is pre-populated with information you might want to use for your (future) Bioconductor package such where to ask for help including the Bioconductor Support website. Alternatively, use <code><a href="https://usethis.r-lib.org/reference/tidyverse.html">usethis::use_tidy_support()</a></code>.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit">
+<div class="sourceCode" id="cb15"><pre class="downlit">
 <span class="co">## Create a template GitHub support file that is Bioconductor-friendly</span>
 <span class="fu">biocthis</span><span class="fu">::</span><span class="fu"><a href="../reference/use_bioc_support.html">use_bioc_support</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; ✔ Writing '.github/SUPPORT.md'</span></pre></div>
@@ -395,7 +435,7 @@
 <a href="#use_bioc_vignette" class="anchor"></a><code>use_bioc_vignette()</code>
 </h2>
 <p><code><a href="../reference/use_bioc_vignette.html">use_bioc_vignette()</a></code> creates a template vignette file that is pre-populated with information you might want to use for your (future) Bioconductor package. This template includes information on how to cite other packages using <em><a href="https://CRAN.R-project.org/package=knitcitations">knitcitations</a></em>, styling your vignette with <em><a href="https://bioconductor.org/packages/3.12/BiocStyle">BiocStyle</a></em>, instructions on how to install your package from Bioconductor, where to ask for help, information a user might need to know before they use your package, as well as the reproducibility information on how the vignette was made powered by <em><a href="https://CRAN.R-project.org/package=sessioninfo">sessioninfo</a></em>. You will need to spend a significant amount of time editing this vignette as you develop your R package. Alternatively, use <code><a href="https://usethis.r-lib.org/reference/use_vignette.html">usethis::use_vignette()</a></code>.</p>
-<div class="sourceCode" id="cb15"><pre class="downlit">
+<div class="sourceCode" id="cb16"><pre class="downlit">
 <span class="co">## Create a template vignette file that is Bioconductor-friendly</span>
 <span class="fu">biocthis</span><span class="fu">::</span><span class="fu"><a href="../reference/use_bioc_vignette.html">use_bioc_vignette</a></span><span class="op">(</span><span class="st">"biocthispkg"</span>, <span class="st">"Introduction to biocthispkg"</span><span class="op">)</span>
 <span class="co">#&gt; ✔ Adding 'knitr' to Suggests field in DESCRIPTION</span>
@@ -464,7 +504,7 @@
 </ul>
 <p>This package was developed using <em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em>.</p>
 <p>Code for creating the vignette</p>
-<div class="sourceCode" id="cb16"><pre class="downlit">
+<div class="sourceCode" id="cb17"><pre class="downlit">
 <span class="co">## Create the vignette</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/rstudio/rmarkdown">"rmarkdown"</a></span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/rmarkdown/man/render.html">render</a></span><span class="op">(</span><span class="st">"biocthis.Rmd"</span>, <span class="st">"BiocStyle::html_document"</span><span class="op">)</span><span class="op">)</span>
@@ -472,14 +512,14 @@
 <span class="co">## Extract the R code</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://yihui.org/knitr/">"knitr"</a></span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/knit.html">knit</a></span><span class="op">(</span><span class="st">"biocthis.Rmd"</span>, tangle <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></pre></div>
-<div class="sourceCode" id="cb17"><pre class="downlit">
+<div class="sourceCode" id="cb18"><pre class="downlit">
 <span class="co">## Clean up</span>
 <span class="fu"><a href="https://rdrr.io/r/base/files.html">file.remove</a></span><span class="op">(</span><span class="st">"biocthis.bib"</span><span class="op">)</span>
 <span class="co">#&gt; [1] TRUE</span></pre></div>
 <p>Date the vignette was generated.</p>
-<pre><code>#&gt; [1] "2020-10-01 21:31:52 UTC"</code></pre>
+<pre><code>#&gt; [1] "2020-10-01 22:42:30 UTC"</code></pre>
 <p>Wallclock time spent generating the vignette.</p>
-<pre><code>#&gt; Time difference of 4.113 secs</code></pre>
+<pre><code>#&gt; Time difference of 4.639 secs</code></pre>
 <p><code>R</code> session information.</p>
 <pre><code>#&gt; ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────
 #&gt;  setting  value                                      
@@ -575,6 +615,14 @@
 <p>[14] H. Wickham and J. Hesselberth. <em>pkgdown: Make Static HTML Documentation for a Package</em>. <a href="https://pkgdown.r-lib.org" class="uri">https://pkgdown.r-lib.org</a>, <a href="https://github.com/r-lib/pkgdown" class="uri">https://github.com/r-lib/pkgdown</a>. 2020.</p>
 <p>[15] H. Wickham, J. Hester, and W. Chang. <em>devtools: Tools to Make Developing R Packages Easier</em>. <a href="https://devtools.r-lib.org/" class="uri">https://devtools.r-lib.org/</a>, <a href="https://github.com/r-lib/devtools" class="uri">https://github.com/r-lib/devtools</a>. 2020.</p>
 <p>[16] Y. Xie. <em>knitr: A General-Purpose Package for Dynamic Report Generation in R</em>. R package version 1.30. 2020. &lt;URL: <a href="https://yihui.org/knitr/" class="uri">https://yihui.org/knitr/</a>&gt;.</p>
+</div>
+<div class="footnotes">
+<hr>
+<ol>
+<li id="fn1"><p>You might want to use <em><a href="https://CRAN.R-project.org/package=badger">badger</a></em> too, which has badges for Bioconductor download statistics. Some of the badges are only tailored for Bioconductor <em>software</em> packages, so you’ll have to edit them for annotation, experiment and workflow packages.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>In some situations, you might want to change the <strong><code>cache_version</code></strong> environment variable to force GHA to use new caches.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>See for example <a href="https://github.com/rocker-org/rocker-versioned2/issues/50">rocker-versioned2 issue 50</a>. <a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
   </div>
 
