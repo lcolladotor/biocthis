@@ -8,6 +8,9 @@
 }
 
 .GHARversion <- function(biocdocker) {
+    ## For R CMD check
+    BiocStatus <- Bioc <- NULL
+
     info <- BiocManager:::.version_map_get_online(
         "https://bioconductor.org/config.yaml"
     )
@@ -58,7 +61,7 @@
 #' information about `covr`, which is useful for displaying for assessing
 #' your test coverage. If `TRUE`, then `covr` will only run on the Linux
 #' (Bioconductor docker) test.
-#' @param Runit A `logical(1)` specifying whether to run `RUnit` unit tests.
+#' @param RUnit A `logical(1)` specifying whether to run `RUnit` unit tests.
 #' Check <http://bioconductor.org/developers/how-to/unitTesting-guidelines/>
 #' for more information about `RUnit`.
 #'
@@ -126,7 +129,7 @@ use_bioc_github_action <- function(
     ## code taken from usethis
     usethis:::use_dot_github(ignore = TRUE)
     save_as <- fs::path(".github", "workflows", "check-bioc.yml")
-    usethis:::create_directory(dirname(usethis:::proj_path(save_as)))
-    new <- usethis:::write_over(usethis:::proj_path(save_as), contents)
+    usethis:::create_directory(dirname(usethis::proj_path(save_as)))
+    new <- usethis::write_over(usethis::proj_path(save_as), contents)
     invisible(new)
 }

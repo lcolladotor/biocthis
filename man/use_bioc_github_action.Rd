@@ -38,7 +38,7 @@ information about \code{covr}, which is useful for displaying for assessing
 your test coverage. If \code{TRUE}, then \code{covr} will only run on the Linux
 (Bioconductor docker) test.}
 
-\item{Runit}{A \code{logical(1)} specifying whether to run \code{RUnit} unit tests.
+\item{RUnit}{A \code{logical(1)} specifying whether to run \code{RUnit} unit tests.
 Check \url{http://bioconductor.org/developers/how-to/unitTesting-guidelines/}
 for more information about \code{RUnit}.}
 }
