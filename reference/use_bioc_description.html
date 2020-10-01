@@ -137,7 +137,7 @@ can compare the output of this function to the one from
 <code><a href='https://usethis.r-lib.org/reference/use_description.html'>usethis::use_description()</a></code> to select the parts you want from each.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>use_bioc_description</span><span class='op'>(</span>biocViews <span class='op'>=</span> <span class='st'>"Software"</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>use_bioc_description</span><span class='op'>(</span>biocViews <span class='op'>=</span> <span class='st'>"Software"</span>, report_bioc <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -149,6 +149,12 @@ want to use for your package. See
 <a href='https://bioconductor.org/packages/release/BiocViews.html'>https://bioconductor.org/packages/release/BiocViews.html</a> for details. Note
 that the terms you choose have to be part of one of the main four trees:
 software, annotation, experiment or workflow.</p></td>
+    </tr>
+    <tr>
+      <th>report_bioc</th>
+      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code> indicating whether to set the <code>BugReports</code>
+to the Bioconductor Support website <a href='https://support.bioconductor.org/'>https://support.bioconductor.org/</a>
+or to the GitHub package issues page.</p></td>
     </tr>
     </table>
 
