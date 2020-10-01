@@ -156,7 +156,7 @@ If you run `use_bioc_pkg_templates()` inside RStudio Desktop, then all the scrip
   - Creates Bioconductor-friendly GitHub template for issues
   - Uses the tidyverse-style GitHub contributing and code of conduct files
   - Creates a template Bioconductor-friendly `CITATION` file
-  - Adds several badges to the `README.Rmd` file
+  - Adds several badges to the `README.Rmd` file ^[You might want to use `r CRANpkg("badger")` too, which has badges for Bioconductor download statistics. Some of the badges are only tailored for Bioconductor *software* packages, so you'll have to edit them for annotation, experiment and workflow packages.]
   - Sets up unit tests using `r CRANpkg("testthat")` `r citep(bib[["testthat"]])`
   - Adds a Bioconductor-friendly GitHub Actions workflow
   - Deploys an initial documentation website using `r CRANpkg("pkgdown")` `r citep(bib[["pkgdown"]])`
