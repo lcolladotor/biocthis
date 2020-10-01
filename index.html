@@ -40,12 +40,6 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="articles/biocthis.html">Get started</a>
 </li>
 <li>
@@ -97,24 +91,27 @@
 <h2 class="hasAnchor">
 <a href="#installation-instructions" class="anchor"></a>Installation instructions</h2>
 <p>Get the latest stable <code>R</code> release from <a href="http://cran.r-project.org/">CRAN</a>. Then install <code>biocthis</code> using from <a href="http://bioconductor.org/">Bioconductor</a> the following code:</p>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="kw">if</span> (!<span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span>(<span class="st">"BiocManager"</span>, <span class="kw">quietly</span> <span class="kw">=</span> <span class="fl">TRUE</span>)) {
-    <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"BiocManager"</span>)
-}
+<div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span><span class="op">(</span><span class="st">"BiocManager"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+    <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span>
+<span class="op">}</span>
 
-<span class="kw pkg">BiocManager</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html">install</a></span>(<span class="st">"biocthis"</span>)</pre></div>
+<span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html">install</a></span><span class="op">(</span><span class="st">"biocthis"</span><span class="op">)</span></pre></div>
 <p>And the development version from <a href="https://github.com/">GitHub</a> with:</p>
-<div class="sourceCode" id="cb2"><pre class="r"><span class="kw pkg">BiocManager</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html">install</a></span>(<span class="st">"lcolladotor/biocthis"</span>)</pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html">install</a></span><span class="op">(</span><span class="st">"lcolladotor/biocthis"</span><span class="op">)</span></pre></div>
 </div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
 <p>Here is how you can use <em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em> to create a new Bioconductor-friendly R package (illustrated using a temporary directory):</p>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="co">## Load biocthis</span>
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="st">"biocthis"</span>)
+<div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="co">## Load biocthis</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/lcolladotor/biocthis">"biocthis"</a></span><span class="op">)</span>
 
 <span class="co">## Create an example package for illustrative purposes.</span>
 <span class="co">## Note: you do not need to run this for your own package!</span>
-<span class="no">pkgdir</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/biocthis_example_pkg.html">biocthis_example_pkg</a></span>()
+<span class="va">pkgdir</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/biocthis_example_pkg.html">biocthis_example_pkg</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; ✓ Creating '/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpcRpdgC/biocthisexample/'</span>
 <span class="co">#&gt; ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpcRpdgC/biocthisexample'</span>
 <span class="co">#&gt; ✓ Creating 'R/'</span>
@@ -136,7 +133,7 @@
 <span class="co">#&gt; ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpcRpdgC/biocthisexample'</span>
 
 <span class="co">## Create the bioc templates</span>
-<span class="kw pkg">biocthis</span><span class="kw ns">::</span><span class="fu"><a href="reference/use_bioc_pkg_templates.html">use_bioc_pkg_templates</a></span>()
+<span class="fu">biocthis</span><span class="fu">::</span><span class="fu"><a href="reference/use_bioc_pkg_templates.html">use_bioc_pkg_templates</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; ✓ Creating 'dev/'</span>
 <span class="co">#&gt; ✓ Adding '^dev$' to '.Rbuildignore'</span>
 <span class="co">#&gt; ✓ Writing 'dev/01_create_pkg.R'</span>
@@ -144,30 +141,33 @@
 <span class="co">#&gt; ✓ Writing 'dev/03_core_files.R'</span>
 <span class="co">#&gt; ✓ Writing 'dev/04_update.R'</span></pre></div>
 <p>The template <code>dev</code> scripts include comments and steps you can follow for making your Bioconductor-friendly R package or updating a current package. In particular, you might want to use a Bioconductor-friendly GitHub Actions workflow. If this is your first time seeings this words, we highly recommend that you watch <a href="https://www.jimhester.com/talk/2020-rsc-github-actions/">Jim Hester’s <code>rstudio::conf(2020)</code> talk on this subject</a>.</p>
-<div class="sourceCode" id="cb4"><pre class="r"><span class="co">## Create a GitHub Actions workflow that is Bioconductor-friendly</span>
-<span class="kw pkg">biocthis</span><span class="kw ns">::</span><span class="fu"><a href="reference/use_bioc_github_action.html">use_bioc_github_action</a></span>()
+<div class="sourceCode" id="cb4"><pre class="downlit">
+<span class="co">## Create a GitHub Actions workflow that is Bioconductor-friendly</span>
+<span class="fu">biocthis</span><span class="fu">::</span><span class="fu"><a href="reference/use_bioc_github_action.html">use_bioc_github_action</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; ✓ Creating '.github/'</span>
 <span class="co">#&gt; ✓ Adding '^\\.github$' to '.Rbuildignore'</span>
 <span class="co">#&gt; ✓ Adding '*.html' to '.github/.gitignore'</span>
 <span class="co">#&gt; ✓ Creating '.github/workflows/'</span>
 <span class="co">#&gt; ✓ Writing '.github/workflows/check-bioc.yml'</span></pre></div>
-<div class="sourceCode" id="cb5"><pre class="r"><span class="co">## Alternatively, use the general GitHub Actions workflow maintained by</span>
+<div class="sourceCode" id="cb5"><pre class="downlit">
+<span class="co">## Alternatively, use the general GitHub Actions workflow maintained by</span>
 <span class="co">## r-lib/actions</span>
-<span class="kw pkg">usethis</span><span class="kw ns">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_github_action.html">use_github_action</a></span>(<span class="st">"check-standard"</span>)
+<span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_github_action.html">use_github_action</a></span><span class="op">(</span><span class="st">"check-standard"</span><span class="op">)</span>
 <span class="co">#&gt; ✓ Writing '.github/workflows/check-standard.yaml'</span>
 
 <span class="co">## Or use the biocthis GHA workflow without having to install biocthis</span>
-<span class="kw pkg">usethis</span><span class="kw ns">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_github_action.html">use_github_action</a></span>(
+<span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_github_action.html">use_github_action</a></span><span class="op">(</span>
     <span class="st">"check-bioc"</span>,
     <span class="st">"https://bit.ly/biocthis_gha"</span>,
     <span class="st">"check-bioc.yml"</span>
-)</pre></div>
+<span class="op">)</span></pre></div>
 </div>
 <div id="citation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#citation" class="anchor"></a>Citation</h2>
 <p>Below is the citation output from using <code><a href="https://rdrr.io/r/utils/citation.html">citation('biocthis')</a></code> in R. Please run this yourself to check for any updates on how to cite <strong>biocthis</strong>.</p>
-<div class="sourceCode" id="cb6"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span>(<span class="fu"><a href="https://rdrr.io/r/utils/citation.html">citation</a></span>(<span class="st">"biocthis"</span>), <span class="kw">bibtex</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
+<div class="sourceCode" id="cb6"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/citation.html">citation</a></span><span class="op">(</span><span class="st">"biocthis"</span><span class="op">)</span>, bibtex <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Collado-Torres L (2020). _Automate package and project setup for</span>
 <span class="co">#&gt; Bioconductor packages_. doi: 10.18129/B9.bioc.biocthis (URL:</span>
@@ -274,7 +274,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>

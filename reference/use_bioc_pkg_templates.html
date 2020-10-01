@@ -84,12 +84,6 @@ package." />
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/biocthis.html">Get started</a>
 </li>
 <li>
@@ -145,7 +139,7 @@ encourage you to check the latest utility functions in the <code>usethis</code>
 package.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>use_bioc_pkg_templates</span>(<span class='kw'>open</span> <span class='kw'>=</span> <span class='kw pkg'>rlang</span><span class='kw ns'>::</span><span class='fu'><a href='https://rlang.r-lib.org/reference/is_interactive.html'>is_interactive</a></span>())</pre>
+    <pre class="usage"><span class='fu'>use_bioc_pkg_templates</span><span class='op'>(</span>open <span class='op'>=</span> <span class='fu'>rlang</span><span class='fu'>::</span><span class='fu'><a href='https://rlang.r-lib.org/reference/is_interactive.html'>is_interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -181,27 +175,29 @@ as well as the "biocthis developer notes" vignette
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='co'>## Run this function in your package</span>
-<span class='fu'>use_bioc_pkg_templates</span>()
-}
+<span class='fu'>use_bioc_pkg_templates</span><span class='op'>(</span><span class='op'>)</span>
+<span class='op'>}</span>
 
 <span class='co'>## Create an example package for illustrative purposes.</span>
 <span class='co'>## Note: you do not need to run this for your own package!</span>
-<span class='no'>pkgdir</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='biocthis_example_pkg.html'>biocthis_example_pkg</a></span>()</div><div class='output co'>#&gt; <span class='message'>✔ Leaving 'DESCRIPTION' unchanged</span></div><div class='output co'>#&gt; Package: biocthisexample
-#&gt; Title: What the Package Does (One Line, Title Case)
-#&gt; Version: 0.0.0.9000
-#&gt; Authors@R (parsed):
+<span class='va'>pkgdir</span> <span class='op'>&lt;-</span> <span class='fu'><a href='biocthis_example_pkg.html'>biocthis_example_pkg</a></span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'><span style='color: #00BB00;'>✔</span><span> Leaving </span><span style='color: #0000BB;'>'DESCRIPTION'</span><span> unchanged</span></div><div class='output co'>#&gt; </span><span style='color: #0000BB;'>Package</span><span>: biocthisexample
+#&gt; </span><span style='color: #0000BB;'>Title</span><span>: What the Package Does (One Line, Title Case)
+#&gt; </span><span style='color: #0000BB;'>Version</span><span>: 0.0.0.9000
+#&gt; </span><span style='color: #0000BB;'>Authors@R</span><span> (parsed):
 #&gt;     * First Last &lt;first.last@example.com&gt; [aut, cre] (YOUR-ORCID-ID)
-#&gt; Description: What the package does (one paragraph).
-#&gt; License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-#&gt;     license
-#&gt; Encoding: UTF-8
-#&gt; LazyData: true
-#&gt; Roxygen: list(markdown = TRUE)
-#&gt; RoxygenNote: 7.1.0</div><div class='input'>
+#&gt; </span><span style='color: #0000BB;'>Description</span><span>: What the package does (one paragraph).
+#&gt; </span><span style='color: #0000BB;'>License</span><span>: `use_mit_license()`, `use_gpl3_license()` or friends to
+#&gt;     pick a license
+#&gt; </span><span style='color: #0000BB;'>Encoding</span><span>: UTF-8
+#&gt; </span><span style='color: #0000BB;'>LazyData</span><span>: true
+#&gt; </span><span style='color: #0000BB;'>Roxygen</span><span>: list(markdown = TRUE)
+#&gt; </span><span style='color: #0000BB;'>RoxygenNote</span><span>: 7.1.1</div><div class='input'>
 <span class='co'>## Create the biocthis templates</span>
-<span class='kw pkg'>biocthis</span><span class='kw ns'>::</span><span class='fu'>use_bioc_pkg_templates</span>()</div><div class='output co'>#&gt; <span class='message'>✔ Creating 'dev/'</span></div><div class='output co'>#&gt; <span class='message'>✔ Adding '^dev$' to '.Rbuildignore'</span></div><div class='output co'>#&gt; <span class='message'>✔ Writing 'dev/01_create_pkg.R'</span></div><div class='output co'>#&gt; <span class='message'>✔ Writing 'dev/02_git_github_setup.R'</span></div><div class='output co'>#&gt; <span class='message'>✔ Writing 'dev/03_core_files.R'</span></div><div class='output co'>#&gt; <span class='message'>✔ Writing 'dev/04_update.R'</span></div></pre>
+<span class='fu'>biocthis</span><span class='fu'>::</span><span class='fu'>use_bioc_pkg_templates</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔</span><span> Creating </span><span style='color: #0000BB;'>'dev/'</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔</span><span> Adding </span><span style='color: #0000BB;'>'^dev$'</span><span> to </span><span style='color: #0000BB;'>'.Rbuildignore'</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔</span><span> Writing </span><span style='color: #0000BB;'>'dev/01_create_pkg.R'</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔</span><span> Writing </span><span style='color: #0000BB;'>'dev/02_git_github_setup.R'</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔</span><span> Writing </span><span style='color: #0000BB;'>'dev/03_core_files.R'</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔</span><span> Writing </span><span style='color: #0000BB;'>'dev/04_update.R'</span><span></span></div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -217,7 +213,7 @@ as well as the "biocthis developer notes" vignette
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>
