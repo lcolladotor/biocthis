@@ -218,12 +218,12 @@ This [GitHub Actions](https://github.com/features/actions) (GHA) workflow is bas
 
 ### Additional features
 
-Furthermore, this GHA workflow provides the following features:
+Furthermore, the `use_bioc_github_action()` GHA workflow provides the following features:
 
-* It runs `r CRANpkg("covr")` `r citep(bib[["covr"]])` unless disabled by the environment variable `run_covr` (see the first few lines of the workflow).
-* It automatically deploys a documentation website using `r CRANpkg("pkgdown")` `r citep(bib[["pkgdown"]])` unless disabled by the environment variable `run_pkgdown` (see the first few lines of the workflow).
-* It display the information from `r CRANpkg("testthat")` `r citep(bib[["testthat"]])` unless disabled by the environment variable `has_testthat` (see the first few lines of the workflow).
-* It caches the R packages and re-uses them for future tests except if you use the keyword `/nocache` in your commit message. Using `/nocache` can be helpful for debugging purposes. The caches are specific to the platform, the R version, the Bioconductor version number, and whether you are working on Bioconductor-devel or release (for example, Bioc-devel was 3.11 with R 4.0 before April 2020 and for the next 6 months was Bioc-release with the same version numbers). These caches help you speed up your checks.
+* It runs `r CRANpkg("covr")` `r citep(bib[["covr"]])` unless disabled by the environment variable **`run_covr`** (see the first few lines of the workflow).
+* It automatically deploys a documentation website using `r CRANpkg("pkgdown")` `r citep(bib[["pkgdown"]])` unless disabled by the environment variable **`run_pkgdown`** (see the first few lines of the workflow).
+* It displays the information from `r CRANpkg("testthat")` `r citep(bib[["testthat"]])` unless disabled by the environment variable **`has_testthat`** (see the first few lines of the workflow). Similarly, **`has_RUnit`** controls whether you want to run the `RUnit` tests described in the [Bioconductor unit testing guidelines](http://bioconductor.org/developers/how-to/unitTesting-guidelines/).
+* It caches the R packages and re-uses them for future tests except if you use the keyword `/nocache` in your commit message. Using **`/nocache`** can be helpful for debugging purposes. The caches are specific to the platform, the R version, and the Bioconductor version ^[In some situations, you might want to change the **`cache_version`** environment variable to force GHA to use new caches.]. These caches help you speed up your checks and are updated after a successful build.
 * The machines provided by GitHub have 7GB of RAM, 2 cores and 14 GB of disk as noted in their [help pages](https://help.github.com/en/actions/reference/virtual-environments-for-github-hosted-runners). It's free for open source projects, but you can also pay to use it on private repositories as explained [in their features website](https://github.com/features/actions).
 
 ### Configure options
@@ -242,6 +242,11 @@ options("biocthis.testthat" = TRUE)
 
 You could also edit the resulting GHA workflow to run automatically every few days (for example, every Monday) by adding a `cron` line as described in the [official GHA documentation](https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#onschedule). This could of interest to you in some situations, though you should also be aware that it will use your GHA compute time that can have limits depending on your GitHub account and repository settings.
 
+Ultimately, there are many things you can do with GHA and you might want to use workflow as the basis for building `r CRANpkg("bookdown")` or `r CRANpkg("rmarkdown")` websites, or even `docker` images. Some examples are:
+
+* [lcolladotor/bioc_team_ds](https://github.com/lcolladotor/bioc_team_ds/blob/master/.github/workflows/build_book_bioc_docker.yml) for `r CRANpkg("bookdown")`.
+* [LieberInstitute/recountWorkshop2020](https://github.com/LieberInstitute/recountWorkshop2020/blob/master/.github/workflows/check-bioc.yml) for creating a `docker` image at the end.
+
 ### Notes about GHA workflows
 
 Using a GitHub Actions workflow with Bioconductor-devel (R-devel six months in the year), regardless of which GHA workflow you use specifically, will expose you to issues with installing R packages in the latest versions of Bioconductor, CRAN, GitHub and elsewhere. At [r-lib/actions#where-to-find-help](https://github.com/r-lib/actions#where-to-find-help) you can find a list of steps you can take to get help for R GHA workflows. In the end, you might have to ask for help in:
@@ -253,7 +258,7 @@ Using a GitHub Actions workflow with Bioconductor-devel (R-devel six months in t
 That is, the GHA workflow provided by `r Githubpkg("lcolladotor/biocthis")` can break depending on changes upstream of it. In particular, it can stop working:
 
 * just prior to a new R release (unless `r-lib/actions` supports R `alpha` releases),
-* if the required Bioconductor docker image is not available (for example, due to issues building these images based on dependencies on `rocker` and other upstream tools).
+* if the required Bioconductor docker image is not available (for example, due to issues building these images based on dependencies on `rocker` and other upstream tools) ^[See for example [rocker-versioned2 issue 50](https://github.com/rocker-org/rocker-versioned2/issues/50). ].
 
 We highly recommend watching any developments as they happen at `r Githubpkg("r-lib/actions")` since the `r-lib` team does an excellent job keeping their GHA workflows updated. You can do so by subscribing to the [RSS atom feed](https://github.com/r-lib/actions/commits/master.atom) for commits in their repository processed through [RSS FeedBurner](http://feeds.feedburner.com/RecentCommitsToActionsmaster) that you can [subscribe to by email](https://feedburner.google.com/fb/a/mailverify?uri=RecentCommitsToActionsmaster).
 
