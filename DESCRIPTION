@@ -1,11 +1,13 @@
 Package: biocthis
 Title: Automate package and project setup for Bioconductor packages
 Version: 0.99.0
-Date: 2020-05-18
+Date: 2020-10-01
 Authors@R: 
     c(
     person("Leonardo", "Collado-Torres", role = c("aut", "cre"), 
-    email = "lcolladotor@gmail.com", comment = c(ORCID = "0000-0003-2140-308X"))
+    email = "lcolladotor@gmail.com", comment = c(ORCID = "0000-0003-2140-308X")),
+    person("Marcel", "Ramos", email = "marcel.ramos@roswellpark.org",
+    role = c("ctb"), comment = c(ORCID = "0000-0002-3242-0582"))
     )
 Description: This package expands the usethis package with the goal of
     helping automate the process of creating R packages for Bioconductor or

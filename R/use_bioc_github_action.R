@@ -38,7 +38,7 @@ use_bioc_github_action <- function() {
     datalist <- list(
         version = .normalizeVersion(),
         rversion = .GHARversion(),
-        rvernum = BiocManager:::.get_R_version()
+        rvernum = gsub("\\.[0-9]*$", "", getRversion())
     )
     template <- system.file(package = "biocthis", "templates",
         "check-bioc.yml", mustWork = TRUE)
