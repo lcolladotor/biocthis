@@ -204,20 +204,12 @@ biocthis::use_bioc_description()
 ```{r 'bioc_github_action'}
 ## Create a GitHub Actions workflow that is Bioconductor-friendly
 biocthis::use_bioc_github_action()
-
-## You can also use this GHA workflow without installing biocthis
-usethis::use_github_action(
-    "check-bioc",
-    "https://bit.ly/biocthis_gha",
-    "check-bioc.yml"
-)
 ```
 
 This [GitHub Actions](https://github.com/features/actions) (GHA) workflow is based on [r-lib/actions//examples/check-standard.yaml](https://github.com/r-lib/actions/blob/master/examples/check-standard.yaml) and others. The goal is to provide on demand `R CMD check`s on Linux, macOS and Windows using a similar setup to Bioconductor-devel and release branches. Some key features that make this GHA workflow Bioconductor-friendly are:
 
 * It runs `R CMD check` on the same platforms (Linux, macOS and Windows) that Bioconductor supports.
 * It runs `BiocCheck::BiocCheck()` on all these platforms, unlike the Bioconductor nightly builds. `r Biocpkg("BiocCheck")` is complementary to `R CMD check` and can help you improve your R package.
-* This workflow (in theory) does not need to be modified as Bioconductor and R versions are tested over time (R has a yearly release cycle, Bioconductor has a six month cycle). That is, this workflow automatically detects the correct R and Bioconductor versions to use depending on whether you are working on the `master` or `RELEASE_X_Y` git branches (`RELEASE_3_11` for example).
 * It uses the [Bioconductor devel and release dockers](https://www.bioconductor.org/help/docker/) to test your package on Linux. Since all system dependencies required by Bioconductor packages are already included in these docker images, it's unlikely that you'll need to fiddle with Linux system dependencies. The information on the docker image is then used for configuring the macOS and Windows tests.
 
 Furthermore, this GHA workflow provides the following features:

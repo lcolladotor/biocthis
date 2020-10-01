@@ -150,6 +150,8 @@ This work eventually lead to `use_bioc_github_action()`. The features of this GH
 * [Nitesh Turaga](https://twitter.com/niteshturaga) and [Carl Boettiger](https://twitter.com/cboettig) [rocker-org/rocker-versioned/issues/208](https://github.com/rocker-org/rocker-versioned/issues/208) updated the rocker docker image for RStudio to R 4.0 and the corresponding Bioconductor docker image. To do so, they resolved several issues themselves. From my side, I only had to wait =)
 * I also had to learn how to mount directories with docker to enable caching the R package files when using the Bioconductor docker images, and other GitHub Actions syntax for which I relied quite heavily on [their manual](https://help.github.com/en/actions) and Google searches; most of them lead me to the [GitHub Actions community website](https://github.community/t5/GitHub-Actions/bd-p/actions).
 
+In late September 2020, [Marcel Ramos](https://twitter.com/M2RUseR) sent a [pull request](https://github.com/lcolladotor/biocthis/pull/11) that greatly changed the GHA actions workflow to (1) use a template and (2) avoid the code redundancy across macOS, Windows and Linux (running a Bioconductor docker), which makes the resulting GHA workflow easier to understand and customize.
+
 ### Potential future additions
 
 * It might be useful to use exactly the same `.Renviron` as the one used in the Bioconductor machines by downloading files like [3.11/Renviron.bioc](https://github.com/Bioconductor/BBS/blob/master/3.11/Renviron.bioc) and locating them correctly.
@@ -183,6 +185,7 @@ I just want to thank everyone for helping me understand different pieces of code
 * [Nitesh Turaga](https://twitter.com/niteshturaga)
 * [Carl Boettiger](https://twitter.com/cboettig)
 * [Jenny Bryan](https://twitter.com/JennyBryan) for her feedback at [r-lib/usethis/issues#1108](https://github.com/r-lib/usethis/issues/1108#issuecomment-626253251)
+* [Marcel Ramos](https://twitter.com/M2RUseR) for this [awesome pull request](https://github.com/lcolladotor/biocthis/pull/11)
 
 as well as several organizations and members:
 

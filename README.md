@@ -78,8 +78,8 @@ library("biocthis")
 ## Create an example package for illustrative purposes.
 ## Note: you do not need to run this for your own package!
 pkgdir <- biocthis_example_pkg()
-#> ✓ Creating '/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpcRpdgC/biocthisexample/'
-#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpcRpdgC/biocthisexample'
+#> ✓ Creating '/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpWZ2baP/biocthisexample/'
+#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpWZ2baP/biocthisexample'
 #> ✓ Creating 'R/'
 #> ✓ Writing 'DESCRIPTION'
 #> Package: biocthisexample
@@ -93,10 +93,10 @@ pkgdir <- biocthis_example_pkg()
 #> Encoding: UTF-8
 #> LazyData: true
 #> Roxygen: list(markdown = TRUE)
-#> RoxygenNote: 7.1.0
+#> RoxygenNote: 7.1.1
 #> ✓ Writing 'NAMESPACE'
 #> ✓ Setting active project to '<no active project>'
-#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpcRpdgC/biocthisexample'
+#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpWZ2baP/biocthisexample'
 
 ## Create the bioc templates
 biocthis::use_bioc_pkg_templates()
@@ -131,13 +131,6 @@ biocthis::use_bioc_github_action()
 ## r-lib/actions
 usethis::use_github_action("check-standard")
 #> ✓ Writing '.github/workflows/check-standard.yaml'
-
-## Or use the biocthis GHA workflow without having to install biocthis
-usethis::use_github_action(
-    "check-bioc",
-    "https://bit.ly/biocthis_gha",
-    "check-bioc.yml"
-)
 ```
 
 ## Citation

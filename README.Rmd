@@ -75,13 +75,6 @@ biocthis::use_bioc_github_action()
 ## Alternatively, use the general GitHub Actions workflow maintained by
 ## r-lib/actions
 usethis::use_github_action("check-standard")
-
-## Or use the biocthis GHA workflow without having to install biocthis
-usethis::use_github_action(
-    "check-bioc",
-    "https://bit.ly/biocthis_gha",
-    "check-bioc.yml"
-)
 ```
 
 
