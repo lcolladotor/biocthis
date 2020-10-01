@@ -240,7 +240,7 @@ options("biocthis.testthat" = TRUE)
 
 ### Automatically scheduled tests
 
-You could also edit the resulting GHA workflow to run automatically every few days (for example, every Monday) by adding a `cron` line as described in the [official GHA documentation](https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#onschedule). This could of interest to you in some situations, though you should also be aware that it will use your GHA compute time that can have limits depending on your GitHub account and repository settings.
+You could also edit the resulting GHA workflow to run automatically every few days (for example, every Monday) by adding a `cron` line as described in the [official GHA documentation](https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#onschedule). This could of interest to you in some situations, though you should also be aware that it will use your GHA compute time that can have limits depending on your GitHub account and repository settings. If you are setting up a `cron` scheduled job, you might find [crontab.guru](https://crontab.guru/) useful.
 
 Ultimately, there are many things you can do with GHA and you might want to use workflow as the basis for building `r CRANpkg("bookdown")` or `r CRANpkg("rmarkdown")` websites, or even `docker` images. Some examples are:
 
