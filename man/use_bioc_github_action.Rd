@@ -6,10 +6,11 @@
 \usage{
 use_bioc_github_action(
   biocdocker,
-  pkgdown = TRUE,
-  testthat = TRUE,
+  pkgdown = getOption("biocthis.pkgdown", FALSE),
+  testthat = getOption("biocthis.testthat", FALSE),
   covr = testthat,
-  RUnit = FALSE
+  RUnit = getOption("biocthis.RUnit", FALSE),
+  pkgdown_covr_branch = getOption("biocthis.pkgdown_covr_branch", "master")
 )
 }
 \arguments{
@@ -41,6 +42,9 @@ your test coverage. If \code{TRUE}, then \code{covr} will only run on the Linux
 \item{RUnit}{A \code{logical(1)} specifying whether to run \code{RUnit} unit tests.
 Check \url{http://bioconductor.org/developers/how-to/unitTesting-guidelines/}
 for more information about \code{RUnit}.}
+
+\item{pkgdown_covr_branch}{A \code{character(1)} specifying the name of the GitHub
+branch that will be used creating the \code{pkgdown} website and running \code{covr}.}
 }
 \value{
 This function adds and/or replaces the
@@ -63,4 +67,11 @@ the "biocthis developer notes" vignette
 ## Run this function in your package
 biocthis::use_bioc_github_action()
 }
+
+## I have the following options on my ~/.Rprofile set
+## Check
+## <https://github.com/lcolladotor/biocthis/issues/9#issuecomment-702401032>
+## for more information.
+options("biocthis.pkgdown" = TRUE)
+options("biocthis.testthat" = TRUE)
 }

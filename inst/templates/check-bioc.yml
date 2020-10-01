@@ -180,15 +180,15 @@ jobs:
         shell: Rscript {0}
 
       - name: Install covr
-        if: github.ref == 'refs/heads/master' && env.run_covr == 'true' && runner.os == 'Linux'
+        if: github.ref == 'refs/heads/{{pkgdown_covr_branch}}' && env.run_covr == 'true' && runner.os == 'Linux'
         run: |
           remotes::install_cran("covr")
         shell: Rscript {0}
 
       - name: Install pkgdown
-        if: github.ref == 'refs/heads/master' && env.run_pkgdown == 'true' && runner.os == 'Linux'
+        if: github.ref == 'refs/heads/{{pkgdown_covr_branch}}' && env.run_pkgdown == 'true' && runner.os == 'Linux'
         run: |
-          remotes::install_github("r-lib/pkgdown")
+          {{pkgdown_install}}
         shell: Rscript {0}
 
       - name: Session info
@@ -232,17 +232,17 @@ jobs:
         shell: Rscript {0}
 
       - name: Test coverage
-        if: github.ref == 'refs/heads/master' && env.run_covr == 'true' && runner.os == 'Linux'
+        if: github.ref == 'refs/heads/{{pkgdown_covr_branch}}' && env.run_covr == 'true' && runner.os == 'Linux'
         run: |
           covr::codecov()
         shell: Rscript {0}
 
       - name: Install package
-        if: github.ref == 'refs/heads/master' && env.run_pkgdown == 'true' && runner.os == 'Linux'
+        if: github.ref == 'refs/heads/{{pkgdown_covr_branch}}' && env.run_pkgdown == 'true' && runner.os == 'Linux'
         run: R CMD INSTALL .
 
       - name: Deploy package
-        if: github.ref == 'refs/heads/master' && env.run_pkgdown == 'true' && runner.os == 'Linux'
+        if: github.ref == 'refs/heads/{{pkgdown_covr_branch}}' && env.run_pkgdown == 'true' && runner.os == 'Linux'
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"

@@ -64,6 +64,8 @@
 #' @param RUnit A `logical(1)` specifying whether to run `RUnit` unit tests.
 #' Check <http://bioconductor.org/developers/how-to/unitTesting-guidelines/>
 #' for more information about `RUnit`.
+#' @param pkgdown_covr_branch A `character(1)` specifying the name of the GitHub
+#' branch that will be used creating the `pkgdown` website and running `covr`.
 #'
 #' @return This function adds and/or replaces the
 #' `.github/workflows/check-bioc.yml` file in your R package.
@@ -78,12 +80,20 @@
 #' ## Run this function in your package
 #' biocthis::use_bioc_github_action()
 #' }
+#'
+#' ## I have the following options on my ~/.Rprofile set
+#' ## Check
+#' ## <https://github.com/lcolladotor/biocthis/issues/9#issuecomment-702401032>
+#' ## for more information.
+#' options("biocthis.pkgdown" = TRUE)
+#' options("biocthis.testthat" = TRUE)
 use_bioc_github_action <- function(
     biocdocker,
-    pkgdown = TRUE,
-    testthat = TRUE,
+    pkgdown = getOption("biocthis.pkgdown", FALSE),
+    testthat = getOption("biocthis.testthat", FALSE),
     covr = testthat,
-    RUnit = FALSE) {
+    RUnit = getOption("biocthis.RUnit", FALSE),
+    pkgdown_covr_branch = getOption("biocthis.pkgdown_covr_branch", "master")) {
     if (!missing(biocdocker)) {
         if (!grepl("^devel$|^RELEASE_", biocdocker[[1]])) {
             stop(
@@ -102,7 +112,13 @@ use_bioc_github_action <- function(
         has_testthat = ifelse(testthat, "true", "false"),
         run_covr = ifelse(covr, "true", "false"),
         run_pkgdown = ifelse(pkgdown, "true", "false"),
-        has_RUnit = ifelse(RUnit, "true", "false")
+        has_RUnit = ifelse(RUnit, "true", "false"),
+        pkgdown_covr_branch = pkgdown_covr_branch,
+        pkgdown_install = ifelse(
+            biocdocker == "devel",
+            'remotes::install_github("r-lib/pkgdown")',
+            'remotes::install_cran("pkgdown")'
+        )
     )
 
     ## Locate the template GHA workflow
