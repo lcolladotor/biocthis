@@ -46,7 +46,7 @@ use_bioc_description <- function(biocViews = "Software") {
                 biocViews = biocViews,
                 License = "Artistic-2.0",
                 Date = Sys.Date(),
-                URL = file.path("https://github.com/", usethis:::github_owner(), usethis:::github_repo()),
+                URL = file.path("https://github.com", usethis:::github_owner(), usethis:::github_repo()),
                 BugReports = paste0("https://support.bioconductor.org/t/", pkg)
             )
         )
