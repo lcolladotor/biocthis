@@ -15,6 +15,9 @@
 #' <https://bioconductor.org/packages/release/BiocViews.html> for details. Note
 #' that the terms you choose have to be part of one of the main four trees:
 #' software, annotation, experiment or workflow.
+#' @param report_bioc A `logical(1)` indicating whether to set the `BugReports`
+#' to the Bioconductor Support website <https://support.bioconductor.org/>
+#' or to the GitHub package issues page.
 #'
 #' @return This function adds and/or replaces the `DESCRIPTION` file in your
 #' R package.
@@ -34,9 +37,16 @@
 #'
 #' ## Create a template DESCRIPTION file that is Bioconductor-friendly
 #' biocthis::use_bioc_description()
-use_bioc_description <- function(biocViews = "Software") {
+use_bioc_description <- function(biocViews = "Software", report_bioc = TRUE) {
     stopifnot(length(biocViews) == 1)
     pkg <- basename(usethis::proj_get())
+
+    if (biocViews == "AnnotationHub")
+        import <-  "AnnotationHubData"
+    else if (biocViews == "ExperimentHub")
+        import <-  "ExperimentHubData, ExperimentHub"
+    else
+        import <- NULL
 
     desc_info <-
         usethis::use_description_defaults(
@@ -46,8 +56,16 @@ use_bioc_description <- function(biocViews = "Software") {
                 biocViews = biocViews,
                 License = "Artistic-2.0",
                 Date = Sys.Date(),
-                URL = file.path("https://github.com", usethis:::github_owner(), usethis:::github_repo()),
-                BugReports = paste0("https://support.bioconductor.org/t/", pkg)
+                Imports = import,
+                URL = file.path("https://github.com",
+                    usethis:::github_owner(),
+                    usethis:::github_repo()),
+                BugReports = if(report_bioc)
+                    paste0("https://support.bioconductor.org/t/", pkg) else
+                        file.path("https://github.com",
+                            usethis:::github_owner(),
+                            usethis:::github_repo(),
+                            "issues/")
             )
         )
     usethis::use_description(desc_info)

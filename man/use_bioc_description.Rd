@@ -4,7 +4,7 @@
 \alias{use_bioc_description}
 \title{Create a biocthis-style DESCRIPTION template}
 \usage{
-use_bioc_description(biocViews = "Software")
+use_bioc_description(biocViews = "Software", report_bioc = TRUE)
 }
 \arguments{
 \item{biocViews}{A \code{character()} with the Bioconductor biocViews terms you
@@ -12,6 +12,10 @@ want to use for your package. See
 \url{https://bioconductor.org/packages/release/BiocViews.html} for details. Note
 that the terms you choose have to be part of one of the main four trees:
 software, annotation, experiment or workflow.}
+
+\item{report_bioc}{A \code{logical(1)} indicating whether to set the \code{BugReports}
+to the Bioconductor Support website \url{https://support.bioconductor.org/}
+or to the GitHub package issues page.}
 }
 \value{
 This function adds and/or replaces the \code{DESCRIPTION} file in your
