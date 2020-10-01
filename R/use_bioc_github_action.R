@@ -1,13 +1,29 @@
+## By Marcel Ramos in https://github.com/lcolladotor/biocthis/pull/11
 .normalizeVersion <- function() {
-    if (BiocManager:::isDevel())
-        "devel"
-    else
-        paste0("RELEASE_", gsub("\\.", "_", BiocManager::version()))
+    if (BiocManager:::isDevel()) {
+          "devel"
+      } else {
+          paste0("RELEASE_", gsub("\\.", "_", BiocManager::version()))
+      }
 }
 
-.GHARversion <- function() {
-    rver <- with(R.version, paste(major, minor, sep = "."))
-    gsub("\\.", "-", rver)
+.GHARversion <- function(biocdocker) {
+    info <- BiocManager:::.version_map_get_online(
+        "https://bioconductor.org/config.yaml"
+    )
+
+    if (biocdocker == "devel") {
+        res <- subset(info, BiocStatus == biocdocker)[, "R"]
+    } else {
+        biocdocker <- gsub("^RELEASE_", "", toupper(biocdocker))
+        biocdocker <- gsub("_", ".", biocdocker)
+        res <- subset(info, Bioc == biocdocker)[, "R"]
+    }
+    ## Return just the first one, in case we do something like
+    ## .GHARversion("RELEASE_3_12")
+    ## when 3.12 is the devel version (so it shows up as "devel" and "future"
+    ## under BiocStatus)
+    as.character(res[[1]])
 }
 
 #' Create a biocthis-style GitHub Actions workflow
@@ -21,6 +37,31 @@
 #' the "biocthis developer notes" vignette
 #' <https://lcolladotor.github.io/biocthis/articles/biocthis_dev_notes.html>.
 #'
+#' @param biocdocker A `character(1)` specifying the Bioconductor docker
+#' version you want to use. Valid names are `"devel"` or in the
+#' `"RELEASE_X_Y"` format such as `"RELEASE_3_11"`. Check
+#' <http://bioconductor.org/help/docker/> for more information on the
+#' Bioconductor docker images. If you don't specify this, it will be
+#' determined automatically using your current Bioconductor version. The
+#' R version will be set to match the Bioconductor version.
+#' @param pkgdown A `logical(1)` specifying whether to run `pkgdown`. Check
+#' <https://cran.r-project.org/web/packages/pkgdown/index.html> for more
+#' information on `pkgdown` which is useful for creating documentation
+#' websites. If `TRUE`, then `pkgdown` will only run on the Linux
+#' (Bioconductor docker) test.
+#' @param testthat A `logical(1)` specifying whether to run `testthat`. Check
+#' <https://cran.r-project.org/web/packages/testthat/index.html> for more
+#' information about `testthat` which is useful for unit tests. The
+#' testing chapter at <https://r-pkgs.org/tests.html> is also very useful.
+#' @param covr A `logical(1)` specifying whether to run `covr`. Check
+#' <https://cran.r-project.org/web/packages/covr/index.html> for more
+#' information about `covr`, which is useful for displaying for assessing
+#' your test coverage. If `TRUE`, then `covr` will only run on the Linux
+#' (Bioconductor docker) test.
+#' @param Runit A `logical(1)` specifying whether to run `RUnit` unit tests.
+#' Check <http://bioconductor.org/developers/how-to/unitTesting-guidelines/>
+#' for more information about `RUnit`.
+#'
 #' @return This function adds and/or replaces the
 #' `.github/workflows/check-bioc.yml` file in your R package.
 #'
@@ -31,18 +72,44 @@
 #' @examples
 #'
 #' \dontrun{
-#'   ## Run this function in your package
-#'   biocthis::use_bioc_github_action()
+#' ## Run this function in your package
+#' biocthis::use_bioc_github_action()
 #' }
-use_bioc_github_action <- function() {
+use_bioc_github_action <- function(
+    biocdocker,
+    pkgdown = TRUE,
+    testthat = TRUE,
+    covr = testthat,
+    RUnit = FALSE) {
+    if (!missing(biocdocker)) {
+        if (!grepl("^devel$|^RELEASE_", biocdocker[[1]])) {
+            stop(
+                "'biocdocker' should be 'devel' or in the 'RELEASE_X_Y' format, such as 'RELEASE_3_11'",
+                call. = FALSE
+            )
+        }
+    } else {
+        biocdocker <- .normalizeVersion()
+    }
+
+    ## Set the variables to be used in the template GHA workflow
     datalist <- list(
-        version = .normalizeVersion(),
-        rversion = .GHARversion(),
-        rvernum = gsub("\\.[0-9]*$", "", getRversion())
+        dockerversion = biocdocker,
+        rvernum = .GHARversion(biocdocker),
+        has_testthat = ifelse(testthat, "true", "false"),
+        run_covr = ifelse(covr, "true", "false"),
+        run_pkgdown = ifelse(pkgdown, "true", "false"),
+        has_RUnit = ifelse(RUnit, "true", "false")
     )
-    template <- system.file(package = "biocthis", "templates",
-        "check-bioc.yml", mustWork = TRUE)
+
+    ## Locate the template GHA workflow
+    template <- system.file(
+        package = "biocthis", "templates",
+        "check-bioc.yml", mustWork = TRUE
+    )
     contents <- readLines(template)
+
+    ## The code below is similar in results to whisker::whisker.render()
     idx <- grep("[^$]\\{\\{", contents)
     parts <- grep("[^$]\\{\\{", contents, value = TRUE)
     pco <- vector("character", length(parts))
@@ -50,10 +117,12 @@ use_bioc_github_action <- function() {
         pco[[i]] <- mapply(
             function(x, y) {
                 parts[[i]] <<- gsub(x, y, parts[[i]], fixed = TRUE)
-            }, x = paste0("{{", names(datalist), "}}"), y = datalist
+            },
+            x = paste0("{{", names(datalist), "}}"), y = datalist
         )[[length(datalist)]]
     }
     contents[idx] <- pco
+
     ## code taken from usethis
     usethis:::use_dot_github(ignore = TRUE)
     save_as <- fs::path(".github", "workflows", "check-bioc.yml")

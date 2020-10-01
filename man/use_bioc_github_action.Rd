@@ -4,7 +4,43 @@
 \alias{use_bioc_github_action}
 \title{Create a biocthis-style GitHub Actions workflow}
 \usage{
-use_bioc_github_action()
+use_bioc_github_action(
+  biocdocker,
+  pkgdown = TRUE,
+  testthat = TRUE,
+  covr = testthat,
+  RUnit = FALSE
+)
+}
+\arguments{
+\item{biocdocker}{A \code{character(1)} specifying the Bioconductor docker
+version you want to use. Valid names are \code{"devel"} or in the
+\code{"RELEASE_X_Y"} format such as \code{"RELEASE_3_11"}. Check
+\url{http://bioconductor.org/help/docker/} for more information on the
+Bioconductor docker images. If you don't specify this, it will be
+determined automatically using your current Bioconductor version. The
+R version will be set to match the Bioconductor version.}
+
+\item{pkgdown}{A \code{logical(1)} specifying whether to run \code{pkgdown}. Check
+\url{https://cran.r-project.org/web/packages/pkgdown/index.html} for more
+information on \code{pkgdown} which is useful for creating documentation
+websites. If \code{TRUE}, then \code{pkgdown} will only run on the Linux
+(Bioconductor docker) test.}
+
+\item{testthat}{A \code{logical(1)} specifying whether to run \code{testthat}. Check
+\url{https://cran.r-project.org/web/packages/testthat/index.html} for more
+information about \code{testthat} which is useful for unit tests. The
+testing chapter at \url{https://r-pkgs.org/tests.html} is also very useful.}
+
+\item{covr}{A \code{logical(1)} specifying whether to run \code{covr}. Check
+\url{https://cran.r-project.org/web/packages/covr/index.html} for more
+information about \code{covr}, which is useful for displaying for assessing
+your test coverage. If \code{TRUE}, then \code{covr} will only run on the Linux
+(Bioconductor docker) test.}
+
+\item{Runit}{A \code{logical(1)} specifying whether to run \code{RUnit} unit tests.
+Check \url{http://bioconductor.org/developers/how-to/unitTesting-guidelines/}
+for more information about \code{RUnit}.}
 }
 \value{
 This function adds and/or replaces the
@@ -24,7 +60,7 @@ the "biocthis developer notes" vignette
 \examples{
 
 \dontrun{
-  ## Run this function in your package
-  biocthis::use_bioc_github_action()
+## Run this function in your package
+biocthis::use_bioc_github_action()
 }
 }
