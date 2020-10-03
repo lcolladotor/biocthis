@@ -78,8 +78,8 @@ library("biocthis")
 ## Create an example package for illustrative purposes.
 ## Note: you do not need to run this for your own package!
 pkgdir <- biocthis_example_pkg()
-#> ✓ Creating '/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpWZ2baP/biocthisexample/'
-#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpWZ2baP/biocthisexample'
+#> ✓ Creating '/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpHfClZf/biocthisexample/'
+#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpHfClZf/biocthisexample'
 #> ✓ Creating 'R/'
 #> ✓ Writing 'DESCRIPTION'
 #> Package: biocthisexample
@@ -96,7 +96,7 @@ pkgdir <- biocthis_example_pkg()
 #> RoxygenNote: 7.1.1
 #> ✓ Writing 'NAMESPACE'
 #> ✓ Setting active project to '<no active project>'
-#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpWZ2baP/biocthisexample'
+#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpHfClZf/biocthisexample'
 
 ## Create the bioc templates
 biocthis::use_bioc_pkg_templates()
@@ -201,7 +201,7 @@ By contributing to this project, you agree to abide by its terms.
   - Code coverage assessment is possible thanks to
     [codecov](https://codecov.io/gh) and
     *[covr](https://CRAN.R-project.org/package=covr)*.
-  - The [documentation website](http://.github.io/lcolladotor/biocthis)
+  - The [documentation website](http://lcolladotor.github.io/biocthis)
     is automatically updated thanks to
     *[pkgdown](https://CRAN.R-project.org/package=pkgdown)*.
   - The code is styled automatically thanks to
