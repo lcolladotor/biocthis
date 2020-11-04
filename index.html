@@ -112,8 +112,8 @@
 <span class="co">## Create an example package for illustrative purposes.</span>
 <span class="co">## Note: you do not need to run this for your own package!</span>
 <span class="va">pkgdir</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/biocthis_example_pkg.html">biocthis_example_pkg</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; ✓ Creating '/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpHfClZf/biocthisexample/'</span>
-<span class="co">#&gt; ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpHfClZf/biocthisexample'</span>
+<span class="co">#&gt; ✓ Creating '/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/Rtmp7gsXmA/biocthisexample/'</span>
+<span class="co">#&gt; ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/Rtmp7gsXmA/biocthisexample'</span>
 <span class="co">#&gt; ✓ Creating 'R/'</span>
 <span class="co">#&gt; ✓ Writing 'DESCRIPTION'</span>
 <span class="co">#&gt; Package: biocthisexample</span>
@@ -130,7 +130,7 @@
 <span class="co">#&gt; RoxygenNote: 7.1.1</span>
 <span class="co">#&gt; ✓ Writing 'NAMESPACE'</span>
 <span class="co">#&gt; ✓ Setting active project to '&lt;no active project&gt;'</span>
-<span class="co">#&gt; ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpHfClZf/biocthisexample'</span>
+<span class="co">#&gt; ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/Rtmp7gsXmA/biocthisexample'</span>
 
 <span class="co">## Create the bioc templates</span>
 <span class="fu">biocthis</span><span class="fu">::</span><span class="fu"><a href="reference/use_bioc_pkg_templates.html">use_bioc_pkg_templates</a></span><span class="op">(</span><span class="op">)</span>
@@ -165,7 +165,7 @@
 <span class="co">#&gt; Collado-Torres L (2020). _Automate package and project setup for</span>
 <span class="co">#&gt; Bioconductor packages_. doi: 10.18129/B9.bioc.biocthis (URL:</span>
 <span class="co">#&gt; https://doi.org/10.18129/B9.bioc.biocthis),</span>
-<span class="co">#&gt; https://github.com/lcolladotor/biocthis - R package version 0.99.0,</span>
+<span class="co">#&gt; https://github.com/lcolladotor/biocthis - R package version 1.1.1,</span>
 <span class="co">#&gt; &lt;URL: http://www.bioconductor.org/packages/biocthis&gt;.</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; A BibTeX entry for LaTeX users is</span>
@@ -175,7 +175,7 @@
 <span class="co">#&gt;     author = {Leonardo Collado-Torres},</span>
 <span class="co">#&gt;     year = {2020},</span>
 <span class="co">#&gt;     url = {http://www.bioconductor.org/packages/biocthis},</span>
-<span class="co">#&gt;     note = {https://github.com/lcolladotor/biocthis - R package version 0.99.0},</span>
+<span class="co">#&gt;     note = {https://github.com/lcolladotor/biocthis - R package version 1.1.1},</span>
 <span class="co">#&gt;     doi = {10.18129/B9.bioc.biocthis},</span>
 <span class="co">#&gt;   }</span>
 <span class="co">#&gt; </span>
@@ -205,7 +205,7 @@
 <h2 class="hasAnchor">
 <a href="#development-tools" class="anchor"></a>Development tools</h2>
 <ul>
-<li>Continuous code testing is possible thanks to <a href="https://www.tidyverse.org/blog/2020/04/usethis-1-6-0/">GitHub actions</a> through <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em>, <em><a href="https://CRAN.R-project.org/package=remotes">remotes</a></em>, <em><a href="https://github.com/r-hub/sysreqs">sysreqs</a></em> and <em><a href="https://CRAN.R-project.org/package=rcmdcheck">rcmdcheck</a></em> customized to use <a href="https://www.bioconductor.org/help/docker/">Bioconductor’s docker containers</a> and <em><a href="https://bioconductor.org/packages/3.12/BiocCheck">BiocCheck</a></em>.</li>
+<li>Continuous code testing is possible thanks to <a href="https://www.tidyverse.org/blog/2020/04/usethis-1-6-0/">GitHub actions</a> through <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em>, <em><a href="https://CRAN.R-project.org/package=remotes">remotes</a></em>, and <em><a href="https://CRAN.R-project.org/package=rcmdcheck">rcmdcheck</a></em> customized to use <a href="https://www.bioconductor.org/help/docker/">Bioconductor’s docker containers</a> and <em><a href="https://bioconductor.org/packages/3.13/BiocCheck">BiocCheck</a></em>.</li>
 <li>Code coverage assessment is possible thanks to <a href="https://codecov.io/gh">codecov</a> and <em><a href="https://CRAN.R-project.org/package=covr">covr</a></em>.</li>
 <li>The <a href="http://lcolladotor.github.io/biocthis">documentation website</a> is automatically updated thanks to <em><a href="https://CRAN.R-project.org/package=pkgdown">pkgdown</a></em>.</li>
 <li>The code is styled automatically thanks to <em><a href="https://CRAN.R-project.org/package=styler">styler</a></em>.</li>
