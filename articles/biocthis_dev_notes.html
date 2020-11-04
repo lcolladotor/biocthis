@@ -144,11 +144,11 @@
 </ul>
 <p>Several of the issues I made are related to using <em><a href="https://CRAN.R-project.org/package=styler">styler</a></em> to automatically re-format your code to match more closely the Bioconductor coding style guide. That is how <code><a href="../reference/bioc_style.html">bioc_style()</a></code> was born and it was the suggested approach as discussed at <em>Bioc-friendly style feature suggestion</em> <a href="https://github.com/r-lib/styler/issues/636">r-lib/styler#636</a>. The maintainer of <em><a href="https://CRAN.R-project.org/package=styler">styler</a></em>, <a href="https://twitter.com/lorenzwalthert">Lorenz Walthert</a>, has a great reply on that issue linking for a more detailed discussion on how to expand <em><a href="https://CRAN.R-project.org/package=styler">styler</a></em> if the job requires doing so.</p>
 <p>Currently, <code><a href="../reference/bioc_style.html">bioc_style()</a></code> does not fully replicate the Bioconductor coding style, but it gets close enough. As <a href="https://twitter.com/mt_morgan">Martin Morgan</a> said at <em>Recommend <code>styler</code> over <code>formatR</code> suggestion</em> <a href="https://github.com/Bioconductor/BiocCheck/issues/57">Bioconductor/BiocCheck#57</a>, a solution that gets 90% of the way is good enough. <code><a href="../reference/bioc_style.html">bioc_style()</a></code> is a very short function, mostly because the Bioconductor and Tidyverse coding style guides are overall very similar. This function won’t solve all the formatting issues detected by <em><a href="https://bioconductor.org/packages/3.13/BiocCheck">BiocCheck</a></em>, but if you really want to, you can disable the formatting checks with:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="co">## Use the following for the latest options</span>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Use the following for the latest options</span>
 <span class="fu">BiocCheck</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocCheck/man/BiocCheck.html">usage</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">## Disable formatting checks</span>
-<span class="fu">BiocCheck</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocCheck/man/BiocCheck.html">BiocCheck</a></span><span class="op">(</span>`--no-check-formatting` <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></pre></div>
+<span class="fu">BiocCheck</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocCheck/man/BiocCheck.html">BiocCheck</a></span><span class="op">(</span>`--no-check-formatting` <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="github-actions" class="section level2">
 <h2 class="hasAnchor">
@@ -295,22 +295,22 @@
 </ul>
 <p>This package was developed using <em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em>.</p>
 <p>Code for creating the vignette</p>
-<div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="co">## Create the vignette</span>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Create the vignette</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/rstudio/rmarkdown">"rmarkdown"</a></span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/rmarkdown/man/render.html">render</a></span><span class="op">(</span><span class="st">"biocthis_dev_notes.Rmd"</span>, <span class="st">"BiocStyle::html_document"</span><span class="op">)</span><span class="op">)</span>
 
 <span class="co">## Extract the R code</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://yihui.org/knitr/">"knitr"</a></span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/knitr/man/knit.html">knit</a></span><span class="op">(</span><span class="st">"biocthis_dev_notes.Rmd"</span>, tangle <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></pre></div>
-<div class="sourceCode" id="cb4"><pre class="downlit">
-<span class="co">## Clean up</span>
+<span class="fu"><a href="https://rdrr.io/pkg/knitr/man/knit.html">knit</a></span><span class="op">(</span><span class="st">"biocthis_dev_notes.Rmd"</span>, tangle <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Clean up</span>
 <span class="fu"><a href="https://rdrr.io/r/base/files.html">file.remove</a></span><span class="op">(</span><span class="st">"biocthis_dev_notes.bib"</span><span class="op">)</span>
-<span class="co">#&gt; [1] TRUE</span></pre></div>
+<span class="co">#&gt; [1] TRUE</span></code></pre></div>
 <p>Date the vignette was generated.</p>
-<pre><code>#&gt; [1] "2020-11-04 08:08:53 UTC"</code></pre>
+<pre><code>#&gt; [1] "2020-11-04 09:21:46 UTC"</code></pre>
 <p>Wallclock time spent generating the vignette.</p>
-<pre><code>#&gt; Time difference of 1.137 secs</code></pre>
+<pre><code>#&gt; Time difference of 1.065 secs</code></pre>
 <p><code>R</code> session information.</p>
 <pre><code>#&gt; ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────
 #&gt;  setting  value                                             

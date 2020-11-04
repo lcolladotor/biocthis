@@ -103,18 +103,18 @@
 <a href="#install-biocthis" class="anchor"></a>Install <code>biocthis</code>
 </h2>
 <p><code>R</code> is an open-source statistical environment which can be easily modified to enhance its functionality via packages. <em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em> is a <code>R</code> package available via the <a href="http://bioconductor.org">Bioconductor</a> repository for packages. <code>R</code> can be installed on any operating system from <a href="https://cran.r-project.org/">CRAN</a> after which you can install <em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em> by using the following commands in your <code>R</code> session:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span><span class="op">(</span><span class="st">"BiocManager"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span><span class="op">(</span><span class="st">"BiocManager"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
       <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span>
   <span class="op">}</span>
 
 <span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html">install</a></span><span class="op">(</span><span class="st">"biocthis"</span><span class="op">)</span>
 
 <span class="co">## Check that you have a valid Bioconductor installation</span>
-<span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/valid.html">valid</a></span><span class="op">(</span><span class="op">)</span></pre></div>
+<span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/valid.html">valid</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>You can install the development version from <a href="https://github.com/">GitHub</a> with:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html">install</a></span><span class="op">(</span><span class="st">"lcolladotor/biocthis"</span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html">install</a></span><span class="op">(</span><span class="st">"lcolladotor/biocthis"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="required-knowledge" class="section level2">
 <h2 class="hasAnchor">
@@ -132,8 +132,8 @@
 <a href="#citing-biocthis" class="anchor"></a>Citing <code>biocthis</code>
 </h2>
 <p>We hope that <em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em> will be useful for your work. Please use the following information to cite the package and the overall approach. Thank you!</p>
-<div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="co">## Citation info</span>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Citation info</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/citation.html">citation</a></span><span class="op">(</span><span class="st">"biocthis"</span><span class="op">)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Collado-Torres L (2020). _Automate package and project setup for</span>
@@ -149,7 +149,7 @@
 <span class="co">#&gt; </span>
 <span class="co">#&gt; To see these entries in BibTeX format, use 'print(&lt;citation&gt;,</span>
 <span class="co">#&gt; bibtex=TRUE)', 'toBibtex(.)', or set</span>
-<span class="co">#&gt; 'options(citation.bibtex.max=999)'.</span></pre></div>
+<span class="co">#&gt; 'options(citation.bibtex.max=999)'.</span></code></pre></div>
 </div>
 </div>
 <div id="quick-start-to-using-to-biocthis" class="section level1">
@@ -157,23 +157,23 @@
 <a href="#quick-start-to-using-to-biocthis" class="anchor"></a>Quick start to using to <code>biocthis</code>
 </h1>
 <p><em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em> is an R package that expands <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em> with Bioconductor-friendly templates. These templates will help you quickly create an R package that either has Bioconductor dependencies or that you are thinking of submitting to Bioconductor one day. <em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em> has functions that can also enhance your current R packages that either are already distributed by Bioconductor or have Bioconductor dependencies. <em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em> also includes a Bioconductor-friendly <a href="https://github.com/features/actions">GitHub Actions</a> workflow for your R package(s). To use the functions in this package, you need to load it as shown below.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit">
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/lcolladotor/biocthis">"biocthis"</a></span><span class="op">)</span>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/lcolladotor/biocthis">"biocthis"</a></span><span class="op">)</span>
 
 <span class="co">## Load other R packages used in this vignette</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://usethis.r-lib.org">"usethis"</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/r-lib/styler">"styler"</a></span><span class="op">)</span></pre></div>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/r-lib/styler">"styler"</a></span><span class="op">)</span></code></pre></div>
 <div id="using-biocthis-in-your-r-package" class="section level2">
 <h2 class="hasAnchor">
 <a href="#using-biocthis-in-your-r-package" class="anchor"></a>Using <code>biocthis</code> in your R package</h2>
 <p>If you haven’t made an R package yet, you can do so using <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em>. That is, utilize <code><a href="https://usethis.r-lib.org/reference/create_package.html">usethis::create_package()</a></code> with the package name of your choice. If you are using <a href="https://www.rstudio.com/products/rstudio/download">RStudio Desktop</a> this function will open a new RStudio window and open R in the correct location. Otherwise, you might need to use <code><a href="https://rdrr.io/r/base/getwd.html">setwd()</a></code> to change directories.</p>
 <p>In this vignette we will create an example package called <code>biocthispkg</code> on a temporary directory and work in this directory in order to illustrate how the functions work. In a real world scenario, you would be working inside your R package and would not run <code><a href="../reference/biocthis_example_pkg.html">biocthis_example_pkg()</a></code>.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit">
-<span class="co">## Create an example package for illustrative purposes.</span>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Create an example package for illustrative purposes.</span>
 <span class="co">## Note: you do not need to run this for your own package!</span>
 <span class="va">pkgdir</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/biocthis_example_pkg.html">biocthis_example_pkg</a></span><span class="op">(</span><span class="st">"biocthispkg"</span>, use_git <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co">#&gt; ✔ Creating '/tmp/Rtmp6Iv30V/biocthispkg/'</span>
-<span class="co">#&gt; ✔ Setting active project to '/tmp/Rtmp6Iv30V/biocthispkg'</span>
+<span class="co">#&gt; ✔ Creating '/tmp/RtmpqT261f/biocthispkg/'</span>
+<span class="co">#&gt; ✔ Setting active project to '/tmp/RtmpqT261f/biocthispkg'</span>
 <span class="co">#&gt; ✔ Creating 'R/'</span>
 <span class="co">#&gt; ✔ Writing 'DESCRIPTION'</span>
 <span class="co">#&gt; Package: biocthispkg</span>
@@ -190,19 +190,19 @@
 <span class="co">#&gt; RoxygenNote: 7.1.1</span>
 <span class="co">#&gt; ✔ Writing 'NAMESPACE'</span>
 <span class="co">#&gt; ✔ Setting active project to '&lt;no active project&gt;'</span>
-<span class="co">#&gt; ✔ Setting active project to '/tmp/Rtmp6Iv30V/biocthispkg'</span>
+<span class="co">#&gt; ✔ Setting active project to '/tmp/RtmpqT261f/biocthispkg'</span>
 <span class="co">#&gt; ✔ Initialising Git repo</span>
-<span class="co">#&gt; ✔ Adding '.Rhistory', '.RData', '.Rproj.user' to '.gitignore'</span></pre></div>
+<span class="co">#&gt; ✔ Adding '.Rhistory', '.RData', '.Rproj.user' to '.gitignore'</span></code></pre></div>
 <p>Once you have created a package, you can use <code><a href="../reference/use_bioc_pkg_templates.html">use_bioc_pkg_templates()</a></code> to create a set of scripts in the <code>dev</code> (developer) directory.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit">
-<span class="co">## Create the bioc templates</span>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Create the bioc templates</span>
 <span class="fu">biocthis</span><span class="fu">::</span><span class="fu"><a href="../reference/use_bioc_pkg_templates.html">use_bioc_pkg_templates</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; ✔ Creating 'dev/'</span>
 <span class="co">#&gt; ✔ Adding '^dev$' to '.Rbuildignore'</span>
 <span class="co">#&gt; ✔ Writing 'dev/01_create_pkg.R'</span>
 <span class="co">#&gt; ✔ Writing 'dev/02_git_github_setup.R'</span>
 <span class="co">#&gt; ✔ Writing 'dev/03_core_files.R'</span>
-<span class="co">#&gt; ✔ Writing 'dev/04_update.R'</span></pre></div>
+<span class="co">#&gt; ✔ Writing 'dev/04_update.R'</span></code></pre></div>
 <p>If you run <code><a href="../reference/use_bioc_pkg_templates.html">use_bioc_pkg_templates()</a></code> inside RStudio Desktop, then all the scripts will open on your RStudio window. Each script contains comments that will guide you on the steps you need to do to create your Bioconductor-friendly R package. These scripts are:</p>
 <ul>
 <li>
@@ -255,35 +255,35 @@
 <a href="#bioc_style" class="anchor"></a><code>bioc_style()</code>
 </h2>
 <p><code><a href="../reference/bioc_style.html">bioc_style()</a></code> helps you automatically apply a coding style to your R package files using <em><a href="https://CRAN.R-project.org/package=styler">styler</a></em> (<a href="https://CRAN.R-project.org/package=styler">Müller and Walthert, 2020</a>) that is based on the <a href="https://style.tidyverse.org/">tidyverse coding style guide</a> but modified to make it more similar to the <a href="http://bioconductor.org/developers/how-to/coding-style/">Bioconductor coding style guide</a>.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit">
-<span class="co">## Automatically style the example package</span>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Automatically style the example package</span>
 <span class="fu">styler</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/styler/man/style_pkg.html">style_pkg</a></span><span class="op">(</span><span class="va">pkgdir</span>, transformers <span class="op">=</span> <span class="fu">biocthis</span><span class="fu">::</span><span class="fu"><a href="../reference/bioc_style.html">bioc_style</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; ────────────────────────────────────────</span>
 <span class="co">#&gt; Status   Count   Legend </span>
 <span class="co">#&gt; ✔    0   File unchanged.</span>
 <span class="co">#&gt; ℹ    0   File changed.</span>
 <span class="co">#&gt; ✖    0   Styling threw an error.</span>
-<span class="co">#&gt; ────────────────────────────────────────</span></pre></div>
+<span class="co">#&gt; ────────────────────────────────────────</span></code></pre></div>
 </div>
 <div id="use_bioc_citation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#use_bioc_citation" class="anchor"></a><code>use_bioc_citation()</code>
 </h2>
 <p><code><a href="../reference/use_bioc_citation.html">use_bioc_citation()</a></code> creates an R package <code>CITATION</code> file at <code>inst/CITATION</code> that is pre-populated with information you might want to use for your (future) Bioconductor package such as the Bioconductor DOIs and reference a journal article describing your package (that you might consider submitting to <a href="https://www.biorxiv.org/">bioRxiv</a> as a pre-print first). Alternatively, use <code><a href="https://usethis.r-lib.org/reference/use_citation.html">usethis::use_citation()</a></code>.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit">
-<span class="co">## Create a template CITATION file that is Bioconductor-friendly</span>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Create a template CITATION file that is Bioconductor-friendly</span>
 <span class="fu">biocthis</span><span class="fu">::</span><span class="fu"><a href="../reference/use_bioc_citation.html">use_bioc_citation</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; ✔ Creating 'inst/'</span>
 <span class="co">#&gt; ✔ Writing 'inst/CITATION'</span>
-<span class="co">#&gt; ● Edit 'inst/CITATION'</span></pre></div>
+<span class="co">#&gt; ● Edit 'inst/CITATION'</span></code></pre></div>
 </div>
 <div id="use_bioc_description" class="section level2">
 <h2 class="hasAnchor">
 <a href="#use_bioc_description" class="anchor"></a><code>use_bioc_description()</code>
 </h2>
 <p><code><a href="../reference/use_bioc_description.html">use_bioc_description()</a></code> creates an R package <code>DESCRIPTION</code> file that is pre-populated with information you might want to use for your (future) Bioconductor package such as links to the Bioconductor Support Website and <code>biocViews</code>. You will still need to manually edit the file. Alternatively, use <code><a href="https://usethis.r-lib.org/reference/use_description.html">usethis::use_description()</a></code>.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit">
-<span class="co">## Create a template DESCRIPTION file that is Bioconductor-friendly</span>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Create a template DESCRIPTION file that is Bioconductor-friendly</span>
 <span class="fu">biocthis</span><span class="fu">::</span><span class="fu"><a href="../reference/use_bioc_description.html">use_bioc_description</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; ✔ Leaving 'DESCRIPTION' unchanged</span>
 <span class="co">#&gt; Package: biocthispkg</span>
@@ -300,7 +300,7 @@
 <span class="co">#&gt; Encoding: UTF-8</span>
 <span class="co">#&gt; LazyData: true</span>
 <span class="co">#&gt; Roxygen: list(markdown = TRUE)</span>
-<span class="co">#&gt; RoxygenNote: 7.1.1</span></pre></div>
+<span class="co">#&gt; RoxygenNote: 7.1.1</span></code></pre></div>
 </div>
 <div id="use_bioc_github_action" class="section level2">
 <h2 class="hasAnchor">
@@ -310,14 +310,14 @@
 <h3 class="hasAnchor">
 <a href="#getting-started" class="anchor"></a>Getting started</h3>
 <p><code><a href="../reference/use_bioc_github_action.html">use_bioc_github_action()</a></code> creates a GitHub Actions (GHA) workflow file that is configured to be Bioconductor-friendly. Alternatively, use <code><a href="https://usethis.r-lib.org/reference/use_github_action.html">usethis::use_github_action()</a></code> for the general GitHub Actions workflow maintained by <code>r-lib/actions</code>. If this is your first time seeing the words <em>GitHub Actions</em>, we highly recommend that you watch <a href="https://www.jimhester.com/talk/2020-rsc-github-actions/">Jim Hester’s <code>rstudio::conf(2020)</code> talk on this subject</a>. Here is how you can add this GHA workflow to your R package:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit">
-<span class="co">## Create a GitHub Actions workflow that is Bioconductor-friendly</span>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Create a GitHub Actions workflow that is Bioconductor-friendly</span>
 <span class="fu">biocthis</span><span class="fu">::</span><span class="fu"><a href="../reference/use_bioc_github_action.html">use_bioc_github_action</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; ✔ Creating '.github/'</span>
 <span class="co">#&gt; ✔ Adding '^\\.github$' to '.Rbuildignore'</span>
 <span class="co">#&gt; ✔ Adding '*.html' to '.github/.gitignore'</span>
 <span class="co">#&gt; ✔ Creating '.github/workflows/'</span>
-<span class="co">#&gt; ✔ Writing '.github/workflows/check-bioc.yml'</span></pre></div>
+<span class="co">#&gt; ✔ Writing '.github/workflows/check-bioc.yml'</span></code></pre></div>
 </div>
 <div id="main-gha-workflow-features" class="section level3">
 <h3 class="hasAnchor">
@@ -345,12 +345,12 @@
 <h3 class="hasAnchor">
 <a href="#configure-options" class="anchor"></a>Configure options</h3>
 <p>To help you set some of these configuration environment variables in the GHA workflow, <code><a href="../reference/use_bioc_github_action.html">use_bioc_github_action()</a></code> has a few arguments that are used to update a template and customize it for your particular repository. Several of the arguments in <code><a href="../reference/use_bioc_github_action.html">use_bioc_github_action()</a></code> use <code><a href="https://rdrr.io/r/base/options.html">base::getOption()</a></code>, which enables you to edit your R profile file with <code><a href="https://usethis.r-lib.org/reference/edit.html">usethis::edit_r_profile()</a></code> and add lines such as the ones mentioned in the code below.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit">
-<span class="co">## Open your .Rprofile file with usethis::edit_r_profile()</span>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Open your .Rprofile file with usethis::edit_r_profile()</span>
 
 <span class="co">## For biocthis</span>
 <span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span><span class="st">"biocthis.pkgdown"</span> <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span><span class="st">"biocthis.testthat"</span> <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span><span class="st">"biocthis.testthat"</span> <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="automatically-scheduled-tests" class="section level3">
 <h3 class="hasAnchor">
@@ -387,21 +387,21 @@
 <a href="#use_bioc_issue_template" class="anchor"></a><code>use_bioc_issue_template()</code>
 </h2>
 <p><code><a href="../reference/use_bioc_issue_template.html">use_bioc_issue_template()</a></code> creates a GitHub issue template file that is pre-populated with information you might want to use for your (future) Bioconductor package such as links to the Bioconductor Support Website and examples of the information you can ask users to provide that will make it easier for you to help your users. Alternatively, use <code><a href="https://usethis.r-lib.org/reference/tidyverse.html">usethis::use_tidy_issue_template()</a></code>.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit">
-<span class="co">## Create a template GitHub issue file that is Bioconductor-friendly</span>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Create a template GitHub issue file that is Bioconductor-friendly</span>
 <span class="fu">biocthis</span><span class="fu">::</span><span class="fu"><a href="../reference/use_bioc_issue_template.html">use_bioc_issue_template</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; ✔ Creating '.github/ISSUE_TEMPLATE/'</span>
-<span class="co">#&gt; ✔ Writing '.github/ISSUE_TEMPLATE/issue_template.md'</span></pre></div>
+<span class="co">#&gt; ✔ Writing '.github/ISSUE_TEMPLATE/issue_template.md'</span></code></pre></div>
 </div>
 <div id="use_bioc_news_md" class="section level2">
 <h2 class="hasAnchor">
 <a href="#use_bioc_news_md" class="anchor"></a><code>use_bioc_news_md()</code>
 </h2>
 <p><code><a href="../reference/use_bioc_news_md.html">use_bioc_news_md()</a></code> creates a <code>NEWS.md</code> template file that is pre-populated with information you might want to use for your (future) Bioconductor package. Alternatively, use <code><a href="https://usethis.r-lib.org/reference/use_news_md.html">usethis::use_news_md()</a></code>.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit">
-<span class="co">## Create a template NEWS.md file that is Bioconductor-friendly</span>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Create a template NEWS.md file that is Bioconductor-friendly</span>
 <span class="fu">biocthis</span><span class="fu">::</span><span class="fu"><a href="../reference/use_bioc_news_md.html">use_bioc_news_md</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; ✔ Writing 'NEWS.md'</span></pre></div>
+<span class="co">#&gt; ✔ Writing 'NEWS.md'</span></code></pre></div>
 </div>
 <div id="use_bioc_pkg_templates" class="section level2">
 <h2 class="hasAnchor">
@@ -414,29 +414,29 @@
 <a href="#use_bioc_readme_rmd" class="anchor"></a><code>use_bioc_readme_rmd()</code>
 </h2>
 <p><code><a href="../reference/use_bioc_readme_rmd.html">use_bioc_readme_rmd()</a></code> creates a <code>README.Rmd</code> template file that is pre-populated with information you might want to use for your (future) Bioconductor package such as Bioconductor’s installation instructions, how to cite your package and links to the development tools you used. Alternatively, use <code><a href="https://usethis.r-lib.org/reference/use_readme_rmd.html">usethis::use_readme_rmd()</a></code>.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit">
-<span class="co">## Create a template README.Rmd file that is Bioconductor-friendly</span>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Create a template README.Rmd file that is Bioconductor-friendly</span>
 <span class="fu">biocthis</span><span class="fu">::</span><span class="fu"><a href="../reference/use_bioc_readme_rmd.html">use_bioc_readme_rmd</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; ✔ Writing 'README.Rmd'</span>
-<span class="co">#&gt; ✔ Writing '.git/hooks/pre-commit'</span></pre></div>
+<span class="co">#&gt; ✔ Writing '.git/hooks/pre-commit'</span></code></pre></div>
 </div>
 <div id="use_bioc_support" class="section level2">
 <h2 class="hasAnchor">
 <a href="#use_bioc_support" class="anchor"></a><code>use_bioc_support()</code>
 </h2>
 <p><code><a href="../reference/use_bioc_support.html">use_bioc_support()</a></code> creates a template GitHub support template file that is pre-populated with information you might want to use for your (future) Bioconductor package such where to ask for help including the Bioconductor Support website. Alternatively, use <code><a href="https://usethis.r-lib.org/reference/tidyverse.html">usethis::use_tidy_support()</a></code>.</p>
-<div class="sourceCode" id="cb15"><pre class="downlit">
-<span class="co">## Create a template GitHub support file that is Bioconductor-friendly</span>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Create a template GitHub support file that is Bioconductor-friendly</span>
 <span class="fu">biocthis</span><span class="fu">::</span><span class="fu"><a href="../reference/use_bioc_support.html">use_bioc_support</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; ✔ Writing '.github/SUPPORT.md'</span></pre></div>
+<span class="co">#&gt; ✔ Writing '.github/SUPPORT.md'</span></code></pre></div>
 </div>
 <div id="use_bioc_vignette" class="section level2">
 <h2 class="hasAnchor">
 <a href="#use_bioc_vignette" class="anchor"></a><code>use_bioc_vignette()</code>
 </h2>
 <p><code><a href="../reference/use_bioc_vignette.html">use_bioc_vignette()</a></code> creates a template vignette file that is pre-populated with information you might want to use for your (future) Bioconductor package. This template includes information on how to cite other packages using <em><a href="https://CRAN.R-project.org/package=knitcitations">knitcitations</a></em>, styling your vignette with <em><a href="https://bioconductor.org/packages/3.13/BiocStyle">BiocStyle</a></em>, instructions on how to install your package from Bioconductor, where to ask for help, information a user might need to know before they use your package, as well as the reproducibility information on how the vignette was made powered by <em><a href="https://CRAN.R-project.org/package=sessioninfo">sessioninfo</a></em>. You will need to spend a significant amount of time editing this vignette as you develop your R package. Alternatively, use <code><a href="https://usethis.r-lib.org/reference/use_vignette.html">usethis::use_vignette()</a></code>.</p>
-<div class="sourceCode" id="cb16"><pre class="downlit">
-<span class="co">## Create a template vignette file that is Bioconductor-friendly</span>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Create a template vignette file that is Bioconductor-friendly</span>
 <span class="fu">biocthis</span><span class="fu">::</span><span class="fu"><a href="../reference/use_bioc_vignette.html">use_bioc_vignette</a></span><span class="op">(</span><span class="st">"biocthispkg"</span>, <span class="st">"Introduction to biocthispkg"</span><span class="op">)</span>
 <span class="co">#&gt; ✔ Adding 'knitr' to Suggests field in DESCRIPTION</span>
 <span class="co">#&gt; ● Use `requireNamespace("knitr", quietly = TRUE)` to test if package is installed</span>
@@ -458,7 +458,7 @@
 <span class="co">#&gt; ● Use `requireNamespace("rmarkdown", quietly = TRUE)` to test if package is installed</span>
 <span class="co">#&gt; ● Then directly refer to functons like `rmarkdown::fun()` (replacing `fun()`).</span>
 <span class="co">#&gt; ✔ Writing 'vignettes/biocthispkg.Rmd'</span>
-<span class="co">#&gt; ● Edit 'vignettes/biocthispkg.Rmd'</span></pre></div>
+<span class="co">#&gt; ● Edit 'vignettes/biocthispkg.Rmd'</span></code></pre></div>
 </div>
 </div>
 <div id="acknowledgments" class="section level1">
@@ -504,22 +504,22 @@
 </ul>
 <p>This package was developed using <em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em>.</p>
 <p>Code for creating the vignette</p>
-<div class="sourceCode" id="cb17"><pre class="downlit">
-<span class="co">## Create the vignette</span>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Create the vignette</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/rstudio/rmarkdown">"rmarkdown"</a></span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/rmarkdown/man/render.html">render</a></span><span class="op">(</span><span class="st">"biocthis.Rmd"</span>, <span class="st">"BiocStyle::html_document"</span><span class="op">)</span><span class="op">)</span>
 
 <span class="co">## Extract the R code</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://yihui.org/knitr/">"knitr"</a></span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/knitr/man/knit.html">knit</a></span><span class="op">(</span><span class="st">"biocthis.Rmd"</span>, tangle <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></pre></div>
-<div class="sourceCode" id="cb18"><pre class="downlit">
-<span class="co">## Clean up</span>
+<span class="fu"><a href="https://rdrr.io/pkg/knitr/man/knit.html">knit</a></span><span class="op">(</span><span class="st">"biocthis.Rmd"</span>, tangle <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Clean up</span>
 <span class="fu"><a href="https://rdrr.io/r/base/files.html">file.remove</a></span><span class="op">(</span><span class="st">"biocthis.bib"</span><span class="op">)</span>
-<span class="co">#&gt; [1] TRUE</span></pre></div>
+<span class="co">#&gt; [1] TRUE</span></code></pre></div>
 <p>Date the vignette was generated.</p>
-<pre><code>#&gt; [1] "2020-11-04 08:08:48 UTC"</code></pre>
+<pre><code>#&gt; [1] "2020-11-04 09:21:41 UTC"</code></pre>
 <p>Wallclock time spent generating the vignette.</p>
-<pre><code>#&gt; Time difference of 4.035 secs</code></pre>
+<pre><code>#&gt; Time difference of 3.774 secs</code></pre>
 <p><code>R</code> session information.</p>
 <pre><code>#&gt; ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────
 #&gt;  setting  value                                             
