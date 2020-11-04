@@ -78,8 +78,8 @@ library("biocthis")
 ## Create an example package for illustrative purposes.
 ## Note: you do not need to run this for your own package!
 pkgdir <- biocthis_example_pkg()
-#> ✓ Creating '/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpHfClZf/biocthisexample/'
-#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpHfClZf/biocthisexample'
+#> ✓ Creating '/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/Rtmp7gsXmA/biocthisexample/'
+#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/Rtmp7gsXmA/biocthisexample'
 #> ✓ Creating 'R/'
 #> ✓ Writing 'DESCRIPTION'
 #> Package: biocthisexample
@@ -96,7 +96,7 @@ pkgdir <- biocthis_example_pkg()
 #> RoxygenNote: 7.1.1
 #> ✓ Writing 'NAMESPACE'
 #> ✓ Setting active project to '<no active project>'
-#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpHfClZf/biocthisexample'
+#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/Rtmp7gsXmA/biocthisexample'
 
 ## Create the bioc templates
 biocthis::use_bioc_pkg_templates()
@@ -145,7 +145,7 @@ print(citation("biocthis"), bibtex = TRUE)
 #> Collado-Torres L (2020). _Automate package and project setup for
 #> Bioconductor packages_. doi: 10.18129/B9.bioc.biocthis (URL:
 #> https://doi.org/10.18129/B9.bioc.biocthis),
-#> https://github.com/lcolladotor/biocthis - R package version 0.99.0,
+#> https://github.com/lcolladotor/biocthis - R package version 1.1.1,
 #> <URL: http://www.bioconductor.org/packages/biocthis>.
 #> 
 #> A BibTeX entry for LaTeX users is
@@ -155,7 +155,7 @@ print(citation("biocthis"), bibtex = TRUE)
 #>     author = {Leonardo Collado-Torres},
 #>     year = {2020},
 #>     url = {http://www.bioconductor.org/packages/biocthis},
-#>     note = {https://github.com/lcolladotor/biocthis - R package version 0.99.0},
+#>     note = {https://github.com/lcolladotor/biocthis - R package version 1.1.1},
 #>     doi = {10.18129/B9.bioc.biocthis},
 #>   }
 #> 
@@ -189,24 +189,23 @@ By contributing to this project, you agree to abide by its terms.
 
 ## Development tools
 
-  - Continuous code testing is possible thanks to [GitHub
+-   Continuous code testing is possible thanks to [GitHub
     actions](https://www.tidyverse.org/blog/2020/04/usethis-1-6-0/)
     through *[usethis](https://CRAN.R-project.org/package=usethis)*,
-    *[remotes](https://CRAN.R-project.org/package=remotes)*,
-    *[sysreqs](https://github.com/r-hub/sysreqs)* and
+    *[remotes](https://CRAN.R-project.org/package=remotes)*, and
     *[rcmdcheck](https://CRAN.R-project.org/package=rcmdcheck)*
     customized to use [Bioconductor’s docker
     containers](https://www.bioconductor.org/help/docker/) and
-    *[BiocCheck](https://bioconductor.org/packages/3.12/BiocCheck)*.
-  - Code coverage assessment is possible thanks to
+    *[BiocCheck](https://bioconductor.org/packages/3.13/BiocCheck)*.
+-   Code coverage assessment is possible thanks to
     [codecov](https://codecov.io/gh) and
     *[covr](https://CRAN.R-project.org/package=covr)*.
-  - The [documentation website](http://lcolladotor.github.io/biocthis)
+-   The [documentation website](http://lcolladotor.github.io/biocthis)
     is automatically updated thanks to
     *[pkgdown](https://CRAN.R-project.org/package=pkgdown)*.
-  - The code is styled automatically thanks to
+-   The code is styled automatically thanks to
     *[styler](https://CRAN.R-project.org/package=styler)*.
-  - The documentation is formatted thanks to
+-   The documentation is formatted thanks to
     *[devtools](https://CRAN.R-project.org/package=devtools)* and
     *[roxygen2](https://CRAN.R-project.org/package=roxygen2)*.
 
