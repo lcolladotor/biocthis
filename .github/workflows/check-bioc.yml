@@ -114,12 +114,11 @@ jobs:
 
       - name: Install Linux system dependencies
         if: runner.os == 'Linux'
-        env:
-          RHUB_PLATFORM: linux-x86_64-ubuntu-gcc
         run: |
-          Rscript -e "remotes::install_github('r-hub/sysreqs')"
-          sysreqs=$(Rscript -e "cat(sysreqs::sysreq_commands('DESCRIPTION'))")
-          sudo -s eval "$sysreqs"
+          while read -r cmd
+          do
+            eval sudo $cmd
+          done < <(Rscript -e 'cat(remotes::system_requirements("ubuntu", "20.04"), sep = "\n")')
 
       - name: Install macOS system dependencies
         if: matrix.config.os == 'macOS-latest'
@@ -249,7 +248,7 @@ jobs:
       - name: Deploy package
         if: github.ref == 'refs/heads/master' && env.run_pkgdown == 'true' && runner.os == 'Linux'
         run: |
-          git config --local user.email "action@github.com"
+          git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Action"
           Rscript -e "pkgdown::deploy_to_branch(new_process = FALSE)"
         shell: bash {0}
