@@ -14,26 +14,24 @@
     info <- BiocManager:::.version_map_get_online(
         "https://bioconductor.org/config.yaml"
     )
+    info <- subset(info, BiocStatus != "future")
 
     if (biocdocker == "devel") {
-        res <- subset(info, BiocStatus == "devel")[, "R"]
+        res <- subset(info, BiocStatus == "devel")
 
         ## Check the latest "release" version. If the R version is older than
         ## the R version for Bioc-devel, this means that we are working with R-devel
         ## and need to use that version for r-lib/actions/setup-r to recognize it
         ## https://github.com/r-lib/actions/tree/master/setup-r
         last_rel <- subset(info, BiocStatus == "release")[, "R"]
-        res <- ifelse(last_rel == res, last_rel, "devel")
+        res[, "R"] <- ifelse(last_rel == res[, "R"], last_rel, "devel")
     } else {
         biocdocker <- gsub("^RELEASE_", "", toupper(biocdocker))
         biocdocker <- gsub("_", ".", biocdocker)
-        res <- subset(info, Bioc == biocdocker)[, "R"]
+        res <- subset(info, Bioc == biocdocker)
     }
-    ## Return just the first one, in case we do something like
-    ## .GHARversion("RELEASE_3_12")
-    ## when 3.12 is the devel version (so it shows up as "devel" and "future"
-    ## under BiocStatus)
-    as.character(res[[1]])
+
+    c("R" = as.character(res[, "R"]), "Bioc" = as.character(res[, "Bioc"]))
 }
 
 #' Create a biocthis-style GitHub Actions workflow
@@ -115,7 +113,8 @@ use_bioc_github_action <- function(
     ## Set the variables to be used in the template GHA workflow
     datalist <- list(
         dockerversion = biocdocker,
-        rvernum = .GHARversion(biocdocker),
+        rvernum = .GHARversion(biocdocker)["R"],
+        biocvernum = .GHARversion(biocdocker)["Bioc"],
         has_testthat = ifelse(testthat, "true", "false"),
         run_covr = ifelse(covr, "true", "false"),
         run_pkgdown = ifelse(pkgdown, "true", "false"),
