@@ -16,7 +16,14 @@
     )
 
     if (biocdocker == "devel") {
-        res <- subset(info, BiocStatus == biocdocker)[, "R"]
+        res <- subset(info, BiocStatus == "devel")[, "R"]
+
+        ## Check the latest "release" version. If the R version is older than
+        ## the R version for Bioc-devel, this means that we are working with R-devel
+        ## and need to use that version for r-lib/actions/setup-r to recognize it
+        ## https://github.com/r-lib/actions/tree/master/setup-r
+        last_rel <- subset(info, BiocStatus == "release")[, "R"]
+        res <- ifelse(last_rel == res, last_rel, "devel")
     } else {
         biocdocker <- gsub("^RELEASE_", "", toupper(biocdocker))
         biocdocker <- gsub("_", ".", biocdocker)
