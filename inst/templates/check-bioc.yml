@@ -117,6 +117,7 @@ jobs:
         run: |
           sysreqs=$(Rscript -e 'paste("apt-get update -y && apt-get install software-properties-common -y && apt-get install -y", paste(gsub("apt-get install -y ", "", remotes::system_requirements("ubuntu", "20.04")), collapse = " "))')
           sudo -s eval "$sysreqs"
+        shell: bash {0}
 
       - name: Install macOS system dependencies
         if: matrix.config.os == 'macOS-latest'
