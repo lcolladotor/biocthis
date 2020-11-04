@@ -115,7 +115,7 @@ jobs:
       - name: Install Linux system dependencies
         if: runner.os == 'Linux'
         run: |
-          sysreqs=$(Rscript -e 'paste("apt-get -y update &&", paste(gsub("apt-get install -y ", "", remotes::system_requirements("ubuntu", "20.04")), collapse = " "))')
+          sysreqs=$(Rscript -e 'paste("apt-get update -y && apt-get install software-properties-common -y && apt-get install -y", paste(gsub("apt-get install -y ", "", remotes::system_requirements("ubuntu", "20.04")), collapse = " "))')
           sudo -s eval "$sysreqs"
 
       - name: Install macOS system dependencies
