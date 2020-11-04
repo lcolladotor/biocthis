@@ -133,6 +133,9 @@ jobs:
           ## For textshaping, required by ragg, and required by pkgdown
           brew install harfbuzz fribidi
 
+          ## See if this helps get RCurl installed
+          brew uninstall curl
+
       - name: Install Windows system dependencies
         if: runner.os == 'Windows'
         run: |
