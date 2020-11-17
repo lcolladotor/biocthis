@@ -37,7 +37,7 @@ use_bioc_readme_rmd <- function(open = rlang::is_interactive()) {
     if (usethis:::uses_github()) {
         data$github <- list(owner = usethis:::github_owner(), repo = usethis:::github_repo())
     }
-    new <- use_template("package-README", "README.Rmd", data = data, open = open, package = "biocthis")
+    new <- use_template("package-README", "README.Rmd", data = data, open = open, package = "biocthis", ignore = usethis:::is_package())
     if (!new) {
         return(invisible(FALSE))
     }
