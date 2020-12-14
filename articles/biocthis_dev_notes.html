@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">biocthis</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.4</span>
       </span>
     </div>
 
@@ -106,14 +106,14 @@
 <div id="backstory" class="section level2">
 <h2 class="hasAnchor">
 <a href="#backstory" class="anchor"></a>Backstory</h2>
-<p>In 2019, I was able to take the <a href="https://rstd.io/tidytools19">“Building Tidy Tools”</a> workshop taught by <a href="https://twitter.com/CVWickham">Charlotte</a> and <a href="https://twitter.com/hadleywickham">Hadley</a> Wickham during <a href="https://blog.rstudio.com/2019/02/06/rstudio-conf-2019-workshops/"><code>rstudio::conf(2019)</code></a> thanks to a diversity scholarship. During this workshop, I learned about <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em> <a id="cite-Wickham_2020"></a>(<a href="https://CRAN.R-project.org/package=usethis">Wickham and Bryan, 2020</a>), <em><a href="https://CRAN.R-project.org/package=devtools">devtools</a></em> <a id="cite-Wickham_2020a"></a>(<a href="https://CRAN.R-project.org/package=devtools">Wickham, Hester, and Chang, 2020</a>), <em><a href="https://CRAN.R-project.org/package=testthat">testthat</a></em> <a id="cite-Wickham_2011"></a>(<a href="https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf">Wickham, 2011</a>), among other R packages, and how to use <a href="https://www.rstudio.com/products/rstudio/download">RStudio Desktop</a> to create R packages more efficiently. I got to revise this material and practice it more for the <a href="https://comunidadbioinfo.github.io/post/building-tidy-tools-cdsb-runconf-2019/#.XrbLMxNKiu4">CDSB Workshop 2019: How to Build and Create Tidy Tools</a> where we re-used the materials (with their permission) and translated them to Spanish. Over the years I have made several <a href="http://bioconductor.org/">Bioconductor</a> R packages that <a href="https://lcolladotor.github.io/pkgs/">I maintain</a>. Yet I learned a lot thanks to Charlotte and Hadley and have been relying more and more on <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em> and related packages.</p>
+<p>In 2019, I was able to take the <a href="https://rstd.io/tidytools19">“Building Tidy Tools”</a> workshop taught by <a href="https://twitter.com/CVWickham">Charlotte</a> and <a href="https://twitter.com/hadleywickham">Hadley</a> Wickham during <a href="https://blog.rstudio.com/2019/02/06/rstudio-conf-2019-workshops/"><code>rstudio::conf(2019)</code></a> thanks to a diversity scholarship. During this workshop, I learned about <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em> (Wickham and Bryan, 2020), <em><a href="https://CRAN.R-project.org/package=devtools">devtools</a></em> (Wickham, Hester, and Chang, 2020), <em><a href="https://CRAN.R-project.org/package=testthat">testthat</a></em> (Wickham, 2011), among other R packages, and how to use <a href="https://www.rstudio.com/products/rstudio/download">RStudio Desktop</a> to create R packages more efficiently. I got to revise this material and practice it more for the <a href="https://comunidadbioinfo.github.io/post/building-tidy-tools-cdsb-runconf-2019/#.XrbLMxNKiu4">CDSB Workshop 2019: How to Build and Create Tidy Tools</a> where we re-used the materials (with their permission) and translated them to Spanish. Over the years I have made several <a href="http://bioconductor.org/">Bioconductor</a> R packages that <a href="https://lcolladotor.github.io/pkgs/">I maintain</a>. Yet I learned a lot thanks to Charlotte and Hadley and have been relying more and more on <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em> and related packages.</p>
 <p>Earlier this year (2020) one of my Bioconductor packages (<em><a href="https://bioconductor.org/packages/3.13/regionReport">regionReport</a></em>) was presenting some errors on some operating systems but not on others. I first spent quite a bit of time <a href="https://stat.ethz.ch/pipermail/bioc-devel/2020-March/016365.html">setting up the corresponding R installation</a> in my non-work Windows computer. I still struggled to reproduce the error, so I finally learned how to use the <a href="https://www.bioconductor.org/help/docker/">Bioconductor docker images</a>. That is, run the following code to then have an environment with all the system dependencies installed for Bioconductor packages. In this system you can then install your package dependencies and get very close to the Linux environment machine used for testing Bioconductor packages.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">docker</span> run \</span>
 <span id="cb1-2"><a href="#cb1-2"></a>    -e PASSWORD=bioc \</span>
 <span id="cb1-3"><a href="#cb1-3"></a>    -p 8787:8787 \</span>
 <span id="cb1-4"><a href="#cb1-4"></a>    bioconductor/bioconductor_docker:devel</span></code></pre></div>
 <p>Using this docker image, I was finally <a href="https://stat.ethz.ch/pipermail/bioc-devel/2020-April/016532.html">able to reproduce the error</a> which involved others Bioconductor packages. However, there was a second hard-to-reproduce error. Using <a href="https://github.com/features/actions">GitHub Actions</a>, which I’ll talk about more soon, I was then able to find the <a href="https://stat.ethz.ch/pipermail/bioc-devel/2020-April/016650.html">root cause of this second issue</a> and resolve it.</p>
-<p><em><a href="https://bioconductor.org/packages/3.13/biocthis">biocthis</a></em> <a id="cite-Collado-Torres_2020"></a>(<a href="http://www.bioconductor.org/packages/biocthis">Collado-Torres, 2020</a>) was born from my interest to keep using <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em> and related tools, but in a Bioconductor-friendly way. That is, this is a package that will help me (and maybe others too). This package was born from these 5 issues:</p>
+<p><em><a href="https://bioconductor.org/packages/3.13/biocthis">biocthis</a></em> (Collado-Torres, 2020) was born from my interest to keep using <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em> and related tools, but in a Bioconductor-friendly way. That is, this is a package that will help me (and maybe others too). This package was born from these 5 issues:</p>
 <ul>
 <li>
 <em>Bioconductor-friendly R CMD check action feature suggestion</em> <a href="https://github.com/r-lib/actions/issues/84">r-lib/actions#84</a>
@@ -261,37 +261,37 @@
 <div id="reproducibility" class="section level1">
 <h1 class="hasAnchor">
 <a href="#reproducibility" class="anchor"></a>Reproducibility</h1>
-<p>The <em><a href="https://bioconductor.org/packages/3.13/biocthis">biocthis</a></em> package (<a href="http://www.bioconductor.org/packages/biocthis">Collado-Torres, 2020</a>) was made possible thanks to:</p>
+<p>The <em><a href="https://bioconductor.org/packages/3.13/biocthis">biocthis</a></em> package (Collado-Torres, 2020) was made possible thanks to:</p>
 <ul>
-<li>R <a id="cite-R_Core_Team_2020"></a>(<a href="https://www.R-project.org/">R Core Team, 2020</a>)</li>
+<li>R (R Core Team, 2020)</li>
 <li>
-<em><a href="https://bioconductor.org/packages/3.13/BiocStyle">BiocStyle</a></em> <a id="cite-Oles_2020"></a>(<a href="https://github.com/Bioconductor/BiocStyle">Oleś, Morgan, and Huber, 2020</a>)</li>
+<em><a href="https://bioconductor.org/packages/3.13/BiocStyle">BiocStyle</a></em> (Oleś, Morgan, and Huber, 2020)</li>
 <li>
-<em><a href="https://CRAN.R-project.org/package=covr">covr</a></em> <a id="cite-Hester_2020"></a>(<a href="https://CRAN.R-project.org/package=covr">Hester, 2020</a>)</li>
+<em><a href="https://CRAN.R-project.org/package=covr">covr</a></em> (Hester, 2020)</li>
 <li>
-<em><a href="https://CRAN.R-project.org/package=devtools">devtools</a></em> (<a href="https://CRAN.R-project.org/package=devtools">Wickham, Hester, and Chang, 2020</a>)</li>
+<em><a href="https://CRAN.R-project.org/package=devtools">devtools</a></em> (Wickham, Hester, and Chang, 2020)</li>
 <li>
-<em><a href="https://CRAN.R-project.org/package=fs">fs</a></em> <a id="cite-Hester_2020a"></a>(<a href="https://CRAN.R-project.org/package=fs">Hester and Wickham, 2020</a>)</li>
+<em><a href="https://CRAN.R-project.org/package=fs">fs</a></em> (Hester and Wickham, 2020)</li>
 <li>
-<em><a href="https://CRAN.R-project.org/package=glue">glue</a></em> <a id="cite-Hester_2020ab"></a>(<a href="https://CRAN.R-project.org/package=glue">Hester, 2020</a>)</li>
+<em><a href="https://CRAN.R-project.org/package=glue">glue</a></em> (Hester, 2020)</li>
 <li>
-<em><a href="https://CRAN.R-project.org/package=knitcitations">knitcitations</a></em> <a id="cite-Boettiger_2020"></a>(<a href="https://github.com/cboettig/knitcitations">Boettiger, 2020</a>)</li>
+<em><a href="https://CRAN.R-project.org/package=knitr">knitr</a></em> (Xie, 2020)</li>
 <li>
-<em><a href="https://CRAN.R-project.org/package=knitr">knitr</a></em> <a id="cite-Xie_2020"></a>(<a href="https://yihui.org/knitr/">Xie, 2020</a>)</li>
+<em><a href="https://CRAN.R-project.org/package=pkgdown">pkgdown</a></em> (Wickham and Hesselberth, 2020)</li>
 <li>
-<em><a href="https://CRAN.R-project.org/package=pkgdown">pkgdown</a></em> <a id="cite-Wickham_2020ab"></a>(<a href="#bib-Wickham_2020ab">Wickham and Hesselberth, 2020</a>)</li>
+<em><a href="https://CRAN.R-project.org/package=rlang">rlang</a></em> (Henry and Wickham, 2020)</li>
 <li>
-<em><a href="https://CRAN.R-project.org/package=rlang">rlang</a></em> <a id="cite-Henry_2020"></a>(<a href="https://CRAN.R-project.org/package=rlang">Henry and Wickham, 2020</a>)</li>
+<em><a href="https://CRAN.R-project.org/package=RefManageR">RefManageR</a></em> (McLean, 2017)</li>
 <li>
-<em><a href="https://CRAN.R-project.org/package=rmarkdown">rmarkdown</a></em> <a id="cite-Allaire_2020"></a>(<a href="https://github.com/rstudio/rmarkdown">Allaire, Xie, McPherson, Luraschi, et al., 2020</a>)</li>
+<em><a href="https://CRAN.R-project.org/package=rmarkdown">rmarkdown</a></em> (Allaire, Xie, McPherson, Luraschi, Ushey, Atkins, Wickham, Cheng, Chang, and Iannone, 2020)</li>
 <li>
-<em><a href="https://CRAN.R-project.org/package=sessioninfo">sessioninfo</a></em> <a id="cite-Csardi_2018"></a>(<a href="https://CRAN.R-project.org/package=sessioninfo">Csárdi, core, Wickham, Chang, et al., 2018</a>)</li>
+<em><a href="https://CRAN.R-project.org/package=sessioninfo">sessioninfo</a></em> (Csárdi, core, Wickham, Chang, Flight, Müller, and Hester, 2018)</li>
 <li>
-<em><a href="https://CRAN.R-project.org/package=styler">styler</a></em> <a id="cite-Muller_2020"></a>(<a href="https://CRAN.R-project.org/package=styler">Müller and Walthert, 2020</a>)</li>
+<em><a href="https://CRAN.R-project.org/package=styler">styler</a></em> (Müller and Walthert, 2020)</li>
 <li>
-<em><a href="https://CRAN.R-project.org/package=testthat">testthat</a></em> (<a href="https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf">Wickham, 2011</a>)</li>
+<em><a href="https://CRAN.R-project.org/package=testthat">testthat</a></em> (Wickham, 2011)</li>
 <li>
-<em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em> (<a href="https://CRAN.R-project.org/package=usethis">Wickham and Bryan, 2020</a>)</li>
+<em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em> (Wickham and Bryan, 2020)</li>
 </ul>
 <p>This package was developed using <em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em>.</p>
 <p>Code for creating the vignette</p>
@@ -303,14 +303,10 @@
 <span class="co">## Extract the R code</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://yihui.org/knitr/">"knitr"</a></span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/knit.html">knit</a></span><span class="op">(</span><span class="st">"biocthis_dev_notes.Rmd"</span>, tangle <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## Clean up</span>
-<span class="fu"><a href="https://rdrr.io/r/base/files.html">file.remove</a></span><span class="op">(</span><span class="st">"biocthis_dev_notes.bib"</span><span class="op">)</span>
-<span class="co">#&gt; [1] TRUE</span></code></pre></div>
 <p>Date the vignette was generated.</p>
-<pre><code>#&gt; [1] "2020-12-14 18:53:09 UTC"</code></pre>
+<pre><code>#&gt; [1] "2020-12-14 20:20:16 UTC"</code></pre>
 <p>Wallclock time spent generating the vignette.</p>
-<pre><code>#&gt; Time difference of 1.026 secs</code></pre>
+<pre><code>#&gt; Time difference of 1.007 secs</code></pre>
 <p><code>R</code> session information.</p>
 <pre><code>#&gt; ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────
 #&gt;  setting  value                                             
@@ -325,46 +321,45 @@
 #&gt;  date     2020-12-14                                        
 #&gt; 
 #&gt; ─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────
-#&gt;  package       * version    date       lib source                                 
-#&gt;  assertthat      0.2.1      2019-03-21 [2] CRAN (R 4.1.0)                         
-#&gt;  BiocManager     1.30.10    2019-11-16 [2] CRAN (R 4.1.0)                         
-#&gt;  BiocStyle     * 2.19.1     2020-11-24 [1] Bioconductor                           
-#&gt;  bookdown        0.21       2020-10-13 [1] CRAN (R 4.1.0)                         
-#&gt;  cli             2.2.0      2020-11-20 [2] CRAN (R 4.1.0)                         
-#&gt;  crayon          1.3.4      2017-09-16 [2] CRAN (R 4.1.0)                         
-#&gt;  desc            1.2.0      2018-05-01 [2] CRAN (R 4.1.0)                         
-#&gt;  digest          0.6.27     2020-10-24 [2] CRAN (R 4.1.0)                         
-#&gt;  evaluate        0.14       2019-05-28 [2] CRAN (R 4.1.0)                         
-#&gt;  fansi           0.4.1      2020-01-08 [2] CRAN (R 4.1.0)                         
-#&gt;  fs              1.5.0      2020-07-31 [2] CRAN (R 4.1.0)                         
-#&gt;  generics        0.1.0      2020-10-31 [1] CRAN (R 4.1.0)                         
-#&gt;  glue            1.4.2      2020-08-27 [2] CRAN (R 4.1.0)                         
-#&gt;  htmltools       0.5.0      2020-06-16 [2] CRAN (R 4.1.0)                         
-#&gt;  httr            1.4.2      2020-07-20 [2] CRAN (R 4.1.0)                         
-#&gt;  jsonlite        1.7.2      2020-12-09 [2] CRAN (R 4.1.0)                         
-#&gt;  knitcitations * 1.0.11     2020-12-14 [1] Github (cboettig/knitcitations@23750d5)
-#&gt;  knitr           1.30       2020-09-22 [2] CRAN (R 4.1.0)                         
-#&gt;  lubridate       1.7.9.2    2020-11-13 [1] CRAN (R 4.1.0)                         
-#&gt;  magrittr        2.0.1      2020-11-17 [2] CRAN (R 4.1.0)                         
-#&gt;  memoise         1.1.0      2017-04-21 [2] CRAN (R 4.1.0)                         
-#&gt;  pkgdown         1.6.1.9000 2020-12-14 [1] Github (r-lib/pkgdown@6094ac3)         
-#&gt;  plyr            1.8.6      2020-03-03 [1] CRAN (R 4.1.0)                         
-#&gt;  R6              2.5.0      2020-10-28 [2] CRAN (R 4.1.0)                         
-#&gt;  ragg            0.4.0      2020-10-05 [1] CRAN (R 4.1.0)                         
-#&gt;  Rcpp            1.0.5      2020-07-06 [2] CRAN (R 4.1.0)                         
-#&gt;  RefManageR      1.3.0      2020-12-14 [1] Github (ropensci/RefManageR@ab8fe60)   
-#&gt;  rlang           0.4.9      2020-11-26 [2] CRAN (R 4.1.0)                         
-#&gt;  rmarkdown       2.6        2020-12-14 [1] CRAN (R 4.1.0)                         
-#&gt;  rprojroot       2.0.2      2020-11-15 [2] CRAN (R 4.1.0)                         
-#&gt;  sessioninfo   * 1.1.1      2018-11-05 [2] CRAN (R 4.1.0)                         
-#&gt;  stringi         1.5.3      2020-09-09 [2] CRAN (R 4.1.0)                         
-#&gt;  stringr         1.4.0      2019-02-10 [2] CRAN (R 4.1.0)                         
-#&gt;  systemfonts     0.3.2      2020-09-29 [1] CRAN (R 4.1.0)                         
-#&gt;  textshaping     0.2.1      2020-11-13 [1] CRAN (R 4.1.0)                         
-#&gt;  withr           2.3.0      2020-09-22 [2] CRAN (R 4.1.0)                         
-#&gt;  xfun            0.19       2020-10-30 [2] CRAN (R 4.1.0)                         
-#&gt;  xml2            1.3.2      2020-04-23 [2] CRAN (R 4.1.0)                         
-#&gt;  yaml            2.2.1      2020-02-01 [2] CRAN (R 4.1.0)                         
+#&gt;  package     * version    date       lib source                              
+#&gt;  assertthat    0.2.1      2019-03-21 [2] CRAN (R 4.1.0)                      
+#&gt;  BiocManager   1.30.10    2019-11-16 [2] CRAN (R 4.1.0)                      
+#&gt;  BiocStyle   * 2.19.1     2020-11-24 [1] Bioconductor                        
+#&gt;  bookdown      0.21       2020-10-13 [1] CRAN (R 4.1.0)                      
+#&gt;  cli           2.2.0      2020-11-20 [2] CRAN (R 4.1.0)                      
+#&gt;  crayon        1.3.4      2017-09-16 [2] CRAN (R 4.1.0)                      
+#&gt;  desc          1.2.0      2018-05-01 [2] CRAN (R 4.1.0)                      
+#&gt;  digest        0.6.27     2020-10-24 [2] CRAN (R 4.1.0)                      
+#&gt;  evaluate      0.14       2019-05-28 [2] CRAN (R 4.1.0)                      
+#&gt;  fansi         0.4.1      2020-01-08 [2] CRAN (R 4.1.0)                      
+#&gt;  fs            1.5.0      2020-07-31 [2] CRAN (R 4.1.0)                      
+#&gt;  generics      0.1.0      2020-10-31 [1] CRAN (R 4.1.0)                      
+#&gt;  glue          1.4.2      2020-08-27 [2] CRAN (R 4.1.0)                      
+#&gt;  htmltools     0.5.0      2020-06-16 [2] CRAN (R 4.1.0)                      
+#&gt;  httr          1.4.2      2020-07-20 [2] CRAN (R 4.1.0)                      
+#&gt;  jsonlite      1.7.2      2020-12-09 [2] CRAN (R 4.1.0)                      
+#&gt;  knitr         1.30       2020-09-22 [2] CRAN (R 4.1.0)                      
+#&gt;  lubridate     1.7.9.2    2020-11-13 [1] CRAN (R 4.1.0)                      
+#&gt;  magrittr      2.0.1      2020-11-17 [2] CRAN (R 4.1.0)                      
+#&gt;  memoise       1.1.0      2017-04-21 [2] CRAN (R 4.1.0)                      
+#&gt;  pkgdown       1.6.1.9000 2020-12-14 [1] Github (r-lib/pkgdown@6094ac3)      
+#&gt;  plyr          1.8.6      2020-03-03 [1] CRAN (R 4.1.0)                      
+#&gt;  R6            2.5.0      2020-10-28 [2] CRAN (R 4.1.0)                      
+#&gt;  ragg          0.4.0      2020-10-05 [1] CRAN (R 4.1.0)                      
+#&gt;  Rcpp          1.0.5      2020-07-06 [2] CRAN (R 4.1.0)                      
+#&gt;  RefManageR  * 1.3.0      2020-12-14 [1] Github (ropensci/RefManageR@ab8fe60)
+#&gt;  rlang         0.4.9      2020-11-26 [2] CRAN (R 4.1.0)                      
+#&gt;  rmarkdown     2.6        2020-12-14 [1] CRAN (R 4.1.0)                      
+#&gt;  rprojroot     2.0.2      2020-11-15 [2] CRAN (R 4.1.0)                      
+#&gt;  sessioninfo * 1.1.1      2018-11-05 [2] CRAN (R 4.1.0)                      
+#&gt;  stringi       1.5.3      2020-09-09 [2] CRAN (R 4.1.0)                      
+#&gt;  stringr       1.4.0      2019-02-10 [2] CRAN (R 4.1.0)                      
+#&gt;  systemfonts   0.3.2      2020-09-29 [1] CRAN (R 4.1.0)                      
+#&gt;  textshaping   0.2.1      2020-11-13 [1] CRAN (R 4.1.0)                      
+#&gt;  withr         2.3.0      2020-09-22 [2] CRAN (R 4.1.0)                      
+#&gt;  xfun          0.19       2020-10-30 [2] CRAN (R 4.1.0)                      
+#&gt;  xml2          1.3.2      2020-04-23 [2] CRAN (R 4.1.0)                      
+#&gt;  yaml          2.2.1      2020-02-01 [2] CRAN (R 4.1.0)                      
 #&gt; 
 #&gt; [1] /__w/_temp/Library
 #&gt; [2] /usr/local/lib/R/site-library
@@ -373,24 +368,56 @@
 <div id="bibliography" class="section level1">
 <h1 class="hasAnchor">
 <a href="#bibliography" class="anchor"></a>Bibliography</h1>
-<p>This vignette was generated using <em><a href="https://bioconductor.org/packages/3.13/BiocStyle">BiocStyle</a></em> (<a href="https://github.com/Bioconductor/BiocStyle">Oleś, Morgan, and Huber, 2020</a>) with <em><a href="https://CRAN.R-project.org/package=knitr">knitr</a></em> (<a href="https://yihui.org/knitr/">Xie, 2020</a>) and <em><a href="https://CRAN.R-project.org/package=rmarkdown">rmarkdown</a></em> (<a href="https://github.com/rstudio/rmarkdown">Allaire, Xie, McPherson, Luraschi, et al., 2020</a>) running behind the scenes.</p>
-<p>Citations made with <em><a href="https://CRAN.R-project.org/package=knitcitations">knitcitations</a></em> (<a href="https://github.com/cboettig/knitcitations">Boettiger, 2020</a>).</p>
-<p>[1] J. Allaire, Y. Xie, J. McPherson, J. Luraschi, et al. <em>rmarkdown: Dynamic Documents for R</em>. R package version 2.6. 2020. &lt;URL: <a href="https://github.com/rstudio/rmarkdown" class="uri">https://github.com/rstudio/rmarkdown</a>&gt;.</p>
-<p>[2] C. Boettiger. <em>knitcitations: Citations for ‘Knitr’ Markdown Files</em>. R package version 1.0.11. 2020. &lt;URL: <a href="https://github.com/cboettig/knitcitations" class="uri">https://github.com/cboettig/knitcitations</a>&gt;.</p>
-<p>[3] L. Collado-Torres. <em>Automate package and project setup for Bioconductor packages</em>. <a href="https://github.com/lcolladotor/biocthisbiocthis" class="uri">https://github.com/lcolladotor/biocthisbiocthis</a> - R package version 1.1.3. 2020. DOI: 10.18129/B9.bioc.biocthis. &lt;URL: <a href="http://www.bioconductor.org/packages/biocthis" class="uri">http://www.bioconductor.org/packages/biocthis</a>&gt;.</p>
-<p>[4] G. Csárdi, R. core, H. Wickham, W. Chang, et al. <em>sessioninfo: R Session Information</em>. R package version 1.1.1. 2018. &lt;URL: <a href="https://CRAN.R-project.org/package=sessioninfo" class="uri">https://CRAN.R-project.org/package=sessioninfo</a>&gt;.</p>
-<p>[5] L. Henry and H. Wickham. <em>rlang: Functions for Base Types and Core R and ‘Tidyverse’ Features</em>. R package version 0.4.9. 2020. &lt;URL: <a href="https://CRAN.R-project.org/package=rlang" class="uri">https://CRAN.R-project.org/package=rlang</a>&gt;.</p>
-<p>[6] J. Hester. <em>covr: Test Coverage for Packages</em>. R package version 3.5.1. 2020. &lt;URL: <a href="https://CRAN.R-project.org/package=covr" class="uri">https://CRAN.R-project.org/package=covr</a>&gt;.</p>
-<p>[7] J. Hester. <em>glue: Interpreted String Literals</em>. R package version 1.4.2. 2020. &lt;URL: <a href="https://CRAN.R-project.org/package=glue" class="uri">https://CRAN.R-project.org/package=glue</a>&gt;.</p>
-<p>[8] J. Hester and H. Wickham. <em>fs: Cross-Platform File System Operations Based on ‘libuv’</em>. R package version 1.5.0. 2020. &lt;URL: <a href="https://CRAN.R-project.org/package=fs" class="uri">https://CRAN.R-project.org/package=fs</a>&gt;.</p>
-<p>[9] K. Müller and L. Walthert. <em>styler: Non-Invasive Pretty Printing of R Code</em>. R package version 1.3.2. 2020. &lt;URL: <a href="https://CRAN.R-project.org/package=styler" class="uri">https://CRAN.R-project.org/package=styler</a>&gt;.</p>
-<p>[10] A. Oleś, M. Morgan, and W. Huber. <em>BiocStyle: Standard styles for vignettes and other Bioconductor documents</em>. R package version 2.19.1. 2020. &lt;URL: <a href="https://github.com/Bioconductor/BiocStyle" class="uri">https://github.com/Bioconductor/BiocStyle</a>&gt;.</p>
-<p>[11] R Core Team. <em>R: A Language and Environment for Statistical Computing</em>. R Foundation for Statistical Computing. Vienna, Austria, 2020. &lt;URL: <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>&gt;.</p>
-<p>[12] H. Wickham. “testthat: Get Started with Testing”. In: <em>The R Journal</em> 3 (2011), pp. 5-10. &lt;URL: <a href="https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf" class="uri">https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf</a>&gt;.</p>
-<p>[13] H. Wickham and J. Bryan. <em>usethis: Automate Package and Project Setup</em>. R package version 2.0.0. 2020. &lt;URL: <a href="https://CRAN.R-project.org/package=usethis" class="uri">https://CRAN.R-project.org/package=usethis</a>&gt;.</p>
-<p>[14] H. Wickham and J. Hesselberth. <em>pkgdown: Make Static HTML Documentation for a Package</em>. <a href="https://pkgdown.r-lib.org" class="uri">https://pkgdown.r-lib.org</a>, <a href="https://github.com/r-lib/pkgdown" class="uri">https://github.com/r-lib/pkgdown</a>. 2020.</p>
-<p>[15] H. Wickham, J. Hester, and W. Chang. <em>devtools: Tools to Make Developing R Packages Easier</em>. R package version 2.3.2. 2020. &lt;URL: <a href="https://CRAN.R-project.org/package=devtools" class="uri">https://CRAN.R-project.org/package=devtools</a>&gt;.</p>
-<p>[16] Y. Xie. <em>knitr: A General-Purpose Package for Dynamic Report Generation in R</em>. R package version 1.30. 2020. &lt;URL: <a href="https://yihui.org/knitr/" class="uri">https://yihui.org/knitr/</a>&gt;.</p>
+<p>This vignette was generated using <em><a href="https://bioconductor.org/packages/3.13/BiocStyle">BiocStyle</a></em> (Oleś, Morgan, and Huber, 2020) with <em><a href="https://CRAN.R-project.org/package=knitr">knitr</a></em> (Xie, 2020) and <em><a href="https://CRAN.R-project.org/package=rmarkdown">rmarkdown</a></em> (Allaire, Xie, McPherson, et al., 2020) running behind the scenes.</p>
+<p>Citations made with <em><a href="https://CRAN.R-project.org/package=RefManageR">RefManageR</a></em> (McLean, 2017).</p>
+<p>
+<a id="bib-allaire2020rmarkdown"></a><a href="#cite-allaire2020rmarkdown">[1]</a><cite> J. Allaire, Y. Xie, J. McPherson, et al. <em>rmarkdown: Dynamic Documents for R</em>. R package version 2.6. 2020. URL: <a href="https://github.com/rstudio/rmarkdown">https://github.com/rstudio/rmarkdown</a>.</cite>
+</p>
+<p>
+<a id="bib-colladotorres2020automate"></a><a href="#cite-colladotorres2020automate">[2]</a><cite> L. Collado-Torres. <em>Automate package and project setup for Bioconductor packages</em>. <a href="https://github.com/lcolladotor/biocthisbiocthis" class="uri">https://github.com/lcolladotor/biocthisbiocthis</a> - R package version 1.1.4. 2020. DOI: <a href="https://doi.org/10.18129/B9.bioc.biocthis">10.18129/B9.bioc.biocthis</a>. URL: <a href="http://www.bioconductor.org/packages/biocthis">http://www.bioconductor.org/packages/biocthis</a>.</cite>
+</p>
+<p>
+<a id="bib-csrdi2018sessioninfo"></a><a href="#cite-csrdi2018sessioninfo">[3]</a><cite> G. Csárdi, R. core, H. Wickham, et al. <em>sessioninfo: R Session Information</em>. R package version 1.1.1. 2018. URL: <a href="https://CRAN.R-project.org/package=sessioninfo">https://CRAN.R-project.org/package=sessioninfo</a>.</cite>
+</p>
+<p>
+<a id="bib-henry2020rlang"></a><a href="#cite-henry2020rlang">[4]</a><cite> L. Henry and H. Wickham. <em>rlang: Functions for Base Types and Core R and ‘Tidyverse’ Features</em>. R package version 0.4.9. 2020. URL: <a href="https://CRAN.R-project.org/package=rlang">https://CRAN.R-project.org/package=rlang</a>.</cite>
+</p>
+<p>
+<a id="bib-hester2020covr"></a><a href="#cite-hester2020covr">[5]</a><cite> J. Hester. <em>covr: Test Coverage for Packages</em>. R package version 3.5.1. 2020. URL: <a href="https://CRAN.R-project.org/package=covr">https://CRAN.R-project.org/package=covr</a>.</cite>
+</p>
+<p>
+<a id="bib-hester2020glue"></a><a href="#cite-hester2020glue">[6]</a><cite> J. Hester. <em>glue: Interpreted String Literals</em>. R package version 1.4.2. 2020. URL: <a href="https://CRAN.R-project.org/package=glue">https://CRAN.R-project.org/package=glue</a>.</cite>
+</p>
+<p>
+<a id="bib-hester2020cross"></a><a href="#cite-hester2020cross">[7]</a><cite> J. Hester and H. Wickham. <em>fs: Cross-Platform File System Operations Based on ‘libuv’</em>. R package version 1.5.0. 2020. URL: <a href="https://CRAN.R-project.org/package=fs">https://CRAN.R-project.org/package=fs</a>.</cite>
+</p>
+<p>
+<a id="bib-mclean2017refmanager"></a><a href="#cite-mclean2017refmanager">[8]</a><cite> M. W. McLean. “RefManageR: Import and Manage BibTeX and BibLaTeX References in R”. In: <em>The Journal of Open Source Software</em> (2017). DOI: <a href="https://doi.org/10.21105/joss.00338">10.21105/joss.00338</a>.</cite>
+</p>
+<p>
+<a id="bib-mller2020styler"></a><a href="#cite-mller2020styler">[9]</a><cite> K. Müller and L. Walthert. <em>styler: Non-Invasive Pretty Printing of R Code</em>. R package version 1.3.2. 2020. URL: <a href="https://CRAN.R-project.org/package=styler">https://CRAN.R-project.org/package=styler</a>.</cite>
+</p>
+<p>
+<a id="bib-ole2020biocstyle"></a><a href="#cite-ole2020biocstyle">[10]</a><cite> A. Oleś, M. Morgan, and W. Huber. <em>BiocStyle: Standard styles for vignettes and other Bioconductor documents</em>. R package version 2.19.1. 2020. URL: <a href="https://github.com/Bioconductor/BiocStyle">https://github.com/Bioconductor/BiocStyle</a>.</cite>
+</p>
+<p>
+<a id="bib-2020language"></a><a href="#cite-2020language">[11]</a><cite> R Core Team. <em>R: A Language and Environment for Statistical Computing</em>. R Foundation for Statistical Computing. Vienna, Austria, 2020. URL: <a href="https://www.R-project.org/">https://www.R-project.org/</a>.</cite>
+</p>
+<p>
+<a id="bib-wickham2011testthat"></a><a href="#cite-wickham2011testthat">[12]</a><cite> H. Wickham. “testthat: Get Started with Testing”. In: <em>The R Journal</em> 3 (2011), pp. 5–10. URL: <a href="https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf">https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf</a>.</cite>
+</p>
+<p>
+<a id="bib-wickham2020usethis"></a><a href="#cite-wickham2020usethis">[13]</a><cite> H. Wickham and J. Bryan. <em>usethis: Automate Package and Project Setup</em>. R package version 2.0.0. 2020. URL: <a href="https://CRAN.R-project.org/package=usethis">https://CRAN.R-project.org/package=usethis</a>.</cite>
+</p>
+<p>
+<a id="bib-wickham2020pkgdown"></a><a href="#cite-wickham2020pkgdown">[14]</a><cite> H. Wickham and J. Hesselberth. <em>pkgdown: Make Static HTML Documentation for a Package</em>. <a href="https://pkgdown.r-lib.org" class="uri">https://pkgdown.r-lib.org</a>, <a href="https://github.com/r-lib/pkgdown" class="uri">https://github.com/r-lib/pkgdown</a>. 2020.</cite>
+</p>
+<p>
+<a id="bib-wickham2020devtools"></a><a href="#cite-wickham2020devtools">[15]</a><cite> H. Wickham, J. Hester, and W. Chang. <em>devtools: Tools to Make Developing R Packages Easier</em>. R package version 2.3.2. 2020. URL: <a href="https://CRAN.R-project.org/package=devtools">https://CRAN.R-project.org/package=devtools</a>.</cite>
+</p>
+<p>
+<a id="bib-xie2020knitr"></a><a href="#cite-xie2020knitr">[16]</a><cite> Y. Xie. <em>knitr: A General-Purpose Package for Dynamic Report Generation in R</em>. R package version 1.30. 2020. URL: <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.</cite>
+</p>
 </div>
   </div>
 
