@@ -64,7 +64,7 @@ bib <- c(
 write.bibtex(bib, file = "biocthis_dev_notes.bib")
 ```
 
-Note that `r Githubpkg("lcolladotor/biocthis")` is not a Bioconductor-core package and as such it is not a Bioconductor official package. It was made by and for Leonardo Collado-Torres so he could more easily maintain and create Bioconductor packages as listed at [lcolladotor.github.io/pkgs/](https://lcolladotor.github.io/pkgs/). Hopefully `r Githubpkg("lcolladotor/biocthis")`  will be helpful for you too.
+Note that `r Biocpkg("biocthis")` is not a Bioconductor-core package and as such it is not a Bioconductor official package. It was made by and for Leonardo Collado-Torres so he could more easily maintain and create Bioconductor packages as listed at [lcolladotor.github.io/pkgs/](https://lcolladotor.github.io/pkgs/). Hopefully `r Biocpkg("biocthis")`  will be helpful for you too.
 
 
 # Basics
@@ -88,7 +88,7 @@ docker run \
 
 Using this docker image, I was finally [able to reproduce the error](https://stat.ethz.ch/pipermail/bioc-devel/2020-April/016532.html) which involved others Bioconductor packages. However, there was a second hard-to-reproduce error. Using [GitHub Actions](https://github.com/features/actions), which I'll talk about more soon, I was then able to find the [root cause of this second issue](https://stat.ethz.ch/pipermail/bioc-devel/2020-April/016650.html) and resolve it.
 
-`r Githubpkg("lcolladotor/biocthis")` `r citep(bib[['biocthis']])` was born from my interest to keep using `r CRANpkg("usethis")` and related tools, but in a Bioconductor-friendly way. That is, this is a package that will help me (and maybe others too). This package was born from these 5 issues:
+`r Biocpkg("biocthis")` `r citep(bib[['biocthis']])` was born from my interest to keep using `r CRANpkg("usethis")` and related tools, but in a Bioconductor-friendly way. That is, this is a package that will help me (and maybe others too). This package was born from these 5 issues:
 
 * _Bioconductor-friendly R CMD check action feature suggestion_ [r-lib/actions#84](https://github.com/r-lib/actions/issues/84)
 * _Bioc-friendly feature suggestions_ [r-lib/usethis#1108](https://github.com/r-lib/usethis/issues/1108)
@@ -136,7 +136,7 @@ I saw on Twitter the [announcement about GitHub Actions](https://www.tidyverse.o
 * [Sean Davis](https://twitter.com/seandavis12)' GHA workflow [seandavi/BiocActions/.github/workflows/main.yml](https://github.com/seandavi/BiocActions/blob/master/.github/workflows/main.yml) and [Charlotte Soneson](https://twitter.com/CSoneson)'s GHA workflow  [csoneson/dreval/.github/workflows/R-CMD-check.yaml](https://github.com/csoneson/dreval/blob/master/.github/workflows/R-CMD-check.yaml) which I found searching some keywords on the [Bioconductor Slack workspace](https://bioc-community.herokuapp.com/).
 * Sean Davis' [blog post on GHA workflows](https://seandavi.github.io/post/learning-github-actions/).
 
-Most of the development of the Bioconductor-friendly GitHub Actions workflow provided by `r Githubpkg("lcolladotor/biocthis")` was done with [leekgroup/derfinderPlot/.github/workflows/check-bioc.yml](https://github.com/leekgroup/derfinderPlot/blob/master/.github/workflows/check-bioc.yml) and  [LieberInstitute/recount3/.github/workflows/check-bioc.yml](https://github.com/LieberInstitute/recount3/blob/master/.github/workflows/check-bioc.yml) as detailed at: _Bioconductor-friendly R CMD check action feature suggestion_ [r-lib/actions#84](https://github.com/r-lib/actions/issues/84). It was then further improved by a [pull request](https://github.com/lcolladotor/biocthis/pull/11) with tests carried out at [lcolladotor/testmatrix](https://github.com/lcolladotor/testmatrix/).
+Most of the development of the Bioconductor-friendly GitHub Actions workflow provided by `r Biocpkg("biocthis")` was done with [leekgroup/derfinderPlot/.github/workflows/check-bioc.yml](https://github.com/leekgroup/derfinderPlot/blob/master/.github/workflows/check-bioc.yml) and  [LieberInstitute/recount3/.github/workflows/check-bioc.yml](https://github.com/LieberInstitute/recount3/blob/master/.github/workflows/check-bioc.yml) as detailed at: _Bioconductor-friendly R CMD check action feature suggestion_ [r-lib/actions#84](https://github.com/r-lib/actions/issues/84). It was then further improved by a [pull request](https://github.com/lcolladotor/biocthis/pull/11) with tests carried out at [lcolladotor/testmatrix](https://github.com/lcolladotor/testmatrix/).
 
 This work eventually lead to `use_bioc_github_action()` as it is today. The features of this GHA workflow are described in the `Introduction to biocthis` vignette. Going back to the story about developing this GHA workflow, while working on this GHA workflow, I ran into several issues and I wouldn't be surprised if we run into more of them later on.
 
@@ -158,12 +158,12 @@ This work eventually lead to `use_bioc_github_action()` as it is today. The feat
 
 ### Wrapping up
 
-The resulting Bioconductor-friendly GitHub Actions workflow that you can add to your package with `biocthis::use_bioc_github_action()` has many comments which you might find helpful for understanding why some steps are done the way they are. I have tried to simplify the workflow when possible, but it depends on the latest version of many tools and thus will expose you to issues you might have not dealt with, particularly compilation issues of R packages with R-devel (six months of the year with the current Bioconductor release cycle). If you need help, start by going through the steps listed at [r-lib/actions#where-to-find-help](https://github.com/r-lib/actions#where-to-find-help). `r Githubpkg("lcolladotor/biocthis")` exclusive issues are always welcome, though please include the information that will enable others to help you faster. Thank you!
+The resulting Bioconductor-friendly GitHub Actions workflow that you can add to your package with `biocthis::use_bioc_github_action()` has many comments which you might find helpful for understanding why some steps are done the way they are. I have tried to simplify the workflow when possible, but it depends on the latest version of many tools and thus will expose you to issues you might have not dealt with, particularly compilation issues of R packages with R-devel (six months of the year with the current Bioconductor release cycle). If you need help, start by going through the steps listed at [r-lib/actions#where-to-find-help](https://github.com/r-lib/actions#where-to-find-help). `r Biocpkg("biocthis")` exclusive issues are always welcome, though please include the information that will enable others to help you faster. Thank you!
 
 
 ## `usethis`-like functions
 
-`r Githubpkg("lcolladotor/biocthis")` also provides other `r CRANpkg("usethis")`-like functions. To make these functions, I looked at the code inside `r CRANpkg("usethis")` and learned how to make templates, how the data is passed to the templates and some other steps. Some of the functions are really identical to the ones from `r CRANpkg("usethis")` but point to a custom template provided by `r Githubpkg("lcolladotor/biocthis")`. These functions have simplified for me the task of having uniform README.Rmd/md and vignette files for instance, as well as having GitHub issue & support templates that include some Bioconductor-specific information and some of my own personal preferences for asking for help. I also included template R scripts through `use_bioc_pkg_templates()` that is an idea I first learned at `rstudio::conf(2020)` on the `r CRANpkg("golem")` package. Those scripts are useful to keep track of code that you had to run to make the R package or to update it later. These scripts can greatly jump-start your R/Bioconductor package creation process. So maybe you'll see more packages by me and others soon =) In particular, I really hope that we can get more CDSB members to submit R/Bioconductor packages to the world as explained in [this story](https://www.r-consortium.org/blog/2020/03/18/cdsb-diversity-and-outreach-hotspot-in-mexico), which is something I care about quite a bit.
+`r Biocpkg("biocthis")` also provides other `r CRANpkg("usethis")`-like functions. To make these functions, I looked at the code inside `r CRANpkg("usethis")` and learned how to make templates, how the data is passed to the templates and some other steps. Some of the functions are really identical to the ones from `r CRANpkg("usethis")` but point to a custom template provided by `r Biocpkg("biocthis")`. These functions have simplified for me the task of having uniform README.Rmd/md and vignette files for instance, as well as having GitHub issue & support templates that include some Bioconductor-specific information and some of my own personal preferences for asking for help. I also included template R scripts through `use_bioc_pkg_templates()` that is an idea I first learned at `rstudio::conf(2020)` on the `r CRANpkg("golem")` package. Those scripts are useful to keep track of code that you had to run to make the R package or to update it later. These scripts can greatly jump-start your R/Bioconductor package creation process. So maybe you'll see more packages by me and others soon =) In particular, I really hope that we can get more CDSB members to submit R/Bioconductor packages to the world as explained in [this story](https://www.r-consortium.org/blog/2020/03/18/cdsb-diversity-and-outreach-hotspot-in-mexico), which is something I care about quite a bit.
 
 # Acknowledgments
 
@@ -202,7 +202,7 @@ Thank you very much! 🙌🏽😊
 
 # Reproducibility
 
-The `r Githubpkg("lcolladotor/biocthis")` package `r citep(bib[['biocthis']])` was made possible thanks to:
+The `r Biocpkg("biocthis")` package `r citep(bib[['biocthis']])` was made possible thanks to:
 
 * R `r citep(bib[["R"]])`
 * `r Biocpkg("BiocStyle")` `r citep(bib[["BiocStyle"]])`

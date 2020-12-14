@@ -1,3 +1,11 @@
+# biocthis 1.1.3
+
+BUG FIXES
+
+* Updated to use usethis version 2.0.0 or newer. Check the following
+for more information on usethis changes:
+<https://twitter.com/JennyBryan/status/1337858543404285952?s=20>.
+
 # biocthis 0.99.0
 
 NEW FEATURES

@@ -28,9 +28,6 @@
 use_bioc_citation <- function() {
     use_directory("inst")
     data <- usethis:::project_data()
-    if (usethis:::uses_github()) {
-        data$Owner <- usethis:::github_owner()
-    }
     use_template("package-CITATION", fs::path("inst", "CITATION"),
         data = data, open = TRUE, package = "biocthis"
     )
