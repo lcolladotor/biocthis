@@ -1,6 +1,6 @@
 Package: biocthis
 Title: Automate package and project setup for Bioconductor packages
-Version: 1.0.3
+Version: 1.0.4
 Date: 2020-12-14
 Authors@R: 
     c(
@@ -31,9 +31,9 @@ Suggests:
     BiocStyle,
     covr,
     devtools,
-    knitcitations,
     knitr,
     pkgdown,
+    RefManageR,
     rmarkdown,
     sessioninfo,
     testthat,

@@ -1,3 +1,10 @@
+# biocthis 1.0.4
+
+NEW FEATURES
+
+* Switched from `knitcitations` to `RefManageR` given the discussion at
+<https://github.com/cboettig/knitcitations/issues/107>.
+
 # biocthis 1.0.3
 
 BUG FIXES
