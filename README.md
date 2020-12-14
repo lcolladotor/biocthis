@@ -212,4 +212,4 @@ By contributing to this project, you agree to abide by its terms.
 For more details, check the `dev` directory.
 
 This package was developed using
-*[biocthis](https://github.com/lcolladotor/biocthis)*.
+*[biocthis](https://bioconductor.org/packages/biocthis)*.

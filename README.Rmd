@@ -103,6 +103,6 @@ Please note that the `biocthis` project is released with a [Contributor Code of 
 
 For more details, check the `dev` directory.
 
-This package was developed using `r BiocStyle::Githubpkg('lcolladotor/biocthis')`.
+This package was developed using `r BiocStyle::Biocpkg('biocthis')`.
 
 

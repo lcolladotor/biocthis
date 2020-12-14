@@ -117,7 +117,7 @@ The `r Biocpkg("{{ Package }}")` package `r citep(bib[["{{ Package }}"]])` was m
 * `r CRANpkg("sessioninfo")` `r citep(bib[["sessioninfo"]])`
 * `r CRANpkg("testthat")` `r citep(bib[["testthat"]])`
 
-This package was developed using `r BiocStyle::Githubpkg("lcolladotor/biocthis")`.
+This package was developed using `r BiocStyle::Biocpkg("biocthis")`.
 
 
 Code for creating the vignette

@@ -34,9 +34,7 @@ use_bioc_readme_rmd <- function(open = rlang::is_interactive()) {
     usethis:::check_installed("rmarkdown")
     data <- usethis:::project_data()
     data$Rmd <- TRUE
-    if (usethis:::uses_github()) {
-        data$github <- list(owner = usethis:::github_owner(), repo = usethis:::github_repo())
-    }
+    data$on_github <- usethis:::origin_is_on_github()
     new <- use_template("package-README", "README.Rmd", data = data, open = open, package = "biocthis", ignore = usethis:::is_package())
     if (!new) {
         return(invisible(FALSE))
