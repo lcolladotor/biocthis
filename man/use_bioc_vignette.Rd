@@ -21,7 +21,7 @@ This function adds and/or replaces the
 \description{
 This function is very similar to \code{usethis::use_vignette()} except
 that it uses a template from \code{biocthis}. This template includes
-instructions for citing other packages using \code{knitcitations}, uses
+instructions for citing other packages using \code{RefManageR}, uses
 \code{sessioninfo::session_info()} for displaying the R session information since
 it includes GitHub installation information and other useful details. The
 template also includes a section on how to ask for help and required

@@ -2,7 +2,7 @@
 #'
 #' This function is very similar to `usethis::use_vignette()` except
 #' that it uses a template from `biocthis`. This template includes
-#' instructions for citing other packages using `knitcitations`, uses
+#' instructions for citing other packages using `RefManageR`, uses
 #' `sessioninfo::session_info()` for displaying the R session information since
 #' it includes GitHub installation information and other useful details. The
 #' template also includes a section on how to ask for help and required
@@ -37,7 +37,7 @@ use_bioc_vignette <- function(name, title = name) {
     usethis:::check_vignette_name(name)
     use_package("knitr", "Suggests")
     use_package("BiocStyle", "Suggests")
-    use_package("knitcitations", "Suggests")
+    use_package("RefManageR", "Suggests")
     use_package("sessioninfo", "Suggests")
     usethis:::use_description_field("VignetteBuilder", "knitr", overwrite = TRUE)
     use_git_ignore("inst/doc")

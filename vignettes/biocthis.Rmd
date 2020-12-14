@@ -35,11 +35,7 @@ knitr::opts_chunk$set(
 startTime <- Sys.time()
 
 ## Bib setup
-library("knitcitations")
-
-## Load knitcitations with a clean bibliography
-cleanbib()
-cite_options(hyperlink = "to.doc", citation_format = "text", style = "html")
+library("RefManageR")
 
 ## Write bibliography information
 bib <- c(
@@ -50,18 +46,16 @@ bib <- c(
     devtools = citation("devtools")[1],
     fs = citation("fs")[1],
     glue = citation("glue")[1],
-    knitcitations = citation("knitcitations")[1],
     knitr = citation("knitr")[1],
     pkgdown = citation("pkgdown")[1],
     rlang = citation("rlang")[1],
+    RefManageR = citation("RefManageR")[1],
     rmarkdown = citation("rmarkdown")[1],
     sessioninfo = citation("sessioninfo")[1],
     styler = citation("styler")[1],
     testthat = citation("testthat")[1],
     usethis = citation("usethis")[1]
 )
-
-write.bibtex(bib, file = "biocthis.bib")
 ```
 
 Note that `r Biocpkg("biocthis")` is not a Bioconductor-core package and as such it is not a Bioconductor official package. It was made by and for Leonardo Collado-Torres so he could more easily maintain and create Bioconductor packages as listed at [lcolladotor.github.io/pkgs/](https://lcolladotor.github.io/pkgs/). Hopefully `r Biocpkg("biocthis")`  will be helpful for you too.
@@ -91,7 +85,7 @@ BiocManager::install("lcolladotor/biocthis")
 
 ## Required knowledge
 
-`r Biocpkg("biocthis")` is based on many other packages and in particular in those that have implemented the infrastructure needed for creating tidyverse-style R packages. That is `r CRANpkg("usethis")` `r citep(bib[["usethis"]])`, `r CRANpkg("devtools")` `r citep(bib[["devtools"]])`, and `r CRANpkg("testthat")` `r citep(bib[["testthat"]])`. It will also be helpful if you are familiar with `r CRANpkg("styler")` `r citep(bib[["styler"]])`. Finally, we highly recommend that you run `r Biocpkg("biocthis")` within [RStudio Desktop](https://www.rstudio.com/products/rstudio/download).
+`r Biocpkg("biocthis")` is based on many other packages and in particular in those that have implemented the infrastructure needed for creating tidyverse-style R packages. That is `r CRANpkg("usethis")` `r Citep(bib[["usethis"]])`, `r CRANpkg("devtools")` `r Citep(bib[["devtools"]])`, and `r CRANpkg("testthat")` `r Citep(bib[["testthat"]])`. It will also be helpful if you are familiar with `r CRANpkg("styler")` `r Citep(bib[["styler"]])`. Finally, we highly recommend that you run `r Biocpkg("biocthis")` within [RStudio Desktop](https://www.rstudio.com/products/rstudio/download).
 
 If you are asking yourself the question "Where do I start using Bioconductor?" you might be interested in [this blog post](http://lcolladotor.github.io/2014/10/16/startbioc/#.VkOKbq6rRuU).
 
@@ -157,14 +151,14 @@ If you run `use_bioc_pkg_templates()` inside RStudio Desktop, then all the scrip
   - Uses the tidyverse-style GitHub contributing and code of conduct files
   - Creates a template Bioconductor-friendly `CITATION` file
   - Adds several badges to the `README.Rmd` file ^[You might want to use `r CRANpkg("badger")` too, which has badges for Bioconductor download statistics. Some of the badges are only tailored for Bioconductor *software* packages, so you'll have to edit them for annotation, experiment and workflow packages.]
-  - Sets up unit tests using `r CRANpkg("testthat")` `r citep(bib[["testthat"]])`
+  - Sets up unit tests using `r CRANpkg("testthat")` `r Citep(bib[["testthat"]])`
   - Adds a Bioconductor-friendly GitHub Actions workflow
-  - Deploys an initial documentation website using `r CRANpkg("pkgdown")` `r citep(bib[["pkgdown"]])`
+  - Deploys an initial documentation website using `r CRANpkg("pkgdown")` `r Citep(bib[["pkgdown"]])`
 * `04_update.R`
-  - Automatically styles the R code in your package using `r CRANpkg("styler")` `r citep(bib[["styler"]])`
-  - Update the documentation file using `r CRANpkg("devtools")` `r citep(bib[["devtools"]])`
+  - Automatically styles the R code in your package using `r CRANpkg("styler")` `r Citep(bib[["styler"]])`
+  - Update the documentation file using `r CRANpkg("devtools")` `r Citep(bib[["devtools"]])`
   
-Many of these steps are powered by `r CRANpkg("usethis")` `r citep(bib[["usethis"]])` with some of them utilizing `r Biocpkg("biocthis")` `r citep(bib[["biocthis"]])`.
+Many of these steps are powered by `r CRANpkg("usethis")` `r Citep(bib[["usethis"]])` with some of them utilizing `r Biocpkg("biocthis")` `r Citep(bib[["biocthis"]])`.
 
 # `biocthis` functions overview
 
@@ -172,7 +166,7 @@ The `dev` scripts use the different functions provided by `r Biocpkg("biocthis")
 
 ## `bioc_style()`
 
-`bioc_style()` helps you automatically apply a coding style to your R package files using `r CRANpkg("styler")` `r citep(bib[["styler"]])` that is based on the [tidyverse coding style guide](https://style.tidyverse.org/) but modified to make it more similar to the [Bioconductor coding style guide](http://bioconductor.org/developers/how-to/coding-style/).
+`bioc_style()` helps you automatically apply a coding style to your R package files using `r CRANpkg("styler")` `r Citep(bib[["styler"]])` that is based on the [tidyverse coding style guide](https://style.tidyverse.org/) but modified to make it more similar to the [Bioconductor coding style guide](http://bioconductor.org/developers/how-to/coding-style/).
 
 ```{r 'style_code'}
 ## Automatically style the example package
@@ -220,9 +214,9 @@ This [GitHub Actions](https://github.com/features/actions) (GHA) workflow is bas
 
 Furthermore, the `use_bioc_github_action()` GHA workflow provides the following features:
 
-* It runs `r CRANpkg("covr")` `r citep(bib[["covr"]])` unless disabled by the environment variable **`run_covr`** (see the first few lines of the workflow).
-* It automatically deploys a documentation website using `r CRANpkg("pkgdown")` `r citep(bib[["pkgdown"]])` unless disabled by the environment variable **`run_pkgdown`** (see the first few lines of the workflow).
-* It displays the information from `r CRANpkg("testthat")` `r citep(bib[["testthat"]])` unless disabled by the environment variable **`has_testthat`** (see the first few lines of the workflow). Similarly, **`has_RUnit`** controls whether you want to run the `RUnit` tests described in the [Bioconductor unit testing guidelines](http://bioconductor.org/developers/how-to/unitTesting-guidelines/).
+* It runs `r CRANpkg("covr")` `r Citep(bib[["covr"]])` unless disabled by the environment variable **`run_covr`** (see the first few lines of the workflow).
+* It automatically deploys a documentation website using `r CRANpkg("pkgdown")` `r Citep(bib[["pkgdown"]])` unless disabled by the environment variable **`run_pkgdown`** (see the first few lines of the workflow).
+* It displays the information from `r CRANpkg("testthat")` `r Citep(bib[["testthat"]])` unless disabled by the environment variable **`has_testthat`** (see the first few lines of the workflow). Similarly, **`has_RUnit`** controls whether you want to run the `RUnit` tests described in the [Bioconductor unit testing guidelines](http://bioconductor.org/developers/how-to/unitTesting-guidelines/).
 * It caches the R packages and re-uses them for future tests except if you use the keyword `/nocache` in your commit message. Using **`/nocache`** can be helpful for debugging purposes. The caches are specific to the platform, the R version, and the Bioconductor version ^[In some situations, you might want to change the **`cache_version`** environment variable to force GHA to use new caches.]. These caches help you speed up your checks and are updated after a successful build.
 * The machines provided by GitHub have 7GB of RAM, 2 cores and 14 GB of disk as noted in their [help pages](https://help.github.com/en/actions/reference/virtual-environments-for-github-hosted-runners). It's free for open source projects, but you can also pay to use it on private repositories as explained [in their features website](https://github.com/features/actions).
 
@@ -306,7 +300,7 @@ biocthis::use_bioc_support()
 
 ## `use_bioc_vignette()`
 
-`use_bioc_vignette()` creates a template vignette file that is pre-populated with information you might want to use for your (future) Bioconductor package. This template includes information on how to cite other packages using `r CRANpkg("knitcitations")`, styling your vignette with `r Biocpkg("BiocStyle")`, instructions on how to install your package from Bioconductor, where to ask for help, information a user might need to know before they use your package, as well as the reproducibility information on how the vignette was made powered by `r CRANpkg("sessioninfo")`. You will need to spend a significant amount of time editing this vignette as you develop your R package. Alternatively, use `usethis::use_vignette()`.
+`use_bioc_vignette()` creates a template vignette file that is pre-populated with information you might want to use for your (future) Bioconductor package. This template includes information on how to cite other packages using `r CRANpkg("RefManageR")`, styling your vignette with `r Biocpkg("BiocStyle")`, instructions on how to install your package from Bioconductor, where to ask for help, information a user might need to know before they use your package, as well as the reproducibility information on how the vignette was made powered by `r CRANpkg("sessioninfo")`. You will need to spend a significant amount of time editing this vignette as you develop your R package. Alternatively, use `usethis::use_vignette()`.
 
 ```{r 'bioc_vignette'}
 ## Create a template vignette file that is Bioconductor-friendly
@@ -322,23 +316,23 @@ Thank you very much! 🙌🏽😊
 
 # Reproducibility
 
-The `r Biocpkg("biocthis")` package `r citep(bib[["biocthis"]])` was made possible thanks to:
+The `r Biocpkg("biocthis")` package `r Citep(bib[["biocthis"]])` was made possible thanks to:
 
-* R `r citep(bib[["R"]])`
-* `r Biocpkg("BiocStyle")` `r citep(bib[["BiocStyle"]])`
-* `r CRANpkg("covr")` `r citep(bib[["covr"]])`
-* `r CRANpkg("devtools")` `r citep(bib[["devtools"]])`
-* `r CRANpkg("fs")` `r citep(bib[["fs"]])`
-* `r CRANpkg("glue")` `r citep(bib[["glue"]])`
-* `r CRANpkg("knitcitations")` `r citep(bib[["knitcitations"]])`
-* `r CRANpkg("knitr")` `r citep(bib[["knitr"]])`
-* `r CRANpkg("pkgdown")` `r citep(bib[["pkgdown"]])`
-* `r CRANpkg("rlang")` `r citep(bib[["rlang"]])`
-* `r CRANpkg("rmarkdown")` `r citep(bib[["rmarkdown"]])`
-* `r CRANpkg("sessioninfo")` `r citep(bib[["sessioninfo"]])`
-* `r CRANpkg("styler")` `r citep(bib[["styler"]])`
-* `r CRANpkg("testthat")` `r citep(bib[["testthat"]])`
-* `r CRANpkg("usethis")` `r citep(bib[["usethis"]])`
+* R `r Citep(bib[["R"]])`
+* `r Biocpkg("BiocStyle")` `r Citep(bib[["BiocStyle"]])`
+* `r CRANpkg("covr")` `r Citep(bib[["covr"]])`
+* `r CRANpkg("devtools")` `r Citep(bib[["devtools"]])`
+* `r CRANpkg("fs")` `r Citep(bib[["fs"]])`
+* `r CRANpkg("glue")` `r Citep(bib[["glue"]])`
+* `r CRANpkg("knitr")` `r Citep(bib[["knitr"]])`
+* `r CRANpkg("pkgdown")` `r Citep(bib[["pkgdown"]])`
+* `r CRANpkg("rlang")` `r Citep(bib[["rlang"]])`
+* `r CRANpkg("RefManageR")` `r Citep(bib[["RefManageR"]])`
+* `r CRANpkg("rmarkdown")` `r Citep(bib[["rmarkdown"]])`
+* `r CRANpkg("sessioninfo")` `r Citep(bib[["sessioninfo"]])`
+* `r CRANpkg("styler")` `r Citep(bib[["styler"]])`
+* `r CRANpkg("testthat")` `r Citep(bib[["testthat"]])`
+* `r CRANpkg("usethis")` `r Citep(bib[["usethis"]])`
 
 This package was developed using `r BiocStyle::Biocpkg("biocthis")`.
 
@@ -353,11 +347,6 @@ system.time(render("biocthis.Rmd", "BiocStyle::html_document"))
 ## Extract the R code
 library("knitr")
 knit("biocthis.Rmd", tangle = TRUE)
-```
-
-```{r createVignette2}
-## Clean up
-file.remove("biocthis.bib")
 ```
 
 Date the vignette was generated.
@@ -388,12 +377,12 @@ session_info()
 
 # Bibliography
 
-This vignette was generated using `r Biocpkg("BiocStyle")` `r citep(bib[["BiocStyle"]])`
-with `r CRANpkg("knitr")` `r citep(bib[["knitr"]])` and `r CRANpkg("rmarkdown")` `r citep(bib[["rmarkdown"]])` running behind the scenes.
+This vignette was generated using `r Biocpkg("BiocStyle")` `r Citep(bib[["BiocStyle"]])`
+with `r CRANpkg("knitr")` `r Citep(bib[["knitr"]])` and `r CRANpkg("rmarkdown")` `r Citep(bib[["rmarkdown"]])` running behind the scenes.
 
-Citations made with `r CRANpkg("knitcitations")` `r citep(bib[["knitcitations"]])`.
+Citations made with `r CRANpkg('RefManageR')` `r Citep(bib[['RefManageR']])`.
 
 ```{r vignetteBiblio, results = "asis", echo = FALSE, warning = FALSE, message = FALSE}
 ## Print bibliography
-bibliography()
+PrintBibliography(bib, .opts = list(hyperlink = "to.doc", style = "html"))
 ```
