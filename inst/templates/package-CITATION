@@ -1,7 +1,7 @@
 pkgVer <- function(pkg) {
     if (!exists("meta") || is.null(meta)) meta <- packageDescription(pkg)
     ver <- meta$Version
-    paste0('https://github.com/{{Owner}}/', pkg, ' - R package version ', ver)
+    paste0('https://github.com/{{github_spec}}/', pkg, ' - R package version ', ver)
 }
 
 c(
@@ -9,7 +9,7 @@ c(
     bibentry(bibtype="manual",
         title = "{{Title}}",
         author = personList(
-            as.person("{{Owner}}")
+            as.person("{{github_owner}}")
         ),
         year = format(Sys.Date(), "%Y"),
         url = "http://www.bioconductor.org/packages/{{Package}}",
@@ -19,9 +19,9 @@ c(
     bibentry(bibtype="article",
         title = "{{Title}}",
         author = personList(
-            as.person("{{Owner}}")
+            as.person("{{github_owner}}")
         ),
-        year = 2020,
+        year = format(Sys.Date(), "%Y"),
         journal = "bioRxiv",
         doi = "10.1101/TODO",
         url = "https://www.biorxiv.org/content/10.1101/TODO"

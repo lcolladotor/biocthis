@@ -48,6 +48,8 @@ use_bioc_description <- function(biocViews = "Software", report_bioc = TRUE) {
     else
         import <- NULL
 
+    data <- usethis:::project_data()
+
     desc_info <-
         usethis::use_description_defaults(
             basename(usethis::proj_get()),
@@ -58,14 +60,12 @@ use_bioc_description <- function(biocViews = "Software", report_bioc = TRUE) {
                 Date = Sys.Date(),
                 Imports = import,
                 URL = file.path("https://github.com",
-                    usethis:::github_owner(),
-                    usethis:::github_repo()),
+                    data$github_spec),
                 BugReports = if(report_bioc)
                     paste0("https://support.bioconductor.org/t/", pkg) else
                         file.path("https://github.com",
-                            usethis:::github_owner(),
-                            usethis:::github_repo(),
-                            "issues/")
+                            data$github_spec,
+                            "/issues/")
             )
         )
     usethis::use_description(desc_info)
