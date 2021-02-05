@@ -14,11 +14,6 @@ usethis::use_git() ## Choose the option to make the commit, then to restart RStu
 ## GitHub. You might want to use the `organisation` and `private` arguments
 args(usethis::use_github)
 
-## If this is your first time running use_github(), you might have to also run:
-usethis::gh_token_help()
-usethis::create_github_token()
-usethis::edit_r_environ()
-
 ## Setup ssh keys as described in detail at
 ## https://happygitwithr.com/ssh-keys.html
 
@@ -27,15 +22,24 @@ usethis::edit_r_profile()
 ## And add the following to your Rprofile (without the first ##):
 ## ## For usethis::use_git()
 ## options(usethis.protocol = "ssh")
+##
+## Otherwise you might run into this problem
+## https://github.com/r-lib/usethis/issues/1347 or similar ones.
 
 ## Then re-start R
 rstudioapi::restartSession()
+
+## If this is your first time running use_github(), you might have to also run:
+usethis::gh_token_help()
+usethis::create_github_token()
+usethis::edit_r_environ()
+## This whole process is documented in detail at
+## https://usethis.r-lib.org/articles/articles/git-credentials.html.
 
 ## Now run use_github()
 usethis::use_github()
 ## Follow any prompts, such as running on the terminal:
 ## git push --set-upstream origin master
-
 
 ## Move to the next step: setting up your package core files
 rstudioapi::navigateToFile(usethis::proj_path("dev", "03_core_files.R"))
