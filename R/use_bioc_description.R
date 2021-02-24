@@ -42,12 +42,12 @@ use_bioc_description <- function(biocViews = "Software", report_bioc = TRUE) {
     pkg <- usethis:::project_name()
 
     if (biocViews == "AnnotationHub") {
-          import <- "AnnotationHubData"
-      } else if (biocViews == "ExperimentHub") {
-          import <- "ExperimentHubData, ExperimentHub"
-      } else {
-          import <- NULL
-      }
+        import <- "AnnotationHubData"
+    } else if (biocViews == "ExperimentHub") {
+        import <- "ExperimentHubData, ExperimentHub"
+    } else {
+        import <- NULL
+    }
 
     desc_info <-
         usethis::use_description_defaults(
@@ -63,14 +63,14 @@ use_bioc_description <- function(biocViews = "Software", report_bioc = TRUE) {
                     get_github_spec()
                 ),
                 BugReports = if (report_bioc) {
-                      paste0("https://support.bioconductor.org/t/", pkg)
-                  } else {
-                      file.path(
-                          "https://github.com",
-                          get_github_spec(),
-                          "/issues/"
-                      )
-                  }
+                    paste0("https://support.bioconductor.org/t/", pkg)
+                } else {
+                    file.path(
+                        "https://github.com",
+                        get_github_spec(),
+                        "/issues/"
+                    )
+                }
             )
         )
     usethis::use_description(desc_info)

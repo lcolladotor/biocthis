@@ -114,6 +114,7 @@ use_bioc_github_action <- function(
     }
 
     ## Set the variables to be used in the template GHA workflow
+    repo_spec <- get_github_spec()
     datalist <- list(
         dockerversion = biocdocker,
         rvernum = .GHARversion(biocdocker)["R"],
@@ -129,7 +130,7 @@ use_bioc_github_action <- function(
             'remotes::install_cran("pkgdown")'
         ),
         run_docker = ifelse(docker, "true", "false"),
-        github_spec_lowercase = tolower(get_github_spec())
+        github_spec_lowercase = if (!is.null(repo_spec)) tolower(repo_spec) else ""
     )
 
     ## Locate the template GHA workflow

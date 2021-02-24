@@ -48,7 +48,7 @@ devtools::build_readme()
 biocthis::use_bioc_news_md()
 
 ## Add information for users and contributors
-usethis::use_tidy_coc()
+biocthis::use_bioc_coc()
 usethis::use_tidy_contributing()
 biocthis::use_bioc_support()
 biocthis::use_bioc_issue_template()

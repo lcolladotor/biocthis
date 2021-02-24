@@ -1,3 +1,9 @@
+# biocthis 1.0.10
+
+NEW FEATURES
+
+* Added the function `use_bioc_coc()` as requested by Luke Zappia et al.
+
 # biocthis 1.0.9
 
 NEW FEATURES
