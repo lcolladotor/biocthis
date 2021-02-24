@@ -14,27 +14,28 @@ usethis::use_git() ## Choose the option to make the commit, then to restart RStu
 ## GitHub. You might want to use the `organisation` and `private` arguments
 args(usethis::use_github)
 
-## Setup ssh keys as described in detail at
-## https://happygitwithr.com/ssh-keys.html
-
-## Open your Rprofile file
-usethis::edit_r_profile()
-## And add the following to your Rprofile (without the first ##):
-## ## For usethis::use_git()
-## options(usethis.protocol = "ssh")
-##
-## Otherwise you might run into this problem
-## https://github.com/r-lib/usethis/issues/1347 or similar ones.
-
-## Then re-start R
-rstudioapi::restartSession()
-
 ## If this is your first time running use_github(), you might have to also run:
 usethis::gh_token_help()
+## The above command will suggest that you read more at
+## https://usethis.r-lib.org/articles/articles/git-credentials.html
+## which contains the latest recommendations by the usethis authors for
+## configuring your R to GitHub connection.
 usethis::create_github_token()
+gitcreds::gitcreds_set()
+## Type your GitHub token, not your password! Otherwise you might run into this
+## problem: https://github.com/r-lib/usethis/issues/1347
+
+## In some situations, gitcreds::gitcreds_set() might not work. If that's the
+## case, you might have to rely on the old workflow of editing your
+## .Renviron file with contents like (note the empty line at the end!):
+# GITHUB_PAT=YOUR_40_CHARACTERS_TOKEN
+#
 usethis::edit_r_environ()
-## This whole process is documented in detail at
-## https://usethis.r-lib.org/articles/articles/git-credentials.html.
+## Then re-start your R session.
+rstudioapi::restartSession()
+## Editing the .Renviron is strongly discouraged now since it stores as
+## simple text your GitHub personal access token (PAT) instead of the
+## more secure approach provided by gitcreds.
 
 ## Now run use_github()
 usethis::use_github()
