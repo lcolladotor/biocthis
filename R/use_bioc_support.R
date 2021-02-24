@@ -29,7 +29,7 @@ use_bioc_support <- function() {
     usethis:::use_dot_github()
     data <- list(
         Package = usethis:::project_name(),
-        github_spec = usethis:::target_repo_spec()
+        github_spec = get_github_spec()
     )
     use_template("bioc-support.md", fs::path(".github", "SUPPORT.md"),
         data = data, package = "biocthis"

@@ -60,14 +60,14 @@ use_bioc_description <- function(biocViews = "Software", report_bioc = TRUE) {
                 Imports = import,
                 URL = file.path(
                     "https://github.com",
-                    usethis:::target_repo_spec()
+                    get_github_spec()
                 ),
                 BugReports = if (report_bioc) {
                       paste0("https://support.bioconductor.org/t/", pkg)
                   } else {
                       file.path(
                           "https://github.com",
-                          usethis:::target_repo_spec(),
+                          get_github_spec(),
                           "/issues/"
                       )
                   }
