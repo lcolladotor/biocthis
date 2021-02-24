@@ -42,7 +42,9 @@
 #' ## Create the biocthis templates
 #' biocthis::use_bioc_pkg_templates()
 use_bioc_pkg_templates <- function(open = rlang::is_interactive()) {
-    data <- usethis:::project_data()
+    data <- list(
+        Package = usethis:::project_name()
+    )
     use_directory("dev")
     use_build_ignore(fs::path("dev"))
     use_template("01_create_pkg.R", fs::path("dev", "01_create_pkg.R"),

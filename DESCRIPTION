@@ -1,7 +1,7 @@
 Package: biocthis
 Title: Automate package and project setup for Bioconductor packages
-Version: 1.0.6
-Date: 2021-02-05
+Version: 1.0.7
+Date: 2021-02-23
 Authors@R: 
     c(
     person("Leonardo", "Collado-Torres", role = c("aut", "cre"), 
@@ -26,7 +26,7 @@ Imports:
     glue,
     rlang,
     styler,
-    usethis (>= 2.0.0)
+    usethis (>= 2.0.1)
 Suggests: 
     BiocStyle,
     covr,

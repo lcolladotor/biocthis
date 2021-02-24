@@ -88,6 +88,7 @@ usethis::edit_git_config()
 # [user]
 #     name = Your Full Name
 #     email = your.email@somewhere.com
+#
 
 ## ************************* WARNING START *********************************
 ## WARNING: git commit before running this next function!

@@ -56,10 +56,13 @@ biocthis_vignette_template <- function(template, name, title) {
     use_git_ignore(c("*.html", "*.R"), directory = "vignettes")
     use_package("rmarkdown", "Suggests")
     path <- fs::path("vignettes", usethis:::asciify(name), ext = "Rmd")
-    data <- usethis:::project_data()
-    data$vignette_title <- title
-    data$braced_vignette_title <- glue::glue("{{{title}}}")
-    data$vignette_name <- name
+    data <- list(
+        Package = usethis:::project_name(),
+        github_spec = usethis:::target_repo_spec(),
+        vignette_title = title,
+        braced_vignette_title = glue::glue("{{{title}}}"),
+        vignette_name = name
+    )
     use_template(template, save_as = path, data = data, open = TRUE, package = "biocthis")
     path
 }

@@ -27,7 +27,10 @@
 #' biocthis::use_bioc_citation()
 use_bioc_citation <- function() {
     use_directory("inst")
-    data <- usethis:::project_data()
+    data <- list(
+        Package = usethis:::project_name(),
+        github_spec = usethis:::target_repo_spec()
+    )
     use_template("package-CITATION", fs::path("inst", "CITATION"),
         data = data, open = TRUE, package = "biocthis"
     )
