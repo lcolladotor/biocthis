@@ -25,8 +25,10 @@ gitcreds::gitcreds_set()
 ## Type your GitHub token, not your password! Otherwise you might run into this
 ## problem: https://github.com/r-lib/usethis/issues/1347
 
-## In some situations, gitcreds::gitcreds_set() might not work. If that's the
-## case, you might have to rely on the old workflow of editing your
+## In some situations, gitcreds::gitcreds_set() might not work. For example,
+## gitcreds::gitcreds_set() is not supported on Linux as discussed at
+## https://github.com/r-lib/gitcreds/issues/29. In these situations,
+## you have to rely on the old workflow of editing your
 ## .Renviron file with contents like (note the empty line at the end!):
 # GITHUB_PAT=YOUR_40_CHARACTERS_TOKEN
 #
