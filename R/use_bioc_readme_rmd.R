@@ -32,7 +32,7 @@
 #' biocthis::use_bioc_readme_rmd()
 use_bioc_readme_rmd <- function(open = rlang::is_interactive()) {
     usethis:::check_installed("rmarkdown")
-    repo_spec <- tryCatch(usethis:::target_repo_spec(ask = FALSE), error = function(e) NULL)
+    repo_spec <- get_github_spec()
     data <- list(
         Package = usethis:::project_name(),
         Rmd = TRUE,

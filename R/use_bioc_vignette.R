@@ -58,7 +58,7 @@ biocthis_vignette_template <- function(template, name, title) {
     path <- fs::path("vignettes", usethis:::asciify(name), ext = "Rmd")
     data <- list(
         Package = usethis:::project_name(),
-        github_spec = usethis:::target_repo_spec(),
+        github_spec = get_github_spec(),
         vignette_title = title,
         braced_vignette_title = glue::glue("{{{title}}}"),
         vignette_name = name

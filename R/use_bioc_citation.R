@@ -27,9 +27,11 @@
 #' biocthis::use_bioc_citation()
 use_bioc_citation <- function() {
     use_directory("inst")
+    repo_spec <- get_github_spec()
     data <- list(
         Package = usethis:::project_name(),
-        github_spec = usethis:::target_repo_spec()
+        github_spec = repo_spec,
+        github_owner = if (!is.null(repo_spec)) dirname(repo_spec) else ""
     )
     use_template("package-CITATION", fs::path("inst", "CITATION"),
         data = data, open = TRUE, package = "biocthis"
