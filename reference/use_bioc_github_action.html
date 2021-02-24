@@ -75,7 +75,7 @@ Actions workflow by executing usethis::use_github_action()." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">biocthis</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.8</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.10</span>
       </span>
     </div>
 
@@ -147,7 +147,8 @@ Actions workflow by executing <code><a href='https://usethis.r-lib.org/reference
   testthat <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"biocthis.testthat"</span>, <span class='cn'>FALSE</span><span class='op'>)</span>,
   covr <span class='op'>=</span> <span class='va'>testthat</span>,
   RUnit <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"biocthis.RUnit"</span>, <span class='cn'>FALSE</span><span class='op'>)</span>,
-  pkgdown_covr_branch <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"biocthis.pkgdown_covr_branch"</span>, <span class='st'>"master"</span><span class='op'>)</span>
+  pkgdown_covr_branch <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"biocthis.pkgdown_covr_branch"</span>, <span class='st'>"master"</span><span class='op'>)</span>,
+  docker <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"biocthis.docker"</span>, <span class='cn'>FALSE</span><span class='op'>)</span>
 <span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -196,6 +197,11 @@ for more information about <code>RUnit</code>.</p></td>
       <th>pkgdown_covr_branch</th>
       <td><p>A <code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code> specifying the name of the GitHub
 branch that will be used creating the <code>pkgdown</code> website and running <code>covr</code>.</p></td>
+    </tr>
+    <tr>
+      <th>docker</th>
+      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code> specifying whether to build a docker image
+with the resulting package.</p></td>
     </tr>
     </table>
 

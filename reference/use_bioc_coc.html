@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create a biocthis-style DESCRIPTION template — use_bioc_description • biocthis</title>
+<title>Create a Bioconductor-styled code of conduct — use_bioc_coc • biocthis</title>
 
 
 <!-- jquery -->
@@ -39,12 +39,13 @@
 
 
 
-<meta property="og:title" content="Create a biocthis-style DESCRIPTION template — use_bioc_description" />
-<meta property="og:description" content="This function is very similar to usethis::use_description() except
-that it uses a template from biocthis. This template includes some of the
-information expected in the DESCRIPTION file of a Bioconductor package. You
-can compare the output of this function to the one from
-usethis::use_description() to select the parts you want from each." />
+<meta property="og:title" content="Create a Bioconductor-styled code of conduct — use_bioc_coc" />
+<meta property="og:description" content="This function is very similar to usethis::use_tidy_cov() except
+that it uses a template from biocthis. This template links to the
+Bioconductor Code of Conduct available at
+http://bioconductor.org/about/code-of-conduct/. The function adds by
+default the file .github/CODE_OF_CONDUCT.md with a brief overview of
+the Bioconductor Code of Conduct and links to the latest version." />
 
 
 
@@ -130,60 +131,48 @@ usethis::use_description() to select the parts you want from each." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create a biocthis-style DESCRIPTION template</h1>
-    <small class="dont-index">Source: <a href='https://github.com/lcolladotor/biocthis/blob/master/R/use_bioc_description.R'><code>R/use_bioc_description.R</code></a></small>
-    <div class="hidden name"><code>use_bioc_description.Rd</code></div>
+    <h1>Create a Bioconductor-styled code of conduct</h1>
+    <small class="dont-index">Source: <a href='https://github.com/lcolladotor/biocthis/blob/master/R/use_bioc_coc.R'><code>R/use_bioc_coc.R</code></a></small>
+    <div class="hidden name"><code>use_bioc_coc.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function is very similar to <code><a href='https://usethis.r-lib.org/reference/use_description.html'>usethis::use_description()</a></code> except
-that it uses a template from <code>biocthis</code>. This template includes some of the
-information expected in the DESCRIPTION file of a Bioconductor package. You
-can compare the output of this function to the one from
-<code><a href='https://usethis.r-lib.org/reference/use_description.html'>usethis::use_description()</a></code> to select the parts you want from each.</p>
+    <p>This function is very similar to <code>usethis::use_tidy_cov()</code> except
+that it uses a template from <code>biocthis</code>. This template links to the
+Bioconductor Code of Conduct available at
+<a href='http://bioconductor.org/about/code-of-conduct/'>http://bioconductor.org/about/code-of-conduct/</a>. The function adds by
+default the file <code>.github/CODE_OF_CONDUCT.md</code> with a brief overview of
+the Bioconductor Code of Conduct and links to the latest version.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>use_bioc_description</span><span class='op'>(</span>biocViews <span class='op'>=</span> <span class='st'>"Software"</span>, report_bioc <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>use_bioc_coc</span><span class='op'>(</span>path <span class='op'>=</span> <span class='st'>".github"</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>biocViews</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/character.html'>character()</a></code> with the Bioconductor biocViews terms you
-want to use for your package. See
-<a href='https://bioconductor.org/packages/release/BiocViews.html'>https://bioconductor.org/packages/release/BiocViews.html</a> for details. Note
-that the terms you choose have to be part of one of the main four trees:
-software, annotation, experiment or workflow.</p></td>
-    </tr>
-    <tr>
-      <th>report_bioc</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code> indicating whether to set the <code>BugReports</code>
-to the Bioconductor Support website <a href='https://support.bioconductor.org/'>https://support.bioconductor.org/</a>
-or to the GitHub package issues page.</p></td>
+      <th>path</th>
+      <td><p>A <code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code> specifying the location where the
+<code>CODE_OF_CONDUCT.md</code> will be saved at in relation to the root of your
+R package.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>This function adds and/or replaces the <code>DESCRIPTION</code> file in your
-R package.</p>
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>For details about the DESCRIPTION file guidelines for Bioconductor
-packages check
-<a href='http://bioconductor.org/developers/package-guidelines/#description'>http://bioconductor.org/developers/package-guidelines/#description</a>.</p>
+    <p>This function adds and/or replaces the <code>.github/CODE_OF_CONDUCT.md</code>
+file in your R package.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='co'>## Run this function in your package</span>
-<span class='fu'>use_bioc_description</span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'>use_bioc_coc</span><span class='op'>(</span><span class='op'>)</span>
 <span class='op'>}</span>
 
 <span class='co'>## Create an example package for illustrative purposes.</span>
 <span class='co'>## Note: you do not need to run this for your own package!</span>
-<span class='va'>pkgdir</span> <span class='op'>&lt;-</span> <span class='fu'><a href='biocthis_example_pkg.html'>biocthis_example_pkg</a></span><span class='op'>(</span>use_git <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='va'>pkgdir</span> <span class='op'>&lt;-</span> <span class='fu'><a href='biocthis_example_pkg.html'>biocthis_example_pkg</a></span><span class='op'>(</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='message'><span style='color: #00BB00;'>✔</span><span> Leaving </span><span style='color: #0000BB;'>'DESCRIPTION'</span><span> unchanged</span></div><div class='output co'>#&gt; </span><span style='color: #0000BB;'>Package</span><span>: biocthisexample
 #&gt; </span><span style='color: #0000BB;'>Title</span><span>: What the Package Does (One Line, Title Case)
 #&gt; </span><span style='color: #0000BB;'>Version</span><span>: 0.0.0.9000
@@ -195,24 +184,11 @@ packages check
 #&gt; </span><span style='color: #0000BB;'>Encoding</span><span>: UTF-8
 #&gt; </span><span style='color: #0000BB;'>LazyData</span><span>: true
 #&gt; </span><span style='color: #0000BB;'>Roxygen</span><span>: list(markdown = TRUE)
-#&gt; </span><span style='color: #0000BB;'>RoxygenNote</span><span>: 7.1.1</div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔</span><span> Initialising Git repo</span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔</span><span> Adding </span><span style='color: #0000BB;'>'.Rproj.user'</span><span>, </span><span style='color: #0000BB;'>'.Rhistory'</span><span>, </span><span style='color: #0000BB;'>'.Rdata'</span><span>, </span><span style='color: #0000BB;'>'.httr-oauth'</span><span>, </span><span style='color: #0000BB;'>'.DS_Store'</span><span> to </span><span style='color: #0000BB;'>'.gitignore'</span><span></span></div><div class='input'>
-<span class='co'>## Create a template DESCRIPTION file that is Bioconductor-friendly</span>
-<span class='fu'>biocthis</span><span class='fu'>::</span><span class='fu'>use_bioc_description</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔</span><span> Leaving </span><span style='color: #0000BB;'>'DESCRIPTION'</span><span> unchanged</span></div><div class='output co'>#&gt; </span><span style='color: #0000BB;'>Package</span><span>: biocthisexample
-#&gt; </span><span style='color: #0000BB;'>Title</span><span>: What the Package Does (One Line, Title Case)
-#&gt; </span><span style='color: #0000BB;'>Version</span><span>: 0.99.0
-#&gt; </span><span style='color: #0000BB;'>Date</span><span>: 2021-02-24
-#&gt; </span><span style='color: #0000BB;'>Authors@R</span><span> (parsed):
-#&gt;     * First Last &lt;first.last@example.com&gt; [aut, cre] (YOUR-ORCID-ID)
-#&gt; </span><span style='color: #0000BB;'>Description</span><span>: What the package does (one paragraph).
-#&gt; </span><span style='color: #0000BB;'>License</span><span>: Artistic-2.0
-#&gt; </span><span style='color: #0000BB;'>URL</span><span>:
-#&gt; </span><span style='color: #0000BB;'>BugReports</span><span>: https://support.bioconductor.org/t/biocthisexample
-#&gt; </span><span style='color: #0000BB;'>biocViews</span><span>: Software
-#&gt; </span><span style='color: #0000BB;'>Encoding</span><span>: UTF-8
-#&gt; </span><span style='color: #0000BB;'>LazyData</span><span>: true
-#&gt; </span><span style='color: #0000BB;'>Roxygen</span><span>: list(markdown = TRUE)
-#&gt; </span><span style='color: #0000BB;'>RoxygenNote</span><span>: 7.1.1</div></span></pre>
+#&gt; </span><span style='color: #0000BB;'>RoxygenNote</span><span>: 7.1.1</div><div class='input'>
+<span class='co'>## Create a Bioconductor-styled CODE_OF_CONDUCT.md</span>
+<span class='fu'>biocthis</span><span class='fu'>::</span><span class='fu'>use_bioc_coc</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔</span><span> Creating </span><span style='color: #0000BB;'>'.github/'</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔</span><span> Adding </span><span style='color: #0000BB;'>'^\\.github$'</span><span> to </span><span style='color: #0000BB;'>'.Rbuildignore'</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔</span><span> Adding </span><span style='color: #0000BB;'>'*.html'</span><span> to </span><span style='color: #0000BB;'>'.github/.gitignore'</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔</span><span> Writing </span><span style='color: #0000BB;'>'.github/CODE_OF_CONDUCT.md'</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #BB0000;'>●</span><span> Don't forget to describe the code of conduct in your README:</span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #555555;'>  ## Code of Conduct</span>
+#&gt; <span class='message'>  Please note that the biocthisexample project is released with a [Contributor Code of Conduct](http://bioconductor.org/about/code-of-conduct/). By contributing to this project, you agree to abide by its terms.</span><span></span></div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
