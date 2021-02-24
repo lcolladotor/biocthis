@@ -39,6 +39,7 @@ env:
   run_pkgdown: 'true'
   has_RUnit: 'false'
   cache-version: 'cache-v1'
+  run_docker: 'false'
 
 jobs:
   build-check:
@@ -173,7 +174,7 @@ jobs:
           ## Pass #2 at installing dependencies
           message(paste('****', Sys.time(), 'pass number 2 at installing dependencies: any remaining dependencies ****'))
           remotes::install_local(dependencies = TRUE, repos = BiocManager::repositories(), build_vignettes = TRUE, upgrade = TRUE)
-          
+
           ## For running the checks
           message(paste('****', Sys.time(), 'installing rcmdcheck and BiocCheck ****'))
           remotes::install_cran("rcmdcheck")
@@ -267,3 +268,13 @@ jobs:
         with:
           name: ${{ runner.os }}-biocversion-RELEASE_3_12-r-4.0-results
           path: check
+
+      - uses: docker/build-push-action@v1
+        if: "!contains(github.event.head_commit.message, '/nodocker') && env.run_docker == 'true' && runner.os == 'Linux' "
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: lcolladotor/biocthis
+          tag_with_ref: true
+          tag_with_sha: true
+          tags: latest

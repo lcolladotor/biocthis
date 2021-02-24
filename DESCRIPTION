@@ -1,6 +1,6 @@
 Package: biocthis
 Title: Automate package and project setup for Bioconductor packages
-Version: 1.1.8
+Version: 1.1.9
 Date: 2021-02-24
 Authors@R: 
     c(
