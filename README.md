@@ -79,8 +79,8 @@ library("biocthis")
 ## Create an example package for illustrative purposes.
 ## Note: you do not need to run this for your own package!
 pkgdir <- biocthis_example_pkg()
-#> √ Creating 'C:/Users/fellg/AppData/Local/Temp/Rtmpmg5yPT/biocthisexample/'
-#> √ Setting active project to 'C:/Users/fellg/AppData/Local/Temp/Rtmpmg5yPT/biocthisexample'
+#> √ Creating 'C:/Users/fellg/AppData/Local/Temp/Rtmp0m7tN7/biocthisexample/'
+#> √ Setting active project to 'C:/Users/fellg/AppData/Local/Temp/Rtmp0m7tN7/biocthisexample'
 #> √ Creating 'R/'
 #> √ Writing 'DESCRIPTION'
 #> Package: biocthisexample
@@ -97,7 +97,7 @@ pkgdir <- biocthis_example_pkg()
 #> RoxygenNote: 7.1.1
 #> √ Writing 'NAMESPACE'
 #> √ Setting active project to '<no active project>'
-#> √ Setting active project to 'C:/Users/fellg/AppData/Local/Temp/Rtmpmg5yPT/biocthisexample'
+#> √ Setting active project to 'C:/Users/fellg/AppData/Local/Temp/Rtmp0m7tN7/biocthisexample'
 
 ## Create the bioc templates
 biocthis::use_bioc_pkg_templates()
@@ -148,7 +148,7 @@ print(citation("biocthis"), bibtex = TRUE)
 #> Bioconductor packages_. doi: 10.18129/B9.bioc.biocthis (URL:
 #> https://doi.org/10.18129/B9.bioc.biocthis),
 #> https://github.com/lcolladotor/biocthisbiocthis - R package version
-#> 1.1.7, <URL: http://www.bioconductor.org/packages/biocthis>.
+#> 1.1.10, <URL: http://www.bioconductor.org/packages/biocthis>.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
@@ -157,7 +157,7 @@ print(citation("biocthis"), bibtex = TRUE)
 #>     author = {Leonardo Collado-Torres},
 #>     year = {2021},
 #>     url = {http://www.bioconductor.org/packages/biocthis},
-#>     note = {https://github.com/lcolladotor/biocthisbiocthis - R package version 1.1.7},
+#>     note = {https://github.com/lcolladotor/biocthisbiocthis - R package version 1.1.10},
 #>     doi = {10.18129/B9.bioc.biocthis},
 #>   }
 #> 
@@ -185,9 +185,8 @@ the vignettes and/or the paper(s) describing this package.
 ## Code of Conduct
 
 Please note that the `biocthis` project is released with a [Contributor
-Code of
-Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
-By contributing to this project, you agree to abide by its terms.
+Code of Conduct](http://bioconductor.org/about/code-of-conduct/). By
+contributing to this project, you agree to abide by its terms.
 
 ## Development tools
 
