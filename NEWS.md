@@ -1,3 +1,11 @@
+# biocthis 1.0.9
+
+NEW FEATURES
+
+* Now `use_bioc_github_action()` has a `docker` argument which controls whether
+to build a docker image at the end of the GHA workflow (only on Linux) as
+requested by Kévin Rue-Albrecht.
+
 # biocthis 1.0.7
 
 BUG FIXES

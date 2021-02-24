@@ -71,6 +71,8 @@
 #' for more information about `RUnit`.
 #' @param pkgdown_covr_branch A `character(1)` specifying the name of the GitHub
 #' branch that will be used creating the `pkgdown` website and running `covr`.
+#' @param docker A `logical(1)` specifying whether to build a docker image
+#' with the resulting package.
 #'
 #' @return This function adds and/or replaces the
 #' `.github/workflows/check-bioc.yml` file in your R package.
@@ -98,7 +100,8 @@ use_bioc_github_action <- function(
     testthat = getOption("biocthis.testthat", FALSE),
     covr = testthat,
     RUnit = getOption("biocthis.RUnit", FALSE),
-    pkgdown_covr_branch = getOption("biocthis.pkgdown_covr_branch", "master")) {
+    pkgdown_covr_branch = getOption("biocthis.pkgdown_covr_branch", "master"),
+    docker = getOption("biocthis.docker", FALSE)) {
     if (!missing(biocdocker)) {
         if (!grepl("^devel$|^RELEASE_", biocdocker[[1]])) {
             stop(
@@ -124,7 +127,9 @@ use_bioc_github_action <- function(
             biocdocker == "devel",
             'remotes::install_github("r-lib/pkgdown")',
             'remotes::install_cran("pkgdown")'
-        )
+        ),
+        run_docker = ifelse(docker, "true", "false"),
+        github_spec_lowercase = tolower(get_github_spec())
     )
 
     ## Locate the template GHA workflow
