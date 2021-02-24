@@ -40,7 +40,8 @@ use_bioc_coc <- function(path = ".github") {
     new <- usethis::use_template(
         "CODE_OF_CONDUCT.md",
         save_as = save_as,
-        ignore = usethis:::is_package() && is.null(path)
+        ignore = usethis:::is_package() && is.null(path),
+        package = "biocthis"
     )
 
     href <- "http://bioconductor.org/about/code-of-conduct/"
