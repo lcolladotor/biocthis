@@ -32,9 +32,14 @@
 #' biocthis::use_bioc_readme_rmd()
 use_bioc_readme_rmd <- function(open = rlang::is_interactive()) {
     usethis:::check_installed("rmarkdown")
-    data <- usethis:::project_data()
-    data$Rmd <- TRUE
-    data$on_github <- usethis:::origin_is_on_github()
+    repo_spec <- tryCatch(usethis:::target_repo_spec(ask = FALSE), error = function(e) NULL)
+    data <- list(
+        Package = usethis:::project_name(),
+        Rmd = TRUE,
+        on_github = !is.null(repo_spec),
+        github_spec = repo_spec,
+        github_owner = if (!is.null(repo_spec)) dirname(repo_spec) else ""
+    )
     new <- use_template("package-README", "README.Rmd", data = data, open = open, package = "biocthis", ignore = usethis:::is_package())
     if (!new) {
         return(invisible(FALSE))

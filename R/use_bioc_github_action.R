@@ -1,10 +1,10 @@
 ## By Marcel Ramos in https://github.com/lcolladotor/biocthis/pull/11
 .normalizeVersion <- function() {
     if (BiocManager:::isDevel()) {
-          "devel"
-      } else {
-          paste0("RELEASE_", gsub("\\.", "_", BiocManager::version()))
-      }
+        "devel"
+    } else {
+        paste0("RELEASE_", gsub("\\.", "_", BiocManager::version()))
+    }
 }
 
 .GHARversion <- function(biocdocker) {

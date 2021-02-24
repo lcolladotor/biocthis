@@ -41,7 +41,7 @@ if (!requireNamespace("BiocManager", quietly = TRUE)) {
 BiocManager::install("biocthis")
 ```
 
-And the development version from [GitHub](https://github.com/) with:
+And the development version from [GitHub](https://github.com/lcolladotor/biocthis) with:
 
 ```{r 'install_dev', eval = FALSE}
 BiocManager::install("lcolladotor/biocthis")

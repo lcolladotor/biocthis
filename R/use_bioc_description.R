@@ -39,16 +39,15 @@
 #' biocthis::use_bioc_description()
 use_bioc_description <- function(biocViews = "Software", report_bioc = TRUE) {
     stopifnot(length(biocViews) == 1)
-    pkg <- basename(usethis::proj_get())
+    pkg <- usethis:::project_name()
 
-    if (biocViews == "AnnotationHub")
-        import <-  "AnnotationHubData"
-    else if (biocViews == "ExperimentHub")
-        import <-  "ExperimentHubData, ExperimentHub"
-    else
-        import <- NULL
-
-    data <- usethis:::project_data()
+    if (biocViews == "AnnotationHub") {
+          import <- "AnnotationHubData"
+      } else if (biocViews == "ExperimentHub") {
+          import <- "ExperimentHubData, ExperimentHub"
+      } else {
+          import <- NULL
+      }
 
     desc_info <-
         usethis::use_description_defaults(
@@ -59,13 +58,19 @@ use_bioc_description <- function(biocViews = "Software", report_bioc = TRUE) {
                 License = "Artistic-2.0",
                 Date = Sys.Date(),
                 Imports = import,
-                URL = file.path("https://github.com",
-                    data$github_spec),
-                BugReports = if(report_bioc)
-                    paste0("https://support.bioconductor.org/t/", pkg) else
-                        file.path("https://github.com",
-                            data$github_spec,
-                            "/issues/")
+                URL = file.path(
+                    "https://github.com",
+                    usethis:::target_repo_spec()
+                ),
+                BugReports = if (report_bioc) {
+                      paste0("https://support.bioconductor.org/t/", pkg)
+                  } else {
+                      file.path(
+                          "https://github.com",
+                          usethis:::target_repo_spec(),
+                          "/issues/"
+                      )
+                  }
             )
         )
     usethis::use_description(desc_info)

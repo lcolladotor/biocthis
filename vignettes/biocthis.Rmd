@@ -68,8 +68,8 @@ Note that `r Biocpkg("biocthis")` is not a Bioconductor-core package and as such
 
 ```{r "install", eval = FALSE}
 if (!requireNamespace("BiocManager", quietly = TRUE)) {
-      install.packages("BiocManager")
-  }
+    install.packages("BiocManager")
+}
 
 BiocManager::install("biocthis")
 

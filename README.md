@@ -58,7 +58,8 @@ if (!requireNamespace("BiocManager", quietly = TRUE)) {
 BiocManager::install("biocthis")
 ```
 
-And the development version from [GitHub](https://github.com/) with:
+And the development version from
+[GitHub](https://github.com/lcolladotor/biocthis) with:
 
 ``` r
 BiocManager::install("lcolladotor/biocthis")
@@ -78,10 +79,10 @@ library("biocthis")
 ## Create an example package for illustrative purposes.
 ## Note: you do not need to run this for your own package!
 pkgdir <- biocthis_example_pkg()
-#> ✓ Creating '/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/Rtmpjf2FkP/biocthisexample/'
-#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/Rtmpjf2FkP/biocthisexample'
-#> ✓ Creating 'R/'
-#> ✓ Writing 'DESCRIPTION'
+#> √ Creating 'C:/Users/fellg/AppData/Local/Temp/Rtmpmg5yPT/biocthisexample/'
+#> √ Setting active project to 'C:/Users/fellg/AppData/Local/Temp/Rtmpmg5yPT/biocthisexample'
+#> √ Creating 'R/'
+#> √ Writing 'DESCRIPTION'
 #> Package: biocthisexample
 #> Title: What the Package Does (One Line, Title Case)
 #> Version: 0.0.0.9000
@@ -94,18 +95,18 @@ pkgdir <- biocthis_example_pkg()
 #> LazyData: true
 #> Roxygen: list(markdown = TRUE)
 #> RoxygenNote: 7.1.1
-#> ✓ Writing 'NAMESPACE'
-#> ✓ Setting active project to '<no active project>'
-#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/Rtmpjf2FkP/biocthisexample'
+#> √ Writing 'NAMESPACE'
+#> √ Setting active project to '<no active project>'
+#> √ Setting active project to 'C:/Users/fellg/AppData/Local/Temp/Rtmpmg5yPT/biocthisexample'
 
 ## Create the bioc templates
 biocthis::use_bioc_pkg_templates()
-#> ✓ Creating 'dev/'
-#> ✓ Adding '^dev$' to '.Rbuildignore'
-#> ✓ Writing 'dev/01_create_pkg.R'
-#> ✓ Writing 'dev/02_git_github_setup.R'
-#> ✓ Writing 'dev/03_core_files.R'
-#> ✓ Writing 'dev/04_update.R'
+#> √ Creating 'dev/'
+#> √ Adding '^dev$' to '.Rbuildignore'
+#> √ Writing 'dev/01_create_pkg.R'
+#> √ Writing 'dev/02_git_github_setup.R'
+#> √ Writing 'dev/03_core_files.R'
+#> √ Writing 'dev/04_update.R'
 ```
 
 The template `dev` scripts include comments and steps you can follow for
@@ -119,18 +120,19 @@ subject](https://www.jimhester.com/talk/2020-rsc-github-actions/).
 ``` r
 ## Create a GitHub Actions workflow that is Bioconductor-friendly
 biocthis::use_bioc_github_action()
-#> ✓ Creating '.github/'
-#> ✓ Adding '^\\.github$' to '.Rbuildignore'
-#> ✓ Adding '*.html' to '.github/.gitignore'
-#> ✓ Creating '.github/workflows/'
-#> ✓ Writing '.github/workflows/check-bioc.yml'
+#> √ Creating '.github/'
+#> √ Adding '^\\.github$' to '.Rbuildignore'
+#> √ Adding '*.html' to '.github/.gitignore'
+#> √ Creating '.github/workflows/'
+#> √ Writing '.github/workflows/check-bioc.yml'
 ```
 
 ``` r
 ## Alternatively, use the general GitHub Actions workflow maintained by
 ## r-lib/actions
 usethis::use_github_action("check-standard")
-#> ✓ Writing '.github/workflows/check-standard.yaml'
+#> √ Writing '.github/workflows/check-standard.yaml'
+#> * Learn more at <https://github.com/r-lib/actions/blob/master/examples/README.md>
 ```
 
 ## Citation
@@ -142,24 +144,24 @@ Please run this yourself to check for any updates on how to cite
 ``` r
 print(citation("biocthis"), bibtex = TRUE)
 #> 
-#> Collado-Torres L (2020). _Automate package and project setup for
+#> Collado-Torres L (2021). _Automate package and project setup for
 #> Bioconductor packages_. doi: 10.18129/B9.bioc.biocthis (URL:
 #> https://doi.org/10.18129/B9.bioc.biocthis),
 #> https://github.com/lcolladotor/biocthisbiocthis - R package version
-#> 1.1.5, <URL: http://www.bioconductor.org/packages/biocthis>.
+#> 1.1.7, <URL: http://www.bioconductor.org/packages/biocthis>.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
 #>   @Manual{,
 #>     title = {Automate package and project setup for Bioconductor packages},
 #>     author = {Leonardo Collado-Torres},
-#>     year = {2020},
+#>     year = {2021},
 #>     url = {http://www.bioconductor.org/packages/biocthis},
-#>     note = {https://github.com/lcolladotor/biocthisbiocthis - R package version 1.1.5},
+#>     note = {https://github.com/lcolladotor/biocthisbiocthis - R package version 1.1.7},
 #>     doi = {10.18129/B9.bioc.biocthis},
 #>   }
 #> 
-#> Collado-Torres L (2020). "Automate package and project setup for
+#> Collado-Torres L (2021). "Automate package and project setup for
 #> Bioconductor packages." _bioRxiv_. doi: 10.1101/TODO (URL:
 #> https://doi.org/10.1101/TODO), <URL:
 #> https://www.biorxiv.org/content/10.1101/TODO>.
@@ -169,7 +171,7 @@ print(citation("biocthis"), bibtex = TRUE)
 #>   @Article{,
 #>     title = {Automate package and project setup for Bioconductor packages},
 #>     author = {Leonardo Collado-Torres},
-#>     year = {2020},
+#>     year = {2021},
 #>     journal = {bioRxiv},
 #>     doi = {10.1101/TODO},
 #>     url = {https://www.biorxiv.org/content/10.1101/TODO},

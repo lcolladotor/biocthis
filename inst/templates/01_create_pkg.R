@@ -18,6 +18,7 @@ remotes::install_cran(
     c(
         "available",
         "BiocManager",
+        "biocthis",
         "devtools",
         "knitr",
         "pkgdown",
@@ -32,7 +33,9 @@ remotes::install_cran(
 if (!requireNamespace("BiocStyle", quietly = TRUE)) {
     BiocManager::install("BiocStyle")
 }
-remotes::install_github("lcolladotor/biocthis")
+## In case you want the development version of biocthis from GitHub
+# BiocManager::install("lcolladotor/biocthis")
+
 ## Here's a very quick summary of why these packages are useful:
 ## * available: to check the name of your package
 ## * BiocManager: to install Bioconductor packages

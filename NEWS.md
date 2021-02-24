@@ -1,3 +1,10 @@
+# biocthis 1.1.7
+
+BUG FIXES
+
+* Switch to match usethis 2.0.1 which changed a lot of the internal code in
+`biocthis`.
+
 # biocthis 1.1.4
 
 NEW FEATURES
