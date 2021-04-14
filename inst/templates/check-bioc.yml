@@ -136,6 +136,9 @@ jobs:
 
           ## For installing usethis's dependency gert
           brew install libgit2
+          
+          ## Required for tcltk
+          brew install xquartz --cask
 
       - name: Install Windows system dependencies
         if: runner.os == 'Windows'
@@ -210,6 +213,7 @@ jobs:
       - name: Run CMD check
         env:
           _R_CHECK_CRAN_INCOMING_: false
+          DISPLAY: 99.0
         run: |
           rcmdcheck::rcmdcheck(
               args = c("--no-build-vignettes", "--no-manual", "--timings"),
@@ -231,6 +235,8 @@ jobs:
         shell: Rscript {0}
 
       - name: Run BiocCheck
+        env:
+          DISPLAY: 99.0
         run: |
           BiocCheck::BiocCheck(
               dir('check', 'tar.gz$', full.names = TRUE),
