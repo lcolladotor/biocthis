@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">biocthis</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.11</span>
       </span>
     </div>
 
@@ -82,16 +82,16 @@
 
       
 
-      </header><script src="biocthis_dev_notes_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><script src="biocthis_dev_notes_files/header-attrs-2.6/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>biocthis developer notes</h1>
                         <h4 class="author">Leonardo Collado-Torres</h4>
             <address class="author_afil">
-      Lieber Institute for Brain Development, Johns Hopkins Medical Campus<br><a class="author_email" href="mailto:#"></a><a href="mailto:lcolladotor@gmail.com" class="email">lcolladotor@gmail.com</a>
+      Lieber Institute for Brain Development, Johns Hopkins Medical CampusCenter for Computational Biology, Johns Hopkins University<br><a class="author_email" href="mailto:#"></a><a href="mailto:lcolladotor@gmail.com" class="email">lcolladotor@gmail.com</a>
       </address>
                   
-            <h4 class="date">24 February 2021</h4>
+            <h4 class="date">17 May 2021</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/lcolladotor/biocthis/blob/master/vignettes/biocthis_dev_notes.Rmd"><code>vignettes/biocthis_dev_notes.Rmd</code></a></small>
       <div class="hidden name"><code>biocthis_dev_notes.Rmd</code></div>
@@ -114,10 +114,10 @@
 <a href="#backstory" class="anchor"></a>Backstory</h2>
 <p>In 2019, I was able to take the <a href="https://rstd.io/tidytools19">“Building Tidy Tools”</a> workshop taught by <a href="https://twitter.com/CVWickham">Charlotte</a> and <a href="https://twitter.com/hadleywickham">Hadley</a> Wickham during <a href="https://blog.rstudio.com/2019/02/06/rstudio-conf-2019-workshops/"><code>rstudio::conf(2019)</code></a> thanks to a diversity scholarship. During this workshop, I learned about <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em> (Wickham and Bryan, 2021), <em><a href="https://CRAN.R-project.org/package=devtools">devtools</a></em> (Wickham, Hester, and Chang, 2020), <em><a href="https://CRAN.R-project.org/package=testthat">testthat</a></em> (Wickham, 2011), among other R packages, and how to use <a href="https://www.rstudio.com/products/rstudio/download">RStudio Desktop</a> to create R packages more efficiently. I got to revise this material and practice it more for the <a href="https://comunidadbioinfo.github.io/post/building-tidy-tools-cdsb-runconf-2019/#.XrbLMxNKiu4">CDSB Workshop 2019: How to Build and Create Tidy Tools</a> where we re-used the materials (with their permission) and translated them to Spanish. Over the years I have made several <a href="http://bioconductor.org/">Bioconductor</a> R packages that <a href="https://lcolladotor.github.io/pkgs/">I maintain</a>. Yet I learned a lot thanks to Charlotte and Hadley and have been relying more and more on <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em> and related packages.</p>
 <p>Earlier this year (2020) one of my Bioconductor packages (<em><a href="https://bioconductor.org/packages/3.12/regionReport">regionReport</a></em>) was presenting some errors on some operating systems but not on others. I first spent quite a bit of time <a href="https://stat.ethz.ch/pipermail/bioc-devel/2020-March/016365.html">setting up the corresponding R installation</a> in my non-work Windows computer. I still struggled to reproduce the error, so I finally learned how to use the <a href="https://www.bioconductor.org/help/docker/">Bioconductor docker images</a>. That is, run the following code to then have an environment with all the system dependencies installed for Bioconductor packages. In this system you can then install your package dependencies and get very close to the Linux environment machine used for testing Bioconductor packages.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">docker</span> run \</span>
-<span id="cb1-2"><a href="#cb1-2"></a>    -e PASSWORD=bioc \</span>
-<span id="cb1-3"><a href="#cb1-3"></a>    -p 8787:8787 \</span>
-<span id="cb1-4"><a href="#cb1-4"></a>    bioconductor/bioconductor_docker:devel</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="dt">\</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-e</span> PASSWORD=bioc <span class="dt">\</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-p</span> 8787:8787 <span class="dt">\</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    bioconductor/bioconductor_docker:devel</span></code></pre></div>
 <p>Using this docker image, I was finally <a href="https://stat.ethz.ch/pipermail/bioc-devel/2020-April/016532.html">able to reproduce the error</a> which involved others Bioconductor packages. However, there was a second hard-to-reproduce error. Using <a href="https://github.com/features/actions">GitHub Actions</a>, which I’ll talk about more soon, I was then able to find the <a href="https://stat.ethz.ch/pipermail/bioc-devel/2020-April/016650.html">root cause of this second issue</a> and resolve it.</p>
 <p><em><a href="https://bioconductor.org/packages/3.12/biocthis">biocthis</a></em> (Collado-Torres, 2021) was born from my interest to keep using <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em> and related tools, but in a Bioconductor-friendly way. That is, this is a package that will help me (and maybe others too). This package was born from these 5 issues:</p>
 <ul>
@@ -289,7 +289,7 @@
 <li>
 <em><a href="https://CRAN.R-project.org/package=RefManageR">RefManageR</a></em> (McLean, 2017)</li>
 <li>
-<em><a href="https://CRAN.R-project.org/package=rmarkdown">rmarkdown</a></em> (Allaire, Xie, McPherson, Luraschi, Ushey, Atkins, Wickham, Cheng, Chang, and Iannone, 2021)</li>
+<em><a href="https://CRAN.R-project.org/package=rmarkdown">rmarkdown</a></em> (Allaire, Xie, McPherson, Luraschi, Ushey, Atkins, Wickham, Cheng, Chang, and Iannone, 2020)</li>
 <li>
 <em><a href="https://CRAN.R-project.org/package=sessioninfo">sessioninfo</a></em> (Csárdi, core, Wickham, Chang, Flight, Müller, and Hester, 2018)</li>
 <li>
@@ -304,46 +304,46 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Create the vignette</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/rstudio/rmarkdown">"rmarkdown"</a></span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span><span class="op">(</span><span class="fu"><a href="https://pkgs.rstudio.com/rmarkdown/reference/render.html">render</a></span><span class="op">(</span><span class="st">"biocthis_dev_notes.Rmd"</span>, <span class="st">"BiocStyle::html_document"</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/rmarkdown/man/render.html">render</a></span><span class="op">(</span><span class="st">"biocthis_dev_notes.Rmd"</span>, <span class="st">"BiocStyle::html_document"</span><span class="op">)</span><span class="op">)</span>
 
 <span class="co">## Extract the R code</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://yihui.org/knitr/">"knitr"</a></span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/knit.html">knit</a></span><span class="op">(</span><span class="st">"biocthis_dev_notes.Rmd"</span>, tangle <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p>Date the vignette was generated.</p>
-<pre><code>#&gt; [1] "2021-02-24 14:46:33 UTC"</code></pre>
+<pre><code>#&gt; [1] "2021-05-17 16:36:59 UTC"</code></pre>
 <p>Wallclock time spent generating the vignette.</p>
-<pre><code>#&gt; Time difference of 1.049 secs</code></pre>
+<pre><code>#&gt; Time difference of 1.012 secs</code></pre>
 <p><code>R</code> session information.</p>
 <pre><code>#&gt; ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────
 #&gt;  setting  value                       
 #&gt;  version  R version 4.0.3 (2020-10-10)
-#&gt;  os       Ubuntu 20.04.1 LTS          
+#&gt;  os       Ubuntu 20.04 LTS            
 #&gt;  system   x86_64, linux-gnu           
 #&gt;  ui       X11                         
 #&gt;  language (EN)                        
 #&gt;  collate  en_US.UTF-8                 
 #&gt;  ctype    en_US.UTF-8                 
 #&gt;  tz       Etc/UTC                     
-#&gt;  date     2021-02-24                  
+#&gt;  date     2021-05-17                  
 #&gt; 
 #&gt; ─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────
 #&gt;  package     * version date       lib source        
-#&gt;  assertthat    0.2.1   2019-03-21 [2] RSPM (R 4.0.0)
-#&gt;  BiocManager   1.30.10 2019-11-16 [2] CRAN (R 4.0.3)
+#&gt;  assertthat    0.2.1   2019-03-21 [2] RSPM (R 4.0.3)
+#&gt;  BiocManager   1.30.10 2019-11-16 [1] RSPM (R 4.0.0)
 #&gt;  BiocStyle   * 2.18.1  2020-11-24 [1] Bioconductor  
 #&gt;  bookdown      0.21    2020-10-13 [1] RSPM (R 4.0.2)
 #&gt;  cachem        1.0.4   2021-02-13 [2] RSPM (R 4.0.3)
 #&gt;  cli           2.3.0   2021-01-31 [2] RSPM (R 4.0.3)
 #&gt;  crayon        1.4.1   2021-02-08 [2] RSPM (R 4.0.3)
-#&gt;  desc          1.2.0   2018-05-01 [2] RSPM (R 4.0.0)
+#&gt;  desc          1.2.0   2018-05-01 [2] RSPM (R 4.0.3)
 #&gt;  digest        0.6.27  2020-10-24 [2] RSPM (R 4.0.3)
-#&gt;  evaluate      0.14    2019-05-28 [2] RSPM (R 4.0.0)
+#&gt;  evaluate      0.14    2019-05-28 [2] RSPM (R 4.0.3)
 #&gt;  fastmap       1.1.0   2021-01-25 [2] RSPM (R 4.0.3)
-#&gt;  fs            1.5.0   2020-07-31 [2] RSPM (R 4.0.2)
+#&gt;  fs            1.5.0   2020-07-31 [2] RSPM (R 4.0.3)
 #&gt;  generics      0.1.0   2020-10-31 [1] RSPM (R 4.0.3)
-#&gt;  glue          1.4.2   2020-08-27 [2] RSPM (R 4.0.2)
+#&gt;  glue          1.4.2   2020-08-27 [2] RSPM (R 4.0.3)
 #&gt;  htmltools     0.5.1.1 2021-01-22 [2] RSPM (R 4.0.3)
-#&gt;  httr          1.4.2   2020-07-20 [2] RSPM (R 4.0.2)
+#&gt;  httr          1.4.2   2020-07-20 [2] RSPM (R 4.0.3)
 #&gt;  jsonlite      1.7.2   2020-12-09 [2] RSPM (R 4.0.3)
 #&gt;  knitr         1.31    2021-01-27 [2] RSPM (R 4.0.3)
 #&gt;  lubridate     1.7.9.2 2020-11-13 [1] RSPM (R 4.0.3)
@@ -356,17 +356,17 @@
 #&gt;  Rcpp          1.0.6   2021-01-15 [2] RSPM (R 4.0.3)
 #&gt;  RefManageR  * 1.3.0   2020-11-13 [1] RSPM (R 4.0.3)
 #&gt;  rlang         0.4.10  2020-12-30 [2] RSPM (R 4.0.3)
-#&gt;  rmarkdown     2.7     2021-02-19 [1] RSPM (R 4.0.3)
+#&gt;  rmarkdown     2.6     2020-12-14 [1] RSPM (R 4.0.3)
 #&gt;  rprojroot     2.0.2   2020-11-15 [2] RSPM (R 4.0.3)
-#&gt;  sessioninfo * 1.1.1   2018-11-05 [2] RSPM (R 4.0.0)
-#&gt;  stringi       1.5.3   2020-09-09 [2] RSPM (R 4.0.2)
-#&gt;  stringr       1.4.0   2019-02-10 [2] RSPM (R 4.0.0)
+#&gt;  sessioninfo * 1.1.1   2018-11-05 [2] RSPM (R 4.0.3)
+#&gt;  stringi       1.5.3   2020-09-09 [2] RSPM (R 4.0.3)
+#&gt;  stringr       1.4.0   2019-02-10 [2] RSPM (R 4.0.3)
 #&gt;  systemfonts   1.0.1   2021-02-09 [1] RSPM (R 4.0.3)
-#&gt;  textshaping   0.3.1   2021-02-22 [1] RSPM (R 4.0.3)
+#&gt;  textshaping   0.3.0   2021-02-10 [1] RSPM (R 4.0.3)
 #&gt;  withr         2.4.1   2021-01-26 [2] RSPM (R 4.0.3)
 #&gt;  xfun          0.21    2021-02-10 [2] RSPM (R 4.0.3)
-#&gt;  xml2          1.3.2   2020-04-23 [2] RSPM (R 4.0.0)
-#&gt;  yaml          2.2.1   2020-02-01 [2] RSPM (R 4.0.0)
+#&gt;  xml2          1.3.2   2020-04-23 [2] RSPM (R 4.0.3)
+#&gt;  yaml          2.2.1   2020-02-01 [2] RSPM (R 4.0.3)
 #&gt; 
 #&gt; [1] /__w/_temp/Library
 #&gt; [2] /usr/local/lib/R/site-library
@@ -375,13 +375,13 @@
 <div id="bibliography" class="section level1">
 <h1 class="hasAnchor">
 <a href="#bibliography" class="anchor"></a>Bibliography</h1>
-<p>This vignette was generated using <em><a href="https://bioconductor.org/packages/3.12/BiocStyle">BiocStyle</a></em> (Oleś, Morgan, and Huber, 2020) with <em><a href="https://CRAN.R-project.org/package=knitr">knitr</a></em> (Xie, 2021) and <em><a href="https://CRAN.R-project.org/package=rmarkdown">rmarkdown</a></em> (Allaire, Xie, McPherson, et al., 2021) running behind the scenes.</p>
+<p>This vignette was generated using <em><a href="https://bioconductor.org/packages/3.12/BiocStyle">BiocStyle</a></em> (Oleś, Morgan, and Huber, 2020) with <em><a href="https://CRAN.R-project.org/package=knitr">knitr</a></em> (Xie, 2021) and <em><a href="https://CRAN.R-project.org/package=rmarkdown">rmarkdown</a></em> (Allaire, Xie, McPherson, et al., 2020) running behind the scenes.</p>
 <p>Citations made with <em><a href="https://CRAN.R-project.org/package=RefManageR">RefManageR</a></em> (McLean, 2017).</p>
 <p>
-<a id="bib-allaire2021rmarkdown"></a><a href="#cite-allaire2021rmarkdown">[1]</a><cite> J. Allaire, Y. Xie, J. McPherson, et al. <em>rmarkdown: Dynamic Documents for R</em>. R package version 2.7. 2021. URL: <a href="https://github.com/rstudio/rmarkdown">https://github.com/rstudio/rmarkdown</a>.</cite>
+<a id="bib-allaire2020rmarkdown"></a><a href="#cite-allaire2020rmarkdown">[1]</a><cite> J. Allaire, Y. Xie, J. McPherson, et al. <em>rmarkdown: Dynamic Documents for R</em>. R package version 2.6. 2020. URL: <a href="https://github.com/rstudio/rmarkdown">https://github.com/rstudio/rmarkdown</a>.</cite>
 </p>
 <p>
-<a id="bib-colladotorres2021automate"></a><a href="#cite-colladotorres2021automate">[2]</a><cite> L. Collado-Torres. <em>Automate package and project setup for Bioconductor packages</em>. <a href="https://github.com/lcolladotor/biocthisbiocthis" class="uri">https://github.com/lcolladotor/biocthisbiocthis</a> - R package version 1.1.10. 2021. DOI: <a href="https://doi.org/10.18129/B9.bioc.biocthis">10.18129/B9.bioc.biocthis</a>. URL: <a href="http://www.bioconductor.org/packages/biocthis">http://www.bioconductor.org/packages/biocthis</a>.</cite>
+<a id="bib-colladotorres2021automate"></a><a href="#cite-colladotorres2021automate">[2]</a><cite> L. Collado-Torres. <em>Automate package and project setup for Bioconductor packages</em>. <a href="https://github.com/lcolladotor/biocthisbiocthis" class="uri">https://github.com/lcolladotor/biocthisbiocthis</a> - R package version 1.1.11. 2021. DOI: <a href="https://doi.org/10.18129/B9.bioc.biocthis">10.18129/B9.bioc.biocthis</a>. URL: <a href="http://www.bioconductor.org/packages/biocthis">http://www.bioconductor.org/packages/biocthis</a>.</cite>
 </p>
 <p>
 <a id="bib-csrdi2018sessioninfo"></a><a href="#cite-csrdi2018sessioninfo">[3]</a><cite> G. Csárdi, R. core, H. Wickham, et al. <em>sessioninfo: R Session Information</em>. R package version 1.1.1. 2018. URL: <a href="https://github.com/r-lib/sessioninfo#readme">https://github.com/r-lib/sessioninfo#readme</a>.</cite>

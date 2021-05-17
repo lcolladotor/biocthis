@@ -1,8 +1,8 @@
-pandoc: 2.7.3
+pandoc: 2.11.4
 pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   biocthis: biocthis.html
   biocthis_dev_notes: biocthis_dev_notes.html
-last_built: 2021-02-24T14:46Z
+last_built: 2021-05-17T16:36Z
 
