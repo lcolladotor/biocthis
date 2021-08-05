@@ -23,7 +23,7 @@
         ## the R version for Bioc-devel, this means that we are working with R-devel
         ## and need to use that version for r-lib/actions/setup-r to recognize it
         ## https://github.com/r-lib/actions/tree/master/setup-r
-        last_rel <- subset(info, BiocStatus == "release")[, "R"]
+        last_rel <- as.character(subset(info, BiocStatus == "release")[, "R"])
         res[, "R"] <- ifelse(last_rel == res[, "R"], last_rel, "devel")
     } else {
         biocdocker <- gsub("^RELEASE_", "", toupper(biocdocker))

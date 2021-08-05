@@ -1,3 +1,12 @@
+# biocthis 1.3.2
+
+NEW FEATURES
+
+* `use_bioc_github_action()` now uses the AnVIL-powered package binaries, which
+greatly speed up the dependency installation steps in the docker (Linux) GitHub
+Actions builds. Details are available in Nitesh Turaga's BioC2021 slides
+https://github.com/nturaga/bioc2021-bioconductor-binaries.
+
 # biocthis 1.1.10
 
 NEW FEATURES

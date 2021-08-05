@@ -1,7 +1,7 @@
 Package: biocthis
 Title: Automate package and project setup for Bioconductor packages
-Version: 1.3.1
-Date: 2021-05-24
+Version: 1.3.2
+Date: 2021-08-05
 Authors@R: 
     c(
     person("Leonardo", "Collado-Torres", role = c("aut", "cre"), 
