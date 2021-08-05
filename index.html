@@ -35,7 +35,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">biocthis</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.3.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.3.5</span>
       </span>
     </div>
 
@@ -114,10 +114,10 @@
 <span class="co">## Create an example package for illustrative purposes.</span>
 <span class="co">## Note: you do not need to run this for your own package!</span>
 <span class="va">pkgdir</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/biocthis_example_pkg.html">biocthis_example_pkg</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; √ Creating 'C:/Users/fellg/AppData/Local/Temp/Rtmp0m7tN7/biocthisexample/'</span>
-<span class="co">#&gt; √ Setting active project to 'C:/Users/fellg/AppData/Local/Temp/Rtmp0m7tN7/biocthisexample'</span>
-<span class="co">#&gt; √ Creating 'R/'</span>
-<span class="co">#&gt; √ Writing 'DESCRIPTION'</span>
+<span class="co">#&gt; ✓ Creating '/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpgQAYe4/biocthisexample/'</span>
+<span class="co">#&gt; ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpgQAYe4/biocthisexample'</span>
+<span class="co">#&gt; ✓ Creating 'R/'</span>
+<span class="co">#&gt; ✓ Writing 'DESCRIPTION'</span>
 <span class="co">#&gt; Package: biocthisexample</span>
 <span class="co">#&gt; Title: What the Package Does (One Line, Title Case)</span>
 <span class="co">#&gt; Version: 0.0.0.9000</span>
@@ -130,33 +130,33 @@
 <span class="co">#&gt; LazyData: true</span>
 <span class="co">#&gt; Roxygen: list(markdown = TRUE)</span>
 <span class="co">#&gt; RoxygenNote: 7.1.1</span>
-<span class="co">#&gt; √ Writing 'NAMESPACE'</span>
-<span class="co">#&gt; √ Setting active project to '&lt;no active project&gt;'</span>
-<span class="co">#&gt; √ Setting active project to 'C:/Users/fellg/AppData/Local/Temp/Rtmp0m7tN7/biocthisexample'</span>
+<span class="co">#&gt; ✓ Writing 'NAMESPACE'</span>
+<span class="co">#&gt; ✓ Setting active project to '&lt;no active project&gt;'</span>
+<span class="co">#&gt; ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpgQAYe4/biocthisexample'</span>
 
 <span class="co">## Create the bioc templates</span>
 <span class="fu">biocthis</span><span class="fu">::</span><span class="fu"><a href="reference/use_bioc_pkg_templates.html">use_bioc_pkg_templates</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; √ Creating 'dev/'</span>
-<span class="co">#&gt; √ Adding '^dev$' to '.Rbuildignore'</span>
-<span class="co">#&gt; √ Writing 'dev/01_create_pkg.R'</span>
-<span class="co">#&gt; √ Writing 'dev/02_git_github_setup.R'</span>
-<span class="co">#&gt; √ Writing 'dev/03_core_files.R'</span>
-<span class="co">#&gt; √ Writing 'dev/04_update.R'</span></code></pre></div>
+<span class="co">#&gt; ✓ Creating 'dev/'</span>
+<span class="co">#&gt; ✓ Adding '^dev$' to '.Rbuildignore'</span>
+<span class="co">#&gt; ✓ Writing 'dev/01_create_pkg.R'</span>
+<span class="co">#&gt; ✓ Writing 'dev/02_git_github_setup.R'</span>
+<span class="co">#&gt; ✓ Writing 'dev/03_core_files.R'</span>
+<span class="co">#&gt; ✓ Writing 'dev/04_update.R'</span></code></pre></div>
 <p>The template <code>dev</code> scripts include comments and steps you can follow for making your Bioconductor-friendly R package or updating a current package. In particular, you might want to use a Bioconductor-friendly GitHub Actions workflow. If this is your first time seeings this words, we highly recommend that you watch <a href="https://www.jimhester.com/talk/2020-rsc-github-actions/" class="external-link">Jim Hester’s <code>rstudio::conf(2020)</code> talk on this subject</a>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Create a GitHub Actions workflow that is Bioconductor-friendly</span>
 <span class="fu">biocthis</span><span class="fu">::</span><span class="fu"><a href="reference/use_bioc_github_action.html">use_bioc_github_action</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; √ Creating '.github/'</span>
-<span class="co">#&gt; √ Adding '^\\.github$' to '.Rbuildignore'</span>
-<span class="co">#&gt; √ Adding '*.html' to '.github/.gitignore'</span>
-<span class="co">#&gt; √ Creating '.github/workflows/'</span>
-<span class="co">#&gt; √ Writing '.github/workflows/check-bioc.yml'</span></code></pre></div>
+<span class="co">#&gt; ✓ Creating '.github/'</span>
+<span class="co">#&gt; ✓ Adding '^\\.github$' to '.Rbuildignore'</span>
+<span class="co">#&gt; ✓ Adding '*.html' to '.github/.gitignore'</span>
+<span class="co">#&gt; ✓ Creating '.github/workflows/'</span>
+<span class="co">#&gt; ✓ Writing '.github/workflows/check-bioc.yml'</span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Alternatively, use the general GitHub Actions workflow maintained by</span>
 <span class="co">## r-lib/actions</span>
 <span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_github_action.html" class="external-link">use_github_action</a></span><span class="op">(</span><span class="st">"check-standard"</span><span class="op">)</span>
-<span class="co">#&gt; √ Writing '.github/workflows/check-standard.yaml'</span>
-<span class="co">#&gt; * Learn more at &lt;https://github.com/r-lib/actions/blob/master/examples/README.md&gt;</span></code></pre></div>
+<span class="co">#&gt; ✓ Writing '.github/workflows/check-standard.yaml'</span>
+<span class="co">#&gt; • Learn more at &lt;https://github.com/r-lib/actions/blob/master/examples/README.md&gt;</span></code></pre></div>
 </div>
 <div id="citation" class="section level2">
 <h2 class="hasAnchor">
@@ -169,7 +169,7 @@
 <span class="co">#&gt; Bioconductor packages_. doi: 10.18129/B9.bioc.biocthis (URL:</span>
 <span class="co">#&gt; https://doi.org/10.18129/B9.bioc.biocthis),</span>
 <span class="co">#&gt; https://github.com/lcolladotor/biocthisbiocthis - R package version</span>
-<span class="co">#&gt; 1.1.10, &lt;URL: http://www.bioconductor.org/packages/biocthis&gt;.</span>
+<span class="co">#&gt; 1.3.4, &lt;URL: http://www.bioconductor.org/packages/biocthis&gt;.</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; A BibTeX entry for LaTeX users is</span>
 <span class="co">#&gt; </span>
@@ -178,7 +178,7 @@
 <span class="co">#&gt;     author = {Leonardo Collado-Torres},</span>
 <span class="co">#&gt;     year = {2021},</span>
 <span class="co">#&gt;     url = {http://www.bioconductor.org/packages/biocthis},</span>
-<span class="co">#&gt;     note = {https://github.com/lcolladotor/biocthisbiocthis - R package version 1.1.10},</span>
+<span class="co">#&gt;     note = {https://github.com/lcolladotor/biocthisbiocthis - R package version 1.3.4},</span>
 <span class="co">#&gt;     doi = {10.18129/B9.bioc.biocthis},</span>
 <span class="co">#&gt;   }</span>
 <span class="co">#&gt; </span>
@@ -208,14 +208,14 @@
 <h2 class="hasAnchor">
 <a href="#development-tools" class="anchor" aria-hidden="true"></a>Development tools</h2>
 <ul>
-<li>Continuous code testing is possible thanks to <a href="https://www.tidyverse.org/blog/2020/04/usethis-1-6-0/" class="external-link">GitHub actions</a> through <em><a href="https://CRAN.R-project.org/package=usethis" class="external-link">usethis</a></em>, <em><a href="https://CRAN.R-project.org/package=remotes" class="external-link">remotes</a></em>, and <em><a href="https://CRAN.R-project.org/package=rcmdcheck" class="external-link">rcmdcheck</a></em> customized to use <a href="https://www.bioconductor.org/help/docker/" class="external-link">Bioconductor’s docker containers</a> and <em><a href="https://bioconductor.org/packages/3.12/BiocCheck" class="external-link">BiocCheck</a></em>.</li>
+<li>Continuous code testing is possible thanks to <a href="https://www.tidyverse.org/blog/2020/04/usethis-1-6-0/" class="external-link">GitHub actions</a> through <em><a href="https://CRAN.R-project.org/package=usethis" class="external-link">usethis</a></em>, <em><a href="https://CRAN.R-project.org/package=remotes" class="external-link">remotes</a></em>, and <em><a href="https://CRAN.R-project.org/package=rcmdcheck" class="external-link">rcmdcheck</a></em> customized to use <a href="https://www.bioconductor.org/help/docker/" class="external-link">Bioconductor’s docker containers</a> and <em><a href="https://bioconductor.org/packages/3.14/BiocCheck" class="external-link">BiocCheck</a></em>.</li>
 <li>Code coverage assessment is possible thanks to <a href="https://codecov.io/gh" class="external-link">codecov</a> and <em><a href="https://CRAN.R-project.org/package=covr" class="external-link">covr</a></em>.</li>
 <li>The <a href="http://lcolladotor.github.io/biocthis" class="external-link">documentation website</a> is automatically updated thanks to <em><a href="https://CRAN.R-project.org/package=pkgdown" class="external-link">pkgdown</a></em>.</li>
 <li>The code is styled automatically thanks to <em><a href="https://CRAN.R-project.org/package=styler" class="external-link">styler</a></em>.</li>
 <li>The documentation is formatted thanks to <em><a href="https://CRAN.R-project.org/package=devtools" class="external-link">devtools</a></em> and <em><a href="https://CRAN.R-project.org/package=roxygen2" class="external-link">roxygen2</a></em>.</li>
 </ul>
 <p>For more details, check the <code>dev</code> directory.</p>
-<p>This package was developed using <em><a href="https://bioconductor.org/packages/3.12/biocthis" class="external-link">biocthis</a></em>.</p>
+<p>This package was developed using <em><a href="https://bioconductor.org/packages/3.14/biocthis" class="external-link">biocthis</a></em>.</p>
 </div>
 </div>
   </div>
@@ -272,6 +272,7 @@
 <li><a href="https://github.com/lcolladotor/biocthis/actions" class="external-link"><img src="https://github.com/lcolladotor/biocthis/workflows/R-CMD-check-bioc/badge.svg" alt="R build status"></a></li>
 <li><a href="https://support.bioconductor.org/t/biocthis/" class="external-link"><img src="http://www.bioconductor.org/shields/posts/biocthis.svg" alt="Support site activity, last 6 months: tagged questions/avg. answers per question/avg. comments per question/accepted answers, or 0 if no tagged posts."></a></li>
 <li><a href="https://github.com/lcolladotor/biocthis/issues" class="external-link"><img src="https://img.shields.io/github/issues/lcolladotor/biocthis" alt="GitHub issues"></a></li>
+<li><a href="https://github.com/lcolladotor/biocthis/pulls" class="external-link"><img src="https://img.shields.io/github/issues-pr/lcolladotor/biocthis" alt="GitHub pulls"></a></li>
 </ul>
 </div>
 
