@@ -23,6 +23,7 @@ knitr::opts_chunk$set(
 [![R build status](https://github.com/lcolladotor/biocthis/workflows/R-CMD-check-bioc/badge.svg)](https://github.com/lcolladotor/biocthis/actions)
 [![Support site activity, last 6 months: tagged questions/avg. answers per question/avg. comments per question/accepted answers, or 0 if no tagged posts.](http://www.bioconductor.org/shields/posts/biocthis.svg)](https://support.bioconductor.org/t/biocthis/)
 [![GitHub issues](https://img.shields.io/github/issues/lcolladotor/biocthis)](https://github.com/lcolladotor/biocthis/issues)
+[![GitHub pulls](https://img.shields.io/github/issues-pr/lcolladotor/biocthis)](https://github.com/lcolladotor/biocthis/pulls)
 <!-- badges: end -->
 
 `r BiocStyle::Githubpkg("lcolladotor/biocthis")` is an R package that expands `r BiocStyle::CRANpkg("usethis")` with Bioconductor-friendly templates. These templates will help you quickly create an R package that either has Bioconductor dependencies or that you are thinking of submitting to Bioconductor one day. `r BiocStyle::Githubpkg("lcolladotor/biocthis")`  has functions that can also enhance your current R packages that either are already distributed by Bioconductor or have Bioconductor dependencies. `r BiocStyle::Githubpkg("lcolladotor/biocthis")` also includes a Bioconductor-friendly [GitHub Actions](https://github.com/features/actions) workflow for your R package(s).

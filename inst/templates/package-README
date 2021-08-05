@@ -18,6 +18,10 @@ knitr::opts_chunk$set(
 # {{{ Package }}}
 
 <!-- badges: start -->
+{{#on_github}}
+[![GitHub issues](https://img.shields.io/github/issues/{{{ github_spec }}})](https://github.com/{{{ github_spec }}}/issues)
+[![GitHub pulls](https://img.shields.io/github/issues-pr/{{{ github_spec }}})](https://github.com/{{{ github_spec }}}/pulls)
+{{/on_github}}
 <!-- badges: end -->
 
 The goal of `{{Package}}` is to ...

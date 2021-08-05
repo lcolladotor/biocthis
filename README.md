@@ -21,6 +21,8 @@ tagged
 posts.](http://www.bioconductor.org/shields/posts/biocthis.svg)](https://support.bioconductor.org/t/biocthis/)
 [![GitHub
 issues](https://img.shields.io/github/issues/lcolladotor/biocthis)](https://github.com/lcolladotor/biocthis/issues)
+[![GitHub
+pulls](https://img.shields.io/github/issues-pr/lcolladotor/biocthis)](https://github.com/lcolladotor/biocthis/pulls)
 <!-- badges: end -->
 
 *[biocthis](https://github.com/lcolladotor/biocthis)* is an R package
@@ -79,10 +81,10 @@ library("biocthis")
 ## Create an example package for illustrative purposes.
 ## Note: you do not need to run this for your own package!
 pkgdir <- biocthis_example_pkg()
-#> √ Creating 'C:/Users/fellg/AppData/Local/Temp/Rtmp0m7tN7/biocthisexample/'
-#> √ Setting active project to 'C:/Users/fellg/AppData/Local/Temp/Rtmp0m7tN7/biocthisexample'
-#> √ Creating 'R/'
-#> √ Writing 'DESCRIPTION'
+#> ✓ Creating '/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpgQAYe4/biocthisexample/'
+#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpgQAYe4/biocthisexample'
+#> ✓ Creating 'R/'
+#> ✓ Writing 'DESCRIPTION'
 #> Package: biocthisexample
 #> Title: What the Package Does (One Line, Title Case)
 #> Version: 0.0.0.9000
@@ -95,18 +97,18 @@ pkgdir <- biocthis_example_pkg()
 #> LazyData: true
 #> Roxygen: list(markdown = TRUE)
 #> RoxygenNote: 7.1.1
-#> √ Writing 'NAMESPACE'
-#> √ Setting active project to '<no active project>'
-#> √ Setting active project to 'C:/Users/fellg/AppData/Local/Temp/Rtmp0m7tN7/biocthisexample'
+#> ✓ Writing 'NAMESPACE'
+#> ✓ Setting active project to '<no active project>'
+#> ✓ Setting active project to '/private/var/folders/cx/n9s558kx6fb7jf5z_pgszgb80000gn/T/RtmpgQAYe4/biocthisexample'
 
 ## Create the bioc templates
 biocthis::use_bioc_pkg_templates()
-#> √ Creating 'dev/'
-#> √ Adding '^dev$' to '.Rbuildignore'
-#> √ Writing 'dev/01_create_pkg.R'
-#> √ Writing 'dev/02_git_github_setup.R'
-#> √ Writing 'dev/03_core_files.R'
-#> √ Writing 'dev/04_update.R'
+#> ✓ Creating 'dev/'
+#> ✓ Adding '^dev$' to '.Rbuildignore'
+#> ✓ Writing 'dev/01_create_pkg.R'
+#> ✓ Writing 'dev/02_git_github_setup.R'
+#> ✓ Writing 'dev/03_core_files.R'
+#> ✓ Writing 'dev/04_update.R'
 ```
 
 The template `dev` scripts include comments and steps you can follow for
@@ -120,19 +122,19 @@ subject](https://www.jimhester.com/talk/2020-rsc-github-actions/).
 ``` r
 ## Create a GitHub Actions workflow that is Bioconductor-friendly
 biocthis::use_bioc_github_action()
-#> √ Creating '.github/'
-#> √ Adding '^\\.github$' to '.Rbuildignore'
-#> √ Adding '*.html' to '.github/.gitignore'
-#> √ Creating '.github/workflows/'
-#> √ Writing '.github/workflows/check-bioc.yml'
+#> ✓ Creating '.github/'
+#> ✓ Adding '^\\.github$' to '.Rbuildignore'
+#> ✓ Adding '*.html' to '.github/.gitignore'
+#> ✓ Creating '.github/workflows/'
+#> ✓ Writing '.github/workflows/check-bioc.yml'
 ```
 
 ``` r
 ## Alternatively, use the general GitHub Actions workflow maintained by
 ## r-lib/actions
 usethis::use_github_action("check-standard")
-#> √ Writing '.github/workflows/check-standard.yaml'
-#> * Learn more at <https://github.com/r-lib/actions/blob/master/examples/README.md>
+#> ✓ Writing '.github/workflows/check-standard.yaml'
+#> • Learn more at <https://github.com/r-lib/actions/blob/master/examples/README.md>
 ```
 
 ## Citation
@@ -148,7 +150,7 @@ print(citation("biocthis"), bibtex = TRUE)
 #> Bioconductor packages_. doi: 10.18129/B9.bioc.biocthis (URL:
 #> https://doi.org/10.18129/B9.bioc.biocthis),
 #> https://github.com/lcolladotor/biocthisbiocthis - R package version
-#> 1.1.10, <URL: http://www.bioconductor.org/packages/biocthis>.
+#> 1.3.4, <URL: http://www.bioconductor.org/packages/biocthis>.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
@@ -157,7 +159,7 @@ print(citation("biocthis"), bibtex = TRUE)
 #>     author = {Leonardo Collado-Torres},
 #>     year = {2021},
 #>     url = {http://www.bioconductor.org/packages/biocthis},
-#>     note = {https://github.com/lcolladotor/biocthisbiocthis - R package version 1.1.10},
+#>     note = {https://github.com/lcolladotor/biocthisbiocthis - R package version 1.3.4},
 #>     doi = {10.18129/B9.bioc.biocthis},
 #>   }
 #> 
@@ -197,7 +199,7 @@ contributing to this project, you agree to abide by its terms.
     *[rcmdcheck](https://CRAN.R-project.org/package=rcmdcheck)*
     customized to use [Bioconductor’s docker
     containers](https://www.bioconductor.org/help/docker/) and
-    *[BiocCheck](https://bioconductor.org/packages/3.12/BiocCheck)*.
+    *[BiocCheck](https://bioconductor.org/packages/3.14/BiocCheck)*.
 -   Code coverage assessment is possible thanks to
     [codecov](https://codecov.io/gh) and
     *[covr](https://CRAN.R-project.org/package=covr)*.
@@ -213,4 +215,4 @@ contributing to this project, you agree to abide by its terms.
 For more details, check the `dev` directory.
 
 This package was developed using
-*[biocthis](https://bioconductor.org/packages/3.12/biocthis)*.
+*[biocthis](https://bioconductor.org/packages/3.14/biocthis)*.
