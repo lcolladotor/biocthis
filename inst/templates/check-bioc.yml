@@ -162,9 +162,12 @@ jobs:
           ## https://stat.ethz.ch/pipermail/bioc-devel/2020-April/016675.html
           ## https://github.com/r-lib/remotes/issues/296
           ## Ideally, all dependencies should get installed in the first pass.
-          
+
           ## Set the repos source depending on the OS
-          gha_repos <- if(.Platform$OS.type == "unix") c("AnVIL" = "https://storage.googleapis.com/bioconductor_docker/packages/{{biocvernum}}/bioc", BiocManager::repositories()) else BiocManager::repositories()
+          ## Alternatively use https://storage.googleapis.com/bioconductor_docker/packages/
+          ## though based on https://bit.ly/bioc2021-package-binaries
+          ## the Azure link will be the main one going forward.
+          gha_repos <- if(.Platform$OS.type == "unix") c("AnVIL" = "https://bioconductordocker.blob.core.windows.net/packages/{{biocvernum}}/bioc", BiocManager::repositories()) else BiocManager::repositories()
 
           ## Pass #1 at installing dependencies
           ## This pass uses AnVIL-powered fast binaries
