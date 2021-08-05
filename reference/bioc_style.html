@@ -51,6 +51,8 @@ styler::style_pkg()." />
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -62,9 +64,15 @@ styler::style_pkg()." />
 
 
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -78,19 +86,13 @@ styler::style_pkg()." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">biocthis</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.3.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.3.2</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/biocthis.html">Get started</a>
 </li>
 <li>
@@ -138,16 +140,16 @@ styler::style_pkg()." />
     </div>
 
     <div class="ref-description">
-    <p>This function uses <code><a href='https://rdrr.io/pkg/styler/man/tidyverse_style.html'>styler::tidyverse_style()</a></code> and modifies it to make it
+    <p>This function uses <code><a href='https://styler.r-lib.org/reference/tidyverse_style.html'>styler::tidyverse_style()</a></code> and modifies it to make it
 Bioconductor friendly. The full Bioconductor coding style is described at
 <a href='https://bioconductor.org/developers/how-to/coding-style/'>https://bioconductor.org/developers/how-to/coding-style/</a> and it shares
 many properties with the Tidyverse coding style guide
 <a href='https://style.tidyverse.org/'>https://style.tidyverse.org/</a>. This function defines the <code>transformers</code> code
 that you can then use with other <code>styler</code> functions such as
-<code><a href='https://rdrr.io/pkg/styler/man/style_pkg.html'>styler::style_pkg()</a></code>.</p>
+<code><a href='https://styler.r-lib.org/reference/style_pkg.html'>styler::style_pkg()</a></code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>bioc_style</span><span class='op'>(</span>indent_by <span class='op'>=</span> <span class='fl'>4</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>bioc_style</span><span class='op'>(</span>indent_by <span class='op'>=</span> <span class='fl'>4</span>, <span class='va'>...</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -155,12 +157,12 @@ that you can then use with other <code>styler</code> functions such as
     <tr>
       <th>indent_by</th>
       <td><p>How many spaces of indention should be inserted after
-operators such as <code>'('</code>. Unlike <code><a href='https://rdrr.io/pkg/styler/man/tidyverse_style.html'>styler::tidyverse_style()</a></code>, the default is
+operators such as <code>'('</code>. Unlike <code><a href='https://styler.r-lib.org/reference/tidyverse_style.html'>styler::tidyverse_style()</a></code>, the default is
 4 to conform with the Bioconductor coding style.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Other arguments passed to <code><a href='https://rdrr.io/pkg/styler/man/tidyverse_style.html'>styler::tidyverse_style()</a></code>.</p></td>
+      <td><p>Other arguments passed to <code><a href='https://styler.r-lib.org/reference/tidyverse_style.html'>styler::tidyverse_style()</a></code>.</p></td>
     </tr>
     </table>
 
@@ -168,7 +170,7 @@ operators such as <code>'('</code>. Unlike <code><a href='https://rdrr.io/pkg/st
 
     <p>A <code><a href='https://rdrr.io/r/base/list.html'>list()</a></code> object with the information required by functions in
 the <code>transformers</code> argument in the <code>styler</code> package functions such as
-<code><a href='https://rdrr.io/pkg/styler/man/style_pkg.html'>styler::style_pkg()</a></code>.</p>
+<code><a href='https://styler.r-lib.org/reference/style_pkg.html'>styler::style_pkg()</a></code>.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>The <code>styler</code> package seems to be more actively maintained and better
@@ -181,36 +183,45 @@ you close enough! =)</p>
 <a href='https://github.com/Bioconductor/bioconductor.org/issues/54'>https://github.com/Bioconductor/bioconductor.org/issues/54</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='co'>## Run these functions in your package</span>
-<span class='fu'>styler</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/styler/man/style_pkg.html'>style_pkg</a></span><span class='op'>(</span>transformers <span class='op'>=</span> <span class='fu'>biocthis</span><span class='fu'>::</span><span class='fu'>bioc_style</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
-<span class='fu'>styler</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/styler/man/style_dir.html'>style_dir</a></span><span class='op'>(</span><span class='fu'>usethis</span><span class='fu'>::</span><span class='fu'><a href='https://usethis.r-lib.org/reference/proj_utils.html'>proj_path</a></span><span class='op'>(</span><span class='st'>"dev"</span><span class='op'>)</span>, transformers <span class='op'>=</span> <span class='fu'>biocthis</span><span class='fu'>::</span><span class='fu'>bioc_style</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
-<span class='op'>}</span>
-
-<span class='co'>## Create an example package for illustrative purposes.</span>
-<span class='co'>## Note: you do not need to run this for your own package!</span>
-<span class='va'>pkgdir</span> <span class='op'>&lt;-</span> <span class='fu'><a href='biocthis_example_pkg.html'>biocthis_example_pkg</a></span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'><span style='color: #00BB00;'>✔</span><span> Creating </span><span style='color: #0000BB;'>'/tmp/RtmpWMNLgJ/biocthisexample/'</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔</span><span> Setting active project to </span><span style='color: #0000BB;'>'/tmp/RtmpWMNLgJ/biocthisexample'</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔</span><span> Creating </span><span style='color: #0000BB;'>'R/'</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔</span><span> Writing </span><span style='color: #0000BB;'>'DESCRIPTION'</span><span></span></div><div class='output co'>#&gt; </span><span style='color: #0000BB;'>Package</span><span>: biocthisexample
-#&gt; </span><span style='color: #0000BB;'>Title</span><span>: What the Package Does (One Line, Title Case)
-#&gt; </span><span style='color: #0000BB;'>Version</span><span>: 0.0.0.9000
-#&gt; </span><span style='color: #0000BB;'>Authors@R</span><span> (parsed):
-#&gt;     * First Last &lt;first.last@example.com&gt; [aut, cre] (YOUR-ORCID-ID)
-#&gt; </span><span style='color: #0000BB;'>Description</span><span>: What the package does (one paragraph).
-#&gt; </span><span style='color: #0000BB;'>License</span><span>: `use_mit_license()`, `use_gpl3_license()` or friends to
-#&gt;     pick a license
-#&gt; </span><span style='color: #0000BB;'>Encoding</span><span>: UTF-8
-#&gt; </span><span style='color: #0000BB;'>LazyData</span><span>: true
-#&gt; </span><span style='color: #0000BB;'>Roxygen</span><span>: list(markdown = TRUE)
-#&gt; </span><span style='color: #0000BB;'>RoxygenNote</span><span>: 7.1.1</div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔</span><span> Writing </span><span style='color: #0000BB;'>'NAMESPACE'</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔</span><span> Setting active project to </span><span style='color: #0000BB;'>'&lt;no active project&gt;'</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔</span><span> Setting active project to </span><span style='color: #0000BB;'>'/tmp/RtmpWMNLgJ/biocthisexample'</span><span></span></div><div class='input'>
-<span class='co'>## Automatically style the example package</span>
-<span class='fu'>styler</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/styler/man/style_pkg.html'>style_pkg</a></span><span class='op'>(</span><span class='va'>pkgdir</span>, transformers <span class='op'>=</span> <span class='fu'>biocthis</span><span class='fu'>::</span><span class='fu'>bioc_style</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; ────────────────────────────────────────
-#&gt; Status	Count	Legend 
-#&gt; ✔ 	0	File unchanged.
-#&gt; ℹ 	0	File changed.
-#&gt; ✖ 	0	Styling threw an error.
-#&gt; ────────────────────────────────────────</div></span></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'></span>
+<span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'><span class='co'>## Run these functions in your package</span></span>
+<span class='r-in'><span class='fu'>styler</span><span class='fu'>::</span><span class='fu'><a href='https://styler.r-lib.org/reference/style_pkg.html'>style_pkg</a></span><span class='op'>(</span>transformers <span class='op'>=</span> <span class='fu'>biocthis</span><span class='fu'>::</span><span class='fu'>bioc_style</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'>styler</span><span class='fu'>::</span><span class='fu'><a href='https://styler.r-lib.org/reference/style_dir.html'>style_dir</a></span><span class='op'>(</span><span class='fu'>usethis</span><span class='fu'>::</span><span class='fu'><a href='https://usethis.r-lib.org/reference/proj_utils.html'>proj_path</a></span><span class='op'>(</span><span class='st'>"dev"</span><span class='op'>)</span>, transformers <span class='op'>=</span> <span class='fu'>biocthis</span><span class='fu'>::</span><span class='fu'>bioc_style</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Create an example package for illustrative purposes.</span></span>
+<span class='r-in'><span class='co'>## Note: you do not need to run this for your own package!</span></span>
+<span class='r-in'><span class='va'>pkgdir</span> <span class='op'>&lt;-</span> <span class='fu'><a href='biocthis_example_pkg.html'>biocthis_example_pkg</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>✔</span> Creating <span style='color: #0000BB;'>'/tmp/RtmpKpNXQ4/biocthisexample/'</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>✔</span> Setting active project to <span style='color: #0000BB;'>'/tmp/RtmpKpNXQ4/biocthisexample'</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>✔</span> Creating <span style='color: #0000BB;'>'R/'</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>✔</span> Writing <span style='color: #0000BB;'>'DESCRIPTION'</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB;'>Package</span>: biocthisexample</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB;'>Title</span>: What the Package Does (One Line, Title Case)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB;'>Version</span>: 0.0.0.9000</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB;'>Authors@R</span> (parsed):</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     * First Last &lt;first.last@example.com&gt; [aut, cre] (YOUR-ORCID-ID)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB;'>Description</span>: What the package does (one paragraph).</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB;'>License</span>: `use_mit_license()`, `use_gpl3_license()` or friends to</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     pick a license</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB;'>Encoding</span>: UTF-8</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB;'>LazyData</span>: true</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB;'>Roxygen</span>: list(markdown = TRUE)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB;'>RoxygenNote</span>: 7.1.1</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>✔</span> Writing <span style='color: #0000BB;'>'NAMESPACE'</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>✔</span> Setting active project to <span style='color: #0000BB;'>'&lt;no active project&gt;'</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>✔</span> Setting active project to <span style='color: #0000BB;'>'/tmp/RtmpKpNXQ4/biocthisexample'</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## Automatically style the example package</span></span>
+<span class='r-in'><span class='fu'>styler</span><span class='fu'>::</span><span class='fu'><a href='https://styler.r-lib.org/reference/style_pkg.html'>style_pkg</a></span><span class='op'>(</span><span class='va'>pkgdir</span>, transformers <span class='op'>=</span> <span class='fu'>biocthis</span><span class='fu'>::</span><span class='fu'>bioc_style</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ────────────────────────────────────────</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Status	Count	Legend </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ✔ 	0	File unchanged.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ℹ 	0	File changed.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ✖ 	0	Styling threw an error.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ────────────────────────────────────────</span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -222,11 +233,11 @@ you close enough! =)</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Leonardo Collado-Torres.</p>
+  <p><p>Developed by Leonardo Collado-Torres.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>
@@ -234,6 +245,8 @@ you close enough! =)</p>
 
   
 
+
+  
 
   </body>
 </html>

@@ -48,6 +48,8 @@ Actions workflow by executing usethis::use_github_action()." />
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -59,9 +61,15 @@ Actions workflow by executing usethis::use_github_action()." />
 
 
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -75,19 +83,13 @@ Actions workflow by executing usethis::use_github_action()." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">biocthis</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.3.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.3.2</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../articles/biocthis.html">Get started</a>
 </li>
 <li>
@@ -141,7 +143,7 @@ GitHub action workflow for your package. You can also use this GitHub
 Actions workflow by executing <code><a href='https://usethis.r-lib.org/reference/use_github_action.html'>usethis::use_github_action()</a></code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>use_bioc_github_action</span><span class='op'>(</span>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>use_bioc_github_action</span><span class='op'>(</span>
   <span class='va'>biocdocker</span>,
   pkgdown <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"biocthis.pkgdown"</span>, <span class='cn'>FALSE</span><span class='op'>)</span>,
   testthat <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"biocthis.testthat"</span>, <span class='cn'>FALSE</span><span class='op'>)</span>,
@@ -149,14 +151,14 @@ Actions workflow by executing <code><a href='https://usethis.r-lib.org/reference
   RUnit <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"biocthis.RUnit"</span>, <span class='cn'>FALSE</span><span class='op'>)</span>,
   pkgdown_covr_branch <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"biocthis.pkgdown_covr_branch"</span>, <span class='st'>"master"</span><span class='op'>)</span>,
   docker <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"biocthis.docker"</span>, <span class='cn'>FALSE</span><span class='op'>)</span>
-<span class='op'>)</span></pre>
+<span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>biocdocker</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code> specifying the Bioconductor docker
+      <td><p>A <code>character(1)</code> specifying the Bioconductor docker
 version you want to use. Valid names are <code>"devel"</code> or in the
 <code>"RELEASE_X_Y"</code> format such as <code>"RELEASE_3_11"</code>. Check
 <a href='http://bioconductor.org/help/docker/'>http://bioconductor.org/help/docker/</a> for more information on the
@@ -166,7 +168,7 @@ R version will be set to match the Bioconductor version.</p></td>
     </tr>
     <tr>
       <th>pkgdown</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code> specifying whether to run <code>pkgdown</code>. Check
+      <td><p>A <code>logical(1)</code> specifying whether to run <code>pkgdown</code>. Check
 <a href='https://cran.r-project.org/web/packages/pkgdown/index.html'>https://cran.r-project.org/web/packages/pkgdown/index.html</a> for more
 information on <code>pkgdown</code> which is useful for creating documentation
 websites. If <code>TRUE</code>, then <code>pkgdown</code> will only run on the Linux
@@ -174,14 +176,14 @@ websites. If <code>TRUE</code>, then <code>pkgdown</code> will only run on the L
     </tr>
     <tr>
       <th>testthat</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code> specifying whether to run <code>testthat</code>. Check
+      <td><p>A <code>logical(1)</code> specifying whether to run <code>testthat</code>. Check
 <a href='https://cran.r-project.org/web/packages/testthat/index.html'>https://cran.r-project.org/web/packages/testthat/index.html</a> for more
 information about <code>testthat</code> which is useful for unit tests. The
 testing chapter at <a href='https://r-pkgs.org/tests.html'>https://r-pkgs.org/tests.html</a> is also very useful.</p></td>
     </tr>
     <tr>
       <th>covr</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code> specifying whether to run <code>covr</code>. Check
+      <td><p>A <code>logical(1)</code> specifying whether to run <code>covr</code>. Check
 <a href='https://cran.r-project.org/web/packages/covr/index.html'>https://cran.r-project.org/web/packages/covr/index.html</a> for more
 information about <code>covr</code>, which is useful for displaying for assessing
 your test coverage. If <code>TRUE</code>, then <code>covr</code> will only run on the Linux
@@ -189,18 +191,18 @@ your test coverage. If <code>TRUE</code>, then <code>covr</code> will only run o
     </tr>
     <tr>
       <th>RUnit</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code> specifying whether to run <code>RUnit</code> unit tests.
+      <td><p>A <code>logical(1)</code> specifying whether to run <code>RUnit</code> unit tests.
 Check <a href='http://bioconductor.org/developers/how-to/unitTesting-guidelines/'>http://bioconductor.org/developers/how-to/unitTesting-guidelines/</a>
 for more information about <code>RUnit</code>.</p></td>
     </tr>
     <tr>
       <th>pkgdown_covr_branch</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code> specifying the name of the GitHub
+      <td><p>A <code>character(1)</code> specifying the name of the GitHub
 branch that will be used creating the <code>pkgdown</code> website and running <code>covr</code>.</p></td>
     </tr>
     <tr>
       <th>docker</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code> specifying whether to build a docker image
+      <td><p>A <code>logical(1)</code> specifying whether to build a docker image
 with the resulting package.</p></td>
     </tr>
     </table>
@@ -216,19 +218,19 @@ the "biocthis developer notes" vignette
 <a href='https://lcolladotor.github.io/biocthis/articles/biocthis_dev_notes.html'>https://lcolladotor.github.io/biocthis/articles/biocthis_dev_notes.html</a>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='co'>## Run this function in your package</span>
-<span class='fu'>biocthis</span><span class='fu'>::</span><span class='fu'>use_bioc_github_action</span><span class='op'>(</span><span class='op'>)</span>
-<span class='op'>}</span>
-
-<span class='co'>## I have the following options on my ~/.Rprofile set</span>
-<span class='co'>## Check</span>
-<span class='co'>## &lt;https://github.com/lcolladotor/biocthis/issues/9#issuecomment-702401032&gt;</span>
-<span class='co'>## for more information.</span>
-<span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span><span class='st'>"biocthis.pkgdown"</span> <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span><span class='st'>"biocthis.testthat"</span> <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-</div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'></span>
+<span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'><span class='co'>## Run this function in your package</span></span>
+<span class='r-in'><span class='fu'>biocthis</span><span class='fu'>::</span><span class='fu'>use_bioc_github_action</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## I have the following options on my ~/.Rprofile set</span></span>
+<span class='r-in'><span class='co'>## Check</span></span>
+<span class='r-in'><span class='co'>## &lt;https://github.com/lcolladotor/biocthis/issues/9#issuecomment-702401032&gt;</span></span>
+<span class='r-in'><span class='co'>## for more information.</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span><span class='st'>"biocthis.pkgdown"</span> <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span><span class='st'>"biocthis.testthat"</span> <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -240,11 +242,11 @@ the "biocthis developer notes" vignette
 
       <footer>
       <div class="copyright">
-  <p>Developed by Leonardo Collado-Torres.</p>
+  <p><p>Developed by Leonardo Collado-Torres.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>
@@ -252,6 +254,8 @@ the "biocthis developer notes" vignette
 
   
 
+
+  
 
   </body>
 </html>

@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,18 +33,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">biocthis</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.3.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.3.2</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="../articles/biocthis.html">Get started</a>
 </li>
@@ -67,7 +63,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/lcolladotor/biocthis/">
+  <a href="https://github.com/lcolladotor/biocthis/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -82,291 +78,292 @@
 
       
 
-      </header><script src="biocthis_dev_notes_files/header-attrs-2.6/header-attrs.js"></script><div class="row">
+      </header><script src="biocthis_dev_notes_files/header-attrs-2.9/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>biocthis developer notes</h1>
-                        <h4 class="author">Leonardo Collado-Torres</h4>
+                        <h4 data-toc-skip class="author">Leonardo Collado-Torres</h4>
             <address class="author_afil">
       Lieber Institute for Brain Development, Johns Hopkins Medical CampusCenter for Computational Biology, Johns Hopkins University<br><a class="author_email" href="mailto:#"></a><a href="mailto:lcolladotor@gmail.com" class="email">lcolladotor@gmail.com</a>
       </address>
                   
-            <h4 class="date">24 May 2021</h4>
+            <h4 data-toc-skip class="date">5 August 2021</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/lcolladotor/biocthis/blob/master/vignettes/biocthis_dev_notes.Rmd"><code>vignettes/biocthis_dev_notes.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/lcolladotor/biocthis/blob/master/vignettes/biocthis_dev_notes.Rmd" class="external-link"><code>vignettes/biocthis_dev_notes.Rmd</code></a></small>
       <div class="hidden name"><code>biocthis_dev_notes.Rmd</code></div>
 
     </div>
 
     
     
-<p>Note that <em><a href="https://bioconductor.org/packages/3.12/biocthis">biocthis</a></em> is not a Bioconductor-core package and as such it is not a Bioconductor official package. It was made by and for Leonardo Collado-Torres so he could more easily maintain and create Bioconductor packages as listed at <a href="https://lcolladotor.github.io/pkgs/">lcolladotor.github.io/pkgs/</a>. Hopefully <em><a href="https://bioconductor.org/packages/3.12/biocthis">biocthis</a></em> will be helpful for you too.</p>
+<p>Note that <em><a href="https://bioconductor.org/packages/3.14/biocthis" class="external-link">biocthis</a></em> is not a Bioconductor-core package and as such it is not a Bioconductor official package. It was made by and for Leonardo Collado-Torres so he could more easily maintain and create Bioconductor packages as listed at <a href="https://lcolladotor.github.io/pkgs/" class="external-link">lcolladotor.github.io/pkgs/</a>. Hopefully <em><a href="https://bioconductor.org/packages/3.14/biocthis" class="external-link">biocthis</a></em> will be helpful for you too.</p>
 <div id="basics" class="section level1">
 <h1 class="hasAnchor">
-<a href="#basics" class="anchor"></a>Basics</h1>
-<p>For the basics, please check the <a href="https://lcolladotor.github.io/biocthis/articles/biocthis.html"><code>Introduction to biocthis</code> vignette</a>.</p>
+<a href="#basics" class="anchor" aria-hidden="true"></a>Basics</h1>
+<p>For the basics, please check the <a href="https://lcolladotor.github.io/biocthis/articles/biocthis.html" class="external-link"><code>Introduction to biocthis</code> vignette</a>.</p>
 </div>
 <div id="biocthis-developer-notes" class="section level1">
 <h1 class="hasAnchor">
-<a href="#biocthis-developer-notes" class="anchor"></a><code>biocthis</code> developer notes</h1>
+<a href="#biocthis-developer-notes" class="anchor" aria-hidden="true"></a><code>biocthis</code> developer notes</h1>
 <div id="backstory" class="section level2">
 <h2 class="hasAnchor">
-<a href="#backstory" class="anchor"></a>Backstory</h2>
-<p>In 2019, I was able to take the <a href="https://rstd.io/tidytools19">“Building Tidy Tools”</a> workshop taught by <a href="https://twitter.com/CVWickham">Charlotte</a> and <a href="https://twitter.com/hadleywickham">Hadley</a> Wickham during <a href="https://blog.rstudio.com/2019/02/06/rstudio-conf-2019-workshops/"><code>rstudio::conf(2019)</code></a> thanks to a diversity scholarship. During this workshop, I learned about <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em> (Wickham and Bryan, 2021), <em><a href="https://CRAN.R-project.org/package=devtools">devtools</a></em> (Wickham, Hester, and Chang, 2020), <em><a href="https://CRAN.R-project.org/package=testthat">testthat</a></em> (Wickham, 2011), among other R packages, and how to use <a href="https://www.rstudio.com/products/rstudio/download">RStudio Desktop</a> to create R packages more efficiently. I got to revise this material and practice it more for the <a href="https://comunidadbioinfo.github.io/post/building-tidy-tools-cdsb-runconf-2019/#.XrbLMxNKiu4">CDSB Workshop 2019: How to Build and Create Tidy Tools</a> where we re-used the materials (with their permission) and translated them to Spanish. Over the years I have made several <a href="http://bioconductor.org/">Bioconductor</a> R packages that <a href="https://lcolladotor.github.io/pkgs/">I maintain</a>. Yet I learned a lot thanks to Charlotte and Hadley and have been relying more and more on <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em> and related packages.</p>
-<p>Earlier this year (2020) one of my Bioconductor packages (<em><a href="https://bioconductor.org/packages/3.12/regionReport">regionReport</a></em>) was presenting some errors on some operating systems but not on others. I first spent quite a bit of time <a href="https://stat.ethz.ch/pipermail/bioc-devel/2020-March/016365.html">setting up the corresponding R installation</a> in my non-work Windows computer. I still struggled to reproduce the error, so I finally learned how to use the <a href="https://www.bioconductor.org/help/docker/">Bioconductor docker images</a>. That is, run the following code to then have an environment with all the system dependencies installed for Bioconductor packages. In this system you can then install your package dependencies and get very close to the Linux environment machine used for testing Bioconductor packages.</p>
+<a href="#backstory" class="anchor" aria-hidden="true"></a>Backstory</h2>
+<p>In 2019, I was able to take the <a href="https://rstd.io/tidytools19" class="external-link">“Building Tidy Tools”</a> workshop taught by <a href="https://twitter.com/CVWickham" class="external-link">Charlotte</a> and <a href="https://twitter.com/hadleywickham" class="external-link">Hadley</a> Wickham during <a href="https://blog.rstudio.com/2019/02/06/rstudio-conf-2019-workshops/" class="external-link"><code>rstudio::conf(2019)</code></a> thanks to a diversity scholarship. During this workshop, I learned about <em><a href="https://CRAN.R-project.org/package=usethis" class="external-link">usethis</a></em> (Wickham and Bryan, 2021), <em><a href="https://CRAN.R-project.org/package=devtools" class="external-link">devtools</a></em> (Wickham, Hester, and Chang, 2021), <em><a href="https://CRAN.R-project.org/package=testthat" class="external-link">testthat</a></em> (Wickham, 2011), among other R packages, and how to use <a href="https://www.rstudio.com/products/rstudio/download" class="external-link">RStudio Desktop</a> to create R packages more efficiently. I got to revise this material and practice it more for the <a href="https://comunidadbioinfo.github.io/post/building-tidy-tools-cdsb-runconf-2019/#.XrbLMxNKiu4" class="external-link">CDSB Workshop 2019: How to Build and Create Tidy Tools</a> where we re-used the materials (with their permission) and translated them to Spanish. Over the years I have made several <a href="http://bioconductor.org/" class="external-link">Bioconductor</a> R packages that <a href="https://lcolladotor.github.io/pkgs/" class="external-link">I maintain</a>. Yet I learned a lot thanks to Charlotte and Hadley and have been relying more and more on <em><a href="https://CRAN.R-project.org/package=usethis" class="external-link">usethis</a></em> and related packages.</p>
+<p>Earlier this year (2020) one of my Bioconductor packages (<em><a href="https://bioconductor.org/packages/3.14/regionReport" class="external-link">regionReport</a></em>) was presenting some errors on some operating systems but not on others. I first spent quite a bit of time <a href="https://stat.ethz.ch/pipermail/bioc-devel/2020-March/016365.html" class="external-link">setting up the corresponding R installation</a> in my non-work Windows computer. I still struggled to reproduce the error, so I finally learned how to use the <a href="https://www.bioconductor.org/help/docker/" class="external-link">Bioconductor docker images</a>. That is, run the following code to then have an environment with all the system dependencies installed for Bioconductor packages. In this system you can then install your package dependencies and get very close to the Linux environment machine used for testing Bioconductor packages.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="dt">\</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-e</span> PASSWORD=bioc <span class="dt">\</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-p</span> 8787:8787 <span class="dt">\</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    bioconductor/bioconductor_docker:devel</span></code></pre></div>
-<p>Using this docker image, I was finally <a href="https://stat.ethz.ch/pipermail/bioc-devel/2020-April/016532.html">able to reproduce the error</a> which involved others Bioconductor packages. However, there was a second hard-to-reproduce error. Using <a href="https://github.com/features/actions">GitHub Actions</a>, which I’ll talk about more soon, I was then able to find the <a href="https://stat.ethz.ch/pipermail/bioc-devel/2020-April/016650.html">root cause of this second issue</a> and resolve it.</p>
-<p><em><a href="https://bioconductor.org/packages/3.12/biocthis">biocthis</a></em> (Collado-Torres, 2021) was born from my interest to keep using <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em> and related tools, but in a Bioconductor-friendly way. That is, this is a package that will help me (and maybe others too). This package was born from these 5 issues:</p>
+<p>Using this docker image, I was finally <a href="https://stat.ethz.ch/pipermail/bioc-devel/2020-April/016532.html" class="external-link">able to reproduce the error</a> which involved others Bioconductor packages. However, there was a second hard-to-reproduce error. Using <a href="https://github.com/features/actions" class="external-link">GitHub Actions</a>, which I’ll talk about more soon, I was then able to find the <a href="https://stat.ethz.ch/pipermail/bioc-devel/2020-April/016650.html" class="external-link">root cause of this second issue</a> and resolve it.</p>
+<p><em><a href="https://bioconductor.org/packages/3.14/biocthis" class="external-link">biocthis</a></em> (Collado-Torres, 2021) was born from my interest to keep using <em><a href="https://CRAN.R-project.org/package=usethis" class="external-link">usethis</a></em> and related tools, but in a Bioconductor-friendly way. That is, this is a package that will help me (and maybe others too). This package was born from these 5 issues:</p>
 <ul>
 <li>
-<em>Bioconductor-friendly R CMD check action feature suggestion</em> <a href="https://github.com/r-lib/actions/issues/84">r-lib/actions#84</a>
+<em>Bioconductor-friendly R CMD check action feature suggestion</em> <a href="https://github.com/r-lib/actions/issues/84" class="external-link">r-lib/actions#84</a>
 </li>
 <li>
-<em>Bioc-friendly feature suggestions</em> <a href="https://github.com/r-lib/usethis/issues/1108">r-lib/usethis#1108</a>
+<em>Bioc-friendly feature suggestions</em> <a href="https://github.com/r-lib/usethis/issues/1108" class="external-link">r-lib/usethis#1108</a>
 </li>
 <li>
-<em>Bioc-friendly style feature suggestion</em> <a href="https://github.com/r-lib/styler/issues/636">r-lib/styler#636</a>
+<em>Bioc-friendly style feature suggestion</em> <a href="https://github.com/r-lib/styler/issues/636" class="external-link">r-lib/styler#636</a>
 </li>
 <li>
-<em>Recommend <code>styler</code> over <code>formatR</code> suggestion</em> <a href="https://github.com/Bioconductor/BiocCheck/issues/57">Bioconductor/BiocCheck#57</a>
+<em>Recommend <code>styler</code> over <code>formatR</code> suggestion</em> <a href="https://github.com/Bioconductor/BiocCheck/issues/57" class="external-link">Bioconductor/BiocCheck#57</a>
 </li>
 <li>
-<em>GitHub actions and styler suggestions</em> <a href="https://github.com/Bioconductor/bioconductor.org/issues/54">Bioconductor/bioconductor.org#54</a>
+<em>GitHub actions and styler suggestions</em> <a href="https://github.com/Bioconductor/bioconductor.org/issues/54" class="external-link">Bioconductor/bioconductor.org#54</a>
 </li>
 </ul>
 </div>
 <div id="styling-code" class="section level2">
 <h2 class="hasAnchor">
-<a href="#styling-code" class="anchor"></a>Styling code</h2>
-<p><em><a href="https://bioconductor.org/packages/3.12/BiocCheck">BiocCheck</a></em> is run on all new Bioconductor package submissions and by default it checks whether the new package adheres to the <a href="http://bioconductor.org/developers/how-to/coding-style/">Bioconductor coding style guide</a>. For a long time, it has suggested <em><a href="https://CRAN.R-project.org/package=formatR">formatR</a></em> as a solution for automatically styling code in an R package. While <em><a href="https://CRAN.R-project.org/package=formatR">formatR</a></em> mostly works and I’ve used it before, I recently discovered <em><a href="https://CRAN.R-project.org/package=styler">styler</a></em> which can be used for styling code to fit the <a href="https://style.tidyverse.org/">tidyverse coding style guide</a>. On my own packages, I have found <em><a href="https://CRAN.R-project.org/package=styler">styler</a></em> to be superior to <em><a href="https://CRAN.R-project.org/package=formatR">formatR</a></em> because it:</p>
+<a href="#styling-code" class="anchor" aria-hidden="true"></a>Styling code</h2>
+<p><em><a href="https://bioconductor.org/packages/3.14/BiocCheck" class="external-link">BiocCheck</a></em> is run on all new Bioconductor package submissions and by default it checks whether the new package adheres to the <a href="http://bioconductor.org/developers/how-to/coding-style/" class="external-link">Bioconductor coding style guide</a>. For a long time, it has suggested <em><a href="https://CRAN.R-project.org/package=formatR" class="external-link">formatR</a></em> as a solution for automatically styling code in an R package. While <em><a href="https://CRAN.R-project.org/package=formatR" class="external-link">formatR</a></em> mostly works and I’ve used it before, I recently discovered <em><a href="https://CRAN.R-project.org/package=styler" class="external-link">styler</a></em> which can be used for styling code to fit the <a href="https://style.tidyverse.org/" class="external-link">tidyverse coding style guide</a>. On my own packages, I have found <em><a href="https://CRAN.R-project.org/package=styler" class="external-link">styler</a></em> to be superior to <em><a href="https://CRAN.R-project.org/package=formatR" class="external-link">formatR</a></em> because it:</p>
 <ul>
 <li>breaks less code,</li>
-<li>can format <em><a href="https://CRAN.R-project.org/package=roxygen2">roxygen2</a></em> example code,</li>
+<li>can format <em><a href="https://CRAN.R-project.org/package=roxygen2" class="external-link">roxygen2</a></em> example code,</li>
 <li>and can re-format R Markdown files like vignettes.</li>
 <li>Plus it seems to me to be under active maintenance, which is always a good thing.</li>
 </ul>
-<p>Several of the issues I made are related to using <em><a href="https://CRAN.R-project.org/package=styler">styler</a></em> to automatically re-format your code to match more closely the Bioconductor coding style guide. That is how <code><a href="../reference/bioc_style.html">bioc_style()</a></code> was born and it was the suggested approach as discussed at <em>Bioc-friendly style feature suggestion</em> <a href="https://github.com/r-lib/styler/issues/636">r-lib/styler#636</a>. The maintainer of <em><a href="https://CRAN.R-project.org/package=styler">styler</a></em>, <a href="https://twitter.com/lorenzwalthert">Lorenz Walthert</a>, has a great reply on that issue linking for a more detailed discussion on how to expand <em><a href="https://CRAN.R-project.org/package=styler">styler</a></em> if the job requires doing so.</p>
-<p>Currently, <code><a href="../reference/bioc_style.html">bioc_style()</a></code> does not fully replicate the Bioconductor coding style, but it gets close enough. As <a href="https://twitter.com/mt_morgan">Martin Morgan</a> said at <em>Recommend <code>styler</code> over <code>formatR</code> suggestion</em> <a href="https://github.com/Bioconductor/BiocCheck/issues/57">Bioconductor/BiocCheck#57</a>, a solution that gets 90% of the way is good enough. <code><a href="../reference/bioc_style.html">bioc_style()</a></code> is a very short function, mostly because the Bioconductor and Tidyverse coding style guides are overall very similar. This function won’t solve all the formatting issues detected by <em><a href="https://bioconductor.org/packages/3.12/BiocCheck">BiocCheck</a></em>, but if you really want to, you can disable the formatting checks with:</p>
+<p>Several of the issues I made are related to using <em><a href="https://CRAN.R-project.org/package=styler" class="external-link">styler</a></em> to automatically re-format your code to match more closely the Bioconductor coding style guide. That is how <code><a href="../reference/bioc_style.html">bioc_style()</a></code> was born and it was the suggested approach as discussed at <em>Bioc-friendly style feature suggestion</em> <a href="https://github.com/r-lib/styler/issues/636" class="external-link">r-lib/styler#636</a>. The maintainer of <em><a href="https://CRAN.R-project.org/package=styler" class="external-link">styler</a></em>, <a href="https://twitter.com/lorenzwalthert" class="external-link">Lorenz Walthert</a>, has a great reply on that issue linking for a more detailed discussion on how to expand <em><a href="https://CRAN.R-project.org/package=styler" class="external-link">styler</a></em> if the job requires doing so.</p>
+<p>Currently, <code><a href="../reference/bioc_style.html">bioc_style()</a></code> does not fully replicate the Bioconductor coding style, but it gets close enough. As <a href="https://twitter.com/mt_morgan" class="external-link">Martin Morgan</a> said at <em>Recommend <code>styler</code> over <code>formatR</code> suggestion</em> <a href="https://github.com/Bioconductor/BiocCheck/issues/57" class="external-link">Bioconductor/BiocCheck#57</a>, a solution that gets 90% of the way is good enough. <code><a href="../reference/bioc_style.html">bioc_style()</a></code> is a very short function, mostly because the Bioconductor and Tidyverse coding style guides are overall very similar. This function won’t solve all the formatting issues detected by <em><a href="https://bioconductor.org/packages/3.14/BiocCheck" class="external-link">BiocCheck</a></em>, but if you really want to, you can disable the formatting checks with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Use the following for the latest options</span>
-<span class="fu">BiocCheck</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocCheck/man/BiocCheck.html">usage</a></span><span class="op">(</span><span class="op">)</span>
+<span class="fu">BiocCheck</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocCheck/man/BiocCheck.html" class="external-link">usage</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">## Disable formatting checks</span>
-<span class="fu">BiocCheck</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocCheck/man/BiocCheck.html">BiocCheck</a></span><span class="op">(</span>`--no-check-formatting` <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<span class="fu">BiocCheck</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocCheck/man/BiocCheck.html" class="external-link">BiocCheck</a></span><span class="op">(</span>`--no-check-formatting` <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="github-actions" class="section level2">
 <h2 class="hasAnchor">
-<a href="#github-actions" class="anchor"></a>GitHub Actions</h2>
+<a href="#github-actions" class="anchor" aria-hidden="true"></a>GitHub Actions</h2>
 <div id="motivation" class="section level3">
 <h3 class="hasAnchor">
-<a href="#motivation" class="anchor"></a>Motivation</h3>
-<p>I have been using <a href="https://docs.travis-ci.com/user/languages/r/">Travis CI</a> for several years now to help me run <code>R CMD check</code> every time I make a commit and push it to <code>GitHub</code>. <code>Travis CI</code> has mostly worked well for me, though I frequently had to maneuver around the 50 minute limit. I also recently <a href="https://github.com/r-lib/pkgdown/issues/1206">ran into a problem</a> where Hadley Wickham replied “We now recommend using the github actions workflow instead; which avoids all this configuration pain”. I also <a href="https://github.com/r-lib/pkgdown/issues/1230">ran into a problem</a> that didn’t always happen in Travis CI but that was potentially related to the computational resources provided (memory). I heard the term <code>GitHub Actions</code> at <code>rstudio::conf(2020)</code> but I ended up missing <a href="https://twitter.com/jimhester_">Jim Hester</a>’s talk which you can <a href="https://www.jimhester.com/talk/2020-rsc-github-actions/">watch online</a>: I highly recommend it and wish I had started my adventure into GitHub Actions with it. Briefly, <a href="https://github.com/features/actions">GitHub Actions</a> allows you to run checks on Windows, macOS or Linux for up to 6 hours on machines with 7 GB of RAM. That’s two more operating systems than what I was using with <code>Travis CI</code>, a significant amount longer of time, and a decent chunk of memory.</p>
-<p>The significance of these 3 operating systems is important to me because <a href="https://github.com/Bioconductor/BBS">Bioconductor runs nightly checks</a> on those 3 platforms. It’s a great way to know if your Bioconductor R package will work for most users. However, you only get one report per day. If you are not the most organized person like me, and have to fix your code before a release, then you don’t have as many days to check your R package(s) and need more frequent feedback. So I’ve been looking for a way to run checks on all three platforms on demand. Bioconductor has a <a href="https://github.com/Bioconductor/packagebuilder">Single Package Builder</a> which does this, but it is restricted to new package submissions.</p>
-<p>I know that there’s <a href="https://www.appveyor.com/">AppVeyor</a> for running checks on Windows, but I never used it. Travis CI does support macOS and Linux. In the past, I have used <em><a href="https://github.com/r-hub/rhub">rhub</a></em> and I was able to run tests on a package using a combination of <code>Travis CI</code> and <code>rhub</code> as detailed at <a href="https://github.com/r-hub/rhub/issues/52">r-hub/rhub/issues#52</a>. <code>rhub</code> maintainers have also taken steps to support Bioconductor’s release cycle as described at <a href="https://github.com/r-hub/rhub/issues/38">r-hub/rhub/issues#38</a>. Regardless of the platform, it would ultimately be nice to have a single configuration file that you (the package developer) don’t need to update for every Bioconductor release cycle.</p>
+<a href="#motivation" class="anchor" aria-hidden="true"></a>Motivation</h3>
+<p>I have been using <a href="https://docs.travis-ci.com/user/languages/r/" class="external-link">Travis CI</a> for several years now to help me run <code>R CMD check</code> every time I make a commit and push it to <code>GitHub</code>. <code>Travis CI</code> has mostly worked well for me, though I frequently had to maneuver around the 50 minute limit. I also recently <a href="https://github.com/r-lib/pkgdown/issues/1206" class="external-link">ran into a problem</a> where Hadley Wickham replied “We now recommend using the github actions workflow instead; which avoids all this configuration pain”. I also <a href="https://github.com/r-lib/pkgdown/issues/1230" class="external-link">ran into a problem</a> that didn’t always happen in Travis CI but that was potentially related to the computational resources provided (memory). I heard the term <code>GitHub Actions</code> at <code>rstudio::conf(2020)</code> but I ended up missing <a href="https://twitter.com/jimhester_" class="external-link">Jim Hester</a>’s talk which you can <a href="https://www.jimhester.com/talk/2020-rsc-github-actions/" class="external-link">watch online</a>: I highly recommend it and wish I had started my adventure into GitHub Actions with it. Briefly, <a href="https://github.com/features/actions" class="external-link">GitHub Actions</a> allows you to run checks on Windows, macOS or Linux for up to 6 hours on machines with 7 GB of RAM. That’s two more operating systems than what I was using with <code>Travis CI</code>, a significant amount longer of time, and a decent chunk of memory.</p>
+<p>The significance of these 3 operating systems is important to me because <a href="https://github.com/Bioconductor/BBS" class="external-link">Bioconductor runs nightly checks</a> on those 3 platforms. It’s a great way to know if your Bioconductor R package will work for most users. However, you only get one report per day. If you are not the most organized person like me, and have to fix your code before a release, then you don’t have as many days to check your R package(s) and need more frequent feedback. So I’ve been looking for a way to run checks on all three platforms on demand. Bioconductor has a <a href="https://github.com/Bioconductor/packagebuilder" class="external-link">Single Package Builder</a> which does this, but it is restricted to new package submissions.</p>
+<p>I know that there’s <a href="https://www.appveyor.com/" class="external-link">AppVeyor</a> for running checks on Windows, but I never used it. Travis CI does support macOS and Linux. In the past, I have used <em><a href="https://github.com/r-hub/rhub" class="external-link">rhub</a></em> and I was able to run tests on a package using a combination of <code>Travis CI</code> and <code>rhub</code> as detailed at <a href="https://github.com/r-hub/rhub/issues/52" class="external-link">r-hub/rhub/issues#52</a>. <code>rhub</code> maintainers have also taken steps to support Bioconductor’s release cycle as described at <a href="https://github.com/r-hub/rhub/issues/38" class="external-link">r-hub/rhub/issues#38</a>. Regardless of the platform, it would ultimately be nice to have a single configuration file that you (the package developer) don’t need to update for every Bioconductor release cycle.</p>
 </div>
 <div id="developing-a-bioconductor-friendly-gha-workflow" class="section level3">
 <h3 class="hasAnchor">
-<a href="#developing-a-bioconductor-friendly-gha-workflow" class="anchor"></a>Developing a Bioconductor-friendly GHA workflow</h3>
-<p>I saw on Twitter the <a href="https://www.tidyverse.org/blog/2020/04/usethis-1-6-0/">announcement about GitHub Actions</a> in <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em> and that is when I started to look more into <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em> and <em><a href="https://github.com/r-lib/actions">actions</a></em> by Jim Hester, particularly <a href="https://github.com/r-lib/actions/tree/master/examples">r-lib/actions/examples</a>. As <a href="https://yihui.org/en/2018/03/second-pull-request/">my usual</a>, I tried to just get it to work and then had to look more closely at the documentation and the code. Naively, I thought that I could make <a href="https://github.com/r-lib/actions/blob/master/examples/check-standard.yaml">r-lib/actions/examples/check-standard.yaml</a> Bioconductor-friendly, which Jim Hester immediately recognized as a complicated task. As you can see at <em>Bioconductor-friendly R CMD check action feature suggestion</em> <a href="https://github.com/r-lib/actions/issues/84">r-lib/actions#84</a> this took a while. When working on this, I also looked at several other resources and real world examples:</p>
+<a href="#developing-a-bioconductor-friendly-gha-workflow" class="anchor" aria-hidden="true"></a>Developing a Bioconductor-friendly GHA workflow</h3>
+<p>I saw on Twitter the <a href="https://www.tidyverse.org/blog/2020/04/usethis-1-6-0/" class="external-link">announcement about GitHub Actions</a> in <em><a href="https://CRAN.R-project.org/package=usethis" class="external-link">usethis</a></em> and that is when I started to look more into <em><a href="https://CRAN.R-project.org/package=usethis" class="external-link">usethis</a></em> and <em><a href="https://github.com/r-lib/actions" class="external-link">actions</a></em> by Jim Hester, particularly <a href="https://github.com/r-lib/actions/tree/master/examples" class="external-link">r-lib/actions/examples</a>. As <a href="https://yihui.org/en/2018/03/second-pull-request/" class="external-link">my usual</a>, I tried to just get it to work and then had to look more closely at the documentation and the code. Naively, I thought that I could make <a href="https://github.com/r-lib/actions/blob/master/examples/check-standard.yaml" class="external-link">r-lib/actions/examples/check-standard.yaml</a> Bioconductor-friendly, which Jim Hester immediately recognized as a complicated task. As you can see at <em>Bioconductor-friendly R CMD check action feature suggestion</em> <a href="https://github.com/r-lib/actions/issues/84" class="external-link">r-lib/actions#84</a> this took a while. When working on this, I also looked at several other resources and real world examples:</p>
 <ul>
-<li>The GitHub Actions reference manual: <a href="https://help.github.com/en/actions" class="uri">https://help.github.com/en/actions</a>
+<li>The GitHub Actions reference manual: <a href="https://help.github.com/en/actions" class="external-link uri">https://help.github.com/en/actions</a>
 </li>
-<li>An <code>rOpenSci</code> book on GitHub Actions: <a href="https://ropenscilabs.github.io/actions_sandbox/" class="uri">https://ropenscilabs.github.io/actions_sandbox/</a>
+<li>An <code>rOpenSci</code> book on GitHub Actions: <a href="https://ropenscilabs.github.io/actions_sandbox/" class="external-link uri">https://ropenscilabs.github.io/actions_sandbox/</a>
 </li>
 <li>
-<a href="https://twitter.com/seandavis12">Sean Davis</a>’ GHA workflow <a href="https://github.com/seandavi/BiocActions/blob/master/.github/workflows/main.yml">seandavi/BiocActions/.github/workflows/main.yml</a> and <a href="https://twitter.com/CSoneson">Charlotte Soneson</a>’s GHA workflow <a href="https://github.com/csoneson/dreval/blob/master/.github/workflows/R-CMD-check.yaml">csoneson/dreval/.github/workflows/R-CMD-check.yaml</a> which I found searching some keywords on the <a href="https://bioc-community.herokuapp.com/">Bioconductor Slack workspace</a>.</li>
-<li>Sean Davis’ <a href="https://seandavi.github.io/post/learning-github-actions/">blog post on GHA workflows</a>.</li>
+<a href="https://twitter.com/seandavis12" class="external-link">Sean Davis</a>’ GHA workflow <a href="https://github.com/seandavi/BiocActions/blob/master/.github/workflows/main.yml" class="external-link">seandavi/BiocActions/.github/workflows/main.yml</a> and <a href="https://twitter.com/CSoneson" class="external-link">Charlotte Soneson</a>’s GHA workflow <a href="https://github.com/csoneson/dreval/blob/master/.github/workflows/R-CMD-check.yaml" class="external-link">csoneson/dreval/.github/workflows/R-CMD-check.yaml</a> which I found searching some keywords on the <a href="https://bioc-community.herokuapp.com/" class="external-link">Bioconductor Slack workspace</a>.</li>
+<li>Sean Davis’ <a href="https://seandavi.github.io/post/learning-github-actions/" class="external-link">blog post on GHA workflows</a>.</li>
 </ul>
-<p>Most of the development of the Bioconductor-friendly GitHub Actions workflow provided by <em><a href="https://bioconductor.org/packages/3.12/biocthis">biocthis</a></em> was done with <a href="https://github.com/leekgroup/derfinderPlot/blob/master/.github/workflows/check-bioc.yml">leekgroup/derfinderPlot/.github/workflows/check-bioc.yml</a> and <a href="https://github.com/LieberInstitute/recount3/blob/master/.github/workflows/check-bioc.yml">LieberInstitute/recount3/.github/workflows/check-bioc.yml</a> as detailed at: <em>Bioconductor-friendly R CMD check action feature suggestion</em> <a href="https://github.com/r-lib/actions/issues/84">r-lib/actions#84</a>. It was then further improved by a <a href="https://github.com/lcolladotor/biocthis/pull/11">pull request</a> with tests carried out at <a href="https://github.com/lcolladotor/testmatrix/">lcolladotor/testmatrix</a>.</p>
+<p>Most of the development of the Bioconductor-friendly GitHub Actions workflow provided by <em><a href="https://bioconductor.org/packages/3.14/biocthis" class="external-link">biocthis</a></em> was done with <a href="https://github.com/leekgroup/derfinderPlot/blob/master/.github/workflows/check-bioc.yml" class="external-link">leekgroup/derfinderPlot/.github/workflows/check-bioc.yml</a> and <a href="https://github.com/LieberInstitute/recount3/blob/master/.github/workflows/check-bioc.yml" class="external-link">LieberInstitute/recount3/.github/workflows/check-bioc.yml</a> as detailed at: <em>Bioconductor-friendly R CMD check action feature suggestion</em> <a href="https://github.com/r-lib/actions/issues/84" class="external-link">r-lib/actions#84</a>. It was then further improved by a <a href="https://github.com/lcolladotor/biocthis/pull/11" class="external-link">pull request</a> with tests carried out at <a href="https://github.com/lcolladotor/testmatrix/" class="external-link">lcolladotor/testmatrix</a>.</p>
 <p>This work eventually lead to <code><a href="../reference/use_bioc_github_action.html">use_bioc_github_action()</a></code> as it is today. The features of this GHA workflow are described in the <code>Introduction to biocthis</code> vignette. Going back to the story about developing this GHA workflow, while working on this GHA workflow, I ran into several issues and I wouldn’t be surprised if we run into more of them later on.</p>
 <ul>
-<li>R has more tags than just <code>release</code> and <code>devel</code>, so just before R 4.0.0 was released it was called <code>alpha</code>, while <code>release</code> pointed to 3.6.3 and <code>devel</code> to 4.1.0. At <a href="https://github.com/r-lib/actions/pull/68">r-lib/actions/pull/68</a> the decision was made that this was a transient issue. In the meantime I wanted to get the GHA to work, this lead me to many issues about installing package dependencies on R 4.1.0 to test Bioconductor 3.11, which is <strong>NOT</strong> the thing you should do! Bioconductor 3.11 is meant to run on R 4.0.x, not 4.1.x. <a href="https://github.com/hpages">Hervé Pagès</a> helped me with some of these tricks, particularly with Windows. Also on Windows, I learned more about <code>r-lib/actions</code> from the update to <a href="https://github.com/r-lib/actions/pull/85">support Rtools 4.0 on Windows</a> by <a href="https://twitter.com/opencpu">Jeroen Ooms</a>, which <a href="https://community.rstudio.com/u/const-ae">Constantin AE</a> and I were discussing on the <a href="https://community.rstudio.com/t/compiler-support-fo-c-14-features-on-windows/57284/4">RStudio Community website</a>. On macOS I ran into compiling <em><a href="https://CRAN.R-project.org/package=XML">XML</a></em> from source and its system dependencies. I also ran into <a href="https://github.com/r-lib/xml2/issues/296">xml2/issues/296</a> which is now officially resolved thanks to <a href="https://github.com/r-lib/xml2/issues/302">xml2/issues/302</a>, though looking at <a href="https://github.com/r-lib/usethis/blob/master/.github/workflows/R-CMD-check.yaml">r-lib/usethis/.github/workflows/R-CMD-check.yaml</a> and <a href="https://github.com/r-lib/usethis/commits/master/.github/workflows/R-CMD-check.yaml">r-lib/usethis/commits/.github/workflows/R-CMD-check.yaml</a> was very helpful.</li>
-<li>I had some issues installing <em><a href="https://bioconductor.org/packages/3.12/BiocCheck">BiocCheck</a></em> and running <code>R CMD BiocCheck</code> on both Windows and the Bioconductor docker image (different issues) that I can avoid using code like this: <code>Rscript -e "BiocCheck::BiocCheck()"</code>.</li>
-<li>Apparently, we found a bug in the internal R code. It’s my second issue ever that traces back to the R internals! This is something we discussed quite a bit at the Bioc-devel mailing list with Martin Morgan, Charlotte Soneson and others. Check <a href="https://stat.ethz.ch/pipermail/bioc-devel/2020-April/016703.html">this message</a> and the <a href="https://stat.ethz.ch/pipermail/bioc-devel/2020-April/thread.html">April thread history</a>. I thought that it was linked to <a href="https://github.com/r-lib/remotes/issues/296">r-lib/remotes/issues/296</a> at some point.</li>
-<li>I learned about caching on GitHub actions at <a href="https://github.com/r-lib/actions/issues/86">r-lib/actions/issues/86</a> in general, I’ve been trying to update the GHA workflow here to reflect changes at <em><a href="https://github.com/r-lib/actions">actions</a></em>.</li>
-<li>I ran into some issues configuring <code>git</code> to then run <em><a href="https://CRAN.R-project.org/package=pkgdown">pkgdown</a></em>, which involved the <code>GITHUB_TOKEN</code> environment variable on the Bioconductor docker step and using <code>git config --local</code> a couple of times. You will also need to run <code><a href="https://pkgdown.r-lib.org/reference/deploy_to_branch.html">pkgdown::deploy_to_branch()</a></code> once locally to set up the <code>gh-pages</code> branch properly for <em><a href="https://CRAN.R-project.org/package=pkgdown">pkgdown</a></em> to work from GitHub Actions.</li>
-<li>I ran into a small issue <a href="https://github.com/r-lib/covr/issues/427">r-lib/covr/issues/427</a> with <em><a href="https://CRAN.R-project.org/package=covr">covr</a></em> in case your package doesn’t have tests. This and the caching discussion, along with <a href="https://github.com/r-lib/actions/blob/master/examples/pr-commands.yaml">r-lib/actions/examples/pr-commands.yaml</a> motivated me to use environment variables and conditionals to have a single workflow with some options at the top that you can set to run: <em><a href="https://CRAN.R-project.org/package=covr">covr</a></em>, extract info from <em><a href="https://CRAN.R-project.org/package=testthat">testthat</a></em>, run <em><a href="https://CRAN.R-project.org/package=pkgdown">pkgdown</a></em>, or ignore the cache by including the keyword <code>/nocache</code> on your commit message.</li>
-<li>I had to learn how to compile <code>git</code> from source by modifying <a href="https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-18-04">these instructions</a> in order to have a <code>git</code> version equal or newer to 2.18 on Ubuntu 18.04 such that I can then use <code>actions/checkout@v2</code> and avoid issues with running <em><a href="https://CRAN.R-project.org/package=pkgdown">pkgdown</a></em>. I later learned how to use a <a href="https://launchpad.net/~git-core/+archive/ubuntu/candidate">ppa</a> for Ubuntu for installing the latest <code>git</code> version. If you use <code>actions/checkout@v1</code> you can end up at <a href="https://github.com/r-lib/actions/issues/50">r-lib/actions/issues/50</a>. If you use the default <code>git</code> 2.17.1 on Ubuntu 18.04 then you run into <a href="https://github.com/actions/checkout/issues/238">actions/checkout/issues/238</a> and other related issues. I could have avoided this by running <em><a href="https://CRAN.R-project.org/package=pkgdown">pkgdown</a></em> on macOS instead of the Bioconductor docker image that is based on <a href="https://github.com/rocker-org/rocker-versioned2/blob/master/dockerfiles/Dockerfile_rstudio_4.0.0-ubuntu18.04"><code>rockerdev/rstudio:R.4.0.0_ubuntu18.04</code></a>. Nowadays, the bioconductor docker devel images are based on Ubuntu 20.04, known as <code>focal</code>. The <a href="https://rstudio.com/products/package-manager/">RStudio Package Manager</a> (RSPM) greatly improves the speed at which R packages are installed in Linux and thus on the Bioconductor docker images.</li>
+<li>R has more tags than just <code>release</code> and <code>devel</code>, so just before R 4.0.0 was released it was called <code>alpha</code>, while <code>release</code> pointed to 3.6.3 and <code>devel</code> to 4.1.0. At <a href="https://github.com/r-lib/actions/pull/68" class="external-link">r-lib/actions/pull/68</a> the decision was made that this was a transient issue. In the meantime I wanted to get the GHA to work, this lead me to many issues about installing package dependencies on R 4.1.0 to test Bioconductor 3.11, which is <strong>NOT</strong> the thing you should do! Bioconductor 3.11 is meant to run on R 4.0.x, not 4.1.x. <a href="https://github.com/hpages" class="external-link">Hervé Pagès</a> helped me with some of these tricks, particularly with Windows. Also on Windows, I learned more about <code>r-lib/actions</code> from the update to <a href="https://github.com/r-lib/actions/pull/85" class="external-link">support Rtools 4.0 on Windows</a> by <a href="https://twitter.com/opencpu" class="external-link">Jeroen Ooms</a>, which <a href="https://community.rstudio.com/u/const-ae" class="external-link">Constantin AE</a> and I were discussing on the <a href="https://community.rstudio.com/t/compiler-support-fo-c-14-features-on-windows/57284/4" class="external-link">RStudio Community website</a>. On macOS I ran into compiling <em><a href="https://CRAN.R-project.org/package=XML" class="external-link">XML</a></em> from source and its system dependencies. I also ran into <a href="https://github.com/r-lib/xml2/issues/296" class="external-link">xml2/issues/296</a> which is now officially resolved thanks to <a href="https://github.com/r-lib/xml2/issues/302" class="external-link">xml2/issues/302</a>, though looking at <a href="https://github.com/r-lib/usethis/blob/master/.github/workflows/R-CMD-check.yaml" class="external-link">r-lib/usethis/.github/workflows/R-CMD-check.yaml</a> and <a href="https://github.com/r-lib/usethis/commits/master/.github/workflows/R-CMD-check.yaml" class="external-link">r-lib/usethis/commits/.github/workflows/R-CMD-check.yaml</a> was very helpful.</li>
+<li>I had some issues installing <em><a href="https://bioconductor.org/packages/3.14/BiocCheck" class="external-link">BiocCheck</a></em> and running <code>R CMD BiocCheck</code> on both Windows and the Bioconductor docker image (different issues) that I can avoid using code like this: <code>Rscript -e "BiocCheck::BiocCheck()"</code>.</li>
+<li>Apparently, we found a bug in the internal R code. It’s my second issue ever that traces back to the R internals! This is something we discussed quite a bit at the Bioc-devel mailing list with Martin Morgan, Charlotte Soneson and others. Check <a href="https://stat.ethz.ch/pipermail/bioc-devel/2020-April/016703.html" class="external-link">this message</a> and the <a href="https://stat.ethz.ch/pipermail/bioc-devel/2020-April/thread.html" class="external-link">April thread history</a>. I thought that it was linked to <a href="https://github.com/r-lib/remotes/issues/296" class="external-link">r-lib/remotes/issues/296</a> at some point.</li>
+<li>I learned about caching on GitHub actions at <a href="https://github.com/r-lib/actions/issues/86" class="external-link">r-lib/actions/issues/86</a> in general, I’ve been trying to update the GHA workflow here to reflect changes at <em><a href="https://github.com/r-lib/actions" class="external-link">actions</a></em>.</li>
+<li>I ran into some issues configuring <code>git</code> to then run <em><a href="https://CRAN.R-project.org/package=pkgdown" class="external-link">pkgdown</a></em>, which involved the <code>GITHUB_TOKEN</code> environment variable on the Bioconductor docker step and using <code>git config --local</code> a couple of times. You will also need to run <code><a href="https://pkgdown.r-lib.org/reference/deploy_to_branch.html" class="external-link">pkgdown::deploy_to_branch()</a></code> once locally to set up the <code>gh-pages</code> branch properly for <em><a href="https://CRAN.R-project.org/package=pkgdown" class="external-link">pkgdown</a></em> to work from GitHub Actions.</li>
+<li>I ran into a small issue <a href="https://github.com/r-lib/covr/issues/427" class="external-link">r-lib/covr/issues/427</a> with <em><a href="https://CRAN.R-project.org/package=covr" class="external-link">covr</a></em> in case your package doesn’t have tests. This and the caching discussion, along with <a href="https://github.com/r-lib/actions/blob/master/examples/pr-commands.yaml" class="external-link">r-lib/actions/examples/pr-commands.yaml</a> motivated me to use environment variables and conditionals to have a single workflow with some options at the top that you can set to run: <em><a href="https://CRAN.R-project.org/package=covr" class="external-link">covr</a></em>, extract info from <em><a href="https://CRAN.R-project.org/package=testthat" class="external-link">testthat</a></em>, run <em><a href="https://CRAN.R-project.org/package=pkgdown" class="external-link">pkgdown</a></em>, or ignore the cache by including the keyword <code>/nocache</code> on your commit message.</li>
+<li>I had to learn how to compile <code>git</code> from source by modifying <a href="https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-18-04" class="external-link">these instructions</a> in order to have a <code>git</code> version equal or newer to 2.18 on Ubuntu 18.04 such that I can then use <code>actions/checkout@v2</code> and avoid issues with running <em><a href="https://CRAN.R-project.org/package=pkgdown" class="external-link">pkgdown</a></em>. I later learned how to use a <a href="https://launchpad.net/~git-core/+archive/ubuntu/candidate" class="external-link">ppa</a> for Ubuntu for installing the latest <code>git</code> version. If you use <code>actions/checkout@v1</code> you can end up at <a href="https://github.com/r-lib/actions/issues/50" class="external-link">r-lib/actions/issues/50</a>. If you use the default <code>git</code> 2.17.1 on Ubuntu 18.04 then you run into <a href="https://github.com/actions/checkout/issues/238" class="external-link">actions/checkout/issues/238</a> and other related issues. I could have avoided this by running <em><a href="https://CRAN.R-project.org/package=pkgdown" class="external-link">pkgdown</a></em> on macOS instead of the Bioconductor docker image that is based on <a href="https://github.com/rocker-org/rocker-versioned2/blob/master/dockerfiles/Dockerfile_rstudio_4.0.0-ubuntu18.04" class="external-link"><code>rockerdev/rstudio:R.4.0.0_ubuntu18.04</code></a>. Nowadays, the bioconductor docker devel images are based on Ubuntu 20.04, known as <code>focal</code>. The <a href="https://rstudio.com/products/package-manager/" class="external-link">RStudio Package Manager</a> (RSPM) greatly improves the speed at which R packages are installed in Linux and thus on the Bioconductor docker images.</li>
 <li>
-<a href="https://twitter.com/niteshturaga">Nitesh Turaga</a> and <a href="https://twitter.com/cboettig">Carl Boettiger</a> <a href="https://github.com/rocker-org/rocker-versioned/issues/208">rocker-org/rocker-versioned/issues/208</a> updated the rocker docker image for RStudio to R 4.0 and the corresponding Bioconductor docker image. To do so, they resolved several issues themselves. From my side, I only had to wait =)</li>
-<li>I also had to learn how to mount directories with docker to enable caching the R package files when using the Bioconductor docker images, and other GitHub Actions syntax for which I relied quite heavily on <a href="https://help.github.com/en/actions">their manual</a> and Google searches; most of them lead me to the <a href="https://github.community/t5/GitHub-Actions/bd-p/actions">GitHub Actions community website</a>.</li>
-<li>In late September 2020, <a href="https://twitter.com/M2RUseR">Marcel Ramos</a> sent a <a href="https://github.com/lcolladotor/biocthis/pull/11">pull request</a> that greatly changed the GHA actions workflow to (1) use a template and (2) avoid the code redundancy across macOS, Windows and Linux (running a Bioconductor docker), which makes the resulting GHA workflow easier to understand and customize.</li>
+<a href="https://twitter.com/niteshturaga" class="external-link">Nitesh Turaga</a> and <a href="https://twitter.com/cboettig" class="external-link">Carl Boettiger</a> <a href="https://github.com/rocker-org/rocker-versioned/issues/208" class="external-link">rocker-org/rocker-versioned/issues/208</a> updated the rocker docker image for RStudio to R 4.0 and the corresponding Bioconductor docker image. To do so, they resolved several issues themselves. From my side, I only had to wait =)</li>
+<li>I also had to learn how to mount directories with docker to enable caching the R package files when using the Bioconductor docker images, and other GitHub Actions syntax for which I relied quite heavily on <a href="https://help.github.com/en/actions" class="external-link">their manual</a> and Google searches; most of them lead me to the <a href="https://github.community/t5/GitHub-Actions/bd-p/actions" class="external-link">GitHub Actions community website</a>.</li>
+<li>In late September 2020, <a href="https://twitter.com/M2RUseR" class="external-link">Marcel Ramos</a> sent a <a href="https://github.com/lcolladotor/biocthis/pull/11" class="external-link">pull request</a> that greatly changed the GHA actions workflow to (1) use a template and (2) avoid the code redundancy across macOS, Windows and Linux (running a Bioconductor docker), which makes the resulting GHA workflow easier to understand and customize.</li>
 </ul>
 </div>
 <div id="potential-future-additions" class="section level3">
 <h3 class="hasAnchor">
-<a href="#potential-future-additions" class="anchor"></a>Potential future additions</h3>
+<a href="#potential-future-additions" class="anchor" aria-hidden="true"></a>Potential future additions</h3>
 <ul>
-<li>It might be useful to use exactly the same <code>.Renviron</code> as the one used in the Bioconductor machines by downloading files like <a href="https://github.com/Bioconductor/BBS/blob/master/3.11/Renviron.bioc">3.11/Renviron.bioc</a> and locating them correctly.</li>
-<li>On a similar route, it might be useful to utilize <em><a href="https://github.com/HenrikBengtsson/rcli">rcli</a></em>, potentially avoiding the need for dealing directly with the <code>.Renviron</code> files.</li>
+<li>It might be useful to use exactly the same <code>.Renviron</code> as the one used in the Bioconductor machines by downloading files like <a href="https://github.com/Bioconductor/BBS/blob/master/3.11/Renviron.bioc" class="external-link">3.11/Renviron.bioc</a> and locating them correctly.</li>
+<li>On a similar route, it might be useful to utilize <em><a href="https://github.com/HenrikBengtsson/rcli" class="external-link">rcli</a></em>, potentially avoiding the need for dealing directly with the <code>.Renviron</code> files.</li>
 </ul>
 </div>
 <div id="wrapping-up" class="section level3">
 <h3 class="hasAnchor">
-<a href="#wrapping-up" class="anchor"></a>Wrapping up</h3>
-<p>The resulting Bioconductor-friendly GitHub Actions workflow that you can add to your package with <code><a href="../reference/use_bioc_github_action.html">biocthis::use_bioc_github_action()</a></code> has many comments which you might find helpful for understanding why some steps are done the way they are. I have tried to simplify the workflow when possible, but it depends on the latest version of many tools and thus will expose you to issues you might have not dealt with, particularly compilation issues of R packages with R-devel (six months of the year with the current Bioconductor release cycle). If you need help, start by going through the steps listed at <a href="https://github.com/r-lib/actions#where-to-find-help">r-lib/actions#where-to-find-help</a>. <em><a href="https://bioconductor.org/packages/3.12/biocthis">biocthis</a></em> exclusive issues are always welcome, though please include the information that will enable others to help you faster. Thank you!</p>
+<a href="#wrapping-up" class="anchor" aria-hidden="true"></a>Wrapping up</h3>
+<p>The resulting Bioconductor-friendly GitHub Actions workflow that you can add to your package with <code><a href="../reference/use_bioc_github_action.html">biocthis::use_bioc_github_action()</a></code> has many comments which you might find helpful for understanding why some steps are done the way they are. I have tried to simplify the workflow when possible, but it depends on the latest version of many tools and thus will expose you to issues you might have not dealt with, particularly compilation issues of R packages with R-devel (six months of the year with the current Bioconductor release cycle). If you need help, start by going through the steps listed at <a href="https://github.com/r-lib/actions#where-to-find-help" class="external-link">r-lib/actions#where-to-find-help</a>. <em><a href="https://bioconductor.org/packages/3.14/biocthis" class="external-link">biocthis</a></em> exclusive issues are always welcome, though please include the information that will enable others to help you faster. Thank you!</p>
 </div>
 </div>
 <div id="usethis-like-functions" class="section level2">
 <h2 class="hasAnchor">
-<a href="#usethis-like-functions" class="anchor"></a><code>usethis</code>-like functions</h2>
-<p><em><a href="https://bioconductor.org/packages/3.12/biocthis">biocthis</a></em> also provides other <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em>-like functions. To make these functions, I looked at the code inside <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em> and learned how to make templates, how the data is passed to the templates and some other steps. Some of the functions are really identical to the ones from <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em> but point to a custom template provided by <em><a href="https://bioconductor.org/packages/3.12/biocthis">biocthis</a></em>. These functions have simplified for me the task of having uniform README.Rmd/md and vignette files for instance, as well as having GitHub issue &amp; support templates that include some Bioconductor-specific information and some of my own personal preferences for asking for help. I also included template R scripts through <code><a href="../reference/use_bioc_pkg_templates.html">use_bioc_pkg_templates()</a></code> that is an idea I first learned at <code>rstudio::conf(2020)</code> on the <em><a href="https://CRAN.R-project.org/package=golem">golem</a></em> package. Those scripts are useful to keep track of code that you had to run to make the R package or to update it later. These scripts can greatly jump-start your R/Bioconductor package creation process. So maybe you’ll see more packages by me and others soon =) In particular, I really hope that we can get more CDSB members to submit R/Bioconductor packages to the world as explained in <a href="https://www.r-consortium.org/blog/2020/03/18/cdsb-diversity-and-outreach-hotspot-in-mexico">this story</a>, which is something I care about quite a bit.</p>
+<a href="#usethis-like-functions" class="anchor" aria-hidden="true"></a><code>usethis</code>-like functions</h2>
+<p><em><a href="https://bioconductor.org/packages/3.14/biocthis" class="external-link">biocthis</a></em> also provides other <em><a href="https://CRAN.R-project.org/package=usethis" class="external-link">usethis</a></em>-like functions. To make these functions, I looked at the code inside <em><a href="https://CRAN.R-project.org/package=usethis" class="external-link">usethis</a></em> and learned how to make templates, how the data is passed to the templates and some other steps. Some of the functions are really identical to the ones from <em><a href="https://CRAN.R-project.org/package=usethis" class="external-link">usethis</a></em> but point to a custom template provided by <em><a href="https://bioconductor.org/packages/3.14/biocthis" class="external-link">biocthis</a></em>. These functions have simplified for me the task of having uniform README.Rmd/md and vignette files for instance, as well as having GitHub issue &amp; support templates that include some Bioconductor-specific information and some of my own personal preferences for asking for help. I also included template R scripts through <code><a href="../reference/use_bioc_pkg_templates.html">use_bioc_pkg_templates()</a></code> that is an idea I first learned at <code>rstudio::conf(2020)</code> on the <em><a href="https://CRAN.R-project.org/package=golem" class="external-link">golem</a></em> package. Those scripts are useful to keep track of code that you had to run to make the R package or to update it later. These scripts can greatly jump-start your R/Bioconductor package creation process. So maybe you’ll see more packages by me and others soon =) In particular, I really hope that we can get more CDSB members to submit R/Bioconductor packages to the world as explained in <a href="https://www.r-consortium.org/blog/2020/03/18/cdsb-diversity-and-outreach-hotspot-in-mexico" class="external-link">this story</a>, which is something I care about quite a bit.</p>
 </div>
 </div>
 <div id="acknowledgments" class="section level1">
 <h1 class="hasAnchor">
-<a href="#acknowledgments" class="anchor"></a>Acknowledgments</h1>
+<a href="#acknowledgments" class="anchor" aria-hidden="true"></a>Acknowledgments</h1>
 <p>I just want to thank everyone for helping me understand different pieces of code, for producing the tools I used, for interacting with me across many GitHub issues, as well as answering questions on multiple mailing lists. The names below are in order they appear in this vignette:</p>
 <ul>
-<li><a href="https://twitter.com/CVWickham">Charlotte Wickham</a></li>
-<li><a href="https://twitter.com/hadleywickham">Hadley Wickham</a></li>
-<li><a href="https://twitter.com/lorenzwalthert">Lorenz Walthert</a></li>
-<li><a href="https://twitter.com/mt_morgan">Martin Morgan</a></li>
-<li><a href="https://twitter.com/jimhester_">Jim Hester</a></li>
-<li><a href="https://twitter.com/seandavis12">Sean Davis</a></li>
-<li><a href="https://twitter.com/CSoneson">Charlotte Soneson</a></li>
-<li><a href="https://github.com/hpages">Hervé Pagès</a></li>
-<li><a href="https://twitter.com/opencpu">Jeroen Ooms</a></li>
-<li><a href="https://community.rstudio.com/u/const-ae">Constantin AE</a></li>
+<li><a href="https://twitter.com/CVWickham" class="external-link">Charlotte Wickham</a></li>
+<li><a href="https://twitter.com/hadleywickham" class="external-link">Hadley Wickham</a></li>
+<li><a href="https://twitter.com/lorenzwalthert" class="external-link">Lorenz Walthert</a></li>
+<li><a href="https://twitter.com/mt_morgan" class="external-link">Martin Morgan</a></li>
+<li><a href="https://twitter.com/jimhester_" class="external-link">Jim Hester</a></li>
+<li><a href="https://twitter.com/seandavis12" class="external-link">Sean Davis</a></li>
+<li><a href="https://twitter.com/CSoneson" class="external-link">Charlotte Soneson</a></li>
+<li><a href="https://github.com/hpages" class="external-link">Hervé Pagès</a></li>
+<li><a href="https://twitter.com/opencpu" class="external-link">Jeroen Ooms</a></li>
+<li><a href="https://community.rstudio.com/u/const-ae" class="external-link">Constantin AE</a></li>
 <li>
-<a href="https://github.com/maxheld83">Max Held</a> for <a href="https://github.com/r-lib/actions/pull/87">r-lib/actions/pull/87</a>
+<a href="https://github.com/maxheld83" class="external-link">Max Held</a> for <a href="https://github.com/r-lib/actions/pull/87" class="external-link">r-lib/actions/pull/87</a>
 </li>
 <li>
-<a href="https://github.com/yutannihilation">Hiroaki Yutani</a> for <a href="https://github.com/r-lib/actions/issues/86">r-lib/actions/issues/86</a>
+<a href="https://github.com/yutannihilation" class="external-link">Hiroaki Yutani</a> for <a href="https://github.com/r-lib/actions/issues/86" class="external-link">r-lib/actions/issues/86</a>
 </li>
-<li><a href="https://twitter.com/niteshturaga">Nitesh Turaga</a></li>
-<li><a href="https://twitter.com/cboettig">Carl Boettiger</a></li>
+<li><a href="https://twitter.com/niteshturaga" class="external-link">Nitesh Turaga</a></li>
+<li><a href="https://twitter.com/cboettig" class="external-link">Carl Boettiger</a></li>
 <li>
-<a href="https://twitter.com/JennyBryan">Jenny Bryan</a> for her feedback at <a href="https://github.com/r-lib/usethis/issues/1108#issuecomment-626253251">r-lib/usethis/issues#1108</a>
+<a href="https://twitter.com/JennyBryan" class="external-link">Jenny Bryan</a> for her feedback at <a href="https://github.com/r-lib/usethis/issues/1108#issuecomment-626253251" class="external-link">r-lib/usethis/issues#1108</a>
 </li>
 <li>
-<a href="https://twitter.com/M2RUseR">Marcel Ramos</a> for this <a href="https://github.com/lcolladotor/biocthis/pull/11">awesome pull request</a>
+<a href="https://twitter.com/M2RUseR" class="external-link">Marcel Ramos</a> for this <a href="https://github.com/lcolladotor/biocthis/pull/11" class="external-link">awesome pull request</a>
 </li>
 </ul>
 <p>as well as several organizations and members:</p>
 <ul>
 <li>
-<a href="https://twitter.com/Bioconductor">Bioconductor</a>, particularly <a href="https://twitter.com/lshep712">Lori Shepard</a> and other members I mentioned already</li>
-<li><a href="https://twitter.com/rstudio">RStudio</a></li>
-<li><a href="https://twitter.com/CDSBMexico">CDSB</a></li>
-<li><a href="https://twitter.com/travisci">Travis CI</a></li>
+<a href="https://twitter.com/Bioconductor" class="external-link">Bioconductor</a>, particularly <a href="https://twitter.com/lshep712" class="external-link">Lori Shepard</a> and other members I mentioned already</li>
+<li><a href="https://twitter.com/rstudio" class="external-link">RStudio</a></li>
+<li><a href="https://twitter.com/CDSBMexico" class="external-link">CDSB</a></li>
+<li><a href="https://twitter.com/travisci" class="external-link">Travis CI</a></li>
 <li>
-<a href="https://twitter.com/rhub_">rhub</a>, particularly <a href="https://twitter.com/ma_salmon">Maëlle Salmon</a> and <a href="https://twitter.com/GaborCsardi">Gábor Csárdi</a>
+<a href="https://twitter.com/rhub_" class="external-link">rhub</a>, particularly <a href="https://twitter.com/ma_salmon" class="external-link">Maëlle Salmon</a> and <a href="https://twitter.com/GaborCsardi" class="external-link">Gábor Csárdi</a>
 </li>
-<li><a href="https://twitter.com/github">GitHub</a></li>
+<li><a href="https://twitter.com/github" class="external-link">GitHub</a></li>
 <li>
-<a href="https://cran.r-project.org/">CRAN</a>, particularly <a href="https://github.com/s-u">Simon Urbanek</a> for his help with understanding the changes in R 4.0.0 and the macOS toolchain.</li>
+<a href="https://cran.r-project.org/" class="external-link">CRAN</a>, particularly <a href="https://github.com/s-u" class="external-link">Simon Urbanek</a> for his help with understanding the changes in R 4.0.0 and the macOS toolchain.</li>
 <li>
-<a href="https://twitter.com/RConsortium">R Consortium</a>, particularly <a href="https://twitter.com/RStudioJoe">Joseph Rickert</a>
+<a href="https://twitter.com/RConsortium" class="external-link">R Consortium</a>, particularly <a href="https://twitter.com/RStudioJoe" class="external-link">Joseph Rickert</a>
 </li>
 </ul>
 <p>Thank you very much! 🙌🏽😊</p>
 </div>
 <div id="reproducibility" class="section level1">
 <h1 class="hasAnchor">
-<a href="#reproducibility" class="anchor"></a>Reproducibility</h1>
-<p>The <em><a href="https://bioconductor.org/packages/3.12/biocthis">biocthis</a></em> package (Collado-Torres, 2021) was made possible thanks to:</p>
+<a href="#reproducibility" class="anchor" aria-hidden="true"></a>Reproducibility</h1>
+<p>The <em><a href="https://bioconductor.org/packages/3.14/biocthis" class="external-link">biocthis</a></em> package (Collado-Torres, 2021) was made possible thanks to:</p>
 <ul>
-<li>R (R Core Team, 2020)</li>
+<li>R (R Core Team, 2021)</li>
 <li>
-<em><a href="https://bioconductor.org/packages/3.12/BiocStyle">BiocStyle</a></em> (Oleś, Morgan, and Huber, 2020)</li>
+<em><a href="https://bioconductor.org/packages/3.14/BiocStyle" class="external-link">BiocStyle</a></em> (Oleś, 2021)</li>
 <li>
-<em><a href="https://CRAN.R-project.org/package=covr">covr</a></em> (Hester, 2020)</li>
+<em><a href="https://CRAN.R-project.org/package=covr" class="external-link">covr</a></em> (Hester, 2020)</li>
 <li>
-<em><a href="https://CRAN.R-project.org/package=devtools">devtools</a></em> (Wickham, Hester, and Chang, 2020)</li>
+<em><a href="https://CRAN.R-project.org/package=devtools" class="external-link">devtools</a></em> (Wickham, Hester, and Chang, 2021)</li>
 <li>
-<em><a href="https://CRAN.R-project.org/package=fs">fs</a></em> (Hester and Wickham, 2020)</li>
+<em><a href="https://CRAN.R-project.org/package=fs" class="external-link">fs</a></em> (Hester and Wickham, 2020)</li>
 <li>
-<em><a href="https://CRAN.R-project.org/package=glue">glue</a></em> (Hester, 2020)</li>
+<em><a href="https://CRAN.R-project.org/package=glue" class="external-link">glue</a></em> (Hester, 2020)</li>
 <li>
-<em><a href="https://CRAN.R-project.org/package=knitr">knitr</a></em> (Xie, 2021)</li>
+<em><a href="https://CRAN.R-project.org/package=knitr" class="external-link">knitr</a></em> (Xie, 2021)</li>
 <li>
-<em><a href="https://CRAN.R-project.org/package=pkgdown">pkgdown</a></em> (Wickham and Hesselberth, 2020)</li>
+<em><a href="https://CRAN.R-project.org/package=pkgdown" class="external-link">pkgdown</a></em> (Wickham, Hesselberth, and Salmon, 2021)</li>
 <li>
-<em><a href="https://CRAN.R-project.org/package=rlang">rlang</a></em> (Henry and Wickham, 2020)</li>
+<em><a href="https://CRAN.R-project.org/package=rlang" class="external-link">rlang</a></em> (Henry and Wickham, 2021)</li>
 <li>
-<em><a href="https://CRAN.R-project.org/package=RefManageR">RefManageR</a></em> (McLean, 2017)</li>
+<em><a href="https://CRAN.R-project.org/package=RefManageR" class="external-link">RefManageR</a></em> (McLean, 2017)</li>
 <li>
-<em><a href="https://CRAN.R-project.org/package=rmarkdown">rmarkdown</a></em> (Allaire, Xie, McPherson, Luraschi, Ushey, Atkins, Wickham, Cheng, Chang, and Iannone, 2020)</li>
+<em><a href="https://CRAN.R-project.org/package=rmarkdown" class="external-link">rmarkdown</a></em> (Allaire, Xie, McPherson, Luraschi, Ushey, Atkins, Wickham, Cheng, Chang, and Iannone, 2021)</li>
 <li>
-<em><a href="https://CRAN.R-project.org/package=sessioninfo">sessioninfo</a></em> (Csárdi, core, Wickham, Chang, Flight, Müller, and Hester, 2018)</li>
+<em><a href="https://CRAN.R-project.org/package=sessioninfo" class="external-link">sessioninfo</a></em> (Csárdi, core, Wickham, Chang, Flight, Müller, and Hester, 2018)</li>
 <li>
-<em><a href="https://CRAN.R-project.org/package=styler">styler</a></em> (Müller and Walthert, 2020)</li>
+<em><a href="https://CRAN.R-project.org/package=styler" class="external-link">styler</a></em> (Müller and Walthert, 2021)</li>
 <li>
-<em><a href="https://CRAN.R-project.org/package=testthat">testthat</a></em> (Wickham, 2011)</li>
+<em><a href="https://CRAN.R-project.org/package=testthat" class="external-link">testthat</a></em> (Wickham, 2011)</li>
 <li>
-<em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em> (Wickham and Bryan, 2021)</li>
+<em><a href="https://CRAN.R-project.org/package=usethis" class="external-link">usethis</a></em> (Wickham and Bryan, 2021)</li>
 </ul>
-<p>This package was developed using <em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em>.</p>
+<p>This package was developed using <em><a href="https://github.com/lcolladotor/biocthis" class="external-link">biocthis</a></em>.</p>
 <p>Code for creating the vignette</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Create the vignette</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/rstudio/rmarkdown">"rmarkdown"</a></span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/rmarkdown/man/render.html">render</a></span><span class="op">(</span><span class="st">"biocthis_dev_notes.Rmd"</span>, <span class="st">"BiocStyle::html_document"</span><span class="op">)</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/rstudio/rmarkdown" class="external-link">"rmarkdown"</a></span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/system.time.html" class="external-link">system.time</a></span><span class="op">(</span><span class="fu"><a href="https://pkgs.rstudio.com/rmarkdown/reference/render.html" class="external-link">render</a></span><span class="op">(</span><span class="st">"biocthis_dev_notes.Rmd"</span>, <span class="st">"BiocStyle::html_document"</span><span class="op">)</span><span class="op">)</span>
 
 <span class="co">## Extract the R code</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://yihui.org/knitr/">"knitr"</a></span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/knitr/man/knit.html">knit</a></span><span class="op">(</span><span class="st">"biocthis_dev_notes.Rmd"</span>, tangle <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://yihui.org/knitr/" class="external-link">"knitr"</a></span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/knitr/man/knit.html" class="external-link">knit</a></span><span class="op">(</span><span class="st">"biocthis_dev_notes.Rmd"</span>, tangle <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p>Date the vignette was generated.</p>
-<pre><code>#&gt; [1] "2021-05-24 14:55:24 UTC"</code></pre>
+<pre><code>#&gt; [1] "2021-08-05 06:14:53 UTC"</code></pre>
 <p>Wallclock time spent generating the vignette.</p>
-<pre><code>#&gt; Time difference of 0.94 secs</code></pre>
+<pre><code>#&gt; Time difference of 0.884 secs</code></pre>
 <p><code>R</code> session information.</p>
 <pre><code>#&gt; ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────
 #&gt;  setting  value                       
-#&gt;  version  R version 4.0.3 (2020-10-10)
-#&gt;  os       Ubuntu 20.04 LTS            
+#&gt;  version  R version 4.1.0 (2021-05-18)
+#&gt;  os       Ubuntu 20.04.2 LTS          
 #&gt;  system   x86_64, linux-gnu           
 #&gt;  ui       X11                         
 #&gt;  language (EN)                        
 #&gt;  collate  en_US.UTF-8                 
 #&gt;  ctype    en_US.UTF-8                 
-#&gt;  tz       Etc/UTC                     
-#&gt;  date     2021-05-24                  
+#&gt;  tz       UTC                         
+#&gt;  date     2021-08-05                  
 #&gt; 
 #&gt; ─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────
-#&gt;  package     * version date       lib source        
-#&gt;  assertthat    0.2.1   2019-03-21 [2] RSPM (R 4.0.3)
-#&gt;  BiocManager   1.30.10 2019-11-16 [1] RSPM (R 4.0.0)
-#&gt;  BiocStyle   * 2.18.1  2020-11-24 [1] Bioconductor  
-#&gt;  bookdown      0.21    2020-10-13 [1] RSPM (R 4.0.2)
-#&gt;  cachem        1.0.4   2021-02-13 [2] RSPM (R 4.0.3)
-#&gt;  cli           2.3.0   2021-01-31 [2] RSPM (R 4.0.3)
-#&gt;  crayon        1.4.1   2021-02-08 [2] RSPM (R 4.0.3)
-#&gt;  desc          1.2.0   2018-05-01 [2] RSPM (R 4.0.3)
-#&gt;  digest        0.6.27  2020-10-24 [2] RSPM (R 4.0.3)
-#&gt;  evaluate      0.14    2019-05-28 [2] RSPM (R 4.0.3)
-#&gt;  fastmap       1.1.0   2021-01-25 [2] RSPM (R 4.0.3)
-#&gt;  fs            1.5.0   2020-07-31 [2] RSPM (R 4.0.3)
-#&gt;  generics      0.1.0   2020-10-31 [1] RSPM (R 4.0.3)
-#&gt;  glue          1.4.2   2020-08-27 [2] RSPM (R 4.0.3)
-#&gt;  htmltools     0.5.1.1 2021-01-22 [2] RSPM (R 4.0.3)
-#&gt;  httr          1.4.2   2020-07-20 [2] RSPM (R 4.0.3)
-#&gt;  jsonlite      1.7.2   2020-12-09 [2] RSPM (R 4.0.3)
-#&gt;  knitr         1.31    2021-01-27 [2] RSPM (R 4.0.3)
-#&gt;  lubridate     1.7.9.2 2020-11-13 [1] RSPM (R 4.0.3)
-#&gt;  magrittr      2.0.1   2020-11-17 [2] RSPM (R 4.0.3)
-#&gt;  memoise       2.0.0   2021-01-26 [2] RSPM (R 4.0.3)
-#&gt;  pkgdown       1.6.1   2020-09-12 [1] RSPM (R 4.0.2)
-#&gt;  plyr          1.8.6   2020-03-03 [1] RSPM (R 4.0.3)
-#&gt;  R6            2.5.0   2020-10-28 [2] RSPM (R 4.0.3)
-#&gt;  ragg          1.1.0   2021-02-15 [1] RSPM (R 4.0.3)
-#&gt;  Rcpp          1.0.6   2021-01-15 [2] RSPM (R 4.0.3)
-#&gt;  RefManageR  * 1.3.0   2020-11-13 [1] RSPM (R 4.0.3)
-#&gt;  rlang         0.4.10  2020-12-30 [2] RSPM (R 4.0.3)
-#&gt;  rmarkdown     2.6     2020-12-14 [1] RSPM (R 4.0.3)
-#&gt;  rprojroot     2.0.2   2020-11-15 [2] RSPM (R 4.0.3)
-#&gt;  sessioninfo * 1.1.1   2018-11-05 [2] RSPM (R 4.0.3)
-#&gt;  stringi       1.5.3   2020-09-09 [2] RSPM (R 4.0.3)
-#&gt;  stringr       1.4.0   2019-02-10 [2] RSPM (R 4.0.3)
-#&gt;  systemfonts   1.0.1   2021-02-09 [1] RSPM (R 4.0.3)
-#&gt;  textshaping   0.3.0   2021-02-10 [1] RSPM (R 4.0.3)
-#&gt;  withr         2.4.1   2021-01-26 [2] RSPM (R 4.0.3)
-#&gt;  xfun          0.21    2021-02-10 [2] RSPM (R 4.0.3)
-#&gt;  xml2          1.3.2   2020-04-23 [2] RSPM (R 4.0.3)
-#&gt;  yaml          2.2.1   2020-02-01 [2] RSPM (R 4.0.3)
+#&gt;  package     * version    date       lib source                        
+#&gt;  BiocManager   1.30.16    2021-06-15 [2] CRAN (R 4.1.0)                
+#&gt;  BiocStyle   * 2.21.3     2021-06-16 [1] Bioconductor                  
+#&gt;  bookdown      0.22       2021-04-22 [1] RSPM (R 4.1.0)                
+#&gt;  bslib         0.2.5.1    2021-05-18 [1] RSPM (R 4.1.0)                
+#&gt;  cachem        1.0.5      2021-05-15 [2] RSPM (R 4.1.0)                
+#&gt;  cli           3.0.1      2021-07-17 [2] RSPM (R 4.1.0)                
+#&gt;  crayon        1.4.1      2021-02-08 [2] RSPM (R 4.1.0)                
+#&gt;  desc          1.3.0      2021-03-05 [2] RSPM (R 4.1.0)                
+#&gt;  digest        0.6.27     2020-10-24 [2] RSPM (R 4.1.0)                
+#&gt;  evaluate      0.14       2019-05-28 [2] RSPM (R 4.1.0)                
+#&gt;  fastmap       1.1.0      2021-01-25 [2] RSPM (R 4.1.0)                
+#&gt;  fs            1.5.0      2020-07-31 [2] RSPM (R 4.1.0)                
+#&gt;  generics      0.1.0      2020-10-31 [2] RSPM (R 4.1.0)                
+#&gt;  htmltools     0.5.1.1    2021-01-22 [1] RSPM (R 4.1.0)                
+#&gt;  httr          1.4.2      2020-07-20 [2] RSPM (R 4.1.0)                
+#&gt;  jquerylib     0.1.4      2021-04-26 [1] RSPM (R 4.1.0)                
+#&gt;  jsonlite      1.7.2      2020-12-09 [2] RSPM (R 4.1.0)                
+#&gt;  knitr         1.33       2021-04-24 [2] RSPM (R 4.1.0)                
+#&gt;  lubridate     1.7.10     2021-02-26 [1] RSPM (R 4.1.0)                
+#&gt;  magrittr      2.0.1      2020-11-17 [2] RSPM (R 4.1.0)                
+#&gt;  memoise       2.0.0      2021-01-26 [2] RSPM (R 4.1.0)                
+#&gt;  pkgdown       1.6.1.9001 2021-08-05 [1] Github (r-lib/pkgdown@ce9781a)
+#&gt;  plyr          1.8.6      2020-03-03 [1] RSPM (R 4.1.0)                
+#&gt;  R6            2.5.0      2020-10-28 [2] RSPM (R 4.1.0)                
+#&gt;  ragg          1.1.3      2021-06-09 [1] RSPM (R 4.1.0)                
+#&gt;  Rcpp          1.0.7      2021-07-07 [2] RSPM (R 4.1.0)                
+#&gt;  RefManageR  * 1.3.0      2020-11-13 [1] RSPM (R 4.1.0)                
+#&gt;  rlang         0.4.11     2021-04-30 [2] RSPM (R 4.1.0)                
+#&gt;  rmarkdown     2.9        2021-06-15 [1] RSPM (R 4.1.0)                
+#&gt;  rprojroot     2.0.2      2020-11-15 [2] RSPM (R 4.1.0)                
+#&gt;  sass          0.4.0      2021-05-12 [1] RSPM (R 4.1.0)                
+#&gt;  sessioninfo * 1.1.1      2018-11-05 [2] RSPM (R 4.1.0)                
+#&gt;  stringi       1.7.3      2021-07-16 [2] RSPM (R 4.1.0)                
+#&gt;  stringr       1.4.0      2019-02-10 [2] RSPM (R 4.1.0)                
+#&gt;  systemfonts   1.0.2      2021-05-11 [1] RSPM (R 4.1.0)                
+#&gt;  textshaping   0.3.5      2021-06-09 [1] RSPM (R 4.1.0)                
+#&gt;  withr         2.4.2      2021-04-18 [2] RSPM (R 4.1.0)                
+#&gt;  xfun          0.24       2021-06-15 [2] RSPM (R 4.1.0)                
+#&gt;  xml2          1.3.2      2020-04-23 [2] RSPM (R 4.1.0)                
+#&gt;  yaml          2.2.1      2020-02-01 [2] RSPM (R 4.1.0)                
 #&gt; 
 #&gt; [1] /__w/_temp/Library
 #&gt; [2] /usr/local/lib/R/site-library
@@ -374,56 +371,56 @@
 </div>
 <div id="bibliography" class="section level1">
 <h1 class="hasAnchor">
-<a href="#bibliography" class="anchor"></a>Bibliography</h1>
-<p>This vignette was generated using <em><a href="https://bioconductor.org/packages/3.12/BiocStyle">BiocStyle</a></em> (Oleś, Morgan, and Huber, 2020) with <em><a href="https://CRAN.R-project.org/package=knitr">knitr</a></em> (Xie, 2021) and <em><a href="https://CRAN.R-project.org/package=rmarkdown">rmarkdown</a></em> (Allaire, Xie, McPherson, et al., 2020) running behind the scenes.</p>
-<p>Citations made with <em><a href="https://CRAN.R-project.org/package=RefManageR">RefManageR</a></em> (McLean, 2017).</p>
+<a href="#bibliography" class="anchor" aria-hidden="true"></a>Bibliography</h1>
+<p>This vignette was generated using <em><a href="https://bioconductor.org/packages/3.14/BiocStyle" class="external-link">BiocStyle</a></em> (Oleś, 2021) with <em><a href="https://CRAN.R-project.org/package=knitr" class="external-link">knitr</a></em> (Xie, 2021) and <em><a href="https://CRAN.R-project.org/package=rmarkdown" class="external-link">rmarkdown</a></em> (Allaire, Xie, McPherson, et al., 2021) running behind the scenes.</p>
+<p>Citations made with <em><a href="https://CRAN.R-project.org/package=RefManageR" class="external-link">RefManageR</a></em> (McLean, 2017).</p>
 <p>
-<a id="bib-allaire2020rmarkdown"></a><a href="#cite-allaire2020rmarkdown">[1]</a><cite> J. Allaire, Y. Xie, J. McPherson, et al. <em>rmarkdown: Dynamic Documents for R</em>. R package version 2.6. 2020. URL: <a href="https://github.com/rstudio/rmarkdown">https://github.com/rstudio/rmarkdown</a>.</cite>
+<a id="bib-allaire2021rmarkdown"></a><a href="#cite-allaire2021rmarkdown">[1]</a><cite> J. Allaire, Y. Xie, J. McPherson, et al. <em>rmarkdown: Dynamic Documents for R</em>. R package version 2.9. 2021. URL: <a href="https://github.com/rstudio/rmarkdown" class="external-link">https://github.com/rstudio/rmarkdown</a>.</cite>
 </p>
 <p>
-<a id="bib-colladotorres2021automate"></a><a href="#cite-colladotorres2021automate">[2]</a><cite> L. Collado-Torres. <em>Automate package and project setup for Bioconductor packages</em>. <a href="https://github.com/lcolladotor/biocthisbiocthis" class="uri">https://github.com/lcolladotor/biocthisbiocthis</a> - R package version 1.3.1. 2021. DOI: <a href="https://doi.org/10.18129/B9.bioc.biocthis">10.18129/B9.bioc.biocthis</a>. URL: <a href="http://www.bioconductor.org/packages/biocthis">http://www.bioconductor.org/packages/biocthis</a>.</cite>
+<a id="bib-colladotorres2021automate"></a><a href="#cite-colladotorres2021automate">[2]</a><cite> L. Collado-Torres. <em>Automate package and project setup for Bioconductor packages</em>. <a href="https://github.com/lcolladotor/biocthisbiocthis" class="external-link uri">https://github.com/lcolladotor/biocthisbiocthis</a> - R package version 1.3.2. 2021. DOI: <a href="https://doi.org/10.18129/B9.bioc.biocthis" class="external-link">10.18129/B9.bioc.biocthis</a>. URL: <a href="http://www.bioconductor.org/packages/biocthis" class="external-link">http://www.bioconductor.org/packages/biocthis</a>.</cite>
 </p>
 <p>
-<a id="bib-csrdi2018sessioninfo"></a><a href="#cite-csrdi2018sessioninfo">[3]</a><cite> G. Csárdi, R. core, H. Wickham, et al. <em>sessioninfo: R Session Information</em>. R package version 1.1.1. 2018. URL: <a href="https://github.com/r-lib/sessioninfo#readme">https://github.com/r-lib/sessioninfo#readme</a>.</cite>
+<a id="bib-csrdi2018sessioninfo"></a><a href="#cite-csrdi2018sessioninfo">[3]</a><cite> G. Csárdi, R. core, H. Wickham, et al. <em>sessioninfo: R Session Information</em>. R package version 1.1.1. 2018. URL: <a href="https://github.com/r-lib/sessioninfo#readme" class="external-link">https://github.com/r-lib/sessioninfo#readme</a>.</cite>
 </p>
 <p>
-<a id="bib-henry2020rlang"></a><a href="#cite-henry2020rlang">[4]</a><cite> L. Henry and H. Wickham. <em>rlang: Functions for Base Types and Core R and ‘Tidyverse’ Features</em>. <a href="https://rlang.r-lib.org" class="uri">https://rlang.r-lib.org</a>, <a href="https://github.com/r-lib/rlang" class="uri">https://github.com/r-lib/rlang</a>. 2020.</cite>
+<a id="bib-henry2021rlang"></a><a href="#cite-henry2021rlang">[4]</a><cite> L. Henry and H. Wickham. <em>rlang: Functions for Base Types and Core R and ‘Tidyverse’ Features</em>. <a href="https://rlang.r-lib.org" class="external-link uri">https://rlang.r-lib.org</a>, <a href="https://github.com/r-lib/rlang" class="external-link uri">https://github.com/r-lib/rlang</a>. 2021.</cite>
 </p>
 <p>
-<a id="bib-hester2020covr"></a><a href="#cite-hester2020covr">[5]</a><cite> J. Hester. <em>covr: Test Coverage for Packages</em>. <a href="https://covr.r-lib.org" class="uri">https://covr.r-lib.org</a>, <a href="https://github.com/r-lib/covr" class="uri">https://github.com/r-lib/covr</a>. 2020.</cite>
+<a id="bib-hester2020covr"></a><a href="#cite-hester2020covr">[5]</a><cite> J. Hester. <em>covr: Test Coverage for Packages</em>. <a href="https://covr.r-lib.org" class="external-link uri">https://covr.r-lib.org</a>, <a href="https://github.com/r-lib/covr" class="external-link uri">https://github.com/r-lib/covr</a>. 2020.</cite>
 </p>
 <p>
-<a id="bib-hester2020glue"></a><a href="#cite-hester2020glue">[6]</a><cite> J. Hester. <em>glue: Interpreted String Literals</em>. <a href="https://github.com/tidyverse/glue" class="uri">https://github.com/tidyverse/glue</a>, <a href="https://glue.tidyverse.org/" class="uri">https://glue.tidyverse.org/</a>. 2020.</cite>
+<a id="bib-hester2020glue"></a><a href="#cite-hester2020glue">[6]</a><cite> J. Hester. <em>glue: Interpreted String Literals</em>. <a href="https://github.com/tidyverse/glue" class="external-link uri">https://github.com/tidyverse/glue</a>, <a href="https://glue.tidyverse.org/" class="external-link uri">https://glue.tidyverse.org/</a>. 2020.</cite>
 </p>
 <p>
-<a id="bib-hester2020cross"></a><a href="#cite-hester2020cross">[7]</a><cite> J. Hester and H. Wickham. <em>fs: Cross-Platform File System Operations Based on ‘libuv’</em>. <a href="http://fs.r-lib.org" class="uri">http://fs.r-lib.org</a>, <a href="https://github.com/r-lib/fs" class="uri">https://github.com/r-lib/fs</a>. 2020.</cite>
+<a id="bib-hester2020cross"></a><a href="#cite-hester2020cross">[7]</a><cite> J. Hester and H. Wickham. <em>fs: Cross-Platform File System Operations Based on ‘libuv’</em>. <a href="http://fs.r-lib.org" class="external-link uri">http://fs.r-lib.org</a>, <a href="https://github.com/r-lib/fs" class="external-link uri">https://github.com/r-lib/fs</a>. 2020.</cite>
 </p>
 <p>
-<a id="bib-mclean2017refmanager"></a><a href="#cite-mclean2017refmanager">[8]</a><cite> M. W. McLean. “RefManageR: Import and Manage BibTeX and BibLaTeX References in R”. In: <em>The Journal of Open Source Software</em> (2017). DOI: <a href="https://doi.org/10.21105/joss.00338">10.21105/joss.00338</a>.</cite>
+<a id="bib-mclean2017refmanager"></a><a href="#cite-mclean2017refmanager">[8]</a><cite> M. W. McLean. “RefManageR: Import and Manage BibTeX and BibLaTeX References in R”. In: <em>The Journal of Open Source Software</em> (2017). DOI: <a href="https://doi.org/10.21105/joss.00338" class="external-link">10.21105/joss.00338</a>.</cite>
 </p>
 <p>
-<a id="bib-mller2020styler"></a><a href="#cite-mller2020styler">[9]</a><cite> K. Müller and L. Walthert. <em>styler: Non-Invasive Pretty Printing of R Code</em>. R package version 1.3.2. 2020. URL: <a href="https://github.com/r-lib/styler">https://github.com/r-lib/styler</a>.</cite>
+<a id="bib-mller2021styler"></a><a href="#cite-mller2021styler">[9]</a><cite> K. Müller and L. Walthert. <em>styler: Non-Invasive Pretty Printing of R Code</em>. <a href="https://github.com/r-lib/styler" class="external-link uri">https://github.com/r-lib/styler</a>, <a href="https://styler.r-lib.org" class="external-link uri">https://styler.r-lib.org</a>. 2021.</cite>
 </p>
 <p>
-<a id="bib-ole2020biocstyle"></a><a href="#cite-ole2020biocstyle">[10]</a><cite> A. Oleś, M. Morgan, and W. Huber. <em>BiocStyle: Standard styles for vignettes and other Bioconductor documents</em>. R package version 2.18.1. 2020. URL: <a href="https://github.com/Bioconductor/BiocStyle">https://github.com/Bioconductor/BiocStyle</a>.</cite>
+<a id="bib-ole2021biocstyle"></a><a href="#cite-ole2021biocstyle">[10]</a><cite> A. Oleś. <em>BiocStyle: Standard styles for vignettes and other Bioconductor documents</em>. R package version 2.21.3. 2021. URL: <a href="https://github.com/Bioconductor/BiocStyle" class="external-link">https://github.com/Bioconductor/BiocStyle</a>.</cite>
 </p>
 <p>
-<a id="bib-2020language"></a><a href="#cite-2020language">[11]</a><cite> R Core Team. <em>R: A Language and Environment for Statistical Computing</em>. R Foundation for Statistical Computing. Vienna, Austria, 2020. URL: <a href="https://www.R-project.org/">https://www.R-project.org/</a>.</cite>
+<a id="bib-2021language"></a><a href="#cite-2021language">[11]</a><cite> R Core Team. <em>R: A Language and Environment for Statistical Computing</em>. R Foundation for Statistical Computing. Vienna, Austria, 2021. URL: <a href="https://www.R-project.org/" class="external-link">https://www.R-project.org/</a>.</cite>
 </p>
 <p>
-<a id="bib-wickham2011testthat"></a><a href="#cite-wickham2011testthat">[12]</a><cite> H. Wickham. “testthat: Get Started with Testing”. In: <em>The R Journal</em> 3 (2011), pp. 5–10. URL: <a href="https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf">https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf</a>.</cite>
+<a id="bib-wickham2011testthat"></a><a href="#cite-wickham2011testthat">[12]</a><cite> H. Wickham. “testthat: Get Started with Testing”. In: <em>The R Journal</em> 3 (2011), pp. 5–10. URL: <a href="https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf" class="external-link">https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf</a>.</cite>
 </p>
 <p>
-<a id="bib-wickham2021usethis"></a><a href="#cite-wickham2021usethis">[13]</a><cite> H. Wickham and J. Bryan. <em>usethis: Automate Package and Project Setup</em>. <a href="https://usethis.r-lib.org" class="uri">https://usethis.r-lib.org</a>, <a href="https://github.com/r-lib/usethis" class="uri">https://github.com/r-lib/usethis</a>. 2021.</cite>
+<a id="bib-wickham2021usethis"></a><a href="#cite-wickham2021usethis">[13]</a><cite> H. Wickham and J. Bryan. <em>usethis: Automate Package and Project Setup</em>. <a href="https://usethis.r-lib.org" class="external-link uri">https://usethis.r-lib.org</a>, <a href="https://github.com/r-lib/usethis" class="external-link uri">https://github.com/r-lib/usethis</a>. 2021.</cite>
 </p>
 <p>
-<a id="bib-wickham2020pkgdown"></a><a href="#cite-wickham2020pkgdown">[14]</a><cite> H. Wickham and J. Hesselberth. <em>pkgdown: Make Static HTML Documentation for a Package</em>. <a href="https://pkgdown.r-lib.org" class="uri">https://pkgdown.r-lib.org</a>, <a href="https://github.com/r-lib/pkgdown" class="uri">https://github.com/r-lib/pkgdown</a>. 2020.</cite>
+<a id="bib-wickham2021pkgdown"></a><a href="#cite-wickham2021pkgdown">[14]</a><cite> H. Wickham, J. Hesselberth, and M. Salmon. <em>pkgdown: Make Static HTML Documentation for a Package</em>. <a href="https://pkgdown.r-lib.org" class="external-link uri">https://pkgdown.r-lib.org</a>, <a href="https://github.com/r-lib/pkgdown" class="external-link uri">https://github.com/r-lib/pkgdown</a>. 2021.</cite>
 </p>
 <p>
-<a id="bib-wickham2020devtools"></a><a href="#cite-wickham2020devtools">[15]</a><cite> H. Wickham, J. Hester, and W. Chang. <em>devtools: Tools to Make Developing R Packages Easier</em>. <a href="https://devtools.r-lib.org/" class="uri">https://devtools.r-lib.org/</a>, <a href="https://github.com/r-lib/devtools" class="uri">https://github.com/r-lib/devtools</a>. 2020.</cite>
+<a id="bib-wickham2021devtools"></a><a href="#cite-wickham2021devtools">[15]</a><cite> H. Wickham, J. Hester, and W. Chang. <em>devtools: Tools to Make Developing R Packages Easier</em>. <a href="https://devtools.r-lib.org/" class="external-link uri">https://devtools.r-lib.org/</a>, <a href="https://github.com/r-lib/devtools" class="external-link uri">https://github.com/r-lib/devtools</a>. 2021.</cite>
 </p>
 <p>
-<a id="bib-xie2021knitr"></a><a href="#cite-xie2021knitr">[16]</a><cite> Y. Xie. <em>knitr: A General-Purpose Package for Dynamic Report Generation in R</em>. R package version 1.31. 2021. URL: <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.</cite>
+<a id="bib-xie2021knitr"></a><a href="#cite-xie2021knitr">[16]</a><cite> Y. Xie. <em>knitr: A General-Purpose Package for Dynamic Report Generation in R</em>. R package version 1.33. 2021. URL: <a href="https://yihui.org/knitr/" class="external-link">https://yihui.org/knitr/</a>.</cite>
 </p>
 </div>
   </div>
@@ -439,11 +436,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Leonardo Collado-Torres.</p>
+  <p></p>
+<p>Developed by Leonardo Collado-Torres.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link external-link">pkgdown</a> 1.6.1.9001.</p>
 </div>
 
       </footer>
@@ -451,6 +450,8 @@
 
   
 
+
+  
 
   </body>
 </html>
