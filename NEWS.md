@@ -1,3 +1,11 @@
+# biocthis 1.3.4
+
+NEW FEATURES
+
+* `use_bioc_github_action()` is now more robust in preventing `tcltk` errors
+thanks to this pull request by Ben Laufer
+https://github.com/lcolladotor/biocthis/pull/19.
+
 # biocthis 1.3.2
 
 NEW FEATURES
