@@ -231,8 +231,8 @@ jobs:
           DISPLAY: 99.0
         run: |
           rcmdcheck::rcmdcheck(
-              args = c("--no-build-vignettes", "--no-manual", "--timings"),
-              build_args = c("--no-manual", "--no-resave-data"),
+              args = c("--no-manual", "--no-vignettes", "--timings"),
+              build_args = c("--no-manual", "--keep-empty-dirs", "--no-resave-data"),
               error_on = "warning",
               check_dir = "check"
           )
