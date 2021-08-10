@@ -275,8 +275,8 @@ jobs:
       - name: Build and deploy pkgdown site
         if: github.ref == 'refs/heads/{{pkgdown_covr_branch}}' && env.run_pkgdown == 'true' && runner.os == 'Linux'
         run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
+          git config --local user.name "$GITHUB_ACTOR"
+          git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
           Rscript -e "pkgdown::deploy_to_branch(new_process = FALSE)"
         shell: bash {0}
         ## Note that you need to run pkgdown::deploy_to_branch(new_process = FALSE)
