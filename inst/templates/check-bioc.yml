@@ -55,8 +55,8 @@ jobs:
           - { os: ubuntu-latest, r: '{{rvernum}}', bioc: '{{biocvernum}}', cont: "bioconductor/bioconductor_docker:{{dockerversion}}", rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest" }
           - { os: macOS-latest, r: '{{rvernum}}', bioc: '{{biocvernum}}'}
           - { os: windows-latest, r: '{{rvernum}}', bioc: '{{biocvernum}}'}
-          ## Note that you might want to set the user agent when using devel
-          ## based on https://github.com/r-lib/actions/commit/47dc105891c6bc5928ec7c5d05164b1873d46c1f
+          ## Check https://github.com/r-lib/actions/tree/master/examples
+          ## for examples using the http-user-agent
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       RSPM: ${{ matrix.config.rspm }}
@@ -87,6 +87,7 @@ jobs:
         uses: r-lib/actions/setup-r@master
         with:
           r-version: ${{ matrix.config.r }}
+          http-user-agent: ${{ matrix.config.http-user-agent }}
 
       ## pandoc is already included in the Bioconductor docker images
       - name: Setup pandoc from r-lib
