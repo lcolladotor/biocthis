@@ -1,3 +1,11 @@
+# biocthis 1.3.8
+
+SIGNIFICANT USER-VISIBLE CHANGES
+
+* `use_bioc_github_action()` has been updated to match as much as possible
+the changes in `r-lib/actions` up to the latest commit
+https://github.com/r-lib/actions/commit/630f4c9d8b813f45d0327a2fc20eb264fd518450.
+
 # biocthis 1.3.4
 
 NEW FEATURES
