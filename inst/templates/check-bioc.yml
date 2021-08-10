@@ -271,7 +271,7 @@ jobs:
         if: github.ref == 'refs/heads/{{pkgdown_covr_branch}}' && env.run_pkgdown == 'true' && runner.os == 'Linux'
         run: R CMD INSTALL .
 
-      - name: Deploy package
+      - name: Build and deploy pkgdown site
         if: github.ref == 'refs/heads/{{pkgdown_covr_branch}}' && env.run_pkgdown == 'true' && runner.os == 'Linux'
         run: |
           git config --local user.email "actions@github.com"
