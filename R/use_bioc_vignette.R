@@ -39,6 +39,7 @@ use_bioc_vignette <- function(name, title = name) {
     use_package("BiocStyle", "Suggests")
     use_package("RefManageR", "Suggests")
     use_package("sessioninfo", "Suggests")
+    use_package("testthat", "Suggests")
     usethis:::use_description_field("VignetteBuilder", "knitr", overwrite = TRUE)
     use_git_ignore("inst/doc")
     biocthis_vignette_template("vignette.Rmd", name, title)
