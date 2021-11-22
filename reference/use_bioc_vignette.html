@@ -51,8 +51,6 @@ knowledge." />
 
 
 
-
-
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -64,15 +62,9 @@ knowledge." />
 
 
 
-  
-
-  
-
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    
-
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -86,13 +78,19 @@ knowledge." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">biocthis</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.3.8</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.0</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
+  <a href="../index.html">
+    <span class="fas fa-home fa-lg"></span>
+     
+  </a>
+</li>
+<li>
   <a href="../articles/biocthis.html">Get started</a>
 </li>
 <li>
@@ -143,13 +141,13 @@ knowledge." />
     <p>This function is very similar to <code><a href='https://usethis.r-lib.org/reference/use_vignette.html'>usethis::use_vignette()</a></code> except
 that it uses a template from <code>biocthis</code>. This template includes
 instructions for citing other packages using <code>RefManageR</code>, uses
-<code><a href='https://rdrr.io/pkg/sessioninfo/man/session_info.html'>sessioninfo::session_info()</a></code> for displaying the R session information since
+<code><a href='https://r-lib.github.io/sessioninfo/reference/session_info.html'>sessioninfo::session_info()</a></code> for displaying the R session information since
 it includes GitHub installation information and other useful details. The
 template also includes a section on how to ask for help and required
 knowledge.</p>
     </div>
 
-    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>use_bioc_vignette</span><span class='op'>(</span><span class='va'>name</span>, title <span class='op'>=</span> <span class='va'>name</span><span class='op'>)</span></code></pre></div>
+    <pre class="usage"><span class='fu'>use_bioc_vignette</span><span class='op'>(</span><span class='va'>name</span>, title <span class='op'>=</span> <span class='va'>name</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -173,7 +171,7 @@ vignette.</p></td>
 <code>vignettes/&lt;name&gt;.Rmd</code> file in your R package.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'></span>
+    <pre class="examples"><span class='r-in'></span>
 <span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
 <span class='r-in'><span class='co'>## Run this function in your package</span></span>
 <span class='r-in'><span class='va'>pkg</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/basename.html'>basename</a></span><span class='op'>(</span><span class='fu'>usethis</span><span class='fu'>::</span><span class='fu'><a href='https://usethis.r-lib.org/reference/proj_utils.html'>proj_get</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span>
@@ -183,7 +181,6 @@ vignette.</p></td>
 <span class='r-in'><span class='co'>## Create an example package for illustrative purposes.</span></span>
 <span class='r-in'><span class='co'>## Note: you do not need to run this for your own package!</span></span>
 <span class='r-in'><span class='va'>pkgdir</span> <span class='op'>&lt;-</span> <span class='fu'><a href='biocthis_example_pkg.html'>biocthis_example_pkg</a></span><span class='op'>(</span><span class='op'>)</span></span>
-<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>✔</span> Leaving <span style='color: #0000BB;'>'DESCRIPTION'</span> unchanged</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB;'>Package</span>: biocthisexample</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB;'>Title</span>: What the Package Does (One Line, Title Case)</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB;'>Version</span>: 0.0.0.9000</span>
@@ -193,9 +190,8 @@ vignette.</p></td>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB;'>License</span>: `use_mit_license()`, `use_gpl3_license()` or friends to</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>     pick a license</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB;'>Encoding</span>: UTF-8</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB;'>LazyData</span>: true</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB;'>Roxygen</span>: list(markdown = TRUE)</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB;'>RoxygenNote</span>: 7.1.1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #0000BB;'>RoxygenNote</span>: 7.1.2</span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'>## Create a template vignette file that is Bioconductor-friendly</span></span>
 <span class='r-in'><span class='fu'>biocthis</span><span class='fu'>::</span><span class='fu'>use_bioc_vignette</span><span class='op'>(</span><span class='st'>"biocthisexample"</span>, <span class='st'>"Introduction to biocthisexample"</span><span class='op'>)</span></span>
@@ -220,7 +216,7 @@ vignette.</p></td>
 <span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #BB0000;'>•</span> Then directly refer to functons like <span style='color: #555555;'>`rmarkdown::fun()`</span> (replacing <span style='color: #555555;'>`fun()`</span>).</span>
 <span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>✔</span> Writing <span style='color: #0000BB;'>'vignettes/biocthisexample.Rmd'</span></span>
 <span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #BB0000;'>•</span> Edit <span style='color: #0000BB;'>'vignettes/biocthisexample.Rmd'</span></span>
-</code></pre></div>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -232,11 +228,11 @@ vignette.</p></td>
 
       <footer>
       <div class="copyright">
-  <p><p>Developed by Leonardo Collado-Torres.</p></p>
+  <p>Developed by Leonardo Collado-Torres.</p>
 </div>
 
 <div class="pkgdown">
-  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
@@ -244,8 +240,6 @@ vignette.</p></td>
 
   
 
-
-  
 
   </body>
 </html>

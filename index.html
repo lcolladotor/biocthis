@@ -21,8 +21,6 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
-    
-
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -35,12 +33,18 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">biocthis</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.3.8</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.0</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
+<li>
+  <a href="index.html">
+    <span class="fas fa-home fa-lg"></span>
+     
+  </a>
+</li>
 <li>
   <a href="articles/biocthis.html">Get started</a>
 </li>
@@ -84,32 +88,32 @@
   <div class="contents col-md-9">
 <div id="biocthis" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#biocthis" class="anchor" aria-hidden="true"></a>biocthis</h1></div>
+<a href="#biocthis" class="anchor"></a>biocthis</h1></div>
 <!-- badges: start -->
 
-<p><em><a href="https://github.com/lcolladotor/biocthis" class="external-link">biocthis</a></em> is an R package that expands <em><a href="https://CRAN.R-project.org/package=usethis" class="external-link">usethis</a></em> with Bioconductor-friendly templates. These templates will help you quickly create an R package that either has Bioconductor dependencies or that you are thinking of submitting to Bioconductor one day. <em><a href="https://github.com/lcolladotor/biocthis" class="external-link">biocthis</a></em> has functions that can also enhance your current R packages that either are already distributed by Bioconductor or have Bioconductor dependencies. <em><a href="https://github.com/lcolladotor/biocthis" class="external-link">biocthis</a></em> also includes a Bioconductor-friendly <a href="https://github.com/features/actions" class="external-link">GitHub Actions</a> workflow for your R package(s).</p>
-<p>Note that <em><a href="https://github.com/lcolladotor/biocthis" class="external-link">biocthis</a></em> is not a Bioconductor-core package and as such it is not a Bioconductor official package. It was made by and for Leonardo Collado-Torres so he could more easily maintain and create Bioconductor packages as listed at <a href="https://lcolladotor.github.io/pkgs/" class="external-link">lcolladotor.github.io/pkgs/</a>. Hopefully <em><a href="https://github.com/lcolladotor/biocthis" class="external-link">biocthis</a></em> will be helpful for you too.</p>
+<p><em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em> is an R package that expands <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em> with Bioconductor-friendly templates. These templates will help you quickly create an R package that either has Bioconductor dependencies or that you are thinking of submitting to Bioconductor one day. <em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em> has functions that can also enhance your current R packages that either are already distributed by Bioconductor or have Bioconductor dependencies. <em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em> also includes a Bioconductor-friendly <a href="https://github.com/features/actions">GitHub Actions</a> workflow for your R package(s).</p>
+<p>Note that <em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em> is not a Bioconductor-core package and as such it is not a Bioconductor official package. It was made by and for Leonardo Collado-Torres so he could more easily maintain and create Bioconductor packages as listed at <a href="https://lcolladotor.github.io/pkgs/">lcolladotor.github.io/pkgs/</a>. Hopefully <em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em> will be helpful for you too.</p>
 <div id="installation-instructions" class="section level2">
 <h2 class="hasAnchor">
-<a href="#installation-instructions" class="anchor" aria-hidden="true"></a>Installation instructions</h2>
-<p>Get the latest stable <code>R</code> release from <a href="http://cran.r-project.org/" class="external-link">CRAN</a>. Then install <code>biocthis</code> from <a href="http://bioconductor.org/" class="external-link">Bioconductor</a> using the following code:</p>
+<a href="#installation-instructions" class="anchor"></a>Installation instructions</h2>
+<p>Get the latest stable <code>R</code> release from <a href="http://cran.r-project.org/">CRAN</a>. Then install <code>biocthis</code> from <a href="http://bioconductor.org/">Bioconductor</a> using the following code:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"BiocManager"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-    <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span><span class="op">(</span><span class="st">"BiocManager"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+    <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span>
 <span class="op">}</span>
 
-<span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html" class="external-link">install</a></span><span class="op">(</span><span class="st">"biocthis"</span><span class="op">)</span></code></pre></div>
-<p>And the development version from <a href="https://github.com/lcolladotor/biocthis" class="external-link">GitHub</a> with:</p>
+<span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html">install</a></span><span class="op">(</span><span class="st">"biocthis"</span><span class="op">)</span></code></pre></div>
+<p>And the development version from <a href="https://github.com/lcolladotor/biocthis">GitHub</a> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html" class="external-link">install</a></span><span class="op">(</span><span class="st">"lcolladotor/biocthis"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html">install</a></span><span class="op">(</span><span class="st">"lcolladotor/biocthis"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
-<a href="#example" class="anchor" aria-hidden="true"></a>Example</h2>
-<p>Here is how you can use <em><a href="https://github.com/lcolladotor/biocthis" class="external-link">biocthis</a></em> to create a new Bioconductor-friendly R package (illustrated using a temporary directory):</p>
+<a href="#example" class="anchor"></a>Example</h2>
+<p>Here is how you can use <em><a href="https://github.com/lcolladotor/biocthis">biocthis</a></em> to create a new Bioconductor-friendly R package (illustrated using a temporary directory):</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Load biocthis</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/lcolladotor/biocthis" class="external-link">"biocthis"</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/lcolladotor/biocthis">"biocthis"</a></span><span class="op">)</span>
 
 <span class="co">## Create an example package for illustrative purposes.</span>
 <span class="co">## Note: you do not need to run this for your own package!</span>
@@ -142,7 +146,7 @@
 <span class="co">#&gt; ✔ Writing 'dev/02_git_github_setup.R'</span>
 <span class="co">#&gt; ✔ Writing 'dev/03_core_files.R'</span>
 <span class="co">#&gt; ✔ Writing 'dev/04_update.R'</span></code></pre></div>
-<p>The template <code>dev</code> scripts include comments and steps you can follow for making your Bioconductor-friendly R package or updating a current package. In particular, you might want to use a Bioconductor-friendly GitHub Actions workflow. If this is your first time seeings this words, we highly recommend that you watch <a href="https://www.jimhester.com/talk/2020-rsc-github-actions/" class="external-link">Jim Hester’s <code>rstudio::conf(2020)</code> talk on this subject</a>.</p>
+<p>The template <code>dev</code> scripts include comments and steps you can follow for making your Bioconductor-friendly R package or updating a current package. In particular, you might want to use a Bioconductor-friendly GitHub Actions workflow. If this is your first time seeings this words, we highly recommend that you watch <a href="https://www.jimhester.com/talk/2020-rsc-github-actions/">Jim Hester’s <code>rstudio::conf(2020)</code> talk on this subject</a>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Create a GitHub Actions workflow that is Bioconductor-friendly</span>
 <span class="fu">biocthis</span><span class="fu">::</span><span class="fu"><a href="reference/use_bioc_github_action.html">use_bioc_github_action</a></span><span class="op">(</span><span class="op">)</span>
@@ -154,16 +158,16 @@
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Alternatively, use the general GitHub Actions workflow maintained by</span>
 <span class="co">## r-lib/actions</span>
-<span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_github_action.html" class="external-link">use_github_action</a></span><span class="op">(</span><span class="st">"check-standard"</span><span class="op">)</span>
+<span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/github_actions.html">use_github_action</a></span><span class="op">(</span><span class="st">"check-standard"</span><span class="op">)</span>
 <span class="co">#&gt; ✔ Writing '.github/workflows/check-standard.yaml'</span>
 <span class="co">#&gt; • Learn more at &lt;https://github.com/r-lib/actions/blob/master/examples/README.md&gt;</span></code></pre></div>
 </div>
 <div id="citation" class="section level2">
 <h2 class="hasAnchor">
-<a href="#citation" class="anchor" aria-hidden="true"></a>Citation</h2>
+<a href="#citation" class="anchor"></a>Citation</h2>
 <p>Below is the citation output from using <code>citation('biocthis')</code> in R. Please run this yourself to check for any updates on how to cite <strong>biocthis</strong>.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/citation.html" class="external-link">citation</a></span><span class="op">(</span><span class="st">"biocthis"</span><span class="op">)</span>, bibtex <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/citation.html">citation</a></span><span class="op">(</span><span class="st">"biocthis"</span><span class="op">)</span>, bibtex <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Collado-Torres L (2021). _Automate package and project setup for</span>
 <span class="co">#&gt; Bioconductor packages_. doi: 10.18129/B9.bioc.biocthis (URL:</span>
@@ -201,28 +205,28 @@
 </div>
 <div id="code-of-conduct" class="section level2">
 <h2 class="hasAnchor">
-<a href="#code-of-conduct" class="anchor" aria-hidden="true"></a>Code of Conduct</h2>
-<p>Please note that the <code>biocthis</code> project is released with a <a href="http://bioconductor.org/about/code-of-conduct/" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
+<a href="#code-of-conduct" class="anchor"></a>Code of Conduct</h2>
+<p>Please note that the <code>biocthis</code> project is released with a <a href="http://bioconductor.org/about/code-of-conduct/">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
 <div id="development-tools" class="section level2">
 <h2 class="hasAnchor">
-<a href="#development-tools" class="anchor" aria-hidden="true"></a>Development tools</h2>
+<a href="#development-tools" class="anchor"></a>Development tools</h2>
 <ul>
-<li>Continuous code testing is possible thanks to <a href="https://www.tidyverse.org/blog/2020/04/usethis-1-6-0/" class="external-link">GitHub actions</a> through <em><a href="https://CRAN.R-project.org/package=usethis" class="external-link">usethis</a></em>, <em><a href="https://CRAN.R-project.org/package=remotes" class="external-link">remotes</a></em>, and <em><a href="https://CRAN.R-project.org/package=rcmdcheck" class="external-link">rcmdcheck</a></em> customized to use <a href="https://www.bioconductor.org/help/docker/" class="external-link">Bioconductor’s docker containers</a> and <em><a href="https://bioconductor.org/packages/3.14/BiocCheck" class="external-link">BiocCheck</a></em>.</li>
-<li>Code coverage assessment is possible thanks to <a href="https://codecov.io/gh" class="external-link">codecov</a> and <em><a href="https://CRAN.R-project.org/package=covr" class="external-link">covr</a></em>.</li>
-<li>The <a href="http://lcolladotor.github.io/biocthis" class="external-link">documentation website</a> is automatically updated thanks to <em><a href="https://CRAN.R-project.org/package=pkgdown" class="external-link">pkgdown</a></em>.</li>
-<li>The code is styled automatically thanks to <em><a href="https://CRAN.R-project.org/package=styler" class="external-link">styler</a></em>.</li>
-<li>The documentation is formatted thanks to <em><a href="https://CRAN.R-project.org/package=devtools" class="external-link">devtools</a></em> and <em><a href="https://CRAN.R-project.org/package=roxygen2" class="external-link">roxygen2</a></em>.</li>
+<li>Continuous code testing is possible thanks to <a href="https://www.tidyverse.org/blog/2020/04/usethis-1-6-0/">GitHub actions</a> through <em><a href="https://CRAN.R-project.org/package=usethis">usethis</a></em>, <em><a href="https://CRAN.R-project.org/package=remotes">remotes</a></em>, and <em><a href="https://CRAN.R-project.org/package=rcmdcheck">rcmdcheck</a></em> customized to use <a href="https://www.bioconductor.org/help/docker/">Bioconductor’s docker containers</a> and <em><a href="https://bioconductor.org/packages/3.14/BiocCheck">BiocCheck</a></em>.</li>
+<li>Code coverage assessment is possible thanks to <a href="https://codecov.io/gh">codecov</a> and <em><a href="https://CRAN.R-project.org/package=covr">covr</a></em>.</li>
+<li>The <a href="http://lcolladotor.github.io/biocthis">documentation website</a> is automatically updated thanks to <em><a href="https://CRAN.R-project.org/package=pkgdown">pkgdown</a></em>.</li>
+<li>The code is styled automatically thanks to <em><a href="https://CRAN.R-project.org/package=styler">styler</a></em>.</li>
+<li>The documentation is formatted thanks to <em><a href="https://CRAN.R-project.org/package=devtools">devtools</a></em> and <em><a href="https://CRAN.R-project.org/package=roxygen2">roxygen2</a></em>.</li>
 </ul>
 <p>For more details, check the <code>dev</code> directory.</p>
-<p>This package was developed using <em><a href="https://bioconductor.org/packages/3.14/biocthis" class="external-link">biocthis</a></em>.</p>
+<p>This package was developed using <em><a href="https://bioconductor.org/packages/3.14/biocthis">biocthis</a></em>.</p>
 </div>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2 data-toc-skip>Links</h2>
+<h2>Links</h2>
 <ul class="list-unstyled">
 <li>Download from BIOC at <br><a href="https://www.bioconductor.org/packages/biocthis">https://​www.bioconductor.org/​packages/​biocthis</a>
 </li>
@@ -232,62 +236,55 @@
 </li>
 </ul>
 </div>
-
 <div class="license">
-<h2 data-toc-skip>License</h2>
+<h2>License</h2>
 <ul class="list-unstyled">
 <li><a href="https://www.r-project.org/Licenses/Artistic-2.0">Artistic-2.0</a></li>
 </ul>
 </div>
-
 <div class="community">
-<h2 data-toc-skip>Community</h2>
+<h2>Community</h2>
 <ul class="list-unstyled">
 <li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
 </ul>
 </div>
-
 <div class="citation">
-<h2 data-toc-skip>Citation</h2>
+<h2>Citation</h2>
 <ul class="list-unstyled">
 <li><a href="authors.html">Citing biocthis</a></li>
 </ul>
 </div>
-
 <div class="developers">
-<h2 data-toc-skip>Developers</h2>
+<h2>Developers</h2>
 <ul class="list-unstyled">
 <li>Leonardo Collado-Torres <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0003-2140-308X" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li><a href="authors.html">More on authors...</a></li>
+<li><a href="authors.html">All authors...</a></li>
 </ul>
 </div>
 
-<div class="dev-status">
-<h2 data-toc-skip>Dev status</h2>
+  <div class="dev-status">
+<h2>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://www.tidyverse.org/lifecycle/#maturing" class="external-link"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: maturing"></a></li>
-<li><a href="https://bioconductor.org/checkResults/release/bioc-LATEST/biocthis" class="external-link"><img src="http://www.bioconductor.org/shields/build/release/bioc/biocthis.svg" alt="BioC status"></a></li>
-<li><a href="https://bioconductor.org/checkResults/devel/bioc-LATEST/biocthis" class="external-link"><img src="http://www.bioconductor.org/shields/build/devel/bioc/biocthis.svg" alt="BioC dev status"></a></li>
-<li><a href="https://codecov.io/gh/lcolladotor/biocthis?branch=master" class="external-link"><img src="https://codecov.io/gh/lcolladotor/biocthis/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
-<li><a href="https://github.com/lcolladotor/biocthis/actions" class="external-link"><img src="https://github.com/lcolladotor/biocthis/workflows/R-CMD-check-bioc/badge.svg" alt="R build status"></a></li>
-<li><a href="https://support.bioconductor.org/t/biocthis/" class="external-link"><img src="http://www.bioconductor.org/shields/posts/biocthis.svg" alt="Support site activity, last 6 months: tagged questions/avg. answers per question/avg. comments per question/accepted answers, or 0 if no tagged posts."></a></li>
-<li><a href="https://github.com/lcolladotor/biocthis/issues" class="external-link"><img src="https://img.shields.io/github/issues/lcolladotor/biocthis" alt="GitHub issues"></a></li>
-<li><a href="https://github.com/lcolladotor/biocthis/pulls" class="external-link"><img src="https://img.shields.io/github/issues-pr/lcolladotor/biocthis" alt="GitHub pulls"></a></li>
+<li><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: maturing"></a></li>
+<li><a href="https://bioconductor.org/checkResults/release/bioc-LATEST/biocthis"><img src="http://www.bioconductor.org/shields/build/release/bioc/biocthis.svg" alt="BioC status"></a></li>
+<li><a href="https://bioconductor.org/checkResults/devel/bioc-LATEST/biocthis"><img src="http://www.bioconductor.org/shields/build/devel/bioc/biocthis.svg" alt="BioC dev status"></a></li>
+<li><a href="https://codecov.io/gh/lcolladotor/biocthis?branch=master"><img src="https://codecov.io/gh/lcolladotor/biocthis/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://github.com/lcolladotor/biocthis/actions"><img src="https://github.com/lcolladotor/biocthis/workflows/R-CMD-check-bioc/badge.svg" alt="R build status"></a></li>
+<li><a href="https://support.bioconductor.org/t/biocthis/"><img src="http://www.bioconductor.org/shields/posts/biocthis.svg" alt="Support site activity, last 6 months: tagged questions/avg. answers per question/avg. comments per question/accepted answers, or 0 if no tagged posts."></a></li>
+<li><a href="https://github.com/lcolladotor/biocthis/issues"><img src="https://img.shields.io/github/issues/lcolladotor/biocthis" alt="GitHub issues"></a></li>
+<li><a href="https://github.com/lcolladotor/biocthis/pulls"><img src="https://img.shields.io/github/issues-pr/lcolladotor/biocthis" alt="GitHub pulls"></a></li>
 </ul>
 </div>
-
-  </div>
+</div>
 </div>
 
 
       <footer><div class="copyright">
-  <p></p>
-<p>Developed by Leonardo Collado-Torres.</p>
+  <p>Developed by Leonardo Collado-Torres.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
@@ -295,8 +292,6 @@
 
   
 
-
-  
 
   </body>
 </html>

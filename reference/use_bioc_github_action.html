@@ -48,8 +48,6 @@ Actions workflow by executing usethis::use_github_action()." />
 
 
 
-
-
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -61,15 +59,9 @@ Actions workflow by executing usethis::use_github_action()." />
 
 
 
-  
-
-  
-
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    
-
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -83,13 +75,19 @@ Actions workflow by executing usethis::use_github_action()." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">biocthis</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.3.8</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.0</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
+  <a href="../index.html">
+    <span class="fas fa-home fa-lg"></span>
+     
+  </a>
+</li>
+<li>
   <a href="../articles/biocthis.html">Get started</a>
 </li>
 <li>
@@ -137,13 +135,13 @@ Actions workflow by executing usethis::use_github_action()." />
     </div>
 
     <div class="ref-description">
-    <p>This function is very similar to <code><a href='https://usethis.r-lib.org/reference/use_github_action.html'>usethis::use_github_action()</a></code> except
+    <p>This function is very similar to <code><a href='https://usethis.r-lib.org/reference/github_actions.html'>usethis::use_github_action()</a></code> except
 that it uses a template from <code>biocthis</code>. It creates a Bioconductor-friendly
 GitHub action workflow for your package. You can also use this GitHub
-Actions workflow by executing <code><a href='https://usethis.r-lib.org/reference/use_github_action.html'>usethis::use_github_action()</a></code>.</p>
+Actions workflow by executing <code><a href='https://usethis.r-lib.org/reference/github_actions.html'>usethis::use_github_action()</a></code>.</p>
     </div>
 
-    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>use_bioc_github_action</span><span class='op'>(</span>
+    <pre class="usage"><span class='fu'>use_bioc_github_action</span><span class='op'>(</span>
   <span class='va'>biocdocker</span>,
   pkgdown <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"biocthis.pkgdown"</span>, <span class='cn'>FALSE</span><span class='op'>)</span>,
   testthat <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"biocthis.testthat"</span>, <span class='cn'>FALSE</span><span class='op'>)</span>,
@@ -151,7 +149,7 @@ Actions workflow by executing <code><a href='https://usethis.r-lib.org/reference
   RUnit <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"biocthis.RUnit"</span>, <span class='cn'>FALSE</span><span class='op'>)</span>,
   pkgdown_covr_branch <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"biocthis.pkgdown_covr_branch"</span>, <span class='st'>"master"</span><span class='op'>)</span>,
   docker <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"biocthis.docker"</span>, <span class='cn'>FALSE</span><span class='op'>)</span>
-<span class='op'>)</span></code></pre></div>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -218,7 +216,7 @@ the "biocthis developer notes" vignette
 <a href='https://lcolladotor.github.io/biocthis/articles/biocthis_dev_notes.html'>https://lcolladotor.github.io/biocthis/articles/biocthis_dev_notes.html</a>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'></span>
+    <pre class="examples"><span class='r-in'></span>
 <span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
 <span class='r-in'><span class='co'>## Run this function in your package</span></span>
 <span class='r-in'><span class='fu'>biocthis</span><span class='fu'>::</span><span class='fu'>use_bioc_github_action</span><span class='op'>(</span><span class='op'>)</span></span>
@@ -230,7 +228,7 @@ the "biocthis developer notes" vignette
 <span class='r-in'><span class='co'>## for more information.</span></span>
 <span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span><span class='st'>"biocthis.pkgdown"</span> <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
 <span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span><span class='st'>"biocthis.testthat"</span> <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
-</code></pre></div>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -242,11 +240,11 @@ the "biocthis developer notes" vignette
 
       <footer>
       <div class="copyright">
-  <p><p>Developed by Leonardo Collado-Torres.</p></p>
+  <p>Developed by Leonardo Collado-Torres.</p>
 </div>
 
 <div class="pkgdown">
-  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
@@ -254,8 +252,6 @@ the "biocthis developer notes" vignette
 
   
 
-
-  
 
   </body>
 </html>
