@@ -178,8 +178,8 @@
 <code class="sourceCode R"><span class="co">## Create an example package for illustrative purposes.</span>
 <span class="co">## Note: you do not need to run this for your own package!</span>
 <span class="va">pkgdir</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/biocthis_example_pkg.html">biocthis_example_pkg</a></span><span class="op">(</span><span class="st">"biocthispkg"</span>, use_git <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co">#&gt; ✔ Creating '/tmp/Rtmpyg2xVo/biocthispkg/'</span>
-<span class="co">#&gt; ✔ Setting active project to '/tmp/Rtmpyg2xVo/biocthispkg'</span>
+<span class="co">#&gt; ✔ Creating '/tmp/RtmpEFEYIC/biocthispkg/'</span>
+<span class="co">#&gt; ✔ Setting active project to '/tmp/RtmpEFEYIC/biocthispkg'</span>
 <span class="co">#&gt; ✔ Creating 'R/'</span>
 <span class="co">#&gt; ✔ Writing 'DESCRIPTION'</span>
 <span class="co">#&gt; Package: biocthispkg</span>
@@ -195,7 +195,7 @@
 <span class="co">#&gt; RoxygenNote: 7.1.2</span>
 <span class="co">#&gt; ✔ Writing 'NAMESPACE'</span>
 <span class="co">#&gt; ✔ Setting active project to '&lt;no active project&gt;'</span>
-<span class="co">#&gt; ✔ Setting active project to '/tmp/Rtmpyg2xVo/biocthispkg'</span>
+<span class="co">#&gt; ✔ Setting active project to '/tmp/RtmpEFEYIC/biocthispkg'</span>
 <span class="co">#&gt; ✔ Initialising Git repo</span>
 <span class="co">#&gt; ✔ Adding '.Rproj.user', '.Rhistory', '.Rdata', '.httr-oauth', '.DS_Store' to '.gitignore'</span></code></pre></div>
 <p>Once you have created a package, you can use <code><a href="../reference/use_bioc_pkg_templates.html">use_bioc_pkg_templates()</a></code> to create a set of scripts in the <code>dev</code> (developer) directory.</p>
@@ -455,6 +455,9 @@
 <span class="co">#&gt; ✔ Adding 'sessioninfo' to Suggests field in DESCRIPTION</span>
 <span class="co">#&gt; • Use `requireNamespace("sessioninfo", quietly = TRUE)` to test if package is installed</span>
 <span class="co">#&gt; • Then directly refer to functons like `sessioninfo::fun()` (replacing `fun()`).</span>
+<span class="co">#&gt; ✔ Adding 'testthat' to Suggests field in DESCRIPTION</span>
+<span class="co">#&gt; • Use `requireNamespace("testthat", quietly = TRUE)` to test if package is installed</span>
+<span class="co">#&gt; • Then directly refer to functons like `testthat::fun()` (replacing `fun()`).</span>
 <span class="co">#&gt; ✔ Setting VignetteBuilder field in DESCRIPTION to 'knitr'</span>
 <span class="co">#&gt; ✔ Adding 'inst/doc' to '.gitignore'</span>
 <span class="co">#&gt; ✔ Creating 'vignettes/'</span>
@@ -518,12 +521,12 @@
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://yihui.org/knitr/">"knitr"</a></span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/knit.html">knit</a></span><span class="op">(</span><span class="st">"biocthis.Rmd"</span>, tangle <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p>Date the vignette was generated.</p>
-<pre><code>#&gt; [1] "2021-11-23 03:22:47 UTC"</code></pre>
+<pre><code>#&gt; [1] "2021-11-23 03:23:51 UTC"</code></pre>
 <p>Wallclock time spent generating the vignette.</p>
-<pre><code>#&gt; Time difference of 3.847 secs</code></pre>
+<pre><code>#&gt; Time difference of 3.719 secs</code></pre>
 <p><code>R</code> session information.</p>
 <pre><code>#&gt; ─ Session info  ──────────────────────────────────────────────────────────────────────────────────────────────────────
-#&gt;  hash: military medal, ID button, admission tickets
+#&gt;  hash: nine-thirty, person surfing: dark skin tone, person with veil: light skin tone
 #&gt; 
 #&gt;  setting  value
 #&gt;  version  R version 4.1.2 (2021-11-01)
@@ -593,6 +596,7 @@
 #&gt;  styler      * 1.6.2   2021-09-23 [1] RSPM (R 4.1.0)
 #&gt;  sys           3.4     2020-07-23 [2] RSPM (R 4.1.0)
 #&gt;  systemfonts   1.0.3   2021-10-13 [1] RSPM (R 4.1.0)
+#&gt;  testthat      3.1.0   2021-10-04 [2] RSPM (R 4.1.0)
 #&gt;  textshaping   0.3.6   2021-10-13 [1] RSPM (R 4.1.0)
 #&gt;  tibble        3.1.6   2021-11-07 [2] RSPM (R 4.1.0)
 #&gt;  usethis     * 2.1.3   2021-10-27 [2] RSPM (R 4.1.0)
