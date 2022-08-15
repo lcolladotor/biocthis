@@ -40,7 +40,8 @@ use_tiny_test <- function(name = NULL, open = interactive()) {
     if (is.null(name))
         name <- usethis:::get_active_r_file(path = "R")
     else
-        name <- paste0("test_", name, ".R")
+        name <- paste0(name, ".R")
+    name <- paste0("test_", name)
     path <- file.path("inst", "tinytest", name)
     edit_file(proj_path(path), open = open)
 }
