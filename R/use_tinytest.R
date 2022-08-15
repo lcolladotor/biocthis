@@ -6,7 +6,7 @@ uses_tinytest <- function() {
 }
 
 use_tinytest_impl <- function() {
-    use_directory(file.path("tests", "tinytest"))
+    use_directory(file.path("inst", "tinytest"))
     use_template("tinytest.R", save_as = file.path("tests", "tinytest.R"),
         data = list(name = usethis:::project_name()), package = "biocthis")
 }
@@ -41,6 +41,6 @@ use_tiny_test <- function(name = NULL, open = interactive()) {
     else
         name <- paste0("test_", name)
     name <- paste0(name, ".R")
-    path <- file.path("tests", "tinytest", name)
+    path <- file.path("inst", "tinytest", name)
     edit_file(proj_path(path), open = open)
 }
