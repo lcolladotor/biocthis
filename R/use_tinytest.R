@@ -7,6 +7,7 @@ uses_tinytest <- function() {
 
 use_tinytest_impl <- function() {
     use_directory(file.path("inst", "tinytest"))
+    use_directory("tests")
     use_template("tinytest.R", save_as = file.path("tests", "tinytest.R"),
         data = list(name = usethis:::project_name()), package = "biocthis")
 }
