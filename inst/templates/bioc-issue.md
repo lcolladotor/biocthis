@@ -37,8 +37,12 @@ options(width = 120)
 ## insert session info here
 ```
 
-Note. The output of `sessioninfo::session_info()` includes relevant GitHub
-installation information and other details that are missed by `sessionInfo()`.
+Indicate whether `BiocManager::valid()` returns `TRUE`. 
+
+- [ ] `BiocManager::valid()` is `TRUE`
+
+Note. To avoid potential issues with version mixing and reproducibility, do not
+install packages from `GitHub`.
 
 ## Additional Context
 
