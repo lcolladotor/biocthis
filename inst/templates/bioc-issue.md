@@ -6,9 +6,9 @@ labels: ''
 assignees: ''
 ---
 
-Please ask questions about how to use `{{{Package}}}` on the Bioconductor
-Support Site at <https://support.bioconductor.org> using the appropriate tag(s)
-including the one for this package.
+Please ask questions about how to use `{{{Package}}}` on the
+[Bioconductor Support Site](https://support.bioconductor.org) using the
+appropriate tag(s) including the one for this package.
 
 **Note**. Update the issue title to concisely describe the bug.
 
@@ -18,11 +18,12 @@ Please provide a clear and concise description of what the bug is.
 
 ### Provide a minimally reproducible example (reprex)
 
-Provide a clear and concise description of the bug. It can be best illustrated
-with a minimally reproducible example using
-[`reprex::reprex()`](https://reprex.tidyverse.org/reference/reprex.html).
-For tips, see this link on Stackoverflow:
-<https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example>
+Provide a clear and concise description of the bug. It can be easily (but not
+necessarily) illustrated with a minimally reproducible example using the
+[`reprex` package](https://reprex.tidyverse.org/articles/learn-reprex.html).
+
+For tips on creating a reprex, see this
+[StackOverflow link](https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example).
 
 ## Expected behavior
 

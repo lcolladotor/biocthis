@@ -7,13 +7,14 @@ as smooth as possible for both parties.
 ## Make a reprex
 
 Start by making a minimally **repr**oducible **ex**ample, also known as a
-'reprex'. You may use the `reprex` package to create one, though it is not
-necessary but it does help. It will make all of your R-question-asking endeavors
-easier. It takes about 5 to 10 minutes to learn how to use it.
+'reprex'. You may use the [`reprex`](https://reprex.tidyverse.org/) R package to
+create one, though it is not necessary but it does help. It will make all of
+your R-question-asking endeavors easier. Learning
+[how to use it](https://reprex.tidyverse.org/articles/learn-reprex.html) takes
+about 5 to 10 minutes.
 
 For more tips on how to make a minimally **repr**oducible **ex**ample, see this
-link on Stackoverflow:
-<https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example>
+[StackOverflow link](https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example).
 
 ## Where to post it?
 
@@ -44,8 +45,9 @@ to ensure that one does not already exist or has been implemented in the
 development version.
 
 **Note**. You can remove the `is:open` search term in the issues page to search
-through open and closed issues. Learn more about modifying the search at
-<https://help.github.com/articles/searching-issues-and-pull-requests/>
+through open and closed issues. See
+[this link to learn more](https://help.github.com/articles/searching-issues-and-pull-requests/)
+about modifying the search.
 
 ## What happens next?
 
