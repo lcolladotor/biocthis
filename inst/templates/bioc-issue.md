@@ -18,7 +18,7 @@ Please provide a clear and concise description of what the bug is.
 
 ### Provide a minimally reproducible example (reprex)
 
-Provide a clear and concise description of the bug that is best illustrated
+Provide a clear and concise description of the bug. It can be best illustrated
 with a minimally reproducible example using
 [`reprex::reprex()`](https://reprex.tidyverse.org/reference/reprex.html).
 For tips, see this link on Stackoverflow:
