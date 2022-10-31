@@ -1,3 +1,32 @@
+# biocthis 1.7.0
+
+NEW FEATURES
+
+* `use_bioc_pkgdown_css()`: helps you style your `pkgdown` website with
+Bioconductor colors. See https://github.com/lcolladotor/biocthis/issues/34 for
+details.
+* `use_bioc_badgets()`: helps you list all the Bioconductor badges (for
+software packages). See https://github.com/lcolladotor/biocthis/pull/35 for
+details.
+* `use_bioc_feature_request_template()`: creates a feature request template for
+your GitHub repository. See https://github.com/lcolladotor/biocthis/pull/33 for
+details. `use_bioc_issue_template()` and `use_bioc_support()` were also updated
+to be more Bioconductor-centric.
+* `use_tinytest()` adds support for `tinytest`. See 
+https://github.com/lcolladotor/biocthis/pull/32 for details.
+
+BUG FIXES
+
+* Fixed `pkgdown` website creation. See 
+https://github.com/lcolladotor/biocthis/issues/29 for details. This is also
+tangencially related to https://github.com/lcolladotor/biocthis/issues/31.
+* Fixed usage of `r-lib/actions`. We now use `v2`. See
+https://github.com/lcolladotor/biocthis/issues/36, 
+https://github.com/lcolladotor/biocthis/pull/37, and 
+https://github.com/r-lib/actions/issues/639 for more.
+* Thanks to everyone who contributed pull requests and GitHub issues!
+
+
 # biocthis 1.3.8
 
 SIGNIFICANT USER-VISIBLE CHANGES
