@@ -34,10 +34,16 @@ A clear and concise description of what you expected to happen.
 Please report the output of either `sessionInfo()` or
 `sessioninfo::session_info()` here.
 
+<details>
+
 ```R
 options(width = 120)
 ## insert session info here
+# sessioninfo::session_info() ## provides GitHub, pandoc, and other details
+# sessionInfo() ## base R function in case you don't want to install sessioninfo
 ```
+
+</details>
 
 Indicate whether `BiocManager::valid()` returns `TRUE`. 
 
