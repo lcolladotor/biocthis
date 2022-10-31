@@ -2,7 +2,7 @@
 % Please edit documentation in R/use_bioc_feature_request_template.R
 \name{use_bioc_feature_request_template}
 \alias{use_bioc_feature_request_template}
-\title{Create a biocthis-style GitHub issue feature request template}
+\title{Create a biocthis-style GitHub feature request template}
 \usage{
 use_bioc_feature_request_template()
 }
@@ -28,6 +28,6 @@ use_bioc_feature_request_template()
 ## Note: you do not need to run this for your own package!
 pkgdir <- biocthis_example_pkg()
 
-## Create a feature request template GitHub issue file that is Bioconductor-friendly
+## Create a feature request template GitHub file that is Bioconductor-friendly
 biocthis::use_bioc_feature_request_template()
 }
