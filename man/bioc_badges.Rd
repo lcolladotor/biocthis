@@ -30,8 +30,8 @@ use_bioc_dependencies_badge()
 \code{"release"} (default) or \code{"devel"}.}
 }
 \description{
-These functions add markdown text to the README to include all or individual
-badges from the Bioconductor landing page.
+These functions add markdown text to the \code{README} to include all or
+individual badges from the Bioconductor landing page.
 }
 \details{
 \itemize{

@@ -1,7 +1,7 @@
 #' Add Bioconductor README badges
 #'
-#' These functions add markdown text to the README to include all or individual
-#' badges from the Bioconductor landing page.
+#' These functions add markdown text to the `README` to include all or
+#' individual badges from the Bioconductor landing page.
 #'
 #' @details
 #' * `use_bioc_badges()`: adds all badges listed below, mimicking the
@@ -33,6 +33,7 @@
 #' ## Add just the Bioc build status badge for devel
 #' use_bioc_build_badge("devel")
 #' }
+#' @importFrom glue glue
 #' @export
 use_bioc_badges <- function() {
     use_bioc_build_badge(which = "release")
@@ -53,8 +54,10 @@ use_bioc_build_badge <- function(which = c("release", "devel")) {
     usethis:::check_is_package("use_bioc_build_badge()")
     pkg <- usethis:::project_name()
 
-    src <- glue("http://www.bioconductor.org/shields/build/{which}/bioc/{pkg}.svg")
-    href <- glue("https://bioconductor.org/checkResults/{which}/bioc-LATEST/{pkg}")
+    src <-
+        glue("http://www.bioconductor.org/shields/build/{which}/bioc/{pkg}.svg")
+    href <-
+        glue("https://bioconductor.org/checkResults/{which}/bioc-LATEST/{pkg}")
 
     use_badge(glue("Bioc {which} status"), href, src)
 }
@@ -77,8 +80,10 @@ use_bioc_rank_badge <- function() {
     usethis:::check_is_package("use_bioc_rank_badge()")
     pkg <- usethis:::project_name()
 
-    src <- glue("https://bioconductor.org/shields/downloads/release/{pkg}.svg")
-    href <- glue("http://bioconductor.org/packages/stats/bioc/{pkg}/")
+    src <-
+        glue("https://bioconductor.org/shields/downloads/release/{pkg}.svg")
+    href <-
+        glue("http://bioconductor.org/packages/stats/bioc/{pkg}/")
 
     use_badge("Bioc downloads rank", href, src)
 }
@@ -89,8 +94,10 @@ use_bioc_history_badge <- function() {
     usethis:::check_is_package("use_bioc_history_badge()")
     pkg <- usethis:::project_name()
 
-    src <- glue("https://bioconductor.org/shields/years-in-bioc/{pkg}.svg")
-    href <- glue("https://bioconductor.org/packages/release/bioc/html/{pkg}.html#since")
+    src <-
+        glue("https://bioconductor.org/shields/years-in-bioc/{pkg}.svg")
+    href <-
+        glue("https://bioconductor.org/packages/release/bioc/html/{pkg}.html#since")
 
     use_badge("Bioc history", href, src)
 }
@@ -101,8 +108,10 @@ use_bioc_last_commit_badge <- function() {
     usethis:::check_is_package("use_bioc_last_commit_badge()")
     pkg <- usethis:::project_name()
 
-    src <- glue("https://bioconductor.org/shields/lastcommit/devel/bioc/{pkg}.svg")
-    href <- glue("http://bioconductor.org/checkResults/devel/bioc-LATEST/{pkg}/")
+    src <-
+        glue("https://bioconductor.org/shields/lastcommit/devel/bioc/{pkg}.svg")
+    href <-
+        glue("http://bioconductor.org/checkResults/devel/bioc-LATEST/{pkg}/")
 
     use_badge("Bioc last commit", href, src)
 }
@@ -113,8 +122,10 @@ use_bioc_dependencies_badge <- function() {
     usethis:::check_is_package("use_bioc_dependencies_badge()")
     pkg <- usethis:::project_name()
 
-    src <- glue("https://bioconductor.org/shields/dependencies/release/{pkg}.svg")
-    href <- glue("https://bioconductor.org/packages/release/bioc/html/{pkg}.html#since")
+    src <-
+        glue("https://bioconductor.org/shields/dependencies/release/{pkg}.svg")
+    href <-
+        glue("https://bioconductor.org/packages/release/bioc/html/{pkg}.html#since")
 
     use_badge("Bioc dependencies", href, src)
 }
