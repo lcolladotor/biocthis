@@ -8,8 +8,10 @@ uses_tinytest <- function() {
 use_tinytest_impl <- function() {
     use_directory(file.path("inst", "tinytest"))
     use_directory("tests")
-    use_template("tinytest.R", save_as = file.path("tests", "tinytest.R"),
-        data = list(name = usethis:::project_name()), package = "biocthis")
+    use_template("tinytest.R",
+        save_as = file.path("tests", "tinytest.R"),
+        data = list(name = usethis:::project_name()), package = "biocthis"
+    )
 }
 
 #' Use the `tinytest` framework for unit tests
@@ -35,12 +37,14 @@ use_tinytest <- function() {
 #'
 #' @export
 use_tiny_test <- function(name = NULL, open = interactive()) {
-    if (!uses_tinytest())
+    if (!uses_tinytest()) {
         use_tinytest_impl()
-    if (is.null(name))
+    }
+    if (is.null(name)) {
         name <- usethis:::get_active_r_file(path = "R")
-    else
+    } else {
         name <- paste0(name, ".R")
+    }
     name <- paste0("test_", name)
     path <- file.path("inst", "tinytest", name)
     edit_file(proj_path(path), open = open)
