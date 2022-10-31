@@ -52,6 +52,7 @@ biocthis::use_bioc_coc()
 usethis::use_tidy_contributing()
 biocthis::use_bioc_support()
 biocthis::use_bioc_issue_template()
+biocthis::use_bioc_feature_request_template()
 biocthis::use_bioc_citation()
 
 ## Add badges to the README.Rmd file
