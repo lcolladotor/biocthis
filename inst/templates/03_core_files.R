@@ -7,7 +7,7 @@ rstudioapi::navigateToFile(usethis::proj_path("dev", "02_git_github_setup.R"))
 
 ## Edit your package DESCRIPTION file
 ## Check http://r-pkgs.had.co.nz/description.html for details
-## as well as http://bioconductor.org/developers/package-guidelines/#description
+## as well as http://contributions.bioconductor.org/description.html
 
 ## Check https://github.com/lcolladotor/biocthis/blob/master/DESCRIPTION
 ## for an example.
