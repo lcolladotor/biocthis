@@ -147,6 +147,7 @@ jobs:
         if: runner.os == 'Windows'
         run: |
           ## Edit below if you have any Windows system dependencies
+          install.packages("XML") ## Could be related to https://github.com/r-lib/actions/issues/559
         shell: Rscript {0}
 
       - name: Install BiocManager
