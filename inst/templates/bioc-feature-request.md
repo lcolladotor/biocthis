@@ -6,7 +6,7 @@ labels: ''
 assignees: ''
 ---
 
-Please ask questions about how to use `{{{Package}}}` on the Bioconductor
+Please ask questions about how to use `{{Package}}` on the Bioconductor
 Support Site at <https://support.bioconductor.org> using the appropriate tag(s)
 including the one for this package.
 

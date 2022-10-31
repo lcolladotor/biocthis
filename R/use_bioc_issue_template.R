@@ -27,8 +27,11 @@
 use_bioc_issue_template <- function() {
     usethis:::use_dot_github()
     use_directory(fs::path(".github", "ISSUE_TEMPLATE"))
+    data <- list(
+        Package = usethis:::project_name()
+    )
     use_template("bioc-issue.md", fs::path(
         ".github", "ISSUE_TEMPLATE",
         "issue_template.md"
-    ), package = "biocthis")
+    ), package = "biocthis", data = data)
 }

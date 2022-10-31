@@ -6,7 +6,7 @@ labels: ''
 assignees: ''
 ---
 
-Please ask questions about how to use `{{{Package}}}` on the
+Please ask questions about how to use `{{Package}}` on the
 [Bioconductor Support Site](https://support.bioconductor.org) using the
 appropriate tag(s) including the one for this package.
 
@@ -31,7 +31,8 @@ A clear and concise description of what you expected to happen.
 
 ## R Session Information
 
-Please report the output of either `sessionInfo()` or `session_info()` here.
+Please report the output of either `sessionInfo()` or
+`sessioninfo::session_info()` here.
 
 ```R
 options(width = 120)
