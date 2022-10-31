@@ -91,6 +91,9 @@ usethis::edit_git_config()
 #     email = your.email@somewhere.com
 #
 
+## Setup your pkgdown css file
+biocthis::use_bioc_pkgdown_css()
+
 ## ************************* WARNING START *********************************
 ## WARNING: git commit before running this next function!
 ## Otherwise you can lose your work!!!
