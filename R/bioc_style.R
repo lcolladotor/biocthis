@@ -31,7 +31,6 @@
 #' @importFrom styler tidyverse_style
 #'
 #' @examples
-#'
 #' \dontrun{
 #' ## Run these functions in your package
 #' styler::style_pkg(transformers = biocthis::bioc_style())

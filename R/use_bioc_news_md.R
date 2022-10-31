@@ -15,7 +15,6 @@
 #' @import usethis
 #'
 #' @examples
-#'
 #' \dontrun{
 #' ## Run this function in your package
 #' use_bioc_news_md()

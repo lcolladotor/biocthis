@@ -18,7 +18,6 @@ compare the template produced with the one from \code{usethis::use_citation()}
 to pick and choose the parts you like best from each.
 }
 \examples{
-
 \dontrun{
 ## Run this function in your package
 use_bioc_citation()

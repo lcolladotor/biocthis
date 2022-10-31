@@ -19,7 +19,6 @@ For more details on how this function came to be, check
 \url{https://github.com/r-lib/usethis/issues/1108}.
 }
 \examples{
-
 \dontrun{
 ## Run this function in your package
 use_bioc_support()

@@ -66,7 +66,6 @@ the "biocthis developer notes" vignette
 \url{https://lcolladotor.github.io/biocthis/articles/biocthis_dev_notes.html}.
 }
 \examples{
-
 \dontrun{
 ## Run this function in your package
 biocthis::use_bioc_github_action()

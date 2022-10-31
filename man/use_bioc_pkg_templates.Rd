@@ -40,7 +40,6 @@ as well as the "biocthis developer notes" vignette
 \url{https://lcolladotor.github.io/biocthis/articles/biocthis_dev_notes.html}.
 }
 \examples{
-
 \dontrun{
 ## Run this function in your package
 use_bioc_pkg_templates()

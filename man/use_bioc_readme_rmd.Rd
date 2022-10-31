@@ -24,7 +24,6 @@ and thanks the authors of several packages. It was built on top of the
 original template from \code{usethis::use_readme_rmd()}.
 }
 \examples{
-
 \dontrun{
 ## Run this function in your package
 use_bioc_readme_rmd()

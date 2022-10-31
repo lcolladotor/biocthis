@@ -39,7 +39,6 @@ For more details on how this function came to be, check
 \url{https://github.com/Bioconductor/bioconductor.org/issues/54}
 }
 \examples{
-
 \dontrun{
 ## Run these functions in your package
 styler::style_pkg(transformers = biocthis::bioc_style())

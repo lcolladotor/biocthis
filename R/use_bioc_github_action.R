@@ -82,7 +82,6 @@
 #' @import usethis
 #'
 #' @examples
-#'
 #' \dontrun{
 #' ## Run this function in your package
 #' biocthis::use_bioc_github_action()
@@ -94,8 +93,7 @@
 #' ## for more information.
 #' options("biocthis.pkgdown" = TRUE)
 #' options("biocthis.testthat" = TRUE)
-use_bioc_github_action <- function(
-    biocdocker,
+use_bioc_github_action <- function(biocdocker,
     pkgdown = getOption("biocthis.pkgdown", FALSE),
     testthat = getOption("biocthis.testthat", FALSE),
     covr = testthat,

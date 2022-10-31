@@ -24,7 +24,6 @@ default the file \code{.github/CODE_OF_CONDUCT.md} with a brief overview of
 the Bioconductor Code of Conduct and links to the latest version.
 }
 \examples{
-
 \dontrun{
 ## Run this function in your package
 use_bioc_coc()

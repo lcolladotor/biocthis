@@ -56,7 +56,7 @@ biocthis::use_bioc_citation()
 
 ## Add badges to the README.Rmd file
 usethis::use_lifecycle_badge("Experimental")
-usethis::use_bioc_badge()
+biocthis::use_bioc_badges()
 ## NOTE: If your Bioconductor package is an experiment, annotation or workflow
 ## package, you will need to edit the resulting badge!
 usethis::use_github_actions_badge("R-CMD-check-bioc")

@@ -24,7 +24,6 @@ Unlike the original function, \code{use_bioc_news_md()} does not make git commit
 So you won't lose work you didn't save when using this function.
 }
 \examples{
-
 \dontrun{
 ## Run this function in your package
 use_bioc_news_md()

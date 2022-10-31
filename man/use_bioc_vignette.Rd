@@ -28,7 +28,6 @@ template also includes a section on how to ask for help and required
 knowledge.
 }
 \examples{
-
 \dontrun{
 ## Run this function in your package
 pkg <- basename(usethis::proj_get())

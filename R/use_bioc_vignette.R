@@ -20,7 +20,6 @@
 #' @import usethis
 #'
 #' @examples
-#'
 #' \dontrun{
 #' ## Run this function in your package
 #' pkg <- basename(usethis::proj_get())

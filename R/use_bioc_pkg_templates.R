@@ -29,7 +29,6 @@
 #' @importFrom fs path
 #'
 #' @examples
-#'
 #' \dontrun{
 #' ## Run this function in your package
 #' use_bioc_pkg_templates()

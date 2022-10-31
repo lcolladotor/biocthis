@@ -18,7 +18,6 @@
 #' @importFrom fs path_join
 #'
 #' @examples
-#'
 #' \dontrun{
 #' ## Run this function in your package
 #' use_bioc_coc()

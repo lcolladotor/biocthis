@@ -34,7 +34,6 @@ packages check
 \url{http://bioconductor.org/developers/package-guidelines/#description}.
 }
 \examples{
-
 \dontrun{
 ## Run this function in your package
 use_bioc_description()
