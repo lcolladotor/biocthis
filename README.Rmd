@@ -17,11 +17,15 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
-[![BioC status](http://www.bioconductor.org/shields/build/release/bioc/biocthis.svg)](https://bioconductor.org/checkResults/release/bioc-LATEST/biocthis)
-[![BioC dev status](http://www.bioconductor.org/shields/build/devel/bioc/biocthis.svg)](https://bioconductor.org/checkResults/devel/bioc-LATEST/biocthis)
+[![Bioc release status](http://www.bioconductor.org/shields/build/release/bioc/biocthis.svg)](https://bioconductor.org/checkResults/release/bioc-LATEST/biocthis)
+[![Bioc devel status](http://www.bioconductor.org/shields/build/devel/bioc/biocthis.svg)](https://bioconductor.org/checkResults/devel/bioc-LATEST/biocthis)
+[![Bioc downloads rank](https://bioconductor.org/shields/downloads/release/biocthis.svg)](http://bioconductor.org/packages/stats/bioc/biocthis/)
+[![Bioc support](https://bioconductor.org/shields/posts/biocthis.svg)](https://support.bioconductor.org/tag/biocthis)
+[![Bioc history](https://bioconductor.org/shields/years-in-bioc/biocthis.svg)](https://bioconductor.org/packages/release/bioc/html/biocthis.html#since)
+[![Bioc last commit](https://bioconductor.org/shields/lastcommit/devel/bioc/biocthis.svg)](http://bioconductor.org/checkResults/devel/bioc-LATEST/biocthis/)
+[![Bioc dependencies](https://bioconductor.org/shields/dependencies/release/biocthis.svg)](https://bioconductor.org/packages/release/bioc/html/biocthis.html#since)
 [![Codecov test coverage](https://codecov.io/gh/lcolladotor/biocthis/branch/master/graph/badge.svg)](https://codecov.io/gh/lcolladotor/biocthis?branch=master)
 [![R build status](https://github.com/lcolladotor/biocthis/workflows/R-CMD-check-bioc/badge.svg)](https://github.com/lcolladotor/biocthis/actions)
-[![Support site activity, last 6 months: tagged questions/avg. answers per question/avg. comments per question/accepted answers, or 0 if no tagged posts.](http://www.bioconductor.org/shields/posts/biocthis.svg)](https://support.bioconductor.org/t/biocthis/)
 [![GitHub issues](https://img.shields.io/github/issues/lcolladotor/biocthis)](https://github.com/lcolladotor/biocthis/issues)
 [![GitHub pulls](https://img.shields.io/github/issues-pr/lcolladotor/biocthis)](https://github.com/lcolladotor/biocthis/pulls)
 <!-- badges: end -->
