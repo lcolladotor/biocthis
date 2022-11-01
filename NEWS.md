@@ -5,7 +5,7 @@ NEW FEATURES
 * `use_bioc_pkgdown_css()`: helps you style your `pkgdown` website with
 Bioconductor colors. See https://github.com/lcolladotor/biocthis/issues/34 for
 details.
-* `use_bioc_badgets()`: helps you list all the Bioconductor badges (for
+* `use_bioc_badges()`: helps you list all the Bioconductor badges (for
 software packages). See https://github.com/lcolladotor/biocthis/pull/35 for
 details.
 * `use_bioc_feature_request_template()`: creates a feature request template for
