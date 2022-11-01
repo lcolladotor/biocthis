@@ -87,8 +87,8 @@ library("biocthis")
 ## Create an example package for illustrative purposes.
 ## Note: you do not need to run this for your own package!
 pkgdir <- biocthis_example_pkg()
-#> ✔ Creating '/var/folders/9f/82m1lr2n1fv1mk91plf2l_dr0000gn/T/RtmpUvxHG3/biocthisexample/'
-#> ✔ Setting active project to '/private/var/folders/9f/82m1lr2n1fv1mk91plf2l_dr0000gn/T/RtmpUvxHG3/biocthisexample'
+#> ✔ Creating '/var/folders/9f/82m1lr2n1fv1mk91plf2l_dr0000gn/T/Rtmp4fYodr/biocthisexample/'
+#> ✔ Setting active project to '/private/var/folders/9f/82m1lr2n1fv1mk91plf2l_dr0000gn/T/Rtmp4fYodr/biocthisexample'
 #> ✔ Creating 'R/'
 #> ✔ Writing 'DESCRIPTION'
 #> Package: biocthisexample
@@ -104,7 +104,7 @@ pkgdir <- biocthis_example_pkg()
 #> RoxygenNote: 7.2.1
 #> ✔ Writing 'NAMESPACE'
 #> ✔ Setting active project to '<no active project>'
-#> ✔ Setting active project to '/private/var/folders/9f/82m1lr2n1fv1mk91plf2l_dr0000gn/T/RtmpUvxHG3/biocthisexample'
+#> ✔ Setting active project to '/private/var/folders/9f/82m1lr2n1fv1mk91plf2l_dr0000gn/T/Rtmp4fYodr/biocthisexample'
 
 ## Create the bioc templates
 biocthis::use_bioc_pkg_templates()
@@ -157,7 +157,7 @@ print(citation("biocthis"), bibtex = TRUE)
 #>   Bioconductor packages_. doi:10.18129/B9.bioc.biocthis
 #>   <https://doi.org/10.18129/B9.bioc.biocthis>,
 #>   https://github.com/lcolladotor/biocthisbiocthis - R package version
-#>   1.7.0, <http://www.bioconductor.org/packages/biocthis>.
+#>   1.9.1, <http://www.bioconductor.org/packages/biocthis>.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
@@ -166,7 +166,7 @@ print(citation("biocthis"), bibtex = TRUE)
 #>     author = {Leonardo Collado-Torres},
 #>     year = {2022},
 #>     url = {http://www.bioconductor.org/packages/biocthis},
-#>     note = {https://github.com/lcolladotor/biocthisbiocthis - R package version 1.7.0},
+#>     note = {https://github.com/lcolladotor/biocthisbiocthis - R package version 1.9.1},
 #>     doi = {10.18129/B9.bioc.biocthis},
 #>   }
 #> 
