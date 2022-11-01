@@ -30,7 +30,7 @@ overview of places that may help answer your question.
 * Bioconductor software usage questions should be addressed in the
   [Bioconductor Support Website](https://support.bioconductor.org/). Make sure
   to use the
-  [appropriate package tag](https://support.bioconductor.org/t/{{Package}}),
+  [appropriate package tag](https://support.bioconductor.org/tag/{{Package}}),
   otherwise the package authors will not get a notification.
   
 * General R questions can be posed at StackOverflow or at the

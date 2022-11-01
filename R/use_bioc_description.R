@@ -62,7 +62,7 @@ use_bioc_description <- function(biocViews = "Software", report_bioc = TRUE) {
                     get_github_spec()
                 ),
                 BugReports = if (report_bioc) {
-                    paste0("https://support.bioconductor.org/t/", pkg)
+                    paste0("https://support.bioconductor.org/tag/", pkg)
                 } else {
                     file.path(
                         "https://github.com",
