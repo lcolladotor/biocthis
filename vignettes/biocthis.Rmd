@@ -147,12 +147,13 @@ If you run `use_bioc_pkg_templates()` inside RStudio Desktop, then all the scrip
   - Creates the corresponding GitHub repository
 * `03_core_files.R`
   - Creates Bioconductor-friendly `README.Rmd` and `NEWS.md` files
-  - Creates Bioconductor-friendly GitHub template for issues
+  - Creates Bioconductor-friendly GitHub templates for issues, feature requests, and support requests
   - Uses the tidyverse-style GitHub contributing and code of conduct files
   - Creates a template Bioconductor-friendly `CITATION` file
   - Adds several badges to the `README.Rmd` file ^[You might want to use `r CRANpkg("badger")` too, which has badges for Bioconductor download statistics. Some of the badges are only tailored for Bioconductor *software* packages, so you'll have to edit them for annotation, experiment and workflow packages.]
   - Sets up unit tests using `r CRANpkg("testthat")` `r Citep(bib[["testthat"]])`
   - Adds a Bioconductor-friendly GitHub Actions workflow
+  - Adds a `pkgdown/extra.css` file for configuring `r CRANpkg("pkgdown")` `r Citep(bib[["pkgdown"]])` documentation websites with Bioconductor's official colors
   - Deploys an initial documentation website using `r CRANpkg("pkgdown")` `r Citep(bib[["pkgdown"]])`
 * `04_update.R`
   - Automatically styles the R code in your package using `r CRANpkg("styler")` `r Citep(bib[["styler"]])`
@@ -163,6 +164,17 @@ Many of these steps are powered by `r CRANpkg("usethis")` `r Citep(bib[["usethis
 # `biocthis` functions overview
 
 The `dev` scripts use the different functions provided by `r Biocpkg("biocthis")` in the suggested order. However, below we give a brief overview of what they do.
+
+## `use_bioc_badges()`
+
+Creates several Bioconductor badges for software packages (you will need to edit them for _experiment data_, _annotation_, _workflow_, or _book_ packages) on your `README` files. 
+
+```{r 'bioc_badges'}
+## Create some Bioconductor software package badges on your README files
+biocthis::use_bioc_badges()
+```
+
+This function was contributed by [Milan Malfait (`@milanmlft`)](https://github.com/milanmlft) at [pull request 35](https://github.com/lcolladotor/biocthis/pull/35).
 
 ## `bioc_style()`
 
@@ -191,6 +203,18 @@ biocthis::use_bioc_citation()
 biocthis::use_bioc_description()
 ```
 
+## `use_bioc_feature_request_template()`
+
+This function is related to `use_bioc_issue_template()`, as it creates a GitHub issue template file specifically tailored for feature requests. It is pre-populated with information you might want to users to provide when giving this type of feedback.
+
+```{r 'bioc_feature_request_template'}
+## Create a GitHub template for feature requests that is Bioconductor-friendly
+biocthis::use_bioc_feature_request_template()
+```
+
+This function was added after a related contribution by [Marcel Ramos (`@LiNk-NY`)](https://github.com/LiNk-NY) at [pull request 33](https://github.com/lcolladotor/biocthis/pull/33).
+
+
 ## `use_bioc_github_action()`
 
 ### Getting started
@@ -215,7 +239,7 @@ This [GitHub Actions](https://github.com/features/actions) (GHA) workflow is bas
 Furthermore, the `use_bioc_github_action()` GHA workflow provides the following features:
 
 * It runs `r CRANpkg("covr")` `r Citep(bib[["covr"]])` unless disabled by the environment variable **`run_covr`** (see the first few lines of the workflow).
-* It automatically deploys a documentation website using `r CRANpkg("pkgdown")` `r Citep(bib[["pkgdown"]])` unless disabled by the environment variable **`run_pkgdown`** (see the first few lines of the workflow).
+* It automatically deploys a documentation website using `r CRANpkg("pkgdown")` `r Citep(bib[["pkgdown"]])` unless disabled by the environment variable **`run_pkgdown`** (see the first few lines of the workflow). With `use_bioc_pkgdown_css()` you can also create the `pkgdown/extra.css` file that will configure your `r CRANpkg("pkgdown")` `r Citep(bib[["pkgdown"]])` documentation website with Bioconductor's official colors.
 * It displays the information from `r CRANpkg("testthat")` `r Citep(bib[["testthat"]])` unless disabled by the environment variable **`has_testthat`** (see the first few lines of the workflow). Similarly, **`has_RUnit`** controls whether you want to run the `RUnit` tests described in the [Bioconductor unit testing guidelines](http://bioconductor.org/developers/how-to/unitTesting-guidelines/).
 * It caches the R packages and re-uses them for future tests except if you use the keyword `/nocache` in your commit message. Using **`/nocache`** can be helpful for debugging purposes. The caches are specific to the platform, the R version, and the Bioconductor version ^[In some situations, you might want to change the **`cache_version`** environment variable to force GHA to use new caches.]. These caches help you speed up your checks and are updated after a successful build.
 * The machines provided by GitHub have 7GB of RAM, 2 cores and 14 GB of disk as noted in their [help pages](https://help.github.com/en/actions/reference/virtual-environments-for-github-hosted-runners). It's free for open source projects, but you can also pay to use it on private repositories as explained [in their features website](https://github.com/features/actions).
@@ -254,7 +278,7 @@ That is, the GHA workflow provided by `r Biocpkg("biocthis")` can break dependin
 * just prior to a new R release (unless `r-lib/actions` supports R `alpha` releases),
 * if the required Bioconductor docker image is not available (for example, due to issues building these images based on dependencies on `rocker` and other upstream tools) ^[See for example [rocker-versioned2 issue 50](https://github.com/rocker-org/rocker-versioned2/issues/50). ].
 
-We highly recommend watching any developments as they happen at `r Githubpkg("r-lib/actions")` since the `r-lib` team does an excellent job keeping their GHA workflows updated. You can do so by subscribing to the [RSS atom feed](https://github.com/r-lib/actions/commits/master.atom) for commits in their repository processed through [RSS FeedBurner](http://feeds.feedburner.com/RecentCommitsToActionsmaster) that you can [subscribe to by email](https://feedburner.google.com/fb/a/mailverify?uri=RecentCommitsToActionsmaster).
+We highly recommend watching any developments as they happen at `r Githubpkg("r-lib/actions")` since the `r-lib` team does an excellent job keeping their GHA workflows updated. You can do so by subscribing to the [RSS atom feed](https://github.com/r-lib/actions/commits/v2.atom) for commits in their repository processed through [RSS FeedBurner](https://feeds.feedburner.com/recentcommitstoactionsv2) that you can [subscribe to by email](https://feedburner.google.com/fb/a/mailverify?uri=RecentCommitsToActionsv2).
 
 If you are interested in learning more details about how this GHA workflow came to be, check the [`biocthis developer notes` vignette](https://lcolladotor.github.io/biocthis/articles/biocthis_dev_notes.html). 
 
@@ -262,10 +286,12 @@ If you are interested in learning more details about how this GHA workflow came 
 
 `use_bioc_issue_template()` creates a GitHub issue template file that is pre-populated with information you might want to use for your (future) Bioconductor package such as links to the Bioconductor Support Website and examples of the information you can ask users to provide that will make it easier for you to help your users. Alternatively, use `usethis::use_tidy_issue_template()`.
 
-```{r 'bioc_issue'}
-## Create a template GitHub issue file that is Bioconductor-friendly
+```{r 'bioc_issue_template'}
+## Create a GitHub issue template file that is Bioconductor-friendly
 biocthis::use_bioc_issue_template()
 ```
+
+This function was greatly modified in a contribution by [Marcel Ramos (`@LiNk-NY`)](https://github.com/LiNk-NY) at [pull request 33](https://github.com/lcolladotor/biocthis/pull/33)
 
 ## `use_bioc_news_md()`
 
@@ -279,6 +305,18 @@ biocthis::use_bioc_news_md()
 ## `use_bioc_pkg_templates()`
 
 This function was already described in detail in the previous main section.
+
+## `use_bioc_pkgdown_css()`
+
+`use_bioc_pkgdown_css()` creates the `pkgdown/extra.css` file that configures your `r CRANpkg("pkgdown")` `r Citep(bib[["pkgdown"]])` documentation website with Bioconductor's official colors.
+
+```{r "bioc_pkgdown_css"}
+## Create the pkgdown/extra.css file to configure pkgdown with
+## Bioconductor's official colors
+biocthis::use_bioc_pkgdown_css()
+```
+
+This function was created after [issue 34](https://github.com/lcolladotor/biocthis/issues/34) contributed by [Kevin Rue-Albrecht `@kevinrue`](https://github.com/kevinrue).
 
 ## `use_bioc_readme_rmd()`
 
