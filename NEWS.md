@@ -19,7 +19,7 @@ BUG FIXES
 
 * Fixed `pkgdown` website creation. See 
 https://github.com/lcolladotor/biocthis/issues/29 for details. This is also
-tangencially related to https://github.com/lcolladotor/biocthis/issues/31.
+tangentially related to https://github.com/lcolladotor/biocthis/issues/31.
 * Fixed usage of `r-lib/actions`. We now use `v2`. See
 https://github.com/lcolladotor/biocthis/issues/36, 
 https://github.com/lcolladotor/biocthis/pull/37, and 
