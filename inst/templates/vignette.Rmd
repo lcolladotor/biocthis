@@ -85,7 +85,7 @@ We hope that `r Biocpkg("{{ Package }}")` will be useful for your research. Plea
 citation("{{ Package }}")
 ```
 
-# Quick start to using to `{{ Package }}`
+# Quick start to using `{{ Package }}`
 
 ```{r "start", message=FALSE}
 library("{{ Package }}")
