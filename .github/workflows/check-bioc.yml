@@ -308,30 +308,30 @@ jobs:
 
   ## Code adapted from
   ## https://github.com/waldronlab/cBioPortalData/blob/e0440a4445f0cc731e426363a76faa22ee5e0f9d/.github/workflows/devel_check_dock.yml#L65-L92
-  dock:
+  docker-build-and-push:
     runs-on: ubuntu-latest
     needs: build-check
     steps:
       - name: Checkout Repository
-        if: "!contains(github.event.head_commit.message, '/nodocker') && env.run_docker == 'true' && runner.os == 'Linux' "
+        if: "!contains(github.event.head_commit.message, '/nodocker') && env.run_docker == 'true' && github.ref == 'refs/heads/master' "
         uses: actions/checkout@v3
 
       - name: Register repo name
-        if: "!contains(github.event.head_commit.message, '/nodocker') && env.run_docker == 'true' && runner.os == 'Linux' "
+        if: "!contains(github.event.head_commit.message, '/nodocker') && env.run_docker == 'true' && github.ref == 'refs/heads/master' "
         id: reg_repo_name
         run: |
           echo CONT_IMG_NAME=$(echo ${{ github.event.repository.name }} | tr '[:upper:]' '[:lower:]') >> $GITHUB_ENV
 
       - name: Set up QEMU
-        if: "!contains(github.event.head_commit.message, '/nodocker') && env.run_docker == 'true' && runner.os == 'Linux' "
+        if: "!contains(github.event.head_commit.message, '/nodocker') && env.run_docker == 'true' && github.ref == 'refs/heads/master' "
         uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
-        if: "!contains(github.event.head_commit.message, '/nodocker') && env.run_docker == 'true' && runner.os == 'Linux' "
+        if: "!contains(github.event.head_commit.message, '/nodocker') && env.run_docker == 'true' && github.ref == 'refs/heads/master' "
         uses: docker/setup-buildx-action@v2
 
       - name: Login to Docker Hub
-        if: "!contains(github.event.head_commit.message, '/nodocker') && env.run_docker == 'true' && runner.os == 'Linux' "
+        if: "!contains(github.event.head_commit.message, '/nodocker') && env.run_docker == 'true' && github.ref == 'refs/heads/master' "
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
@@ -345,7 +345,7 @@ jobs:
       ## https://seandavi.github.io/BuildABiocWorkshop/articles/HOWTO_BUILD_WORKSHOP.html.
 
       - name: Build and Push Docker
-        if: "!contains(github.event.head_commit.message, '/nodocker') && env.run_docker == 'true' && runner.os == 'Linux' && success()"
+        if: "!contains(github.event.head_commit.message, '/nodocker') && env.run_docker == 'true' && github.ref == 'refs/heads/master' && success()"
         uses: docker/build-push-action@v4
         with:
           context: .
