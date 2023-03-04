@@ -48,7 +48,9 @@ for more information about \code{RUnit}.}
 branch that will be used creating the \code{pkgdown} website and running \code{covr}.}
 
 \item{docker}{A \code{logical(1)} specifying whether to build a docker image
-with the resulting package.}
+with the resulting package. This will also create a \code{Dockerfile}. You can
+alternatively try using this excellent template:
+\url{https://github.com/seandavi/BuildABiocWorkshop}.}
 }
 \value{
 This function adds and/or replaces the

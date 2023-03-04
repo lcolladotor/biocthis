@@ -72,7 +72,9 @@
 #' @param pkgdown_covr_branch A `character(1)` specifying the name of the GitHub
 #' branch that will be used creating the `pkgdown` website and running `covr`.
 #' @param docker A `logical(1)` specifying whether to build a docker image
-#' with the resulting package.
+#' with the resulting package. This will also create a `Dockerfile`. You can
+#' alternatively try using this excellent template:
+#' <https://github.com/seandavi/BuildABiocWorkshop>.
 #'
 #' @return This function adds and/or replaces the
 #' `.github/workflows/check-bioc.yml` file in your R package.
@@ -130,6 +132,19 @@ use_bioc_github_action <- function(biocdocker,
         run_docker = ifelse(docker, "true", "false"),
         github_spec_lowercase = if (!is.null(repo_spec)) tolower(repo_spec) else ""
     )
+
+    ## Create Dockerfile if needed as well
+    if (docker) {
+        new_docker <-
+        use_template(
+            "Dockerfile",
+            "Dockerfile",
+            data = datalist,
+            open = TRUE,
+            package = "biocthis",
+            ignore = usethis:::is_package()
+        )
+    }
 
     ## Locate the template GHA workflow
     template <- system.file(
