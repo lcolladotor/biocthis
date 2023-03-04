@@ -76,10 +76,17 @@ biocthis::use_bioc_vignette(pkg, paste("Introduction to", pkg))
 
 ## Add a Bioconductor-friendly GitHub actions workflow to check your package
 biocthis::use_bioc_github_action()
-## If:
-## * your package doesn't have testthat tests, change to: has_testthat = 'false'
-## * you don't want to run the covr step, change to: run_covr = 'false'
-## * you don't want to use pkgdown, change to: run_pkgdown = 'false
+## You will need to go to https://github.com/{{github_spec_lowercase}}/settings/actions
+## to and enable:
+## > Workflow permissions > Read and write permissions
+## Then click save before you can continue with the instructions in this script.
+
+## While biocthis::use_bioc_github_action() has arguments for all these options,
+## if you missed them, and:
+## * your package doesn't have testthat tests, use: has_testthat = 'false'
+## * you don't want to run the covr step, use: run_covr = 'false'
+## * you don't want to use pkgdown, use: run_pkgdown = 'false'
+## * you don't want to build a docker image, use: run_docker = 'false'
 rstudioapi::navigateToFile(usethis::proj_path(".github", "workflows", "check-bioc.yml"))
 
 ## Setup up your global git config

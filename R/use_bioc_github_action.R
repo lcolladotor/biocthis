@@ -129,9 +129,26 @@ use_bioc_github_action <- function(biocdocker,
             'remotes::install_github("r-lib/pkgdown")',
             'remotes::install_cran("pkgdown")'
         ),
-        run_docker = ifelse(docker, "true", "false"),
-        github_spec_lowercase = if (!is.null(repo_spec)) tolower(repo_spec) else ""
+        run_docker = ifelse(docker, "true", "false")
     )
+
+    ## Ask users to update the permissions for runners on GitHub
+    if (!is.null(repo_spec)) {
+        if (pkgdown)
+            message(
+                "In order for the automatic pkgdown updates to work, you will need to go to https://github.com/",
+                tolower(repo_spec),
+                "/settings/actions and enable: Workflow permissions > Read and write permissions. Then click save."
+            )
+        if (pkgdown && interactive()) {
+            browseURL(paste0(
+                "https://github.com/",
+                tolower(repo_spec),
+                "/settings/actions"
+            ))
+        }
+    }
+
 
     ## Create Dockerfile if needed as well
     if (docker) {

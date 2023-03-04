@@ -41,8 +41,11 @@
 #' ## Create the biocthis templates
 #' biocthis::use_bioc_pkg_templates()
 use_bioc_pkg_templates <- function(open = rlang::is_interactive()) {
+
+    repo_spec <- get_github_spec()
     data <- list(
-        Package = usethis:::project_name()
+        Package = usethis:::project_name(),
+        github_spec_lowercase = if (!is.null(repo_spec)) tolower(repo_spec) else ""
     )
     use_directory("dev")
     use_build_ignore(fs::path("dev"))
