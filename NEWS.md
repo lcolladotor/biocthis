@@ -1,3 +1,12 @@
+# biocthis 1.9.2
+
+BUG FIXES
+
+* `use_bioc_github_action()` now properly works again when `docker = TRUE`.
+Behind the scenes, this function now uses `docker/build-docker-action@v4`
+instead of the deprecated `docker/build-docker-action@v1`. These updates were
+tested at https://github.com/lcolladotor/ExampleBiocWorkshop2023.
+
 # biocthis 1.7.0
 
 NEW FEATURES

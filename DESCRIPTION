@@ -1,7 +1,7 @@
 Package: biocthis
 Title: Automate package and project setup for Bioconductor packages
-Version: 1.8.1
-Date: 2022-11-01
+Version: 1.8.2
+Date: 2023-03-03
 Authors@R: 
     c(
     person("Leonardo", "Collado-Torres", role = c("aut", "cre"), 
@@ -16,7 +16,7 @@ License: Artistic-2.0
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.2.1
 URL: https://github.com/lcolladotor/biocthis
 BugReports: https://support.bioconductor.org/tag/biocthis
 biocViews: Software, ReportWriting
