@@ -71,6 +71,8 @@
 #' for more information about `RUnit`.
 #' @param pkgdown_covr_branch A `character(1)` specifying the name of the GitHub
 #' branch that will be used creating the `pkgdown` website and running `covr`.
+#' Since biocthis version 1.9.3 this changed from "master" to "devel" by default
+#' to match <https://twitter.com/Bioconductor/status/1631234299423850497>.
 #' @param docker A `logical(1)` specifying whether to build a docker image
 #' with the resulting package. This will also create a `Dockerfile`. You can
 #' alternatively try using this excellent template:
@@ -100,7 +102,7 @@ use_bioc_github_action <- function(biocdocker,
     testthat = getOption("biocthis.testthat", FALSE),
     covr = testthat,
     RUnit = getOption("biocthis.RUnit", FALSE),
-    pkgdown_covr_branch = getOption("biocthis.pkgdown_covr_branch", "master"),
+    pkgdown_covr_branch = getOption("biocthis.pkgdown_covr_branch", "devel"),
     docker = getOption("biocthis.docker", FALSE)) {
     if (!missing(biocdocker)) {
         if (!grepl("^devel$|^RELEASE_", biocdocker[[1]])) {

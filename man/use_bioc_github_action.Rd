@@ -10,7 +10,7 @@ use_bioc_github_action(
   testthat = getOption("biocthis.testthat", FALSE),
   covr = testthat,
   RUnit = getOption("biocthis.RUnit", FALSE),
-  pkgdown_covr_branch = getOption("biocthis.pkgdown_covr_branch", "master"),
+  pkgdown_covr_branch = getOption("biocthis.pkgdown_covr_branch", "devel"),
   docker = getOption("biocthis.docker", FALSE)
 )
 }
@@ -45,7 +45,9 @@ Check \url{http://bioconductor.org/developers/how-to/unitTesting-guidelines/}
 for more information about \code{RUnit}.}
 
 \item{pkgdown_covr_branch}{A \code{character(1)} specifying the name of the GitHub
-branch that will be used creating the \code{pkgdown} website and running \code{covr}.}
+branch that will be used creating the \code{pkgdown} website and running \code{covr}.
+Since biocthis version 1.9.3 this changed from "master" to "devel" by default
+to match \url{https://twitter.com/Bioconductor/status/1631234299423850497}.}
 
 \item{docker}{A \code{logical(1)} specifying whether to build a docker image
 with the resulting package. This will also create a \code{Dockerfile}. You can
