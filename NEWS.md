@@ -1,3 +1,13 @@
+# biocthis 1.11.1
+
+BUG FIXES
+
+* Resolved https://github.com/lcolladotor/biocthis/issues/40 reported by
+@lmweber with help from @bschilder and @LiNk-NY noted at
+https://github.com/neurogenomics/rworkflows/issues/58. Basically, there's
+no longer a need to explicitly list the AnVIL repositories to benefit
+from those gains.
+
 # biocthis 1.9.2
 
 BUG FIXES
