@@ -9,7 +9,7 @@ rstudioapi::navigateToFile(usethis::proj_path("dev", "02_git_github_setup.R"))
 ## Check http://r-pkgs.had.co.nz/description.html for details
 ## as well as http://contributions.bioconductor.org/description.html
 
-## Check https://github.com/lcolladotor/biocthis/blob/master/DESCRIPTION
+## Check https://github.com/lcolladotor/biocthis/blob/devel/DESCRIPTION
 ## for an example.
 
 ## You'll at least want to edit the version to 0.99.0 (or lower) since that's

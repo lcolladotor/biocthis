@@ -42,7 +42,7 @@ rstudioapi::restartSession()
 ## Now run use_github()
 usethis::use_github()
 ## Follow any prompts, such as running on the terminal:
-## git push --set-upstream origin master
+## git push --set-upstream origin devel
 
 ## Move to the next step: setting up your package core files
 rstudioapi::navigateToFile(usethis::proj_path("dev", "03_core_files.R"))

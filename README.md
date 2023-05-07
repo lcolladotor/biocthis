@@ -22,7 +22,7 @@ commit](https://bioconductor.org/shields/lastcommit/devel/bioc/biocthis.svg)](ht
 [![Bioc
 dependencies](https://bioconductor.org/shields/dependencies/release/biocthis.svg)](https://bioconductor.org/packages/release/bioc/html/biocthis.html#since)
 [![Codecov test
-coverage](https://codecov.io/gh/lcolladotor/biocthis/branch/master/graph/badge.svg)](https://codecov.io/gh/lcolladotor/biocthis?branch=master)
+coverage](https://codecov.io/gh/lcolladotor/biocthis/branch/devel/graph/badge.svg)](https://codecov.io/gh/lcolladotor/biocthis?branch=devel)
 [![R build
 status](https://github.com/lcolladotor/biocthis/workflows/R-CMD-check-bioc/badge.svg)](https://github.com/lcolladotor/biocthis/actions)
 [![GitHub
