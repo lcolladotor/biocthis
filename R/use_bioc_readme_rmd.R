@@ -14,7 +14,7 @@
 #' R package. It's useful to use `devtools::build_readme()` after running
 #' this function or whenever you update the `README.Rmd` file.
 #' @export
-#' @importFrom rlang is_interactive
+#' @importFrom rlang is_interactive check_installed
 #' @import usethis
 #'
 #' @examples
@@ -30,7 +30,7 @@
 #' ## Create a template README.Rmd file that is Bioconductor-friendly
 #' biocthis::use_bioc_readme_rmd()
 use_bioc_readme_rmd <- function(open = rlang::is_interactive()) {
-    usethis:::check_installed("rmarkdown")
+    rlang::check_installed("rmarkdown")
     repo_spec <- get_github_spec()
     data <- list(
         Package = usethis:::project_name(),
