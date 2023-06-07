@@ -116,12 +116,12 @@ jobs:
           key: ${{ env.cache-version }}-${{ runner.os }}-biocversion-{{dockerversion}}-r-{{rvernum}}-${{ hashFiles('.github/depends.Rds') }}
           restore-keys: ${{ env.cache-version }}-${{ runner.os }}-biocversion-{{dockerversion}}-r-{{rvernum}}-
 
-      - name: Install Linux system dependencies
-        if: runner.os == 'Linux'
-        run: |
-          sysreqs=$(Rscript -e 'cat("apt-get update -y && apt-get install -y", paste(gsub("apt-get install -y ", "", remotes::system_requirements("ubuntu", "20.04")), collapse = " "))')
-          echo $sysreqs
-          sudo -s eval "$sysreqs"
+      # - name: Install Linux system dependencies
+      #   if: runner.os == 'Linux'
+      #   run: |
+      #     sysreqs=$(Rscript -e 'cat("apt-get update -y && apt-get install -y", paste(gsub("apt-get install -y ", "", remotes::system_requirements("ubuntu", "20.04")), collapse = " "))')
+      #     echo $sysreqs
+      #     sudo -s eval "$sysreqs"
 
       - name: Install macOS system dependencies
         if: matrix.config.os == 'macOS-latest'
