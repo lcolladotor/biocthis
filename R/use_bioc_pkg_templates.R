@@ -41,7 +41,6 @@
 #' ## Create the biocthis templates
 #' biocthis::use_bioc_pkg_templates()
 use_bioc_pkg_templates <- function(open = rlang::is_interactive()) {
-
     repo_spec <- get_github_spec()
     data <- list(
         Package = usethis:::project_name(),

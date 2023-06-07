@@ -97,13 +97,14 @@
 #' ## for more information.
 #' options("biocthis.pkgdown" = TRUE)
 #' options("biocthis.testthat" = TRUE)
-use_bioc_github_action <- function(biocdocker,
-    pkgdown = getOption("biocthis.pkgdown", FALSE),
-    testthat = getOption("biocthis.testthat", FALSE),
-    covr = testthat,
-    RUnit = getOption("biocthis.RUnit", FALSE),
-    pkgdown_covr_branch = getOption("biocthis.pkgdown_covr_branch", "devel"),
-    docker = getOption("biocthis.docker", FALSE)) {
+use_bioc_github_action <- function(
+        biocdocker,
+        pkgdown = getOption("biocthis.pkgdown", FALSE),
+        testthat = getOption("biocthis.testthat", FALSE),
+        covr = testthat,
+        RUnit = getOption("biocthis.RUnit", FALSE),
+        pkgdown_covr_branch = getOption("biocthis.pkgdown_covr_branch", "devel"),
+        docker = getOption("biocthis.docker", FALSE)) {
     if (!missing(biocdocker)) {
         if (!grepl("^devel$|^RELEASE_", biocdocker[[1]])) {
             stop(
@@ -136,12 +137,13 @@ use_bioc_github_action <- function(biocdocker,
 
     ## Ask users to update the permissions for runners on GitHub
     if (!is.null(repo_spec)) {
-        if (pkgdown)
+        if (pkgdown) {
             message(
                 "In order for the automatic pkgdown updates to work, you will need to go to https://github.com/",
                 tolower(repo_spec),
                 "/settings/actions and enable: Workflow permissions > Read and write permissions. Then click save."
             )
+        }
         if (pkgdown && interactive()) {
             browseURL(paste0(
                 "https://github.com/",
@@ -155,14 +157,14 @@ use_bioc_github_action <- function(biocdocker,
     ## Create Dockerfile if needed as well
     if (docker) {
         new_docker <-
-        use_template(
-            "Dockerfile",
-            "Dockerfile",
-            data = datalist,
-            open = TRUE,
-            package = "biocthis",
-            ignore = usethis:::is_package()
-        )
+            use_template(
+                "Dockerfile",
+                "Dockerfile",
+                data = datalist,
+                open = TRUE,
+                package = "biocthis",
+                ignore = usethis:::is_package()
+            )
     }
 
     ## Locate the template GHA workflow
