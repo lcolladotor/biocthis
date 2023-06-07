@@ -1,3 +1,11 @@
+# biocthis 1.11.3
+
+BUG FIXES
+
+* Fixed internal code on `use_bioc_news_md()`, `use_bioc_readme_rmd()`, and
+`use_bioc_vignette()` after `usethis` changed some of their un-exported
+functions that `biocthis` relies on.
+
 # biocthis 1.11.2
 
 BUG FIXES

@@ -27,5 +27,13 @@
 #' ## Create a template NEWS.md file that is Bioconductor-friendly
 #' biocthis::use_bioc_news_md()
 use_bioc_news_md <- function(open = rlang::is_interactive()) {
-    use_template("NEWS.md", data = usethis:::package_data(), open = open, package = "biocthis")
+    use_template(
+        "NEWS.md",
+        data = list(
+            Package = usethis:::project_name(),
+            Version = usethis:::proj_version()
+        ),
+        open = open,
+        package = "biocthis"
+    )
 }
