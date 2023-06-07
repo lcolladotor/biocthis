@@ -1,3 +1,11 @@
+# biocthis 1.11.2
+
+BUG FIXES
+
+* Ignore `remotes::system_requirements("ubuntu", "20.04")` for now since that
+leads to a JSON error. See https://github.com/lcolladotor/biocthis/issues/41
+but also https://github.com/LieberInstitute/spatialLIBD/commit/edc8b72505af097895dcbf35887df28da8122e3c.
+
 # biocthis 1.11.1
 
 BUG FIXES
