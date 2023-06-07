@@ -10,7 +10,13 @@ rstudioapi::navigateToFile(usethis::proj_path("dev", "01_create_pkg.R"))
 usethis::use_git_ignore("*.Rproj")
 usethis::use_git() ## Choose the option to make the commit, then to restart RStudio
 
-## After the restart, continue by connecting your local git repository to
+## After the restart, we next need to change the default Git branch to "devel"
+## as this is the new standard at Bioconductor. You can choose to ignore
+## this step, but will have to deal with more complicated commands later down
+## the road. So we highly recommend that you use the "devel" Git branch!
+usethis::git_default_branch_rename(to = "devel")
+
+## Next we continue by connecting your local git repository to
 ## GitHub. You might want to use the `organisation` and `private` arguments
 args(usethis::use_github)
 
