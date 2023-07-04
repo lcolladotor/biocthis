@@ -101,6 +101,9 @@ usethis::edit_git_config()
 ## Setup your pkgdown css file
 biocthis::use_bioc_pkgdown_css()
 
+## Install your package locally before building the documentation website
+devtools::install()
+
 ## ************************* WARNING START *********************************
 ## WARNING: git commit before running this next function!
 ## Otherwise you can lose your work!!!
