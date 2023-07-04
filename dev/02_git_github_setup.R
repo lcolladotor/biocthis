@@ -9,6 +9,8 @@ rstudioapi::navigateToFile(usethis::proj_path("dev", "01_create_pkg.R"))
 ## So we have to ignore it before anything else
 usethis::use_git_ignore("*.Rproj")
 usethis::use_git() ## Choose the option to make the commit, then to restart RStudio
+## If you don't have git installed, you will likely benefit from reading
+## "Happy Git and GitHub for the useR" at https://happygitwithr.com/.
 
 ## After the restart, we next need to change the default Git branch to "devel"
 ## as this is the new standard at Bioconductor. You can choose to ignore
