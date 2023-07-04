@@ -115,6 +115,10 @@ devtools::install()
 ## able to use it later.
 pkgdown::deploy_to_branch() ## Check the WARNING above before running this!
 
+## For more details about package development, check:
+## * http://contributions.bioconductor.org/
+## * https://r-pkgs.org/
+
 ## Move to the next step: updating your package code before a "git commit"
 rstudioapi::navigateToFile(usethis::proj_path("dev", "04_update.R"))
 
