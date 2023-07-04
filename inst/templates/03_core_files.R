@@ -60,7 +60,7 @@ usethis::use_lifecycle_badge("Experimental")
 biocthis::use_bioc_badges()
 ## NOTE: If your Bioconductor package is an experiment, annotation or workflow
 ## package, you will need to edit the resulting badge!
-usethis::use_github_actions_badge("R-CMD-check-bioc")
+usethis::use_github_actions_badge("check-bioc.yml")
 
 ## Enable using tests
 usethis::use_testthat()
