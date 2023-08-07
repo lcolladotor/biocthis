@@ -252,7 +252,7 @@ jobs:
       - name: Test coverage
         if: github.ref == 'refs/heads/{{pkgdown_covr_branch}}' && env.run_covr == 'true' && runner.os == 'Linux'
         run: |
-          covr::codecov()
+          covr::codecov(coverage = covr::package_coverage(type = "{{covr_coverage_type}}"))
         shell: Rscript {0}
 
       - name: Install package

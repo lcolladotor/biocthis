@@ -66,6 +66,9 @@
 #' information about `covr`, which is useful for displaying for assessing
 #' your test coverage. If `TRUE`, then `covr` will only run on the Linux
 #' (Bioconductor docker) test.
+#' @param covr_coverage_type A `character(1)` specifying the code used to 
+#' calculate the `covr` coverage. Option are package ‘tests’, ‘vignettes’,
+#' ‘examples’, ‘all’, or ‘none’. The default is ‘all’.
 #' @param RUnit A `logical(1)` specifying whether to run `RUnit` unit tests.
 #' Check <http://bioconductor.org/developers/how-to/unitTesting-guidelines/>
 #' for more information about `RUnit`.
@@ -102,6 +105,7 @@ use_bioc_github_action <- function(
         pkgdown = getOption("biocthis.pkgdown", FALSE),
         testthat = getOption("biocthis.testthat", FALSE),
         covr = testthat,
+        covr_coverage_type = getOption("biocthis.covr_coverage_type", "all"), 
         RUnit = getOption("biocthis.RUnit", FALSE),
         pkgdown_covr_branch = getOption("biocthis.pkgdown_covr_branch", "devel"),
         docker = getOption("biocthis.docker", FALSE)) {
@@ -116,6 +120,14 @@ use_bioc_github_action <- function(
         biocdocker <- .normalizeVersion()
     }
 
+    otps_overage_type <- c("tests", "vignettes", "examples", "all", "none")
+    if (!covr_coverage_type %in% otps_overage_type) {
+        stop(
+            "'covr_coverage_type' should be ‘tests’, ‘vignettes’, ‘examples’, ‘all’, or ‘none’",
+            call. = FALSE
+        )
+    }
+    
     ## Set the variables to be used in the template GHA workflow
     repo_spec <- get_github_spec()
     datalist <- list(
@@ -124,6 +136,7 @@ use_bioc_github_action <- function(
         biocvernum = .GHARversion(biocdocker)["Bioc"],
         has_testthat = ifelse(testthat, "true", "false"),
         run_covr = ifelse(covr, "true", "false"),
+        covr_coverage_type = covr_coverage_type,
         run_pkgdown = ifelse(pkgdown, "true", "false"),
         has_RUnit = ifelse(RUnit, "true", "false"),
         pkgdown_covr_branch = pkgdown_covr_branch,
