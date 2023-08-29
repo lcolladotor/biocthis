@@ -66,9 +66,9 @@
 #' information about `covr`, which is useful for displaying for assessing
 #' your test coverage. If `TRUE`, then `covr` will only run on the Linux
 #' (Bioconductor docker) test.
-#' @param covr_coverage_type A `character(1)` specifying the code used to 
-#' calculate the `covr` coverage. Option are package ‘tests’, ‘vignettes’,
-#' ‘examples’, ‘all’, or ‘none’. The default is ‘all’.
+#' @param covr_coverage_type A `character(1)` specifying the code used to
+#' calculate the `covr` coverage. Option are package `"tests"`, `"vignettes"`,
+#' `"examples"`, `"all"`, or `"none"`. The default is `"all"`.
 #' @param RUnit A `logical(1)` specifying whether to run `RUnit` unit tests.
 #' Check <http://bioconductor.org/developers/how-to/unitTesting-guidelines/>
 #' for more information about `RUnit`.
@@ -100,15 +100,14 @@
 #' ## for more information.
 #' options("biocthis.pkgdown" = TRUE)
 #' options("biocthis.testthat" = TRUE)
-use_bioc_github_action <- function(
-        biocdocker,
-        pkgdown = getOption("biocthis.pkgdown", FALSE),
-        testthat = getOption("biocthis.testthat", FALSE),
-        covr = testthat,
-        covr_coverage_type = getOption("biocthis.covr_coverage_type", "all"), 
-        RUnit = getOption("biocthis.RUnit", FALSE),
-        pkgdown_covr_branch = getOption("biocthis.pkgdown_covr_branch", "devel"),
-        docker = getOption("biocthis.docker", FALSE)) {
+use_bioc_github_action <- function(biocdocker,
+    pkgdown = getOption("biocthis.pkgdown", FALSE),
+    testthat = getOption("biocthis.testthat", FALSE),
+    covr = testthat,
+    covr_coverage_type = getOption("biocthis.covr_coverage_type", "all"),
+    RUnit = getOption("biocthis.RUnit", FALSE),
+    pkgdown_covr_branch = getOption("biocthis.pkgdown_covr_branch", "devel"),
+    docker = getOption("biocthis.docker", FALSE)) {
     if (!missing(biocdocker)) {
         if (!grepl("^devel$|^RELEASE_", biocdocker[[1]])) {
             stop(
@@ -127,7 +126,7 @@ use_bioc_github_action <- function(
             call. = FALSE
         )
     }
-    
+
     ## Set the variables to be used in the template GHA workflow
     repo_spec <- get_github_spec()
     datalist <- list(

@@ -42,8 +42,8 @@ your test coverage. If \code{TRUE}, then \code{covr} will only run on the Linux
 (Bioconductor docker) test.}
 
 \item{covr_coverage_type}{A \code{character(1)} specifying the code used to
-calculate the \code{covr} coverage. Option are package ‘tests’, ‘vignettes’,
-‘examples’, ‘all’, or ‘none’. The default is ‘all’.}
+calculate the \code{covr} coverage. Option are package \code{"tests"}, \code{"vignettes"},
+\code{"examples"}, \code{"all"}, or \code{"none"}. The default is \code{"all"}.}
 
 \item{RUnit}{A \code{logical(1)} specifying whether to run \code{RUnit} unit tests.
 Check \url{http://bioconductor.org/developers/how-to/unitTesting-guidelines/}
