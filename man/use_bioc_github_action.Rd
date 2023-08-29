@@ -9,6 +9,7 @@ use_bioc_github_action(
   pkgdown = getOption("biocthis.pkgdown", FALSE),
   testthat = getOption("biocthis.testthat", FALSE),
   covr = testthat,
+  covr_coverage_type = getOption("biocthis.covr_coverage_type", "all"),
   RUnit = getOption("biocthis.RUnit", FALSE),
   pkgdown_covr_branch = getOption("biocthis.pkgdown_covr_branch", "devel"),
   docker = getOption("biocthis.docker", FALSE)
@@ -39,6 +40,10 @@ testing chapter at \url{https://r-pkgs.org/tests.html} is also very useful.}
 information about \code{covr}, which is useful for displaying for assessing
 your test coverage. If \code{TRUE}, then \code{covr} will only run on the Linux
 (Bioconductor docker) test.}
+
+\item{covr_coverage_type}{A \code{character(1)} specifying the code used to
+calculate the \code{covr} coverage. Option are package ‘tests’, ‘vignettes’,
+‘examples’, ‘all’, or ‘none’. The default is ‘all’.}
 
 \item{RUnit}{A \code{logical(1)} specifying whether to run \code{RUnit} unit tests.
 Check \url{http://bioconductor.org/developers/how-to/unitTesting-guidelines/}
