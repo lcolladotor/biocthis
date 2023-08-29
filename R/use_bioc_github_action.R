@@ -122,7 +122,7 @@ use_bioc_github_action <- function(biocdocker,
     otps_overage_type <- c("tests", "vignettes", "examples", "all", "none")
     if (!covr_coverage_type %in% otps_overage_type) {
         stop(
-            "'covr_coverage_type' should be ‘tests’, ‘vignettes’, ‘examples’, ‘all’, or ‘none’",
+            "'covr_coverage_type' should be 'tests', 'vignettes', 'examples', 'all', or 'none'.",
             call. = FALSE
         )
     }
