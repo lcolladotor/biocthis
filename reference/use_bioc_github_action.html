@@ -20,7 +20,7 @@ Actions workflow by executing usethis::use_github_action()."><!-- mathjax --><sc
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">biocthis</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.11.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.11.5</span>
       </span>
     </div>
 
@@ -77,6 +77,7 @@ Actions workflow by executing <code><a href="https://usethis.r-lib.org/reference
 <span>  pkgdown <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"biocthis.pkgdown"</span>, <span class="cn">FALSE</span><span class="op">)</span>,</span>
 <span>  testthat <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"biocthis.testthat"</span>, <span class="cn">FALSE</span><span class="op">)</span>,</span>
 <span>  covr <span class="op">=</span> <span class="va">testthat</span>,</span>
+<span>  covr_coverage_type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"biocthis.covr_coverage_type"</span>, <span class="st">"all"</span><span class="op">)</span>,</span>
 <span>  RUnit <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"biocthis.RUnit"</span>, <span class="cn">FALSE</span><span class="op">)</span>,</span>
 <span>  pkgdown_covr_branch <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"biocthis.pkgdown_covr_branch"</span>, <span class="st">"devel"</span><span class="op">)</span>,</span>
 <span>  docker <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"biocthis.docker"</span>, <span class="cn">FALSE</span><span class="op">)</span></span>
@@ -116,6 +117,12 @@ testing chapter at <a href="https://r-pkgs.org/tests.html" class="external-link"
 information about <code>covr</code>, which is useful for displaying for assessing
 your test coverage. If <code>TRUE</code>, then <code>covr</code> will only run on the Linux
 (Bioconductor docker) test.</p></dd>
+
+
+<dt>covr_coverage_type</dt>
+<dd><p>A <code>character(1)</code> specifying the code used to
+calculate the <code>covr</code> coverage. Option are package <code>"tests"</code>, <code>"vignettes"</code>,
+<code>"examples"</code>, <code>"all"</code>, or <code>"none"</code>. The default is <code>"all"</code>.</p></dd>
 
 
 <dt>RUnit</dt>
