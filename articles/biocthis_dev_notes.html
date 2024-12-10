@@ -6,21 +6,20 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>biocthis developer notes • biocthis</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
 <meta property="og:title" content="biocthis developer notes">
-<meta property="og:description" content="biocthis">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
-    
+
 
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -34,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">biocthis</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.11.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.17.0</span>
       </span>
     </div>
 
@@ -49,7 +48,7 @@
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
-     
+
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
@@ -66,7 +65,7 @@
 <li>
   <a href="https://github.com/lcolladotor/biocthis/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
-     
+
   </a>
 </li>
       </ul>
@@ -77,7 +76,7 @@
 </div>
 <!--/.navbar -->
 
-      
+
 
       </header><div class="row">
   <div class="col-md-9 contents">
@@ -91,21 +90,21 @@ CampusCenter for Computational Biology, Johns Hopkins
 University<br><a class="author_email" href="mailto:#"></a><a href="mailto:lcolladotor@gmail.com" class="email">lcolladotor@gmail.com</a>
       </address>
                   
-            <h4 data-toc-skip class="date">29 August 2023</h4>
+            <h4 data-toc-skip class="date">10 December 2024</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/lcolladotor/biocthis/blob/HEAD/vignettes/biocthis_dev_notes.Rmd" class="external-link"><code>vignettes/biocthis_dev_notes.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/lcolladotor/biocthis/blob/devel/vignettes/biocthis_dev_notes.Rmd" class="external-link"><code>vignettes/biocthis_dev_notes.Rmd</code></a></small>
       <div class="hidden name"><code>biocthis_dev_notes.Rmd</code></div>
 
     </div>
 
     
     
-<p>Note that <em><a href="https://bioconductor.org/packages/3.17/biocthis" class="external-link">biocthis</a></em>
+<p>Note that <em><a href="https://bioconductor.org/packages/3.20/biocthis" class="external-link">biocthis</a></em>
 is not a Bioconductor-core package and as such it is not a Bioconductor
 official package. It was made by and for Leonardo Collado-Torres so he
 could more easily maintain and create Bioconductor packages as listed at
 <a href="https://lcolladotor.github.io/pkgs/" class="external-link">lcolladotor.github.io/pkgs/</a>.
-Hopefully <em><a href="https://bioconductor.org/packages/3.17/biocthis" class="external-link">biocthis</a></em>
+Hopefully <em><a href="https://bioconductor.org/packages/3.20/biocthis" class="external-link">biocthis</a></em>
 will be helpful for you too.</p>
 <div class="section level2">
 <h2 id="basics">Basics<a class="anchor" aria-label="anchor" href="#basics"></a>
@@ -124,7 +123,7 @@ vignette</a>.</p>
 taught by <a href="https://twitter.com/CVWickham" class="external-link">Charlotte</a> and <a href="https://twitter.com/hadleywickham" class="external-link">Hadley</a> Wickham during <a href="https://blog.rstudio.com/2019/02/06/rstudio-conf-2019-workshops/" class="external-link"><code>rstudio::conf(2019)</code></a>
 thanks to a diversity scholarship. During this workshop, I learned about
 <em><a href="https://CRAN.R-project.org/package=usethis" class="external-link">usethis</a></em>
-(Wickham, Bryan, Barrett, and Teucher, 2023), <em><a href="https://CRAN.R-project.org/package=devtools" class="external-link">devtools</a></em>
+(Wickham, Bryan, Barrett, and Teucher, 2024), <em><a href="https://CRAN.R-project.org/package=devtools" class="external-link">devtools</a></em>
 (Wickham, Hester, Chang, and Bryan, 2022), <em><a href="https://CRAN.R-project.org/package=testthat" class="external-link">testthat</a></em>
 (Wickham, 2011), among other R packages, and how to use <a href="https://www.rstudio.com/products/rstudio/download" class="external-link">RStudio
 Desktop</a> to create R packages more efficiently. I got to revise this
@@ -135,7 +134,7 @@ Over the years I have made several <a href="http://bioconductor.org/" class="ext
 a lot thanks to Charlotte and Hadley and have been relying more and more
 on <em><a href="https://CRAN.R-project.org/package=usethis" class="external-link">usethis</a></em> and
 related packages.</p>
-<p>Earlier this year (2020) one of my Bioconductor packages (<em><a href="https://bioconductor.org/packages/3.17/regionReport" class="external-link">regionReport</a></em>)
+<p>Earlier this year (2020) one of my Bioconductor packages (<em><a href="https://bioconductor.org/packages/3.20/regionReport" class="external-link">regionReport</a></em>)
 was presenting some errors on some operating systems but not on others.
 I first spent quite a bit of time <a href="https://stat.ethz.ch/pipermail/bioc-devel/2020-March/016365.html" class="external-link">setting
 up the corresponding R installation</a> in my non-work Windows computer.
@@ -146,17 +145,17 @@ environment with all the system dependencies installed for Bioconductor
 packages. In this system you can then install your package dependencies
 and get very close to the Linux environment machine used for testing
 Bioconductor packages.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="dt">\</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-e</span> PASSWORD=bioc <span class="dt">\</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-p</span> 8787:8787 <span class="dt">\</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    bioconductor/bioconductor_docker:devel</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">docker</span> run <span class="dt">\</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>    <span class="at">-e</span> PASSWORD=bioc <span class="dt">\</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>    <span class="at">-p</span> 8787:8787 <span class="dt">\</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>    bioconductor/bioconductor_docker:devel</span></code></pre></div>
 <p>Using this docker image, I was finally <a href="https://stat.ethz.ch/pipermail/bioc-devel/2020-April/016532.html" class="external-link">able
 to reproduce the error</a> which involved others Bioconductor packages.
 However, there was a second hard-to-reproduce error. Using <a href="https://github.com/features/actions" class="external-link">GitHub Actions</a>, which
 I’ll talk about more soon, I was then able to find the <a href="https://stat.ethz.ch/pipermail/bioc-devel/2020-April/016650.html" class="external-link">root
 cause of this second issue</a> and resolve it.</p>
-<p><em><a href="https://bioconductor.org/packages/3.17/biocthis" class="external-link">biocthis</a></em>
-(Collado-Torres, 2023) was born from my interest to keep using <em><a href="https://CRAN.R-project.org/package=usethis" class="external-link">usethis</a></em> and
+<p><em><a href="https://bioconductor.org/packages/3.20/biocthis" class="external-link">biocthis</a></em>
+(Collado-Torres, 2024) was born from my interest to keep using <em><a href="https://CRAN.R-project.org/package=usethis" class="external-link">usethis</a></em> and
 related tools, but in a Bioconductor-friendly way. That is, this is a
 package that will help me (and maybe others too). This package was born
 from these 5 issues:</p>
@@ -183,7 +182,7 @@ suggestion</em> <a href="https://github.com/Bioconductor/BiocCheck/issues/57" cl
 <div class="section level3">
 <h3 id="styling-code">Styling code<a class="anchor" aria-label="anchor" href="#styling-code"></a>
 </h3>
-<p><em><a href="https://bioconductor.org/packages/3.17/BiocCheck" class="external-link">BiocCheck</a></em>
+<p><em><a href="https://bioconductor.org/packages/3.20/BiocCheck" class="external-link">BiocCheck</a></em>
 is run on all new Bioconductor package submissions and by default it
 checks whether the new package adheres to the <a href="http://bioconductor.org/developers/how-to/coding-style/" class="external-link">Bioconductor
 coding style guide</a>. For a long time, it has suggested <em><a href="https://CRAN.R-project.org/package=formatR" class="external-link">formatR</a></em> as a
@@ -217,7 +216,7 @@ suggestion</em> <a href="https://github.com/Bioconductor/BiocCheck/issues/57" cl
 a solution that gets 90% of the way is good enough.
 <code><a href="../reference/bioc_style.html">bioc_style()</a></code> is a very short function, mostly because the
 Bioconductor and Tidyverse coding style guides are overall very similar.
-This function won’t solve all the formatting issues detected by <em><a href="https://bioconductor.org/packages/3.17/BiocCheck" class="external-link">BiocCheck</a></em>,
+This function won’t solve all the formatting issues detected by <em><a href="https://bioconductor.org/packages/3.20/BiocCheck" class="external-link">BiocCheck</a></em>,
 but if you really want to, you can disable the formatting checks
 with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
@@ -306,7 +305,7 @@ workspace</a>.</li>
 post on GHA workflows</a>.</li>
 </ul>
 <p>Most of the development of the Bioconductor-friendly GitHub Actions
-workflow provided by <em><a href="https://bioconductor.org/packages/3.17/biocthis" class="external-link">biocthis</a></em>
+workflow provided by <em><a href="https://bioconductor.org/packages/3.20/biocthis" class="external-link">biocthis</a></em>
 was done with <a href="https://github.com/leekgroup/derfinderPlot/blob/master/.github/workflows/check-bioc.yml" class="external-link">leekgroup/derfinderPlot/.github/workflows/check-bioc.yml</a>
 and <a href="https://github.com/LieberInstitute/recount3/blob/master/.github/workflows/check-bioc.yml" class="external-link">LieberInstitute/recount3/.github/workflows/check-bioc.yml</a>
 as detailed at: <em>Bioconductor-friendly R CMD check action feature
@@ -340,7 +339,7 @@ which is now officially resolved thanks to <a href="https://github.com/r-lib/xml
 though looking at <a href="https://github.com/r-lib/usethis/blob/master/.github/workflows/R-CMD-check.yaml" class="external-link">r-lib/usethis/.github/workflows/R-CMD-check.yaml</a>
 and <a href="https://github.com/r-lib/usethis/commits/master/.github/workflows/R-CMD-check.yaml" class="external-link">r-lib/usethis/commits/.github/workflows/R-CMD-check.yaml</a>
 was very helpful.</li>
-<li>I had some issues installing <em><a href="https://bioconductor.org/packages/3.17/BiocCheck" class="external-link">BiocCheck</a></em>
+<li>I had some issues installing <em><a href="https://bioconductor.org/packages/3.20/BiocCheck" class="external-link">BiocCheck</a></em>
 and running <code>R CMD BiocCheck</code> on both Windows and the
 Bioconductor docker image (different issues) that I can avoid using code
 like this: <code>Rscript -e "BiocCheck::BiocCheck()"</code>.</li>
@@ -434,7 +433,7 @@ issues you might have not dealt with, particularly compilation issues of
 R packages with R-devel (six months of the year with the current
 Bioconductor release cycle). If you need help, start by going through
 the steps listed at <a href="https://github.com/r-lib/actions#where-to-find-help" class="external-link">r-lib/actions#where-to-find-help</a>.
-<em><a href="https://bioconductor.org/packages/3.17/biocthis" class="external-link">biocthis</a></em>
+<em><a href="https://bioconductor.org/packages/3.20/biocthis" class="external-link">biocthis</a></em>
 exclusive issues are always welcome, though please include the
 information that will enable others to help you faster. Thank you!</p>
 </div>
@@ -443,13 +442,13 @@ information that will enable others to help you faster. Thank you!</p>
 <h3 id="usethis-like-functions">
 <code>usethis</code>-like functions<a class="anchor" aria-label="anchor" href="#usethis-like-functions"></a>
 </h3>
-<p><em><a href="https://bioconductor.org/packages/3.17/biocthis" class="external-link">biocthis</a></em>
+<p><em><a href="https://bioconductor.org/packages/3.20/biocthis" class="external-link">biocthis</a></em>
 also provides other <em><a href="https://CRAN.R-project.org/package=usethis" class="external-link">usethis</a></em>-like
 functions. To make these functions, I looked at the code inside <em><a href="https://CRAN.R-project.org/package=usethis" class="external-link">usethis</a></em> and
 learned how to make templates, how the data is passed to the templates
 and some other steps. Some of the functions are really identical to the
 ones from <em><a href="https://CRAN.R-project.org/package=usethis" class="external-link">usethis</a></em> but
-point to a custom template provided by <em><a href="https://bioconductor.org/packages/3.17/biocthis" class="external-link">biocthis</a></em>.
+point to a custom template provided by <em><a href="https://bioconductor.org/packages/3.20/biocthis" class="external-link">biocthis</a></em>.
 These functions have simplified for me the task of having uniform
 README.Rmd/md and vignette files for instance, as well as having GitHub
 issue &amp; support templates that include some Bioconductor-specific
@@ -532,13 +531,13 @@ Rickert</a>
 <div class="section level2">
 <h2 id="reproducibility">Reproducibility<a class="anchor" aria-label="anchor" href="#reproducibility"></a>
 </h2>
-<p>The <em><a href="https://bioconductor.org/packages/3.17/biocthis" class="external-link">biocthis</a></em>
-package (Collado-Torres, 2023) was made possible thanks to:</p>
+<p>The <em><a href="https://bioconductor.org/packages/3.20/biocthis" class="external-link">biocthis</a></em>
+package (Collado-Torres, 2024) was made possible thanks to:</p>
 <ul>
-<li>R (R Core Team, 2023)</li>
+<li>R (R Core Team, 2024)</li>
 <li>
-<em><a href="https://bioconductor.org/packages/3.17/BiocStyle" class="external-link">BiocStyle</a></em>
-(Oleś, 2023)</li>
+<em><a href="https://bioconductor.org/packages/3.20/BiocStyle" class="external-link">BiocStyle</a></em>
+(Oleś, 2024)</li>
 <li>
 <em><a href="https://CRAN.R-project.org/package=covr" class="external-link">covr</a></em>
 (Hester, 2023)</li>
@@ -547,38 +546,38 @@ package (Collado-Torres, 2023) was made possible thanks to:</p>
 (Wickham, Hester, Chang et al., 2022)</li>
 <li>
 <em><a href="https://CRAN.R-project.org/package=fs" class="external-link">fs</a></em>
-(Hester, Wickham, and Csárdi, 2023)</li>
+(Hester, Wickham, and Csárdi, 2024)</li>
 <li>
 <em><a href="https://CRAN.R-project.org/package=glue" class="external-link">glue</a></em>
-(Hester and Bryan, 2022)</li>
+(Hester and Bryan, 2024)</li>
 <li>
 <em><a href="https://CRAN.R-project.org/package=knitr" class="external-link">knitr</a></em> (Xie,
-2023)</li>
+2024)</li>
 <li>
 <em><a href="https://CRAN.R-project.org/package=pkgdown" class="external-link">pkgdown</a></em>
-(Wickham, Hesselberth, and Salmon, 2022)</li>
+(Wickham, Hesselberth, Salmon, Roy, and Brüggemann, 2024)</li>
 <li>
 <em><a href="https://CRAN.R-project.org/package=rlang" class="external-link">rlang</a></em> (Henry
-and Wickham, 2023)</li>
+and Wickham, 2024)</li>
 <li>
 <em><a href="https://CRAN.R-project.org/package=RefManageR" class="external-link">RefManageR</a></em>
 (McLean, 2017)</li>
 <li>
 <em><a href="https://CRAN.R-project.org/package=rmarkdown" class="external-link">rmarkdown</a></em>
 (Allaire, Xie, Dervieux, McPherson, Luraschi, Ushey, Atkins, Wickham,
-Cheng, Chang, and Iannone, 2023)</li>
+Cheng, Chang, and Iannone, 2024)</li>
 <li>
 <em><a href="https://CRAN.R-project.org/package=sessioninfo" class="external-link">sessioninfo</a></em>
 (Wickham, Chang, Flight, Müller, and Hester, 2021)</li>
 <li>
 <em><a href="https://CRAN.R-project.org/package=styler" class="external-link">styler</a></em> (Müller
-and Walthert, 2023)</li>
+and Walthert, 2024)</li>
 <li>
 <em><a href="https://CRAN.R-project.org/package=testthat" class="external-link">testthat</a></em>
 (Wickham, 2011)</li>
 <li>
 <em><a href="https://CRAN.R-project.org/package=usethis" class="external-link">usethis</a></em>
-(Wickham, Bryan, Barrett et al., 2023)</li>
+(Wickham, Bryan, Barrett et al., 2024)</li>
 </ul>
 <p>This package was developed using <em><a href="https://github.com/lcolladotor/biocthis" class="external-link">biocthis</a></em>.</p>
 <p>Code for creating the vignette</p>
@@ -591,70 +590,67 @@ and Walthert, 2023)</li>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://yihui.org/knitr/" class="external-link">"knitr"</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/knit.html" class="external-link">knit</a></span><span class="op">(</span><span class="st">"biocthis_dev_notes.Rmd"</span>, tangle <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p>Date the vignette was generated.</p>
-<pre><code><span><span class="co">#&gt; [1] "2023-08-29 20:22:58 UTC"</span></span></code></pre>
+<pre><code><span><span class="co">#&gt; [1] "2024-12-10 21:43:03 UTC"</span></span></code></pre>
 <p>Wallclock time spent generating the vignette.</p>
-<pre><code><span><span class="co">#&gt; Time difference of 0.737 secs</span></span></code></pre>
+<pre><code><span><span class="co">#&gt; Time difference of 0.719 secs</span></span></code></pre>
 <p><code>R</code> session information.</p>
 <pre><code><span><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────</span></span></span>
 <span><span class="co">#&gt;  <span style="color: #555555; font-style: italic;">setting </span> <span style="color: #555555; font-style: italic;">value</span></span></span>
-<span><span class="co">#&gt;  version  R version 4.3.0 (2023-04-21)</span></span>
-<span><span class="co">#&gt;  os       Ubuntu 22.04.2 LTS</span></span>
+<span><span class="co">#&gt;  version  R version 4.4.2 (2024-10-31)</span></span>
+<span><span class="co">#&gt;  os       Ubuntu 24.04.1 LTS</span></span>
 <span><span class="co">#&gt;  system   x86_64, linux-gnu</span></span>
 <span><span class="co">#&gt;  ui       X11</span></span>
 <span><span class="co">#&gt;  language en</span></span>
 <span><span class="co">#&gt;  collate  en_US.UTF-8</span></span>
 <span><span class="co">#&gt;  ctype    en_US.UTF-8</span></span>
 <span><span class="co">#&gt;  tz       UTC</span></span>
-<span><span class="co">#&gt;  date     2023-08-29</span></span>
-<span><span class="co">#&gt;  pandoc   2.19.2 @ /usr/local/bin/ (via rmarkdown)</span></span>
+<span><span class="co">#&gt;  date     2024-12-10</span></span>
+<span><span class="co">#&gt;  pandoc   3.5 @ /usr/bin/ (via rmarkdown)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span></span>
-<span><span class="co">#&gt;  <span style="color: #555555; font-style: italic;">package    </span> <span style="color: #555555; font-style: italic;">*</span> <span style="color: #555555; font-style: italic;">version</span> <span style="color: #555555; font-style: italic;">date (UTC)</span> <span style="color: #555555; font-style: italic;">lib</span> <span style="color: #555555; font-style: italic;">source</span></span></span>
-<span><span class="co">#&gt;  backports     1.4.1   <span style="color: #555555;">2021-12-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  bibtex        0.5.1   <span style="color: #555555;">2023-01-26</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  BiocManager   1.30.22 <span style="color: #555555;">2023-08-08</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  BiocStyle   * 2.28.0  <span style="color: #555555;">2023-04-25</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor</span></span></span>
-<span><span class="co">#&gt;  bookdown      0.35    <span style="color: #555555;">2023-08-09</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  bslib         0.5.1   <span style="color: #555555;">2023-08-11</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  cachem        1.0.8   <span style="color: #555555;">2023-05-01</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  cli           3.6.1   <span style="color: #555555;">2023-03-23</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  desc          1.4.2   <span style="color: #555555;">2022-09-08</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  digest        0.6.33  <span style="color: #555555;">2023-07-07</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  evaluate      0.21    <span style="color: #555555;">2023-05-05</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  fastmap       1.1.1   <span style="color: #555555;">2023-02-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  fs            1.6.3   <span style="color: #555555;">2023-07-20</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  generics      0.1.3   <span style="color: #555555;">2022-07-05</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  glue          1.6.2   <span style="color: #555555;">2022-02-24</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  htmltools     0.5.6   <span style="color: #555555;">2023-08-10</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  httr          1.4.7   <span style="color: #555555;">2023-08-15</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  jquerylib     0.1.4   <span style="color: #555555;">2021-04-26</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  jsonlite      1.8.7   <span style="color: #555555;">2023-06-29</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  knitr         1.43    <span style="color: #555555;">2023-05-25</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  lifecycle     1.0.3   <span style="color: #555555;">2022-10-07</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  lubridate     1.9.2   <span style="color: #555555;">2023-02-10</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  magrittr      2.0.3   <span style="color: #555555;">2022-03-30</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  memoise       2.0.1   <span style="color: #555555;">2021-11-26</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  pkgdown       2.0.7   <span style="color: #555555;">2022-12-14</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  plyr          1.8.8   <span style="color: #555555;">2022-11-11</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  purrr         1.0.2   <span style="color: #555555;">2023-08-10</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  R6            2.5.1   <span style="color: #555555;">2021-08-19</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  ragg          1.2.5   <span style="color: #555555;">2023-01-12</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  Rcpp          1.0.11  <span style="color: #555555;">2023-07-06</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  RefManageR  * 1.4.0   <span style="color: #555555;">2022-09-30</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  rlang         1.1.1   <span style="color: #555555;">2023-04-28</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  rmarkdown     2.24    <span style="color: #555555;">2023-08-14</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  rprojroot     2.0.3   <span style="color: #555555;">2022-04-02</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  sass          0.4.7   <span style="color: #555555;">2023-07-15</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  sessioninfo * 1.2.2   <span style="color: #555555;">2021-12-06</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  stringi       1.7.12  <span style="color: #555555;">2023-01-11</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  stringr       1.5.0   <span style="color: #555555;">2022-12-02</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  systemfonts   1.0.4   <span style="color: #555555;">2022-02-11</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  textshaping   0.3.6   <span style="color: #555555;">2021-10-13</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  timechange    0.2.0   <span style="color: #555555;">2023-01-11</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  vctrs         0.6.3   <span style="color: #555555;">2023-06-14</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  xfun          0.40    <span style="color: #555555;">2023-08-09</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  xml2          1.3.5   <span style="color: #555555;">2023-07-06</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
-<span><span class="co">#&gt;  yaml          2.3.7   <span style="color: #555555;">2023-01-23</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.3.0)</span></span></span>
+<span><span class="co">#&gt;  <span style="color: #555555; font-style: italic;">package    </span> <span style="color: #555555; font-style: italic;">*</span> <span style="color: #555555; font-style: italic;">version </span> <span style="color: #555555; font-style: italic;">date (UTC)</span> <span style="color: #555555; font-style: italic;">lib</span> <span style="color: #555555; font-style: italic;">source</span></span></span>
+<span><span class="co">#&gt;  backports     1.5.0    <span style="color: #555555;">2024-05-23</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  bibtex        0.5.1    <span style="color: #555555;">2023-01-26</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  BiocManager   1.30.25  <span style="color: #555555;">2024-08-28</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.4.2)</span></span></span>
+<span><span class="co">#&gt;  BiocStyle   * 2.34.0   <span style="color: #555555;">2024-10-29</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">Bioconductor 3.20 (R 4.4.2)</span></span></span>
+<span><span class="co">#&gt;  bookdown      0.41     <span style="color: #555555;">2024-10-16</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  bslib         0.8.0    <span style="color: #555555;">2024-07-29</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  cachem        1.1.0    <span style="color: #555555;">2024-05-16</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  cli           3.6.3    <span style="color: #555555;">2024-06-21</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  desc          1.4.3    <span style="color: #555555;">2023-12-10</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  digest        0.6.37   <span style="color: #555555;">2024-08-19</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  evaluate      1.0.1    <span style="color: #555555;">2024-10-10</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  fastmap       1.2.0    <span style="color: #555555;">2024-05-15</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  fs            1.6.5    <span style="color: #555555;">2024-10-30</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  generics      0.1.3    <span style="color: #555555;">2022-07-05</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  glue          1.8.0    <span style="color: #555555;">2024-09-30</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  htmltools     0.5.8.1  <span style="color: #555555;">2024-04-04</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  htmlwidgets   1.6.4    <span style="color: #555555;">2023-12-06</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  httr          1.4.7    <span style="color: #555555;">2023-08-15</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  jquerylib     0.1.4    <span style="color: #555555;">2021-04-26</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  jsonlite      1.8.9    <span style="color: #555555;">2024-09-20</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  knitr         1.49     <span style="color: #555555;">2024-11-08</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  lifecycle     1.0.4    <span style="color: #555555;">2023-11-07</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  lubridate     1.9.4    <span style="color: #555555;">2024-12-08</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  magrittr      2.0.3    <span style="color: #555555;">2022-03-30</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  pkgdown       2.1.1    <span style="color: #555555;">2024-09-17</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  plyr          1.8.9    <span style="color: #555555;">2023-10-02</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  R6            2.5.1    <span style="color: #555555;">2021-08-19</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  ragg          1.3.3    <span style="color: #555555;">2024-09-11</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  Rcpp          1.0.13-1 <span style="color: #555555;">2024-11-02</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  RefManageR  * 1.4.0    <span style="color: #555555;">2022-09-30</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  rlang         1.1.4    <span style="color: #555555;">2024-06-04</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  rmarkdown     2.29     <span style="color: #555555;">2024-11-04</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  sass          0.4.9    <span style="color: #555555;">2024-03-15</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  sessioninfo * 1.2.2    <span style="color: #555555;">2021-12-06</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  stringi       1.8.4    <span style="color: #555555;">2024-05-06</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  stringr       1.5.1    <span style="color: #555555;">2023-11-14</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  systemfonts   1.1.0    <span style="color: #555555;">2024-05-15</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  textshaping   0.4.1    <span style="color: #555555;">2024-12-06</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  timechange    0.3.0    <span style="color: #555555;">2024-01-18</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  xfun          0.49     <span style="color: #555555;">2024-10-31</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  xml2          1.3.6    <span style="color: #555555;">2023-12-04</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
+<span><span class="co">#&gt;  yaml          2.3.10   <span style="color: #555555;">2024-07-26</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM (R 4.4.0)</span></span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #555555;"> [1] /__w/_temp/Library</span></span></span>
 <span><span class="co">#&gt; <span style="color: #555555;"> [2] /usr/local/lib/R/site-library</span></span></span>
@@ -665,44 +661,50 @@ and Walthert, 2023)</li>
 <div class="section level2">
 <h2 id="bibliography">Bibliography<a class="anchor" aria-label="anchor" href="#bibliography"></a>
 </h2>
-<p>This vignette was generated using <em><a href="https://bioconductor.org/packages/3.17/BiocStyle" class="external-link">BiocStyle</a></em>
-(Oleś, 2023) with <em><a href="https://CRAN.R-project.org/package=knitr" class="external-link">knitr</a></em> (Xie,
-2023) and <em><a href="https://CRAN.R-project.org/package=rmarkdown" class="external-link">rmarkdown</a></em>
-(Allaire, Xie, Dervieux et al., 2023) running behind the scenes.</p>
+<p>This vignette was generated using <em><a href="https://bioconductor.org/packages/3.20/BiocStyle" class="external-link">BiocStyle</a></em>
+(Oleś, 2024) with <em><a href="https://CRAN.R-project.org/package=knitr" class="external-link">knitr</a></em> (Xie,
+2024) and <em><a href="https://CRAN.R-project.org/package=rmarkdown" class="external-link">rmarkdown</a></em>
+(Allaire, Xie, Dervieux et al., 2024) running behind the scenes.</p>
 <p>Citations made with <em><a href="https://CRAN.R-project.org/package=RefManageR" class="external-link">RefManageR</a></em>
 (McLean, 2017).</p>
 <p>
-<a id="bib-allaire2023rmarkdown"></a><a href="#cite-allaire2023rmarkdown">[1]</a><cite>
+<a id="bib-allaire2024rmarkdown"></a><a href="#cite-allaire2024rmarkdown">[1]</a><cite>
 J. Allaire, Y. Xie, C. Dervieux, et al. <em>rmarkdown: Dynamic Documents
-for R</em>. R package version 2.24. 2023. URL:
+for R</em>. R package version 2.29. 2024. URL:
 <a href="https://github.com/rstudio/rmarkdown" class="external-link">https://github.com/rstudio/rmarkdown</a>.</cite>
 </p>
 <p>
-<a id="bib-colladotorres2023automate"></a><a href="#cite-colladotorres2023automate">[2]</a><cite>
+<a id="bib-colladotorres2024automate"></a><a href="#cite-colladotorres2024automate">[2]</a><cite>
 L. Collado-Torres. <em>Automate package and project setup for
 Bioconductor packages</em>. <a href="https://github.com/lcolladotor/biocthisbiocthis" class="external-link uri">https://github.com/lcolladotor/biocthisbiocthis</a> - R
-package version 1.11.5. 2023. DOI:
+package version 1.17.0. 2024. DOI:
 <a href="https://doi.org/10.18129/B9.bioc.biocthis" class="external-link">10.18129/B9.bioc.biocthis</a>.
 URL:
 <a href="http://www.bioconductor.org/packages/biocthis" class="external-link">http://www.bioconductor.org/packages/biocthis</a>.</cite>
 </p>
 <p>
-<a id="bib-henry2023rlang"></a><a href="#cite-henry2023rlang">[3]</a><cite>
+<a id="bib-henry2024rlang"></a><a href="#cite-henry2024rlang">[3]</a><cite>
 L. Henry and H. Wickham. <em>rlang: Functions for Base Types and Core R
-and ‘Tidyverse’ Features</em>. <a href="https://rlang.r-lib.org" class="external-link uri">https://rlang.r-lib.org</a>, <a href="https://github.com/r-lib/rlang" class="external-link uri">https://github.com/r-lib/rlang</a>. 2023.</cite>
+and ‘Tidyverse’ Features</em>. R package version 1.1.4, <a href="https://github.com/r-lib/rlang" class="external-link uri">https://github.com/r-lib/rlang</a>. 2024. URL:
+<a href="https://rlang.r-lib.org" class="external-link">https://rlang.r-lib.org</a>.</cite>
 </p>
 <p>
 <a id="bib-hester2023covr"></a><a href="#cite-hester2023covr">[4]</a><cite>
-J. Hester. <em>covr: Test Coverage for Packages</em>. <a href="https://covr.r-lib.org" class="external-link uri">https://covr.r-lib.org</a>, <a href="https://github.com/r-lib/covr" class="external-link uri">https://github.com/r-lib/covr</a>. 2023.</cite>
+J. Hester. <em>covr: Test Coverage for Packages</em>. R package version
+3.6.4, <a href="https://github.com/r-lib/covr" class="external-link uri">https://github.com/r-lib/covr</a>. 2023. URL:
+<a href="https://covr.r-lib.org" class="external-link">https://covr.r-lib.org</a>.</cite>
 </p>
 <p>
-<a id="bib-hester2022glue"></a><a href="#cite-hester2022glue">[5]</a><cite>
-J. Hester and J. Bryan. <em>glue: Interpreted String Literals</em>. <a href="https://github.com/tidyverse/glue" class="external-link uri">https://github.com/tidyverse/glue</a>, <a href="https://glue.tidyverse.org/" class="external-link uri">https://glue.tidyverse.org/</a>. 2022.</cite>
+<a id="bib-hester2024glue"></a><a href="#cite-hester2024glue">[5]</a><cite>
+J. Hester and J. Bryan. <em>glue: Interpreted String Literals</em>. R
+package version 1.8.0, <a href="https://github.com/tidyverse/glue" class="external-link uri">https://github.com/tidyverse/glue</a>. 2024. URL:
+<a href="https://glue.tidyverse.org/" class="external-link">https://glue.tidyverse.org/</a>.</cite>
 </p>
 <p>
-<a id="bib-hester2023cross"></a><a href="#cite-hester2023cross">[6]</a><cite>
+<a id="bib-hester2024cross"></a><a href="#cite-hester2024cross">[6]</a><cite>
 J. Hester, H. Wickham, and G. Csárdi. <em>fs: Cross-Platform File System
-Operations Based on ‘libuv’</em>. <a href="https://fs.r-lib.org" class="external-link uri">https://fs.r-lib.org</a>, <a href="https://github.com/r-lib/fs" class="external-link uri">https://github.com/r-lib/fs</a>. 2023.</cite>
+Operations Based on ‘libuv’</em>. R package version 1.6.5, <a href="https://github.com/r-lib/fs" class="external-link uri">https://github.com/r-lib/fs</a>. 2024. URL:
+<a href="https://fs.r-lib.org" class="external-link">https://fs.r-lib.org</a>.</cite>
 </p>
 <p>
 <a id="bib-mclean2017refmanager"></a><a href="#cite-mclean2017refmanager">[7]</a><cite>
@@ -712,23 +714,24 @@ References in R”. In: <em>The Journal of Open Source Software</em>
 <a href="https://doi.org/10.21105/joss.00338" class="external-link">10.21105/joss.00338</a>.</cite>
 </p>
 <p>
-<a id="bib-mller2023styler"></a><a href="#cite-mller2023styler">[8]</a><cite>
+<a id="bib-mller2024styler"></a><a href="#cite-mller2024styler">[8]</a><cite>
 K. Müller and L. Walthert. <em>styler: Non-Invasive Pretty Printing of R
-Code</em>. <a href="https://github.com/r-lib/styler" class="external-link uri">https://github.com/r-lib/styler</a>, <a href="https://styler.r-lib.org" class="external-link uri">https://styler.r-lib.org</a>. 2023.</cite>
+Code</em>. R package version 1.10.3, <a href="https://styler.r-lib.org" class="external-link uri">https://styler.r-lib.org</a>. 2024. URL:
+<a href="https://github.com/r-lib/styler" class="external-link">https://github.com/r-lib/styler</a>.</cite>
 </p>
 <p>
-<a id="bib-ole2023biocstyle"></a><a href="#cite-ole2023biocstyle">[9]</a><cite>
+<a id="bib-ole2024biocstyle"></a><a href="#cite-ole2024biocstyle">[9]</a><cite>
 A. Oleś. <em>BiocStyle: Standard styles for vignettes and other
-Bioconductor documents</em>. R package version 2.28.0. 2023. DOI:
+Bioconductor documents</em>. R package version 2.34.0. 2024. DOI:
 <a href="https://doi.org/10.18129/B9.bioc.BiocStyle" class="external-link">10.18129/B9.bioc.BiocStyle</a>.
 URL:
 <a href="https://bioconductor.org/packages/BiocStyle" class="external-link">https://bioconductor.org/packages/BiocStyle</a>.</cite>
 </p>
 <p>
-<a id="bib-2023language"></a><a href="#cite-2023language">[10]</a><cite>
+<a id="bib-2024language"></a><a href="#cite-2024language">[10]</a><cite>
 R Core Team. <em>R: A Language and Environment for Statistical
 Computing</em>. R Foundation for Statistical Computing. Vienna, Austria,
-2023. URL:
+2024. URL:
 <a href="https://www.R-project.org/" class="external-link">https://www.R-project.org/</a>.</cite>
 </p>
 <p>
@@ -738,29 +741,33 @@ Journal</em> 3 (2011), pp. 5–10. URL:
 <a href="https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf" class="external-link">https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf</a>.</cite>
 </p>
 <p>
-<a id="bib-wickham2023usethis"></a><a href="#cite-wickham2023usethis">[12]</a><cite>
+<a id="bib-wickham2024usethis"></a><a href="#cite-wickham2024usethis">[12]</a><cite>
 H. Wickham, J. Bryan, M. Barrett, et al. <em>usethis: Automate Package
-and Project Setup</em>. <a href="https://usethis.r-lib.org" class="external-link uri">https://usethis.r-lib.org</a>, <a href="https://github.com/r-lib/usethis" class="external-link uri">https://github.com/r-lib/usethis</a>. 2023.</cite>
+and Project Setup</em>. R package version 3.1.0, <a href="https://github.com/r-lib/usethis" class="external-link uri">https://github.com/r-lib/usethis</a>. 2024. URL:
+<a href="https://usethis.r-lib.org" class="external-link">https://usethis.r-lib.org</a>.</cite>
 </p>
 <p>
 <a id="bib-wickham2021sessioninfo"></a><a href="#cite-wickham2021sessioninfo">[13]</a><cite>
 H. Wickham, W. Chang, R. Flight, et al. <em>sessioninfo: R Session
-Information</em>. <a href="https://github.com/r-lib/sessioninfo#readme" class="external-link uri">https://github.com/r-lib/sessioninfo#readme</a>, <a href="https://r-lib.github.io/sessioninfo/" class="external-link uri">https://r-lib.github.io/sessioninfo/</a>. 2021.</cite>
+Information</em>. R package version 1.2.2, <a href="https://r-lib.github.io/sessioninfo/" class="external-link uri">https://r-lib.github.io/sessioninfo/</a>. 2021. URL:
+<a href="https://github.com/r-lib/sessioninfo#readme" class="external-link">https://github.com/r-lib/sessioninfo#readme</a>.</cite>
 </p>
 <p>
-<a id="bib-wickham2022pkgdown"></a><a href="#cite-wickham2022pkgdown">[14]</a><cite>
-H. Wickham, J. Hesselberth, and M. Salmon. <em>pkgdown: Make Static HTML
-Documentation for a Package</em>. <a href="https://pkgdown.r-lib.org" class="external-link uri">https://pkgdown.r-lib.org</a>, <a href="https://github.com/r-lib/pkgdown" class="external-link uri">https://github.com/r-lib/pkgdown</a>. 2022.</cite>
+<a id="bib-wickham2024pkgdown"></a><a href="#cite-wickham2024pkgdown">[14]</a><cite>
+H. Wickham, J. Hesselberth, M. Salmon, et al. <em>pkgdown: Make Static
+HTML Documentation for a Package</em>. R package version 2.1.1, <a href="https://github.com/r-lib/pkgdown" class="external-link uri">https://github.com/r-lib/pkgdown</a>. 2024. URL:
+<a href="https://pkgdown.r-lib.org/" class="external-link">https://pkgdown.r-lib.org/</a>.</cite>
 </p>
 <p>
 <a id="bib-wickham2022devtools"></a><a href="#cite-wickham2022devtools">[15]</a><cite>
 H. Wickham, J. Hester, W. Chang, et al. <em>devtools: Tools to Make
-Developing R Packages Easier</em>. <a href="https://devtools.r-lib.org/" class="external-link uri">https://devtools.r-lib.org/</a>, <a href="https://github.com/r-lib/devtools" class="external-link uri">https://github.com/r-lib/devtools</a>. 2022.</cite>
+Developing R Packages Easier</em>. R package version 2.4.5, <a href="https://github.com/r-lib/devtools" class="external-link uri">https://github.com/r-lib/devtools</a>. 2022. URL:
+<a href="https://devtools.r-lib.org/" class="external-link">https://devtools.r-lib.org/</a>.</cite>
 </p>
 <p>
-<a id="bib-xie2023knitr"></a><a href="#cite-xie2023knitr">[16]</a><cite>
+<a id="bib-xie2024knitr"></a><a href="#cite-xie2024knitr">[16]</a><cite>
 Y. Xie. <em>knitr: A General-Purpose Package for Dynamic Report
-Generation in R</em>. R package version 1.43. 2023. URL:
+Generation in R</em>. R package version 1.49. 2024. URL:
 <a href="https://yihui.org/knitr/" class="external-link">https://yihui.org/knitr/</a>.</cite>
 </p>
 </div>
@@ -768,9 +775,7 @@ Generation in R</em>. R package version 1.43. 2023. URL:
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
-    </nav>
-</div>
+      </div>
 
 </div>
 
@@ -783,16 +788,16 @@ Generation in R</em>. R package version 1.43. 2023. URL:
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
       </footer>
 </div>
 
-  
 
 
-  
+
+
 
   </body>
 </html>
