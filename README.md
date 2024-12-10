@@ -24,7 +24,7 @@ dependencies](https://bioconductor.org/shields/dependencies/release/biocthis.svg
 [![Codecov test
 coverage](https://codecov.io/gh/lcolladotor/biocthis/branch/devel/graph/badge.svg)](https://codecov.io/gh/lcolladotor/biocthis?branch=devel)
 [![R build
-status](https://github.com/lcolladotor/biocthis/workflows/R-CMD-check-bioc/badge.svg)](https://github.com/lcolladotor/biocthis/actions)
+status](https://github.com/lcolladotor/biocthis/actions/workflows/check-bioc.yml/badge.svg)](https://github.com/lcolladotor/biocthis/actions/workflows/check-bioc.yml)
 [![GitHub
 issues](https://img.shields.io/github/issues/lcolladotor/biocthis)](https://github.com/lcolladotor/biocthis/issues)
 [![GitHub
