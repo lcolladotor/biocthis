@@ -87,33 +87,37 @@ library("biocthis")
 ## Create an example package for illustrative purposes.
 ## Note: you do not need to run this for your own package!
 pkgdir <- biocthis_example_pkg()
-#> ✔ Creating '/var/folders/9f/82m1lr2n1fv1mk91plf2l_dr0000gn/T/Rtmp4fYodr/biocthisexample/'
-#> ✔ Setting active project to '/private/var/folders/9f/82m1lr2n1fv1mk91plf2l_dr0000gn/T/Rtmp4fYodr/biocthisexample'
-#> ✔ Creating 'R/'
-#> ✔ Writing 'DESCRIPTION'
+#> ✔ Creating
+#>   '/var/folders/_2/hqcmhc1d1bl3lqxgcrkpv8_00000gn/T/RtmpPJ7g56/biocthisexample/'.
+#> ✔ Setting active project to
+#>   "/private/var/folders/_2/hqcmhc1d1bl3lqxgcrkpv8_00000gn/T/RtmpPJ7g56/biocthisexample".
+#> ✔ Creating 'R/'.
+#> ✔ Writing 'DESCRIPTION'.
 #> Package: biocthisexample
 #> Title: What the Package Does (One Line, Title Case)
 #> Version: 0.0.0.9000
 #> Authors@R (parsed):
-#>     * First Last <first.last@example.com> [aut, cre] (YOUR-ORCID-ID)
+#>     * First Last <first.last@example.com> [aut, cre]
 #> Description: What the package does (one paragraph).
 #> License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
 #>     license
 #> Encoding: UTF-8
 #> Roxygen: list(markdown = TRUE)
-#> RoxygenNote: 7.2.1
-#> ✔ Writing 'NAMESPACE'
-#> ✔ Setting active project to '<no active project>'
-#> ✔ Setting active project to '/private/var/folders/9f/82m1lr2n1fv1mk91plf2l_dr0000gn/T/Rtmp4fYodr/biocthisexample'
+#> RoxygenNote: 7.3.2
+#> ✔ Writing 'NAMESPACE'.
+#> ✔ Setting active project to "<no active project>".
+#> ✔ Setting active project to
+#>   "/private/var/folders/_2/hqcmhc1d1bl3lqxgcrkpv8_00000gn/T/RtmpPJ7g56/biocthisexample".
 
 ## Create the bioc templates
 biocthis::use_bioc_pkg_templates()
-#> ✔ Creating 'dev/'
-#> ✔ Adding '^dev$' to '.Rbuildignore'
-#> ✔ Writing 'dev/01_create_pkg.R'
-#> ✔ Writing 'dev/02_git_github_setup.R'
-#> ✔ Writing 'dev/03_core_files.R'
-#> ✔ Writing 'dev/04_update.R'
+#> ✔ Creating 'dev/'.
+#> ✔ Adding "^dev$" to '.Rbuildignore'.
+#> ✔ Adding "dev" to '.gitignore'.
+#> ✔ Writing 'dev/01_create_pkg.R'.
+#> ✔ Writing 'dev/02_git_github_setup.R'.
+#> ✔ Writing 'dev/03_core_files.R'.
+#> ✔ Writing 'dev/04_update.R'.
 ```
 
 The template `dev` scripts include comments and steps you can follow for
@@ -127,19 +131,12 @@ subject](https://www.jimhester.com/talk/2020-rsc-github-actions/).
 ``` r
 ## Create a GitHub Actions workflow that is Bioconductor-friendly
 biocthis::use_bioc_github_action()
-#> ✔ Creating '.github/'
-#> ✔ Adding '^\\.github$' to '.Rbuildignore'
-#> ✔ Adding '*.html' to '.github/.gitignore'
-#> ✔ Creating '.github/workflows/'
-#> ✔ Writing '.github/workflows/check-bioc.yml'
 ```
 
 ``` r
 ## Alternatively, use the general GitHub Actions workflow maintained by
 ## r-lib/actions
 usethis::use_github_action("check-standard")
-#> ✔ Saving 'r-lib/actions/examples/check-standard.yaml@v2' to '.github/workflows/check-standard.yaml'
-#> • Learn more at <https://github.com/r-lib/actions/blob/v2/examples/README.md>.
 ```
 
 ## Citation
@@ -150,27 +147,26 @@ Please run this yourself to check for any updates on how to cite
 
 ``` r
 print(citation("biocthis"), bibtex = TRUE)
-#> 
 #> To cite package 'biocthis' in publications use:
 #> 
-#>   Collado-Torres L (2022). _Automate package and project setup for
+#>   Collado-Torres L (2025). _Automate package and project setup for
 #>   Bioconductor packages_. doi:10.18129/B9.bioc.biocthis
 #>   <https://doi.org/10.18129/B9.bioc.biocthis>,
 #>   https://github.com/lcolladotor/biocthisbiocthis - R package version
-#>   1.9.1, <http://www.bioconductor.org/packages/biocthis>.
+#>   1.17.2, <http://www.bioconductor.org/packages/biocthis>.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
 #>   @Manual{,
 #>     title = {Automate package and project setup for Bioconductor packages},
 #>     author = {Leonardo Collado-Torres},
-#>     year = {2022},
+#>     year = {2025},
 #>     url = {http://www.bioconductor.org/packages/biocthis},
-#>     note = {https://github.com/lcolladotor/biocthisbiocthis - R package version 1.9.1},
+#>     note = {https://github.com/lcolladotor/biocthisbiocthis - R package version 1.17.2},
 #>     doi = {10.18129/B9.bioc.biocthis},
 #>   }
 #> 
-#>   Collado-Torres L (2022). "Automate package and project setup for
+#>   Collado-Torres L (2025). "Automate package and project setup for
 #>   Bioconductor packages." _bioRxiv_. doi:10.1101/TODO
 #>   <https://doi.org/10.1101/TODO>,
 #>   <https://www.biorxiv.org/content/10.1101/TODO>.
@@ -180,7 +176,7 @@ print(citation("biocthis"), bibtex = TRUE)
 #>   @Article{,
 #>     title = {Automate package and project setup for Bioconductor packages},
 #>     author = {Leonardo Collado-Torres},
-#>     year = {2022},
+#>     year = {2025},
 #>     journal = {bioRxiv},
 #>     doi = {10.1101/TODO},
 #>     url = {https://www.biorxiv.org/content/10.1101/TODO},
@@ -199,27 +195,27 @@ contributing to this project, you agree to abide by its terms.
 
 ## Development tools
 
--   Continuous code testing is possible thanks to [GitHub
-    actions](https://www.tidyverse.org/blog/2020/04/usethis-1-6-0/)
-    through *[usethis](https://CRAN.R-project.org/package=usethis)*,
-    *[remotes](https://CRAN.R-project.org/package=remotes)*, and
-    *[rcmdcheck](https://CRAN.R-project.org/package=rcmdcheck)*
-    customized to use [Bioconductor’s docker
-    containers](https://www.bioconductor.org/help/docker/) and
-    *[BiocCheck](https://bioconductor.org/packages/3.15/BiocCheck)*.
--   Code coverage assessment is possible thanks to
-    [codecov](https://codecov.io/gh) and
-    *[covr](https://CRAN.R-project.org/package=covr)*.
--   The [documentation website](http://lcolladotor.github.io/biocthis)
-    is automatically updated thanks to
-    *[pkgdown](https://CRAN.R-project.org/package=pkgdown)*.
--   The code is styled automatically thanks to
-    *[styler](https://CRAN.R-project.org/package=styler)*.
--   The documentation is formatted thanks to
-    *[devtools](https://CRAN.R-project.org/package=devtools)* and
-    *[roxygen2](https://CRAN.R-project.org/package=roxygen2)*.
+- Continuous code testing is possible thanks to [GitHub
+  actions](https://www.tidyverse.org/blog/2020/04/usethis-1-6-0/)
+  through *[usethis](https://CRAN.R-project.org/package=usethis)*,
+  *[remotes](https://CRAN.R-project.org/package=remotes)*, and
+  *[rcmdcheck](https://CRAN.R-project.org/package=rcmdcheck)* customized
+  to use [Bioconductor’s docker
+  containers](https://www.bioconductor.org/help/docker/) and
+  *[BiocCheck](https://bioconductor.org/packages/3.20/BiocCheck)*.
+- Code coverage assessment is possible thanks to
+  [codecov](https://codecov.io/gh) and
+  *[covr](https://CRAN.R-project.org/package=covr)*.
+- The [documentation website](http://lcolladotor.github.io/biocthis) is
+  automatically updated thanks to
+  *[pkgdown](https://CRAN.R-project.org/package=pkgdown)*.
+- The code is styled automatically thanks to
+  *[styler](https://CRAN.R-project.org/package=styler)*.
+- The documentation is formatted thanks to
+  *[devtools](https://CRAN.R-project.org/package=devtools)* and
+  *[roxygen2](https://CRAN.R-project.org/package=roxygen2)*.
 
 For more details, check the `dev` directory.
 
 This package was developed using
-*[biocthis](https://bioconductor.org/packages/3.15/biocthis)*.
+*[biocthis](https://bioconductor.org/packages/3.20/biocthis)*.

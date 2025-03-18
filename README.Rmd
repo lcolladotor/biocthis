@@ -71,12 +71,12 @@ biocthis::use_bioc_pkg_templates()
 The template `dev` scripts include comments and steps you can follow for making your Bioconductor-friendly R package or updating a current package. In particular, you might
 want to use a Bioconductor-friendly GitHub Actions workflow. If this is your first time seeings this words, we highly recommend that you watch [Jim Hester's `rstudio::conf(2020)` talk on this subject](https://www.jimhester.com/talk/2020-rsc-github-actions/).
 
-```{r 'bioc_github_action'}
+```{r 'bioc_github_action', eval = FALSE}
 ## Create a GitHub Actions workflow that is Bioconductor-friendly
 biocthis::use_bioc_github_action()
 ```
 
-```{r 'bioc_github_action_alternatives'}
+```{r 'bioc_github_action_alternatives', eval = FALSE}
 ## Alternatively, use the general GitHub Actions workflow maintained by
 ## r-lib/actions
 usethis::use_github_action("check-standard")
