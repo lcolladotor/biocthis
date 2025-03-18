@@ -67,14 +67,6 @@ jobs:
 
     steps:
 
-      ## Set the R library to the directory matching the
-      ## R packages cache step further below when running on Docker (Linux).
-      - name: Set R Library home on Linux
-        if: runner.os == 'Linux'
-        run: |
-          mkdir /__w/_temp/Library
-          echo ".libPaths('/__w/_temp/Library')" > ~/.Rprofile
-
       ## Most of these steps are the same as the ones in
       ## https://github.com/r-lib/actions/blob/master/examples/check-standard.yaml
       ## If they update their steps, we will also need to update ours.
@@ -95,21 +87,13 @@ jobs:
         uses: r-lib/actions/setup-pandoc@v2
 
       ## Use cached R packages
-      - name: Restore R package cache (macOS / winOS)
-        if: "!contains(github.event.head_commit.message, '/nocache') && runner.os != 'Linux'"
+      - name: Restore R package cache
+        if: "!contains(github.event.head_commit.message, '/nocache')"
         uses: actions/cache@v4
         with:
           path: ${{ env.R_LIBS_USER }}
           key: ${{ matrix.config.os }}-${{ matrix.config.r }}-${{ matrix.config.bioc }}-${{ inputs.cache-version }}
           restore-keys: ${{ matrix.config.os }}-${{ matrix.config.r }}-${{ matrix.config.bioc }}--${{ inputs.cache-version }}
-
-      - name: Restore R package cache (Linux)
-        if: "!contains(github.event.head_commit.message, '/nocache') && runner.os == 'Linux' "
-        uses: actions/cache@v4
-        with:
-          path: /home/runner/work/_temp/Library
-          key: ${{ matrix.config.os }}-${{ matrix.config.r }}-${{ matrix.config.bioc }}-${{ inputs.cache-version }}
-          restore-keys: ${{ matrix.config.os }}-${{ matrix.config.r }}-${{ matrix.config.bioc }}-${{ inputs.cache-version }}
 
       # - name: Install Linux system dependencies
       #   if: runner.os == 'Linux'
