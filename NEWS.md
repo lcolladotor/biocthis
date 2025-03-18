@@ -1,3 +1,20 @@
+# biocthis 1.17.3
+
+SIGNIFICANT USER-VISIBLE CHANGES
+
+* `use_bioc_github_action()` now uses simpler code for caching R packages
+across GitHub Action runs. This code won't need to be updated across versions,
+meaning that it'll be easier to update the `.github/workflows/check-bioc.yml`
+file across Bioconductor versions. Also, @gaborcsardi's recent commit to
+`r-lib/actions` as noted at 
+<https://github.com/r-lib/actions/issues/912#issuecomment-2667950006> gave me a 
+hint on how to simplify code across macOS/winOS and linux for the caching of R 
+packages. Also, note that thanks to
+<https://github.com/r-lib/remotes/commit/0e4e23051041d9f1b15a5ab796defec31af6190d>
+we will soon be able to re-enable automatic installation of linux system
+dependencies thanks to `remotes::system_requirements("ubuntu", "24.04")` being
+supported in the near future.
+
 # biocthis 1.17.2
 
 SIGNIFICANT USER-VISIBLE CHANGES
