@@ -95,6 +95,8 @@ jobs:
           key: ${{ matrix.config.os }}-${{ matrix.config.r }}-${{ matrix.config.bioc }}-${{ inputs.cache-version }}
           restore-keys: ${{ matrix.config.os }}-${{ matrix.config.r }}-${{ matrix.config.bioc }}--${{ inputs.cache-version }}
 
+      ## remotes is needed for isntalling the Linux system dependencies
+      ## as well as other R packages later on.
       - name: Install remotes
         run: |
           message(paste('****', Sys.time(), 'installing remotes ****'))
