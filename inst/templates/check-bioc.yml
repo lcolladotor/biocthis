@@ -95,10 +95,19 @@ jobs:
           key: ${{ matrix.config.os }}-${{ matrix.config.r }}-${{ matrix.config.bioc }}-${{ inputs.cache-version }}
           restore-keys: ${{ matrix.config.os }}-${{ matrix.config.r }}-${{ matrix.config.bioc }}--${{ inputs.cache-version }}
 
+      - name: Install remotes
+        run: |
+          message(paste('****', Sys.time(), 'installing remotes ****'))
+          install.packages('remotes')
+        shell: Rscript {0}
+
+      ## This will work again once https://github.com/r-lib/remotes/commit/0e4e23051041d9f1b15a5ab796defec31af6190d
+      ## makes it to the CRAN version of remotes
+
       # - name: Install Linux system dependencies
       #   if: runner.os == 'Linux'
       #   run: |
-      #     sysreqs=$(Rscript -e 'cat("apt-get update -y && apt-get install -y", paste(gsub("apt-get install -y ", "", remotes::system_requirements("ubuntu", "20.04")), collapse = " "))')
+      #     sysreqs=$(Rscript -e 'cat("apt-get update -y && apt-get install -y", paste(gsub("apt-get install -y ", "", remotes::system_requirements("ubuntu", "24.04")), collapse = " "))')
       #     echo $sysreqs
       #     sudo -s eval "$sysreqs"
 
@@ -128,11 +137,8 @@ jobs:
           ## Edit below if you have any Windows system dependencies
         shell: Rscript {0}
 
-      - name: Install remotes and BiocManager
+      - name: Install BiocManager
         run: |
-          message(paste('****', Sys.time(), 'installing remotes ****'))
-          install.packages('remotes')
-
           message(paste('****', Sys.time(), 'installing BiocManager ****'))
           remotes::install_cran("BiocManager")
         shell: Rscript {0}
