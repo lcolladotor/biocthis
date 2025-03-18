@@ -57,7 +57,7 @@ biocthis_vignette_template <- function(template, name, title) {
     stopifnot(rlang::is_string(name))
     stopifnot(rlang::is_string(title))
     use_directory("vignettes")
-    use_git_ignore(c("*.html", "*.R"), directory = "vignettes")
+    use_git_ignore(c("vignettes/*.html", "vignettes/*.R"))
     use_package("rmarkdown", "Suggests")
     path <- fs::path("vignettes", usethis:::asciify(name), ext = "Rmd")
     data <- list(
