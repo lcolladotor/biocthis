@@ -113,48 +113,45 @@
 <span><span class="co">## Create an example package for illustrative purposes.</span></span>
 <span><span class="co">## Note: you do not need to run this for your own package!</span></span>
 <span><span class="va">pkgdir</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/biocthis_example_pkg.html">biocthis_example_pkg</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ✔ Creating '/var/folders/9f/82m1lr2n1fv1mk91plf2l_dr0000gn/T/Rtmp4fYodr/biocthisexample/'</span></span>
-<span><span class="co">#&gt; ✔ Setting active project to '/private/var/folders/9f/82m1lr2n1fv1mk91plf2l_dr0000gn/T/Rtmp4fYodr/biocthisexample'</span></span>
-<span><span class="co">#&gt; ✔ Creating 'R/'</span></span>
-<span><span class="co">#&gt; ✔ Writing 'DESCRIPTION'</span></span>
+<span><span class="co">#&gt; ✔ Creating</span></span>
+<span><span class="co">#&gt;   '/var/folders/_2/hqcmhc1d1bl3lqxgcrkpv8_00000gn/T/RtmpPJ7g56/biocthisexample/'.</span></span>
+<span><span class="co">#&gt; ✔ Setting active project to</span></span>
+<span><span class="co">#&gt;   "/private/var/folders/_2/hqcmhc1d1bl3lqxgcrkpv8_00000gn/T/RtmpPJ7g56/biocthisexample".</span></span>
+<span><span class="co">#&gt; ✔ Creating 'R/'.</span></span>
+<span><span class="co">#&gt; ✔ Writing 'DESCRIPTION'.</span></span>
 <span><span class="co">#&gt; Package: biocthisexample</span></span>
 <span><span class="co">#&gt; Title: What the Package Does (One Line, Title Case)</span></span>
 <span><span class="co">#&gt; Version: 0.0.0.9000</span></span>
 <span><span class="co">#&gt; Authors@R (parsed):</span></span>
-<span><span class="co">#&gt;     * First Last &lt;first.last@example.com&gt; [aut, cre] (YOUR-ORCID-ID)</span></span>
+<span><span class="co">#&gt;     * First Last &lt;first.last@example.com&gt; [aut, cre]</span></span>
 <span><span class="co">#&gt; Description: What the package does (one paragraph).</span></span>
 <span><span class="co">#&gt; License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a</span></span>
 <span><span class="co">#&gt;     license</span></span>
 <span><span class="co">#&gt; Encoding: UTF-8</span></span>
 <span><span class="co">#&gt; Roxygen: list(markdown = TRUE)</span></span>
-<span><span class="co">#&gt; RoxygenNote: 7.2.1</span></span>
-<span><span class="co">#&gt; ✔ Writing 'NAMESPACE'</span></span>
-<span><span class="co">#&gt; ✔ Setting active project to '&lt;no active project&gt;'</span></span>
-<span><span class="co">#&gt; ✔ Setting active project to '/private/var/folders/9f/82m1lr2n1fv1mk91plf2l_dr0000gn/T/Rtmp4fYodr/biocthisexample'</span></span>
+<span><span class="co">#&gt; RoxygenNote: 7.3.2</span></span>
+<span><span class="co">#&gt; ✔ Writing 'NAMESPACE'.</span></span>
+<span><span class="co">#&gt; ✔ Setting active project to "&lt;no active project&gt;".</span></span>
+<span><span class="co">#&gt; ✔ Setting active project to</span></span>
+<span><span class="co">#&gt;   "/private/var/folders/_2/hqcmhc1d1bl3lqxgcrkpv8_00000gn/T/RtmpPJ7g56/biocthisexample".</span></span>
 <span></span>
 <span><span class="co">## Create the bioc templates</span></span>
 <span><span class="fu">biocthis</span><span class="fu">::</span><span class="fu"><a href="reference/use_bioc_pkg_templates.html">use_bioc_pkg_templates</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ✔ Creating 'dev/'</span></span>
-<span><span class="co">#&gt; ✔ Adding '^dev$' to '.Rbuildignore'</span></span>
-<span><span class="co">#&gt; ✔ Writing 'dev/01_create_pkg.R'</span></span>
-<span><span class="co">#&gt; ✔ Writing 'dev/02_git_github_setup.R'</span></span>
-<span><span class="co">#&gt; ✔ Writing 'dev/03_core_files.R'</span></span>
-<span><span class="co">#&gt; ✔ Writing 'dev/04_update.R'</span></span></code></pre></div>
+<span><span class="co">#&gt; ✔ Creating 'dev/'.</span></span>
+<span><span class="co">#&gt; ✔ Adding "^dev$" to '.Rbuildignore'.</span></span>
+<span><span class="co">#&gt; ✔ Adding "dev" to '.gitignore'.</span></span>
+<span><span class="co">#&gt; ✔ Writing 'dev/01_create_pkg.R'.</span></span>
+<span><span class="co">#&gt; ✔ Writing 'dev/02_git_github_setup.R'.</span></span>
+<span><span class="co">#&gt; ✔ Writing 'dev/03_core_files.R'.</span></span>
+<span><span class="co">#&gt; ✔ Writing 'dev/04_update.R'.</span></span></code></pre></div>
 <p>The template <code>dev</code> scripts include comments and steps you can follow for making your Bioconductor-friendly R package or updating a current package. In particular, you might want to use a Bioconductor-friendly GitHub Actions workflow. If this is your first time seeings this words, we highly recommend that you watch <a href="https://www.jimhester.com/talk/2020-rsc-github-actions/" class="external-link">Jim Hester’s <code>rstudio::conf(2020)</code> talk on this subject</a>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## Create a GitHub Actions workflow that is Bioconductor-friendly</span></span>
-<span><span class="fu">biocthis</span><span class="fu">::</span><span class="fu"><a href="reference/use_bioc_github_action.html">use_bioc_github_action</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ✔ Creating '.github/'</span></span>
-<span><span class="co">#&gt; ✔ Adding '^\\.github$' to '.Rbuildignore'</span></span>
-<span><span class="co">#&gt; ✔ Adding '*.html' to '.github/.gitignore'</span></span>
-<span><span class="co">#&gt; ✔ Creating '.github/workflows/'</span></span>
-<span><span class="co">#&gt; ✔ Writing '.github/workflows/check-bioc.yml'</span></span></code></pre></div>
+<span><span class="fu">biocthis</span><span class="fu">::</span><span class="fu"><a href="reference/use_bioc_github_action.html">use_bioc_github_action</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## Alternatively, use the general GitHub Actions workflow maintained by</span></span>
 <span><span class="co">## r-lib/actions</span></span>
-<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_github_action.html" class="external-link">use_github_action</a></span><span class="op">(</span><span class="st">"check-standard"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ✔ Saving 'r-lib/actions/examples/check-standard.yaml@v2' to '.github/workflows/check-standard.yaml'</span></span>
-<span><span class="co">#&gt; • Learn more at &lt;https://github.com/r-lib/actions/blob/v2/examples/README.md&gt;.</span></span></code></pre></div>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu"><a href="https://usethis.r-lib.org/reference/use_github_action.html" class="external-link">use_github_action</a></span><span class="op">(</span><span class="st">"check-standard"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="citation">Citation<a class="anchor" aria-label="anchor" href="#citation"></a>
@@ -162,27 +159,26 @@
 <p>Below is the citation output from using <code>citation('biocthis')</code> in R. Please run this yourself to check for any updates on how to cite <strong>biocthis</strong>.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/citation.html" class="external-link">citation</a></span><span class="op">(</span><span class="st">"biocthis"</span><span class="op">)</span>, bibtex <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; To cite package 'biocthis' in publications use:</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;   Collado-Torres L (2022). _Automate package and project setup for</span></span>
+<span><span class="co">#&gt;   Collado-Torres L (2025). _Automate package and project setup for</span></span>
 <span><span class="co">#&gt;   Bioconductor packages_. doi:10.18129/B9.bioc.biocthis</span></span>
 <span><span class="co">#&gt;   &lt;https://doi.org/10.18129/B9.bioc.biocthis&gt;,</span></span>
 <span><span class="co">#&gt;   https://github.com/lcolladotor/biocthisbiocthis - R package version</span></span>
-<span><span class="co">#&gt;   1.9.1, &lt;http://www.bioconductor.org/packages/biocthis&gt;.</span></span>
+<span><span class="co">#&gt;   1.17.2, &lt;http://www.bioconductor.org/packages/biocthis&gt;.</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; A BibTeX entry for LaTeX users is</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;   @Manual{,</span></span>
 <span><span class="co">#&gt;     title = {Automate package and project setup for Bioconductor packages},</span></span>
 <span><span class="co">#&gt;     author = {Leonardo Collado-Torres},</span></span>
-<span><span class="co">#&gt;     year = {2022},</span></span>
+<span><span class="co">#&gt;     year = {2025},</span></span>
 <span><span class="co">#&gt;     url = {http://www.bioconductor.org/packages/biocthis},</span></span>
-<span><span class="co">#&gt;     note = {https://github.com/lcolladotor/biocthisbiocthis - R package version 1.9.1},</span></span>
+<span><span class="co">#&gt;     note = {https://github.com/lcolladotor/biocthisbiocthis - R package version 1.17.2},</span></span>
 <span><span class="co">#&gt;     doi = {10.18129/B9.bioc.biocthis},</span></span>
 <span><span class="co">#&gt;   }</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;   Collado-Torres L (2022). "Automate package and project setup for</span></span>
+<span><span class="co">#&gt;   Collado-Torres L (2025). "Automate package and project setup for</span></span>
 <span><span class="co">#&gt;   Bioconductor packages." _bioRxiv_. doi:10.1101/TODO</span></span>
 <span><span class="co">#&gt;   &lt;https://doi.org/10.1101/TODO&gt;,</span></span>
 <span><span class="co">#&gt;   &lt;https://www.biorxiv.org/content/10.1101/TODO&gt;.</span></span>
@@ -192,7 +188,7 @@
 <span><span class="co">#&gt;   @Article{,</span></span>
 <span><span class="co">#&gt;     title = {Automate package and project setup for Bioconductor packages},</span></span>
 <span><span class="co">#&gt;     author = {Leonardo Collado-Torres},</span></span>
-<span><span class="co">#&gt;     year = {2022},</span></span>
+<span><span class="co">#&gt;     year = {2025},</span></span>
 <span><span class="co">#&gt;     journal = {bioRxiv},</span></span>
 <span><span class="co">#&gt;     doi = {10.1101/TODO},</span></span>
 <span><span class="co">#&gt;     url = {https://www.biorxiv.org/content/10.1101/TODO},</span></span>
@@ -208,14 +204,14 @@
 <h2 id="development-tools">Development tools<a class="anchor" aria-label="anchor" href="#development-tools"></a>
 </h2>
 <ul>
-<li>Continuous code testing is possible thanks to <a href="https://www.tidyverse.org/blog/2020/04/usethis-1-6-0/" class="external-link">GitHub actions</a> through <em><a href="https://CRAN.R-project.org/package=usethis" class="external-link">usethis</a></em>, <em><a href="https://CRAN.R-project.org/package=remotes" class="external-link">remotes</a></em>, and <em><a href="https://CRAN.R-project.org/package=rcmdcheck" class="external-link">rcmdcheck</a></em> customized to use <a href="https://www.bioconductor.org/help/docker/" class="external-link">Bioconductor’s docker containers</a> and <em><a href="https://bioconductor.org/packages/3.15/BiocCheck" class="external-link">BiocCheck</a></em>.</li>
+<li>Continuous code testing is possible thanks to <a href="https://www.tidyverse.org/blog/2020/04/usethis-1-6-0/" class="external-link">GitHub actions</a> through <em><a href="https://CRAN.R-project.org/package=usethis" class="external-link">usethis</a></em>, <em><a href="https://CRAN.R-project.org/package=remotes" class="external-link">remotes</a></em>, and <em><a href="https://CRAN.R-project.org/package=rcmdcheck" class="external-link">rcmdcheck</a></em> customized to use <a href="https://www.bioconductor.org/help/docker/" class="external-link">Bioconductor’s docker containers</a> and <em><a href="https://bioconductor.org/packages/3.20/BiocCheck" class="external-link">BiocCheck</a></em>.</li>
 <li>Code coverage assessment is possible thanks to <a href="https://codecov.io/gh" class="external-link">codecov</a> and <em><a href="https://CRAN.R-project.org/package=covr" class="external-link">covr</a></em>.</li>
 <li>The <a href="http://lcolladotor.github.io/biocthis" class="external-link">documentation website</a> is automatically updated thanks to <em><a href="https://CRAN.R-project.org/package=pkgdown" class="external-link">pkgdown</a></em>.</li>
 <li>The code is styled automatically thanks to <em><a href="https://CRAN.R-project.org/package=styler" class="external-link">styler</a></em>.</li>
 <li>The documentation is formatted thanks to <em><a href="https://CRAN.R-project.org/package=devtools" class="external-link">devtools</a></em> and <em><a href="https://CRAN.R-project.org/package=roxygen2" class="external-link">roxygen2</a></em>.</li>
 </ul>
 <p>For more details, check the <code>dev</code> directory.</p>
-<p>This package was developed using <em><a href="https://bioconductor.org/packages/3.15/biocthis" class="external-link">biocthis</a></em>.</p>
+<p>This package was developed using <em><a href="https://bioconductor.org/packages/3.20/biocthis" class="external-link">biocthis</a></em>.</p>
 </div>
 </div>
   </div>
