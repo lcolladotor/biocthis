@@ -1,3 +1,21 @@
+# biocthis 1.17.2
+
+SIGNIFICANT USER-VISIBLE CHANGES
+
+* `use_bioc_description()` now has `report_bioc` set to `FALSE` by
+default to match the Bioconductor guidelines listed at 
+<https://contributions.bioconductor.org/description.html#description-bugreport>.
+This was brought up in a December 2024 package review at
+<https://github.com/Bioconductor/Contributions/issues/3503#issuecomment-2551233199>.
+* Similarly, `use_bioc_pkg_templates()` now adds the `dev/` directory to the
+main `.gitignore` file. This was also brought up in the same package review.
+
+# biocthis 1.17.1
+
+SIGNIFICANT USER-VISIBLE CHANGES
+
+* `use_bioc_github_action()` now uses the `actions/cache@v4` instead of `v3`.
+
 # biocthis 1.11.3
 
 BUG FIXES
