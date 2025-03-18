@@ -5,7 +5,11 @@
 #' package. These R scripts include all the commands you need to get started =)
 #' The commands are designed to be run on the order given, though we also
 #' encourage you to check the latest utility functions in the `usethis`
-#' package.
+#' package. The `dev` directory will not be version controlled as requested by
+#' Bioconductor package reviewers at
+#' <https://github.com/Bioconductor/Contributions/issues/3503> and
+#' recommendations from
+#' <https://contributions.bioconductor.org/general.html?q=unnec#undesirable-files>.
 #'
 #' For more details on how this function came to be, check:
 #' <https://github.com/r-lib/actions/issues/84>
@@ -48,7 +52,7 @@ use_bioc_pkg_templates <- function(open = rlang::is_interactive()) {
     )
     use_directory("dev")
     use_build_ignore(fs::path("dev"))
-    use_git_ignore("dev")
+    use_git_ignore(fs::path("dev"))
     use_template("01_create_pkg.R", fs::path("dev", "01_create_pkg.R"),
         data = data, package = "biocthis", open = open
     )

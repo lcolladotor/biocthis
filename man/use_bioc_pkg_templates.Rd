@@ -27,7 +27,11 @@ files that you can follow to create your own Bioconductor-friendly R
 package. These R scripts include all the commands you need to get started =)
 The commands are designed to be run on the order given, though we also
 encourage you to check the latest utility functions in the \code{usethis}
-package.
+package. The \code{dev} directory will not be version controlled as requested by
+Bioconductor package reviewers at
+\url{https://github.com/Bioconductor/Contributions/issues/3503} and
+recommendations from
+\url{https://contributions.bioconductor.org/general.html?q=unnec#undesirable-files}.
 }
 \details{
 For more details on how this function came to be, check:
