@@ -9,6 +9,15 @@ This was brought up in a December 2024 package review at
 <https://github.com/Bioconductor/Contributions/issues/3503#issuecomment-2551233199>.
 * Similarly, `use_bioc_pkg_templates()` now adds the `dev/` directory to the
 main `.gitignore` file. This was also brought up in the same package review.
+* `use_bioc_vignette()` no longer creates a `vignettes/.gitignore` file. The
+rendered `.R` and `.html` files are instead ignored on the package main
+`.gitignore` file. This complies with the request from that same package review
+while also keeping in line with the behavior from `usethis::use_vignette()`
+<https://github.com/r-lib/usethis/blob/a653d6e05f9172772cea1055f8415cda2f26de69/R/vignette.R#L11-L12>.
+* `use_bioc_vignette()`'s template no longer tracks how much time was used
+to render the vignette, nor shows the code used for obtaining the .R file with
+`knit(tangle = TRUE)`, nor the date the vignette was generated. This was also
+brought up in the same package review from December 2024.
 
 # biocthis 1.17.1
 
