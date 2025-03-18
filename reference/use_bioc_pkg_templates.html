@@ -4,7 +4,11 @@ files that you can follow to create your own Bioconductor-friendly R
 package. These R scripts include all the commands you need to get started =)
 The commands are designed to be run on the order given, though we also
 encourage you to check the latest utility functions in the usethis
-package."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
+package. The dev directory will not be version controlled as requested by
+Bioconductor package reviewers at
+https://github.com/Bioconductor/Contributions/issues/3503 and
+recommendations from
+https://contributions.bioconductor.org/general.html?q=unnec#undesirable-files."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]--></head><body data-spy="scroll" data-target="#toc">
@@ -22,7 +26,7 @@ package."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/ma
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">biocthis</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.17.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.17.2</span>
       </span>
     </div>
 
@@ -72,7 +76,11 @@ files that you can follow to create your own Bioconductor-friendly R
 package. These R scripts include all the commands you need to get started =)
 The commands are designed to be run on the order given, though we also
 encourage you to check the latest utility functions in the <code>usethis</code>
-package.</p>
+package. The <code>dev</code> directory will not be version controlled as requested by
+Bioconductor package reviewers at
+<a href="https://github.com/Bioconductor/Contributions/issues/3503" class="external-link">https://github.com/Bioconductor/Contributions/issues/3503</a> and
+recommendations from
+<a href="https://contributions.bioconductor.org/general.html?q=unnec#undesirable-files" class="external-link">https://contributions.bioconductor.org/general.html?q=unnec#undesirable-files</a>.</p>
     </div>
 
     <div id="ref-usage">
@@ -119,7 +127,7 @@ as well as the "biocthis developer notes" vignette
 <span class="r-in"><span><span class="co">## Create an example package for illustrative purposes.</span></span></span>
 <span class="r-in"><span><span class="co">## Note: you do not need to run this for your own package!</span></span></span>
 <span class="r-in"><span><span class="va">pkgdir</span> <span class="op">&lt;-</span> <span class="fu"><a href="biocthis_example_pkg.html">biocthis_example_pkg</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Setting active project to <span style="color: #0000BB;">"/tmp/RtmpC1yb3A/biocthisexample"</span>.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Setting active project to <span style="color: #0000BB;">"/tmp/RtmpnNEse6/biocthisexample"</span>.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">Package</span>: biocthisexample</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">Title</span>: What the Package Does (One Line, Title Case)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">Version</span>: 0.0.0.9000</span>
@@ -131,12 +139,13 @@ as well as the "biocthis developer notes" vignette
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">Encoding</span>: UTF-8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">Roxygen</span>: list(markdown = TRUE)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">RoxygenNote</span>: 7.3.2</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Setting active project to <span style="color: #0000BB;">"/tmp/RtmpC1yb3A/biocthisexample"</span>.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Setting active project to <span style="color: #0000BB;">"/tmp/RtmpnNEse6/biocthisexample"</span>.</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Create the biocthis templates</span></span></span>
 <span class="r-in"><span><span class="fu">biocthis</span><span class="fu">::</span><span class="fu">use_bioc_pkg_templates</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Creating <span style="color: #0000BB;">dev/</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Adding <span style="color: #0000BB;">"^dev$"</span> to <span style="color: #0000BB;">.Rbuildignore</span>.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Adding <span style="color: #0000BB;">"dev"</span> to <span style="color: #0000BB;">.gitignore</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Writing <span style="color: #0000BB;">dev/01_create_pkg.R</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Writing <span style="color: #0000BB;">dev/02_git_github_setup.R</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Writing <span style="color: #0000BB;">dev/03_core_files.R</span>.</span>
