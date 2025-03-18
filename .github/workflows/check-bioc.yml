@@ -97,23 +97,22 @@ jobs:
       ## Code modified from the actions/cache examples page at
       ## https://github.com/actions/cache/blob/main/examples.md#r---renv.
       ## Specifically from this version:
-      ## https://github.com/actions/cache/blob/d4323d4df104b026a6aa633fdb11d772146be0bf/examples.md
-      ## lines L566-L592
+      ## https://github.com/actions/cache/blob/d4323d4df104b026a6aa633fdb11d772146be0bf/examples.md?plain=1#L566-L592
       - name: Set RENV_PATHS_ROOT
-        if: !contains(github.event.head_commit.message, '/nocache')
+        if: "!contains(github.event.head_commit.message, '/nocache')"
         shell: bash
         run: |
           echo "RENV_PATHS_ROOT=${{ runner.temp }}/renv" >> $GITHUB_ENV
 
       - name: Install and activate renv
-        if: !contains(github.event.head_commit.message, '/nocache')
+        if: "!contains(github.event.head_commit.message, '/nocache')"
         run: |
           install.packages("renv")
           renv::activate()
         shell: Rscript {0}
 
       - name: Get R and OS version
-        if: !contains(github.event.head_commit.message, '/nocache')
+        if: "!contains(github.event.head_commit.message, '/nocache')"
         id: get-version
         run: |
           cat("##[set-output name=os-version;]", sessionInfo()$running, "\n", sep = "")
@@ -121,7 +120,7 @@ jobs:
         shell: Rscript {0}
 
       - name: Restore Renv package cache
-        if: !contains(github.event.head_commit.message, '/nocache')
+        if: "!contains(github.event.head_commit.message, '/nocache')"
         uses: actions/cache@v4
         with:
           path: ${{ env.RENV_PATHS_ROOT }}
