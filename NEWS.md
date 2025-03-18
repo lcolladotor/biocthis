@@ -13,7 +13,10 @@ packages. Also, note that thanks to
 <https://github.com/r-lib/remotes/commit/0e4e23051041d9f1b15a5ab796defec31af6190d>
 we will soon be able to re-enable automatic installation of linux system
 dependencies thanks to `remotes::system_requirements("ubuntu", "24.04")` being
-supported in the near future.
+supported in the near future. Finally, we no longer need to specify RSPM
+although there are detailed instructions at 
+<https://packagemanager.posit.co/client/#/repos/bioconductor/setup> on how to
+do so.
 
 # biocthis 1.17.2
 
