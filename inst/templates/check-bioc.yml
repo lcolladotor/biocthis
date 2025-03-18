@@ -94,27 +94,22 @@ jobs:
         if: runner.os != 'Linux'
         uses: r-lib/actions/setup-pandoc@v2
 
-      - name: Query dependencies
-        run: |
-          install.packages('remotes')
-          saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
-        shell: Rscript {0}
-
-      - name: Restore R package cache
+      ## Use cached R packages
+      - name: Restore R package cache (macOS / winOS)
         if: "!contains(github.event.head_commit.message, '/nocache') && runner.os != 'Linux'"
         uses: actions/cache@v4
         with:
           path: ${{ env.R_LIBS_USER }}
-          key: ${{ env.cache-version }}-${{ runner.os }}-biocversion-{{dockerversion}}-r-{{rvernum}}-${{ hashFiles('.github/depends.Rds') }}
-          restore-keys: ${{ env.cache-version }}-${{ runner.os }}-biocversion-{{dockerversion}}-r-{{rvernum}}-
+          key: ${{ matrix.config.os }}-${{ matrix.config.r }}-${{ matrix.config.bioc }}-${{ inputs.cache-version }}
+          restore-keys: ${{ matrix.config.os }}-${{ matrix.config.r }}-${{ matrix.config.bioc }}--${{ inputs.cache-version }}
 
-      - name: Cache R packages on Linux
+      - name: Restore R package cache (Linux)
         if: "!contains(github.event.head_commit.message, '/nocache') && runner.os == 'Linux' "
         uses: actions/cache@v4
         with:
           path: /home/runner/work/_temp/Library
-          key: ${{ env.cache-version }}-${{ runner.os }}-biocversion-{{dockerversion}}-r-{{rvernum}}-${{ hashFiles('.github/depends.Rds') }}
-          restore-keys: ${{ env.cache-version }}-${{ runner.os }}-biocversion-{{dockerversion}}-r-{{rvernum}}-
+          key: ${{ matrix.config.os }}-${{ matrix.config.r }}-${{ matrix.config.bioc }}-${{ inputs.cache-version }}
+          restore-keys: ${{ matrix.config.os }}-${{ matrix.config.r }}-${{ matrix.config.bioc }}-${{ inputs.cache-version }}
 
       # - name: Install Linux system dependencies
       #   if: runner.os == 'Linux'
@@ -149,8 +144,11 @@ jobs:
           ## Edit below if you have any Windows system dependencies
         shell: Rscript {0}
 
-      - name: Install BiocManager
+      - name: Install remotes and BiocManager
         run: |
+          message(paste('****', Sys.time(), 'installing remotes ****'))
+          install.packages('remotes')
+
           message(paste('****', Sys.time(), 'installing BiocManager ****'))
           remotes::install_cran("BiocManager")
         shell: Rscript {0}
