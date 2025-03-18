@@ -87,6 +87,7 @@
 #' @export
 #'
 #' @import usethis
+#' @importFrom utils browseURL
 #'
 #' @examples
 #' \dontrun{
@@ -100,14 +101,16 @@
 #' ## for more information.
 #' options("biocthis.pkgdown" = TRUE)
 #' options("biocthis.testthat" = TRUE)
-use_bioc_github_action <- function(biocdocker,
+use_bioc_github_action <- function(
+    biocdocker,
     pkgdown = getOption("biocthis.pkgdown", FALSE),
     testthat = getOption("biocthis.testthat", FALSE),
     covr = testthat,
     covr_coverage_type = getOption("biocthis.covr_coverage_type", "all"),
     RUnit = getOption("biocthis.RUnit", FALSE),
     pkgdown_covr_branch = getOption("biocthis.pkgdown_covr_branch", "devel"),
-    docker = getOption("biocthis.docker", FALSE)) {
+    docker = getOption("biocthis.docker", FALSE)
+) {
     if (!missing(biocdocker)) {
         if (!grepl("^devel$|^RELEASE_", biocdocker[[1]])) {
             stop(
@@ -157,14 +160,13 @@ use_bioc_github_action <- function(biocdocker,
             )
         }
         if (pkgdown && interactive()) {
-            browseURL(paste0(
+            utils::browseURL(paste0(
                 "https://github.com/",
                 tolower(repo_spec),
                 "/settings/actions"
             ))
         }
     }
-
 
     ## Create Dockerfile if needed as well
     if (docker) {
@@ -181,8 +183,10 @@ use_bioc_github_action <- function(biocdocker,
 
     ## Locate the template GHA workflow
     template <- system.file(
-        package = "biocthis", "templates",
-        "check-bioc.yml", mustWork = TRUE
+        package = "biocthis",
+        "templates",
+        "check-bioc.yml",
+        mustWork = TRUE
     )
     contents <- readLines(template)
 
@@ -195,7 +199,8 @@ use_bioc_github_action <- function(biocdocker,
             function(x, y) {
                 parts[[i]] <<- gsub(x, y, parts[[i]], fixed = TRUE)
             },
-            x = paste0("{{", names(datalist), "}}"), y = datalist
+            x = paste0("{{", names(datalist), "}}"),
+            y = datalist
         )[[length(datalist)]]
     }
     contents[idx] <- pco
