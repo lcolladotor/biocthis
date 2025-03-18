@@ -48,21 +48,38 @@ use_bioc_pkg_templates <- function(open = rlang::is_interactive()) {
     repo_spec <- get_github_spec()
     data <- list(
         Package = usethis:::project_name(),
-        github_spec_lowercase = if (!is.null(repo_spec)) tolower(repo_spec) else ""
+        github_spec_lowercase = if (!is.null(repo_spec)) tolower(repo_spec) else
+            ""
     )
     use_directory("dev")
     use_build_ignore(fs::path("dev"))
     use_git_ignore(fs::path("dev"))
-    use_template("01_create_pkg.R", fs::path("dev", "01_create_pkg.R"),
-        data = data, package = "biocthis", open = open
+    use_template(
+        "01_create_pkg.R",
+        fs::path("dev", "01_create_pkg.R"),
+        data = data,
+        package = "biocthis",
+        open = open
     )
-    use_template("02_git_github_setup.R", fs::path("dev", "02_git_github_setup.R"),
-        data = data, package = "biocthis", open = open
+    use_template(
+        "02_git_github_setup.R",
+        fs::path("dev", "02_git_github_setup.R"),
+        data = data,
+        package = "biocthis",
+        open = open
     )
-    use_template("03_core_files.R", fs::path("dev", "03_core_files.R"),
-        data = data, package = "biocthis", open = open
+    use_template(
+        "03_core_files.R",
+        fs::path("dev", "03_core_files.R"),
+        data = data,
+        package = "biocthis",
+        open = open
     )
-    use_template("04_update.R", fs::path("dev", "04_update.R"),
-        data = data, package = "biocthis", open = open
+    use_template(
+        "04_update.R",
+        fs::path("dev", "04_update.R"),
+        data = data,
+        package = "biocthis",
+        open = open
     )
 }
