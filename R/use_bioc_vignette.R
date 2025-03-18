@@ -39,7 +39,11 @@ use_bioc_vignette <- function(name, title = name) {
     use_package("RefManageR", "Suggests")
     use_package("sessioninfo", "Suggests")
     use_package("testthat", "Suggests")
-    usethis:::proj_desc_field_update("VignetteBuilder", "knitr", overwrite = TRUE)
+    usethis:::proj_desc_field_update(
+        "VignetteBuilder",
+        "knitr",
+        overwrite = TRUE
+    )
     use_git_ignore("inst/doc")
     biocthis_vignette_template("vignette.Rmd", name, title)
     invisible()
@@ -63,6 +67,12 @@ biocthis_vignette_template <- function(template, name, title) {
         braced_vignette_title = glue::glue("{{{title}}}"),
         vignette_name = name
     )
-    use_template(template, save_as = path, data = data, open = TRUE, package = "biocthis")
+    use_template(
+        template,
+        save_as = path,
+        data = data,
+        open = TRUE,
+        package = "biocthis"
+    )
     path
 }

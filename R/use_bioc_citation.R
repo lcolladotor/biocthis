@@ -32,7 +32,11 @@ use_bioc_citation <- function() {
         github_spec = repo_spec,
         github_owner = if (!is.null(repo_spec)) dirname(repo_spec) else ""
     )
-    use_template("package-CITATION", fs::path("inst", "CITATION"),
-        data = data, open = TRUE, package = "biocthis"
+    use_template(
+        "package-CITATION",
+        fs::path("inst", "CITATION"),
+        data = data,
+        open = TRUE,
+        package = "biocthis"
     )
 }
