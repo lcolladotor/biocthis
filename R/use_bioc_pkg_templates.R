@@ -53,7 +53,7 @@ use_bioc_pkg_templates <- function(open = rlang::is_interactive()) {
     )
     use_directory("dev")
     use_build_ignore(fs::path("dev"))
-    use_git_ignore(fs::path("dev"))
+    use_git_ignore("dev")
     use_template(
         "01_create_pkg.R",
         fs::path("dev", "01_create_pkg.R"),
