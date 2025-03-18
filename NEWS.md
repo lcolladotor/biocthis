@@ -17,7 +17,9 @@ while also keeping in line with the behavior from `usethis::use_vignette()`
 * `use_bioc_vignette()`'s template no longer tracks how much time was used
 to render the vignette, nor shows the code used for obtaining the .R file with
 `knit(tangle = TRUE)`, nor the date the vignette was generated. This was also
-brought up in the same package review from December 2024.
+brought up in the same package review from December 2024, as well as in a second
+one from October 2024 at
+<https://github.com/Bioconductor/Contributions/issues/3501#issuecomment-2408081535>.
 
 # biocthis 1.17.1
 
