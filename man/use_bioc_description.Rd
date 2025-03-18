@@ -4,7 +4,7 @@
 \alias{use_bioc_description}
 \title{Create a biocthis-style DESCRIPTION template}
 \usage{
-use_bioc_description(biocViews = "Software", report_bioc = TRUE)
+use_bioc_description(biocViews = "Software", report_bioc = FALSE)
 }
 \arguments{
 \item{biocViews}{A \code{character()} with the Bioconductor biocViews terms you
@@ -15,7 +15,11 @@ software, annotation, experiment or workflow.}
 
 \item{report_bioc}{A \code{logical(1)} indicating whether to set the \code{BugReports}
 to the Bioconductor Support website \url{https://support.bioconductor.org/}
-or to the GitHub package issues page.}
+or to the GitHub package issues page. As noted on December 18 2024 at
+\url{https://github.com/Bioconductor/Contributions/issues/3503#issuecomment-2551233199},
+Bioconductor reviewers prefer to use the GitHub issues page for \code{BugReports}.
+This is also documented at
+\url{https://contributions.bioconductor.org/description.html#description-bugreport}.}
 }
 \value{
 This function adds and/or replaces the \code{DESCRIPTION} file in your

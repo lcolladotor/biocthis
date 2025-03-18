@@ -17,7 +17,11 @@
 #' software, annotation, experiment or workflow.
 #' @param report_bioc A `logical(1)` indicating whether to set the `BugReports`
 #' to the Bioconductor Support website <https://support.bioconductor.org/>
-#' or to the GitHub package issues page.
+#' or to the GitHub package issues page. As noted on December 18 2024 at
+#' <https://github.com/Bioconductor/Contributions/issues/3503#issuecomment-2551233199>,
+#' Bioconductor reviewers prefer to use the GitHub issues page for `BugReports`.
+#' This is also documented at
+#' <https://contributions.bioconductor.org/description.html#description-bugreport>.
 #'
 #' @return This function adds and/or replaces the `DESCRIPTION` file in your
 #' R package.
@@ -36,7 +40,7 @@
 #'
 #' ## Create a template DESCRIPTION file that is Bioconductor-friendly
 #' biocthis::use_bioc_description()
-use_bioc_description <- function(biocViews = "Software", report_bioc = TRUE) {
+use_bioc_description <- function(biocViews = "Software", report_bioc = FALSE) {
     stopifnot(length(biocViews) == 1)
     pkg <- usethis:::project_name()
 
