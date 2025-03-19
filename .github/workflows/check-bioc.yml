@@ -57,13 +57,17 @@ jobs:
            rversion=$(echo $bioc | grep "r_version_associated_with_release: " | grep -Eo "[0-9]{1}\.[0-9]{1}")
            biocmajor=$(echo $biocversion | cut -c 1-1)
            biocminor=$(echo $biocversion | cut -c 3-4)
-           bioccont="bioconductor/bioconductor_docker:RELEASE_${biocmajor}_${biocminor}"
+           bioccont=$(echo "bioconductor/bioconductor_docker:RELEASE_${biocmajor}_${biocminor}")
          else
            echo "Finding the latest BioC devel version and the corresponding R version"
            biocversion=$(echo $bioc | grep "devel_version: " | grep -Eo "[0-9]{1}\.[0-9]{2}")
            rversion=$(echo $bioc | grep "r_version_associated_with_devel: " | grep -Eo "[0-9]{1}\.[0-9]{1}")
            bioccont="bioconductor/bioconductor_docker:devel"
          fi
+         echo "Found these settings:"
+         echo $biocversion
+         echo $rversion
+         echo $bioccont
          echo "matrix={ \"config\": { [{\"os\" : \"ubuntu-latest\", \"r\" : \"${rversion}\", \"bioc\" : \"${biocversion}\", \"cont\" : \"${bioccont}\"} , {\"os\" : \"macOS-latest\", \"r\" : \"${rversion}\", \"bioc\" : \"${biocversion}\"} , {\"os\" : \"windows-latest\", \"r\" : \"${rversion}\", \"bioc\" : \"${biocversion}\" }] } }"
 
   build-check:
