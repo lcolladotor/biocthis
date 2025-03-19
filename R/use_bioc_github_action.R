@@ -25,6 +25,8 @@
         ## https://github.com/r-lib/actions/tree/master/setup-r
         last_rel <- as.character(subset(info, BiocStatus == "release")[, "R"])
         res[, "R"] <- ifelse(last_rel == res[, "R"], last_rel, "devel")
+    } else if (biocdocker == "release") {
+        res <- subset(info, BiocStatus == "release")
     } else {
         biocdocker <- gsub("^RELEASE_", "", toupper(biocdocker))
         biocdocker <- gsub("_", ".", biocdocker)
@@ -46,12 +48,11 @@
 #' <https://lcolladotor.github.io/biocthis/articles/biocthis_dev_notes.html>.
 #'
 #' @param biocdocker A `character(1)` specifying the Bioconductor docker
-#' version you want to use. Valid names are `"devel"` or in the
-#' `"RELEASE_X_Y"` format such as `"RELEASE_3_11"`. Check
+#' version you want to use. Valid names are `"release"`, `"devel"` or in the
+#' `"RELEASE_X_Y"` format such as `"RELEASE_3_11"`. `"release"` is a special case
+#' where the latest bioc-release version will be automatically detected. Check
 #' <http://bioconductor.org/help/docker/> for more information on the
-#' Bioconductor docker images. If you don't specify this, it will be
-#' determined automatically using your current Bioconductor version. The
-#' R version will be set to match the Bioconductor version.
+#' Bioconductor docker images.
 #' @param pkgdown A `logical(1)` specifying whether to run `pkgdown`. Check
 #' <https://cran.r-project.org/web/packages/pkgdown/index.html> for more
 #' information on `pkgdown` which is useful for creating documentation
@@ -102,7 +103,7 @@
 #' options("biocthis.pkgdown" = TRUE)
 #' options("biocthis.testthat" = TRUE)
 use_bioc_github_action <- function(
-    biocdocker,
+    biocdocker = "release",
     pkgdown = getOption("biocthis.pkgdown", FALSE),
     testthat = getOption("biocthis.testthat", FALSE),
     covr = testthat,
@@ -112,14 +113,12 @@ use_bioc_github_action <- function(
     docker = getOption("biocthis.docker", FALSE)
 ) {
     if (!missing(biocdocker)) {
-        if (!grepl("^devel$|^RELEASE_", biocdocker[[1]])) {
+        if (!grepl("^devel$|^RELEASE_|^release$", biocdocker[[1]])) {
             stop(
-                "'biocdocker' should be 'devel' or in the 'RELEASE_X_Y' format, such as 'RELEASE_3_11'",
+                "'biocdocker' should be 'release', 'devel' or in the 'RELEASE_X_Y' format, such as 'RELEASE_3_11'",
                 call. = FALSE
             )
         }
-    } else {
-        biocdocker <- .normalizeVersion()
     }
 
     otps_overage_type <- c("tests", "vignettes", "examples", "all", "none")
@@ -133,9 +132,16 @@ use_bioc_github_action <- function(
     ## Set the variables to be used in the template GHA workflow
     repo_spec <- get_github_spec()
     datalist <- list(
+        bioc_version = ifelse(
+            biocdocker == "devel",
+            "bioc-devel",
+            ifelse(
+                biocdocker == "release",
+                "bioc-release",
+                .GHARversion(biocdocker)[["Bioc"]]
+            )
+        ),
         dockerversion = biocdocker,
-        rvernum = .GHARversion(biocdocker)["R"],
-        biocvernum = .GHARversion(biocdocker)["Bioc"],
         has_testthat = ifelse(testthat, "true", "false"),
         run_covr = ifelse(covr, "true", "false"),
         covr_coverage_type = covr_coverage_type,

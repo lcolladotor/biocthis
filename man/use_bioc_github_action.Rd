@@ -5,7 +5,7 @@
 \title{Create a biocthis-style GitHub Actions workflow}
 \usage{
 use_bioc_github_action(
-  biocdocker,
+  biocdocker = "release",
   pkgdown = getOption("biocthis.pkgdown", FALSE),
   testthat = getOption("biocthis.testthat", FALSE),
   covr = testthat,
@@ -17,12 +17,11 @@ use_bioc_github_action(
 }
 \arguments{
 \item{biocdocker}{A \code{character(1)} specifying the Bioconductor docker
-version you want to use. Valid names are \code{"devel"} or in the
-\code{"RELEASE_X_Y"} format such as \code{"RELEASE_3_11"}. Check
+version you want to use. Valid names are \code{"release"}, \code{"devel"} or in the
+\code{"RELEASE_X_Y"} format such as \code{"RELEASE_3_11"}. \code{"release"} is a special case
+where the latest bioc-release version will be automatically detected. Check
 \url{http://bioconductor.org/help/docker/} for more information on the
-Bioconductor docker images. If you don't specify this, it will be
-determined automatically using your current Bioconductor version. The
-R version will be set to match the Bioconductor version.}
+Bioconductor docker images.}
 
 \item{pkgdown}{A \code{logical(1)} specifying whether to run \code{pkgdown}. Check
 \url{https://cran.r-project.org/web/packages/pkgdown/index.html} for more
