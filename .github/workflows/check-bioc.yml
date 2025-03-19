@@ -66,7 +66,7 @@ jobs:
          fi
          echo "Found these settings:"
          echo "Bioconductor version: $biocversion, R version: $rversion, Bioconductor docker name: $bioccont"
-         echo "matrix={ \"config\": { [{\"os\" : \"ubuntu-latest\", \"r\" : \"${rversion}\", \"bioc\" : \"${biocversion}\", \"cont\" : \"${bioccont}\"} , {\"os\" : \"macOS-latest\", \"r\" : \"${rversion}\", \"bioc\" : \"${biocversion}\"} , {\"os\" : \"windows-latest\", \"r\" : \"${rversion}\", \"bioc\" : \"${biocversion}\" }] } }" >> "$GITHUB_OUTPUT"
+         echo "matrix={ \"config\": [{\"os\" : \"ubuntu-latest\", \"r\" : \"${rversion}\", \"bioc\" : \"${biocversion}\", \"cont\" : \"${bioccont}\"} , {\"os\" : \"macOS-latest\", \"r\" : \"${rversion}\", \"bioc\" : \"${biocversion}\"} , {\"os\" : \"windows-latest\", \"r\" : \"${rversion}\", \"bioc\" : \"${biocversion}\" }] }" >> "$GITHUB_OUTPUT"
 
   build-check:
     needs: bioc-config
