@@ -73,7 +73,7 @@ Actions workflow by executing <code><a href="https://usethis.r-lib.org/reference
 
     <div id="ref-usage">
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">use_bioc_github_action</span><span class="op">(</span></span>
-<span>  <span class="va">biocdocker</span>,</span>
+<span>  biocdocker <span class="op">=</span> <span class="st">"release"</span>,</span>
 <span>  pkgdown <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"biocthis.pkgdown"</span>, <span class="cn">FALSE</span><span class="op">)</span>,</span>
 <span>  testthat <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"biocthis.testthat"</span>, <span class="cn">FALSE</span><span class="op">)</span>,</span>
 <span>  covr <span class="op">=</span> <span class="va">testthat</span>,</span>
@@ -90,12 +90,11 @@ Actions workflow by executing <code><a href="https://usethis.r-lib.org/reference
 
 <dl><dt id="arg-biocdocker">biocdocker<a class="anchor" aria-label="anchor" href="#arg-biocdocker"></a></dt>
 <dd><p>A <code>character(1)</code> specifying the Bioconductor docker
-version you want to use. Valid names are <code>"devel"</code> or in the
-<code>"RELEASE_X_Y"</code> format such as <code>"RELEASE_3_11"</code>. Check
+version you want to use. Valid names are <code>"release"</code>, <code>"devel"</code> or in the
+<code>"RELEASE_X_Y"</code> format such as <code>"RELEASE_3_11"</code>. <code>"release"</code> is a special case
+where the latest bioc-release version will be automatically detected. Check
 <a href="http://bioconductor.org/help/docker/" class="external-link">http://bioconductor.org/help/docker/</a> for more information on the
-Bioconductor docker images. If you don't specify this, it will be
-determined automatically using your current Bioconductor version. The
-R version will be set to match the Bioconductor version.</p></dd>
+Bioconductor docker images.</p></dd>
 
 
 <dt id="arg-pkgdown">pkgdown<a class="anchor" aria-label="anchor" href="#arg-pkgdown"></a></dt>
