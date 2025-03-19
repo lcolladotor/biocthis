@@ -64,7 +64,7 @@ jobs:
            biocmajor=$(echo "$biocversion" | cut -c 1-1)
            biocminor=$(echo "$biocversion" | cut -c 3-4)
            bioccont=$(echo "bioconductor/bioconductor_docker:RELEASE_${biocmajor}_${biocminor}")
-         else if [[ "$bioc_version" == "bioc-devel" ]]; then
+         elif [[ "$bioc_version" == "bioc-devel" ]]; then
            echo "Finding the latest BioC devel version and the corresponding R version"
            biocversion=$(echo "$bioc" | grep "devel_version: " | grep -Eo "[0-9]{1}\.[0-9]{2}")
            rversion_release=$(echo "$bioc" | grep "r_version_associated_with_release: " | grep -Eo "[0-9]{1}\.[0-9]{1}")
