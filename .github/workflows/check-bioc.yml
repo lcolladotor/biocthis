@@ -40,7 +40,11 @@ env:
   has_RUnit: 'false'
   cache-version: 'cache-v1'
   run_docker: 'false'
-  use_latest_bioc_release: 'true' ## Otherwise bioc-devel will be used.
+  bioc_version: 'bioc-release'
+  ## Valid options are:
+  ##    "bioc-release"
+  ##    "bioc-devel"
+  ##    or a specific number like "3.20"
 
 jobs:
   bioc-config:
@@ -53,15 +57,14 @@ jobs:
       - id: set-bioc-matrix
         run: |
          bioc=$(curl -L https://bioconductor.org/config.yaml)
-         if [[ "$use_latest_bioc_release" == "true" ]]; then
+         if [[ "$bioc_version" == "bioc-release" ]]; then
            echo "Finding the latest BioC release version and the corresponding R version"
            biocversion=$(echo "$bioc" | grep "release_version: " | grep -Eo "[0-9]{1}\.[0-9]{2}")
            rversion=$(echo "$bioc" | grep "r_version_associated_with_release: " | grep -Eo "[0-9]{1}\.[0-9]{1}")
            biocmajor=$(echo "$biocversion" | cut -c 1-1)
            biocminor=$(echo "$biocversion" | cut -c 3-4)
            bioccont=$(echo "bioconductor/bioconductor_docker:RELEASE_${biocmajor}_${biocminor}")
-         else
-           ## In this case we assume that you want to use the bioc-devel version
+         else if [[ "$bioc_version" == "bioc-devel" ]]; then
            echo "Finding the latest BioC devel version and the corresponding R version"
            biocversion=$(echo "$bioc" | grep "devel_version: " | grep -Eo "[0-9]{1}\.[0-9]{2}")
            rversion_release=$(echo "$bioc" | grep "r_version_associated_with_release: " | grep -Eo "[0-9]{1}\.[0-9]{1}")
@@ -72,6 +75,13 @@ jobs:
              rversion="devel"
            fi
            bioccont="bioconductor/bioconductor_docker:devel"
+         else
+           echo "Finding the the R version for bioc version ${bioc_version}"
+           biocversion=$(echo "$bioc_version")
+           rversion=$(echo "$bioc" | sed -En "/r_ver_for_bioc_ver/,/release_dates/p" | grep "$bioc_version\":" | grep -Eo ": \"[0-9]{1}\.[0-9]{1}" | grep -Eo "[0-9]{1}\.[0-9]{1}")
+           biocmajor=$(echo "$biocversion" | cut -c 1-1)
+           biocminor=$(echo "$biocversion" | cut -c 3-4)
+           bioccont=$(echo "bioconductor/bioconductor_docker:RELEASE_${biocmajor}_${biocminor}")
          fi
          echo "Found these settings:"
          echo "Bioconductor version: $biocversion, R version: $rversion, Bioconductor docker name: $bioccont"
