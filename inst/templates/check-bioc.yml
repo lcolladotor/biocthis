@@ -86,12 +86,13 @@ jobs:
         uses: r-lib/actions/setup-pandoc@v2
 
       ## Create the path that will be used for caching packages on Linux
-      - name: Create R_LIBS_USER on Linux
+      - name: Create R_LIBS_USER and set an .Rprofile on Linux
         if: runner.os == 'Linux'
         run: |
           R_LIBS_USER=/__w/_temp/Library
           echo "R_LIBS_USER=$R_LIBS_USER" >> "$GITHUB_ENV"
           mkdir -p $R_LIBS_USER
+          echo 'options(repos = c(CRAN = "https://packagemanager.posit.co/cran/__linux__/noble/latest"))' > ~/.Rprofile
 
       ## Use cached R packages
       - name: Restore R package cache
