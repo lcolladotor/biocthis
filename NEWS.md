@@ -1,5 +1,19 @@
 # biocthis 1.17.3
 
+NEW FEATURES
+
+* `use_bioc_github_action()` now creates a `.github/workflows/bioc-check.yml`
+file that has the option `'bioc_version'` set to `"bioc-release"` by default. It
+can also take the values `"bioc-devel"` or a specific Bioconductor version number
+in the `X.YY` format such as `"3.20"`. This updated GitHub Actions workflow aims
+to be as static as possible across Bioconductor release versions. Meaning that 
+in the future you won't need to use `use_bioc_github_action()` again to update
+the GHA workflow after every Bioconductor release. This was motivated by the
+"dynamic matrix generation" documentation available at 
+<https://runs-on.com/github-actions/the-matrix-strategy/#dynamic-matrix-generation>.
+
+# biocthis 1.17.3
+
 SIGNIFICANT USER-VISIBLE CHANGES
 
 * `use_bioc_github_action()` now uses simpler code for caching R packages
