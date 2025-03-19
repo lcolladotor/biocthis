@@ -92,6 +92,7 @@ jobs:
       TZ: UTC
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      CRAN: "https://packagemanager.posit.co/cran/latest"
 
     steps:
 
