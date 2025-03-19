@@ -46,7 +46,7 @@ jobs:
   bioc-config:
     runs-on: ubuntu-latest
     outputs:
-      matrix: ${{ steps.set-matrix.outputs.matrix }}
+      matrix: ${{ steps.set-bioc-matrix.outputs.matrix }}
     steps:
       - id: set-bioc-matrix
         run: |
