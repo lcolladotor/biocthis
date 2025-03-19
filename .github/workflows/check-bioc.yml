@@ -40,7 +40,7 @@ env:
   has_RUnit: 'false'
   cache-version: 'cache-v1'
   run_docker: 'false'
-  use_latest_bioc_release: 'true' ## Otherwise bioc-devel will be used.
+  use_latest_bioc_release: 'false' ## Otherwise bioc-devel will be used.
 
 jobs:
   bioc-config:
@@ -61,7 +61,7 @@ jobs:
            biocminor=$(echo "$biocversion" | cut -c 3-4)
            bioccont=$(echo "bioconductor/bioconductor_docker:RELEASE_${biocmajor}_${biocminor}")
          else
-           ## In this case we assume that you want to use the devel version
+           ## In this case we assume that you want to use the bioc-devel version
            echo "Finding the latest BioC devel version and the corresponding R version"
            biocversion=$(echo "$bioc" | grep "devel_version: " | grep -Eo "[0-9]{1}\.[0-9]{2}")
            rversion=$(echo "$bioc" | grep "r_version_associated_with_devel: " | grep -Eo "[0-9]{1}\.[0-9]{1}")
