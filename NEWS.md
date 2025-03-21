@@ -11,6 +11,11 @@ in the future you won't need to use `use_bioc_github_action()` again to update
 the GHA workflow after every Bioconductor release. This was motivated by the
 "dynamic matrix generation" documentation available at 
 <https://runs-on.com/github-actions/the-matrix-strategy/#dynamic-matrix-generation>.
+For a detailed explanation of the changes in this version, check the LIBD
+RStats club presentation "[2025-03-21] biocthis v1.17.4 updated GitHub Actions
+workflow". The video is available at
+<https://www.youtube.com/watch?v=bzzPBt3Mz0A> and the notes at
+<https://docs.google.com/document/d/1z8xkC_3kAsGlpF_UyM9YfV-08o1lTer7xoBz2lQ1IjY/edit?usp=sharing>.
 
 # biocthis 1.17.3
 
