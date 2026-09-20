@@ -45,15 +45,23 @@
 #' styler::style_pkg(pkgdir, transformers = biocthis::bioc_style())
 bioc_style <- function(indent_by = 4, ...) {
     bioc_style <- styler::tidyverse_style(indent_by = indent_by, ...)
-    bioc_style$indention$update_indention_ref_fun_dec <-
+    ## Bioconductor indents by a fixed amount, so the arguments of a function
+    ## declaration are never aligned to the opening parenthesis. Override the
+    ## two tidyverse rules that implement that alignment: the first one sets
+    ## the reference position for the alignment, the second one resets the
+    ## indention of the declaration header to zero for the aligned case.
+    bioc_style$indention$update_indention_reference_function_declaration <-
         function(pd_nested) {
-            if (pd_nested$token[1] == "FUNCTION") {
-                seq <- rlang::seq2(3, nrow(pd_nested) - 2)
-                pd_nested$indention_ref_pos_id[seq] <-
-                    pd_nested$pos_id[nrow(pd_nested)]
-                pd_nested$indent[seq] <- pd_nested$indent[seq] + 4
-            }
             pd_nested
+        }
+    bioc_style$indention$unindent_function_declaration <-
+        function(pd) {
+            if (pd$token[1] == "FUNCTION") {
+                idx_closing_paren <- which(pd$token == "')'")
+                pd$indent[rlang::seq2(2, idx_closing_paren)] <- indent_by
+                pd$indent[idx_closing_paren] <- 0L
+            }
+            pd
         }
     return(bioc_style)
 }
