@@ -1,3 +1,11 @@
+# biocthis 1.23.1
+
+BUG FIXES
+
+* Fixed a bug about the regex related to r-universe. Thanks to 
+@jan-spr <https://github.com/lcolladotor/biocthis/pull/61>. Reviewed
+by @nick-eagles.
+
 # biocthis 1.17.4
 
 NEW FEATURES
